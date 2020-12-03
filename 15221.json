@@ -1,0 +1,646 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.SHResearch.IndustryShareConcent",
+        "caption":"行业股权集中度统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "StandardCode":"StandardCode",
+                    "SHType":"SHType",
+                    "Standard":"Standard",
+                    "ApiName":"JYDB.Topic.SHResearch.IndustryShareConcent"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "StandardCode":"StandardCode",
+                    "SHType":"SHType",
+                    "Standard":"Standard",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"JYDB.Topic.SHResearch.IndustryShareConcentSecDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"截止日期",
+                            "left":"5",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2",
+                            "left":"5",
+                            "width":"120",
+                            "caption":"股东类型",
+                            "param":"SHType",
+                            "items":"十大股东;十大流通股东",
+                            "mapValues":"1;2",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"eventcombobox",
+                        "attrs":
+                        {
+                            "name":"cbbx3",
+                            "left":"5",
+                            "width":"150",
+                            "caption":"行业类型",
+                            "param":"Standard",
+                            "execAPI":"2",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"'22','Level':'1;22','Level':'2;24','Level':'1;24','Level':'2;24','Level':'3'",
+                            "itemIndex":"2",
+                            "lblalign":true,
+                            "Level":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.SHResearch.IndustryShareConcent",
+                                    "caption":" 行业股权集中度",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"第一大股东持股比例分布(家)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"小于30%"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"大于等于30%小于50%",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"大于50%"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"CR1-第一大股东持股比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"中位值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"CR3-前三大股东持股比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"C中位值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"CR10-前十大股东持股比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"中位值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"S5-第二至第十大股东持股比例之和(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"中位值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"Z值-第一与第二大股东持股比例的比值",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"中位值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"3",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"统计图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.SHResearch.IndustryShareConcentSecDetail",
+                                                            "caption":" 行业持股集中度-证券明细",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"CR1(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"CR3(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"CR5(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"CR10(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"Z指数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"S5指数(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"S10指数(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"H1指数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"H3指数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"H5指数"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"统计图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"SeniorHoldTrend",
+                                                            "tablename":"JYDB.Topic.SHResearch.IndustryShareConcent",
+                                                            "caption":"统计图",
+                                                            "showList":true,
+                                                            "listWidth":"280",
+                                                            "showRightAxis":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"行业名称",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"第一大股东持股比例(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"前三大股东持股比例(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"前十大股东持股比例(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C1",
+                                                                    "caption":"第二至第十大股东持股比例之和(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C5",
+                                                                    "caption":"第一与第二大股东持股比例的比值",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctBar"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

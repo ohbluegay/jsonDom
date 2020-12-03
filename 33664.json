@@ -1,0 +1,540 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.RecordStageLow",
+        "caption":"创阶段新低",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "StageLengthType":"StageLengthType",
+                    "StageDateType":"StageDateType",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.RecordStageLow"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JYTopic.StockSecondaryMarket.RecordStageLowDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStageLengthType",
+                            "param":"StageLengthType",
+                            "caption":"阶段长度",
+                            "items":"1个月;3个月;6个月;12个月;36个月;60个月",
+                            "mapValues":"Month1;Month3;Month6;Month12;Month36;Month60;",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStageDateType",
+                            "param":"StageDateType",
+                            "caption":"新低日期离截止日期",
+                            "items":"当日;5日内;10日内;20日内;30日内",
+                            "mapValues":"Day1;Day5;Day10;Day20;Day30",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.RecordStageLow",
+                                    "caption":"创阶段新低(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"新低行情",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"新低日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"后复权价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最低价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新行情",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"阶段首日",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"发行价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"上市日期",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"证监会行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"内部编码传入明细表",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"开始日期传入明细表",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"截止日期传入明细表",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode",
+                                                        "BeginDate",
+                                                        "EndDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B2",
+                                                        "B3",
+                                                        "B4"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"阶段明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"阶段明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.RecordStageLowDetail",
+                                                            "caption":"创阶段新低(阶段明细)",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"涨跌幅(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"振幅(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"换手率(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"成交量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"成交额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"前收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"开盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"最高价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"最低价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"均价"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

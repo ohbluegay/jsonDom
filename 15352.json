@@ -1,0 +1,737 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Research_report.LatestStockResearch",
+        "caption":"最新个股研究报告",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Research_report.LatestIndustryResearchReportType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchOrgName"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "RatingCode":"RatingCode",
+                    "OrgCode":"OrgCode",
+                    "ReportType":"ReportType",
+                    "ApiName":"JY.Topic.Profit_forecast.Research_report.LatestStockResearch"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-10;days"
+                    },
+                    {
+                        "key":"Num",
+                        "value":"0;default"
+                    },
+                    {
+                        "key":"ReportType",
+                        "value":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Param":"Param",
+                    "ApiName":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchDetails"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -10)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"评级类型",
+                            "param":"RatingCode",
+                            "items":"买入;增持;中性;减持;卖出;未评级",
+                            "mapValues":"10;13;20;30;33;99",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "width":"80",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbReportType",
+                            "caption":"研报类型",
+                            "param":"ReportType",
+                            "apiindex":"0",
+                            "tablename":"JY.Topic.Profit_forecast.Research_report.LatestIndustryResearchReportType",
+                            "itemField":"a0",
+                            "mapField":"a1",
+                            "width":"150",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "execAPI":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbb机构名称",
+                            "caption":"机构名称",
+                            "param":"OrgCode",
+                            "apiindex":"1",
+                            "tablename":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchOrgName",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "width":"150",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "execAPI":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Research_report.LatestStockResearch",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "C0"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"预测机构",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A3"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"机构代码（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"研究员",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A5"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"研报id（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"研究日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"研报标题",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"机构评级",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"目标价格上限"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"目标价格下限"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"研报类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"研报原文",
+                                            "algmt":"taCenter",
+                                            "functype":"ftReDirectF9",
+                                            "paramEx":
+                                            {
+                                                "[
+                                                    A7
+                                                ]
+serviceurl":true,
+                                                "action":"waDownload",
+                                                "params":"param",
+                                                "server":"webserver",
+                                                "url":"/queryservice/research/attachment/"
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"页数"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"证监会行业",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B5"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"证监会行业代码（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"证监会Standard（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"申万行业",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B8"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"申万行业代码（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"申万Standard（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"InnerCode（参数不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"3",
+                                                    "P":
+                                                    [
+                                                        "Param"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "C0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchDetails",
+                                                            "caption":"明细",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"预测机构",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"研究员",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"研究日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"研报标题",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"机构评级",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"目标价格上限",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"目标价格下限",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"研报类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"研报原文",
+                                                                    "algmt":"taCenter",
+                                                                    "functype":"ftReDirectF9",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "[
+                                                                            A5
+                                                                        ]
+serviceurl":true,
+                                                                        "action":"waDownload",
+                                                                        "params":"param",
+                                                                        "server":"webserver",
+                                                                        "url":"/queryservice/research/attachment/"
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"页数",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"证监会行业"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"申万行业"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

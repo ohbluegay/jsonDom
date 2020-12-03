@@ -1,0 +1,339 @@
+{
+    "Page":
+    {
+        "name":"Index.F9.Component_Data.IndustryDistri",
+        "caption":"成份行业分布",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Industry":"Industry",
+                    "EndDate":"EndDate",
+                    "ApiName":"Index.F9.Component_Data.IndustryDistri"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustry",
+                            "caption":"评级类型",
+                            "param":"Industry",
+                            "items":"证监会行业;申银万国一级行业;申银万国二级行业;申银万国三级行业;聚源一级行业;聚源二级行业;聚源三级行业",
+                            "mapValues":"ZJHHY;SYWG1HY;SYWG2HY;SYWG3HY;GIL1HY;GIL2HY;GIL3HY",
+                            "itemindex":"0",
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctGround",
+                    "percent":"60",
+                    "btnvisible":true,
+                    "borderSides":"0",
+                    "padding":"1"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"sizecontainer",
+                                "attrs":
+                                {
+                                    "name":"sctleft",
+                                    "percent":"40",
+                                    "btnvisible":true,
+                                    "vertical":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Container",
+                                        "attrs":
+                                        {
+                                            "name":"ct4",
+                                            "padding":"0",
+                                            "borderSides":"8"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "caption":"行业权重",
+                                                    "tablename":"QZ",
+                                                    "readType":"crReversePie",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"行业名称",
+                                                            "fieldFunc":"cffKey",
+															"hide": true
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"行业权重",
+                                                            "fieldFunc":"cffValue",
+                                                            "decidig":"2",
+															"hide": true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Container",
+                                        "attrs":
+                                        {
+                                            "name":"ct6",
+                                            "padding":"0",
+                                            "borderSides":"4"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart2",
+                                                    "caption":"行业贡献点",
+                                                    "tablename":"GXD",
+                                                    "rowLegendCount":"2",
+                                                    "rWidth":"95",
+                                                    "showLegend":false,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"行业名称",
+                                                            "fieldFunc":"cffHorz"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"行业贡献点",
+                                                            "decidig":"2"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scgrid",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "tabwidth":"180",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"全部成分股",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"全部成分股",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt22",
+                                                    "tablename":"all",
+                                                    "fixedcount":"1",
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"row",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"行业名称",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"成份个数"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"行业权重(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"行业贡献点"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,406 @@
+{
+    "Page":
+    {
+        "name":"Futures.Topic.Ingredient.StockEPSForecast",
+        "caption":"成分股EPS预测",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"Futures.Topic.Index.StockQuotesParam"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "TimeType":"TimeType",
+                    "Year":"Year",
+                    "ApiName":"Futures.Topic.Ingredient.StockEPSForecast"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "TimeType":"TimeType",
+                    "YearDate":"YearDate",
+                    "ApiName":"Futures.Topic.Ingredient.EPSChild"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbGoodsType",
+                            "caption":"选择指数",
+                            "param":"InnerCode",
+                            "tablename":"Futures.Topic.Index.StockQuotesParam",
+                            "itemField":"a0",
+                            "mapField":"a1",
+                            "width":"120",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTimeType",
+                            "param":"TimeType",
+                            "caption":"选择周期",
+                            "items":"近1周;近2周;近1个月;近3个月;近6个月",
+                            "mapValues":"1;2;3;4;5",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DateCombobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2Year",
+                            "caption":"预测年度",
+                            "lblalign":true,
+                            "param":"YearDate",
+                            "paramV1":"Year",
+                            "width":"90",
+                            "ascending":true,
+                            "yearOffset":"0",
+                            "outFmt":"yyyy",
+                            "yearCount":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Futures.Topic.Ingredient.StockEPSForecast",
+                                    "caption":"成分股EPS预测",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"股票",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"研报篇数"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"机构家数"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最高预测EPS"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"最低预测EPS"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"当前EPS"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"平均预测EPS"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"预测EPS标准差"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "hide":true,
+											"functype": "ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A8"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSheetCtrl",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scgrid",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "tabwidth":"180",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"Tab1",
+                                            "caption":"预测明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Tab1",
+                                            "caption":"预测明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt11",
+                                                    "tablename":"Futures.Topic.Ingredient.EPSChild",
+                                                    "fixedcount":"5",
+                                                    "aPIIndex":"2",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"报告类型"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"股票"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"机构"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"作者"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"预测EPS",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"上期预测EPS",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"变动",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8_2",
+                                                            "caption":"变动类型",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"最新EPS",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

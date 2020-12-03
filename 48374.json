@@ -1,0 +1,546 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.holder_share.ShareChange",
+        "caption":"单季度份额变动(开放式基金)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"a0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.holder_share.ShareChange",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk5",
+                                            "caption":"其他",
+                                            "mapvalue":"Other",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb13",
+                                            "caption":"近一月",
+                                            "mapvalue":"Latest1Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb14",
+                                            "caption":"近三月",
+                                            "mapvalue":"Latest3Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb15",
+                                            "caption":"近六月",
+                                            "mapvalue":"Latest6Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "checked":true,
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始年份",
+                                            "left":"24",
+                                            "param":"BeginDate",
+                                            "paramV1":"BeginDate-01-01",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-19",
+                                            "yearCount":"20",
+                                            "itemIndex":"16",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止年份",
+                                            "left":"24",
+                                            "param":"EndDate",
+                                            "paramV1":"EndDate-12-31",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-19",
+                                            "yearCount":"20",
+                                            "itemIndex":"19",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "padding":"2"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"rpt12",
+                                    "tablename":"fund.f9.holder_share.ShareChange",
+                                    "caption":" 申购赎回情况",
+                                    "showRightAxis":true,
+                                    "showList":true,
+                                    "rowLegendCount":"4",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "fieldFunc":"cffDate"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"按季申购(份)",
+                                            "decidig":"2",
+                                            "charttype":"ctBar"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"按季赎回(份)",
+                                            "decidig":"2",
+                                            "charttype":"ctBar"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"基金份额按季变化率(%)",
+                                            "decidig":"2",
+                                            "charttype":"ctLine",
+                                            "leftAxis":false
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"同类平均按季变化率(%)",
+                                            "decidig":"2",
+                                            "charttype":"ctLine",
+                                            "leftAxis":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"fund.f9.holder_share.ShareChange",
+                                            "caption":" 基金份额变动",
+                                            "fixedcount":"2",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"截止日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"期初份额(份)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"期末份额(份)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"本期申购(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"本期赎回(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"本期净申购(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"本期基金份额变化率(%)",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

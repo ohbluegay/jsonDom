@@ -1,0 +1,375 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.PreferStockIssueScheme",
+        "caption":"优先股发行方案",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JYTopic.StockPrimaryMarket.PreferStockIssueScheme",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "PreferStockIssueDateType":"SCXXFBR"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-2;"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"PreferStockIssueDateType",
+                            "param":"PreferStockIssueDateType",
+                            "width":"120",
+                            "items":"首次信息发布日;预案公告日;股东大会决议日;发审委审核日;证监会核准日;发行上市日",
+                            "mapValues":"SCXXFBR;YAGGR;GDDHJYR;FSWSHR;ZJHHZR;FXSSR",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-2,
+                            0,
+                            0)",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.PreferStockIssueScheme",
+                                    "caption":"优先股发行方案",
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "caption":"上市公司",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"优先股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"交易代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"交易简称",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"方案进度",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"发行方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"认购方式",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"c5",
+                                            "caption":"发行对象",
+                                            "functype":"ftmemo"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"票面金额(元)"
+                                        },
+                                        {
+                                            "caption":"发行预案",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"发行价格(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"发行数量上限(万股)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"募资上限(万元)",
+                                                    "width":"130"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行实施",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"发行价格(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"发行数量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"募资总额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"募资净额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"币种",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"方案变动类型",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"公告日",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"首次信息发布日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"预案公告日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"股东大会决议日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"发审委审核日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"证监会核准日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"发行上市日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

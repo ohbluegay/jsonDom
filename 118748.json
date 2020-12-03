@@ -1,0 +1,732 @@
+{
+    "Page":
+    {
+        "caption":"股本结构",
+        "name":"CapitalStructure",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "GilCode":"GilCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Stib.F9.ShareHolderResearch.CapitalStructure"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "formwidth":"280",
+                            "formheight":"290",
+                            "caption":"区间筛选"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "caption":"时间范围",
+                                    "name":"grpDateRange",
+                                    "column":"3",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "showCaption":true,
+                                    "width":"300",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "caption":"最新日期",
+                                            "name":"rdb1",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"LatestTime"
+                                        },
+                                        {
+                                            "caption":"今年以来",
+                                            "name":"rdb2",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"CurrentYear"
+                                        },
+                                        {
+                                            "caption":"近一年",
+                                            "name":"rdb3",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest1Year"
+                                        },
+                                        {
+                                            "caption":"近二年",
+                                            "name":"rdb4",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest2Year"
+                                        },
+                                        {
+                                            "caption":"近三年",
+                                            "name":"rdb5",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"近五年",
+                                            "name":"rdb6",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest5Year"
+                                        },
+                                        {
+                                            "caption":"全部",
+                                            "name":"rdb7",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"AllYear"
+                                        },
+                                        {
+                                            "caption":"自定义",
+                                            "name":"rdb8",
+                                            "bindvalue":true,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Customer"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "caption":"筛选",
+                                    "name":"lcDate",
+                                    "column":"1",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "caption":"开始时间",
+                                            "name":"dtpBegin",
+                                            "enabled":false,
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "param":"BeginDate"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "caption":"至",
+                                            "name":"dtpEnd",
+                                            "enabled":false,
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "param":"EndDate"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "caption":"数据导出",
+                            "name":"btnOutput",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "caption":"股份单位",
+                            "name":"cbbxRate1",
+                            "param":"PramRate1",
+                            "width":"75",
+                            "bindvalue":"PramRate1",
+                            "bindprop":"ExecRate",
+                            "bindname":"[
+                                rpt1,
+                                rpt2
+                            ]
+",
+                            "itemIndex":"0",
+                            "mapValues":"-1;100;1000;10000;1000000;100000000;1000000000",
+                            "bindMapValue":false,
+                            "items":"股;百股;千股;万股;百万股;亿股;十亿股"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "caption":"报表容器",
+                    "name":"ctDataGround1",
+                    "borderSides":"9",
+                    "padding":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"scgrid",
+                            "align":"alClient",
+                            "sheetCount":"2",
+                            "tabwidth":"180",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"Itembylayer",
+                                    "caption":"按层次分类",
+                                    "show":true
+                                },
+                                {
+                                    "name":"Itembyproperty",
+                                    "caption":"按流通分类",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "caption":"按层次分类",
+                                    "name":"Itembylayer",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "caption":"股本结构(按层次分类)",
+                                            "name":"rpt1",
+                                            "defselect":true,
+                                            "headfield":"A0",
+                                            "reverse":true,
+                                            "fixedcount":"1",
+                                            "tablename":"Stib.F9.ShareHolderResearch.CapitalStructure",
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "algmt":"taLeftJustify",
+                                                    "heigh":"280",
+                                                    "rname":"caption"
+                                                },
+                                                {
+                                                    "algmt":"taRightJustify",
+                                                    "heigh":"130",
+                                                    "rname":"row"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "caption":"总股本",
+                                                    "fieldname":"A1",
+                                                    "ratename":"PramRate1",
+                                                    "fmtstr":"0",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "caption":"A股",
+                                                            "fieldname":"A2",
+                                                            "ratename":"PramRate1",
+                                                            "fmtstr":"0",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"流通A股",
+                                                                    "fieldname":"A3",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"有限售条件的流通A股",
+                                                                            "fieldname":"A4",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"无限售条件的流通A股",
+                                                                            "fieldname":"A5",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"未流通A股",
+                                                                    "fieldname":"A6",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"增发、配股未上市股份",
+                                                                    "fieldname":"A7",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"H股",
+                                                            "fieldname":"A8",
+                                                            "ratename":"PramRate1",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "caption":"海外上市",
+                                                            "fieldname":"A9",
+                                                            "ratename":"PramRate1",
+                                                            "fmtstr":"0",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"S股",
+                                                                    "fieldname":"B0",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"N股",
+                                                                    "fieldname":"B1",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"D股",
+                                                                    "fieldname":"B2",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "caption":"按流通分类",
+                                    "name":"Itembyproperty",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "caption":"股本结构(按流通分类)",
+                                            "name":"rpt2",
+                                            "defselect":true,
+                                            "headfield":"A0",
+                                            "reverse":true,
+                                            "fixedcount":"1",
+                                            "tablename":"Stib.F9.ShareHolderResearch.CapitalStructure",
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "algmt":"taLeftJustify",
+                                                    "heigh":"280",
+                                                    "rname":"caption"
+                                                },
+                                                {
+                                                    "algmt":"taRightJustify",
+                                                    "heigh":"130",
+                                                    "rname":"row"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "caption":"未流通",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "caption":"1.发起人股",
+                                                            "fieldname":"B3",
+                                                            "ratename":"PramRate1",
+                                                            "fmtstr":"0",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"1）国家股",
+                                                                    "fieldname":"B4",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"其中：国有法人股",
+                                                                            "fieldname":"B5",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"2）境内法人股",
+                                                                    "fieldname":"B6",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"3）境外法人股",
+                                                                    "fieldname":"B7",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"4）其它发起人股",
+                                                                    "fieldname":"B8",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"2.自然人法人股",
+                                                                    "fieldname":"B9",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"1）境内自然人法人股",
+                                                                            "fieldname":"C0",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"2）境外自然人法人股",
+                                                                            "fieldname":"C1",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"流通",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"流通股份",
+                                                                    "fieldname":"C2",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"1.已上市流通A股",
+                                                                            "fieldname":"C3",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"2.一般法人配售持股",
+                                                                            "fieldname":"C4",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"3.有限售流通A股",
+                                                                            "fieldname":"C5",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"4.增发未上市",
+                                                                            "fieldname":"C6",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"5.配股未上市",
+                                                                            "fieldname":"C7",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"6.境外上市股",
+                                                                            "fieldname":"C8",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"限售股份明细",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"1.国家持股",
+                                                                    "fieldname":"C9",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"2.国有法人持股",
+                                                                    "fieldname":"D0",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"3.其他内资持股",
+                                                                    "fieldname":"D1",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"3.1）境内法人持股",
+                                                                            "fieldname":"D2",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"3.2）境内自然人持股",
+                                                                            "fieldname":"D3",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "caption":"3.3）高管股",
+                                                                            "fieldname":"D4",
+                                                                            "ratename":"PramRate1",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"4.外资持股",
+                                                                    "fieldname":"D5",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"4.1）境外法人持股",
+                                                                    "fieldname":"D6",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "caption":"4.2）境外自然人持股",
+                                                                    "fieldname":"D7",
+                                                                    "ratename":"PramRate1",
+                                                                    "fmtstr":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"5.其他有限售",
+                                                            "fieldname":"D8",
+                                                            "ratename":"PramRate1",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

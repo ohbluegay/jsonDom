@@ -1,0 +1,438 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ImportantMatters.IllegalRecord",
+        "caption":"违规记录",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "Wglx":"Wglx",
+                    "Cflx":"Cflx",
+                    "Dsr":"Dsr",
+                    "ApiName":"JYDB.Topic.ImportantMatters.IllegalRecordV2"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "ID":"ID",
+                    "ApiName":"JYDB.Topic.ImportantMatters.IllegalRecordV2Detail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(0,
+                            -1,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2",
+                            "caption":"违规类型",
+                            "param":"Wglx",
+                            "items":"全部;信息披露虚假;信息披露不及时;信息披露违规;股票交易;其他违规行为",
+                            "mapValues":"0;1101;1102;1103;1109;1110",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "width":"140",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx3",
+                            "caption":"处罚类型",
+                            "param":"Cflx",
+                            "items":"全部;限期整改;立案调查;市场禁入;罚款;公开谴责;判刑",
+                            "mapValues":"0;2004;3001;1015;1001;1003;1017",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx4",
+                            "caption":"当事人",
+                            "param":"Dsr",
+                            "items":"全部;上市公司;公司实际控制人;公司控股股东;公司高管;公司前实际控制人;公司前控股股东;公司离任高管",
+                            "mapValues":"0;1;6;2;8;7;3;9",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "multiselect":true,
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ImportantMatters.IllegalRecordV2",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"披露日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"违规事项",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"事件进程",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"证监会行业",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"申万行业",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"Id_param",
+                                            "caption":"子表参数ID",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "ID"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "Id_param"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"违规明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"违规明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYDB.Topic.ImportantMatters.IllegalRecordV2Detail",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"违规当事人",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"违规类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"处罚类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"与上市公司关系",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"处罚金额(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"处罚机构",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

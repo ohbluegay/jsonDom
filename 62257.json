@@ -1,0 +1,620 @@
+{
+    "Page":
+    {
+        "name":"MarketReport",
+        "caption":"基金市场规模(基金业协会公布)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"MarketReport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"MarketReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始时间",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止时间",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"MarketReport",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"全部基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"封闭式基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"开放式基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"股票基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"混合基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"债券基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"货币基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"QDII基金",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"基金数量(只)"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"份额(亿份)"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"净值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "EndDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"基金数量",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"份额",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"净值",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"基金数量",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctChart11",
+                                                            "caption":"",
+                                                            "tableName":"MarketReport",
+                                                            "readType":"crtLinePie",
+                                                            "showgroup":true,
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"股票基金(只)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"混合基金(只)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"债券基金(只)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B9",
+                                                                    "caption":"货币基金(只)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C2",
+                                                                    "caption":"QDII基金(只)",
+                                                                    "fieldFunc":"cffValue"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"份额",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctChart12",
+                                                            "caption":"",
+                                                            "tableName":"MarketReport",
+                                                            "readType":"crtLinePie",
+                                                            "showgroup":true,
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"股票基金(亿份)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"混合基金(亿份)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"债券基金(亿份)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C0",
+                                                                    "caption":"货币基金(亿份)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C3",
+                                                                    "caption":"QDII基金(亿份)",
+                                                                    "fieldFunc":"cffValue"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"净值",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctChart13",
+                                                            "caption":"",
+                                                            "tableName":"MarketReport",
+                                                            "readType":"crtLinePie",
+                                                            "showgroup":true,
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"股票基金(亿元)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"混合基金(亿元)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B8",
+                                                                    "caption":"债券基金(亿元)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C1",
+                                                                    "caption":"货币基金(亿元)",
+                                                                    "fieldFunc":"cffValue"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C4",
+                                                                    "caption":"QDII基金(亿元)",
+                                                                    "fieldFunc":"cffValue"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

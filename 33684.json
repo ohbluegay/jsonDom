@@ -1,0 +1,345 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.HSValueChangeJY",
+        "caption":"沪深市值变化(聚源)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StatisType":"StatisType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.HSValueChangeJY"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStatisType",
+                            "caption":"统计类型",
+                            "param":"StatisType",
+                            "items":"日;周;月;年",
+                            "mapValues":"1;2;3;4",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.HSValueChangeJY",
+                                    "caption":"沪深市值变化(聚源)",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"证券家数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"沪市"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"深市主板"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"中小板"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"创业板"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"总市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"合计",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"沪市",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"深市主板",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"中小板",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"创业板",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"流通市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6_1",
+                                                    "caption":"合计",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A7_1",
+                                                    "caption":"沪市",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A8_1",
+                                                    "caption":"深市主板",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A9_1",
+                                                    "caption":"中小板",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B0_1",
+                                                    "caption":"创业板",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"A、B股市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"合计",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"A股市值(含限售)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"B股市值(含限售)",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"A、B股流通市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"合计",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"A股流通市值",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"B股流通市值",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

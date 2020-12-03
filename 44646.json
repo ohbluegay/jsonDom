@@ -1,0 +1,915 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.investment_portfolio.AssetAllocation",
+        "caption":"资产配置",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.investment_portfolio.AssetAllocation",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.investment_portfolio.AssetAllocationChart",
+                    "EndDate":"EndDate",
+                    "FastQuarterReportType":"FastQuarterReportType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk5",
+                                            "caption":"其他",
+                                            "mapvalue":"Other",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb13",
+                                            "caption":"近一月",
+                                            "mapvalue":"Latest1Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb14",
+                                            "caption":"近三月",
+                                            "mapvalue":"Latest3Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb15",
+                                            "caption":"近六月",
+                                            "mapvalue":"Latest6Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始年份",
+                                            "left":"24",
+                                            "param":"BeginDate",
+                                            "paramV1":"BeginDate-01-01",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-9",
+                                            "yearCount":"10",
+                                            "itemIndex":"6",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止年份",
+                                            "left":"24",
+                                            "param":"EndDate",
+                                            "paramV1":"EndDate-12-31",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-9",
+                                            "yearCount":"10",
+                                            "itemIndex":"9",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctSizeContainer1",
+                    "btnVisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"2",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"占基金资产总值比",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"资产配置变化",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"占基金资产总值比",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "tablename":"fund.f9.investment_portfolio.AssetAllocation",
+                                                    "lTitle":"比例（%）",
+                                                    "showList":true,
+                                                    "rowLegendCount":"6",
+                                                    "caption":"占基金资产总值比",
+                                                    "showTools":true,
+                                                    "dyncolumn":true,
+                                                    "tag_dynitem":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "fieldFunc":"cffDate"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"股票",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"债券",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B4",
+                                                            "caption":"现金",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B7",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B8",
+                                                            "caption":"权证",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B9",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C0",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C1",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C2",
+                                                            "caption":"基金",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"C3",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C4",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C5",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"C6",
+                                                            "caption":"其他资产",
+                                                            "chartType":"ctMultiBar",
+                                                            "decidig":"4"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"资产配置变化",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer2main",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SizeContainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctSizeContainer2",
+                                                            "btnVisible":true,
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer2",
+                                                                    "borderSides":"0",
+                                                                    "padding":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart2",
+                                                                            "tablename":"fund.f9.investment_portfolio.AssetAllocationChart",
+                                                                            "lTitle":"比例(%)",
+                                                                            "caption":"各资产占总值比",
+                                                                            "aPIIndex":"1",
+                                                                            "rowLegendCount":"2",
+                                                                            "scalesLean":true,
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"当前基金",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"同类平均",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer3",
+                                                                    "borderSides":"0",
+                                                                    "padding":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart3",
+                                                                            "tablename":"fund.f9.investment_portfolio.AssetAllocationChart",
+                                                                            "lTitle":"比例(%)",
+                                                                            "caption":"相对上期增减",
+                                                                            "aPIIndex":"1",
+                                                                            "rowLegendCount":"2",
+                                                                            "scalesLean":true,
+                                                                            "rWidth":"90",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A4",
+                                                                                    "caption":"当前基金",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A5",
+                                                                                    "caption":"同类平均",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer4",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer5",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"fund.f9.investment_portfolio.AssetAllocation",
+                                            "caption":" 债券组合结构",
+                                            "reverse":true,
+                                            "showHead":true,
+                                            "headField":"A0",
+                                            "rowSelect":false,
+                                            "defSelect":true,
+                                            "fixedcount":"1",
+                                            "dynColumn":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rName":"row1",
+                                                    "heigh":"200"
+                                                },
+                                                {
+                                                    "rName":"row2",
+                                                    "heigh":"200",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_dyncolumn":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"股票",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"债券",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"现金",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"权证",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"基金",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"其他资产",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"DateChart",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "EndDate"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chartPop",
+                                    "tablename":"fund.f9.investment_portfolio.AssetAllocation",
+                                    "showScales":true,
+                                    "showTools":true,
+                                    "showMenu":true,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

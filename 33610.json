@@ -1,0 +1,757 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.DepartmentBoardStatis",
+        "caption":"营业部上榜统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.DepartmentBoardStatis"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A7",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "DepartmentName":"DepartmentName",
+                    "ApiName":"JYTopic.StockSecondaryMarket.DepartmentBoardStatisDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "DepartmentName":"DepartmentName",
+                    "ApiName":"JYTopic.StockSecondaryMarket.DepartmentBoardStatisRelate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.DepartmentBoardStatis",
+                                    "caption":"营业部门上榜统计(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"营业部名称",
+                                            "width":"340"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"上榜次数",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"成交总额(万元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"买入龙虎榜",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"次数"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"金额(万元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"卖出龙虎榜",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"次数"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"金额(万元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"单次动用资金(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"均值"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"最高"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "DepartmentName"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "DepartmentName"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"上榜明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"与个股关联统计",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"上榜明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.DepartmentBoardStatisDetail",
+                                                            "caption":"营业部门上榜统计(上榜明细)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"异动天数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"买/卖",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"买入金额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"卖出金额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"净买入(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"异动类型",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"180"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"与个股关联统计",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.DepartmentBoardStatisRelate",
+                                                            "caption":"营业部门上榜统计(与个股关联统计)",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"关联次数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成交金额(万元)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"DepartmentBoardStatis",
+                                    "reportname":"rpt1",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"YYBMC"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"SBCS"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"CJZE"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"MRLHB_CS"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"MRLHB_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"MCLHB_CS"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"MCLHB_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"DCDYZJ_JZ"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"DCDYZJ_ZG"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"DepartmentBoardStatisDetail",
+                                    "reportname":"rpt11",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"JZRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"YDTS"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"MM"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"MRJE"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"MCJE"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"JMR"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"YDLX"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"DepartmentBoardStatisRelate",
+                                    "reportname":"rpt12",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"GLCS"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"CJJE"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

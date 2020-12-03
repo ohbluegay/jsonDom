@@ -1,0 +1,744 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.investment_portfolio.stock_investment.InvestIndustry",
+        "caption":"行业投资",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.investment_portfolio.stock_investment.InvestIndustry",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.investment_portfolio.stock_investment.InvestIndustryChart3",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A3",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.investment_portfolio.stock_investment.InvestIndustryChart",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "EndDate":"EndDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk5",
+                                            "caption":"其他",
+                                            "mapvalue":"Other",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始年份",
+                                            "left":"24",
+                                            "param":"BeginDate",
+                                            "paramV1":"BeginDate-01-01",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-9",
+                                            "yearCount":"10",
+                                            "itemIndex":"6",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止年份",
+                                            "left":"24",
+                                            "param":"EndDate",
+                                            "paramV1":"EndDate-12-31",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-9",
+                                            "yearCount":"10",
+                                            "itemIndex":"9",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"ControlFlag"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem11",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"a0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctSizeContainer1",
+                    "btnVisible":true,
+                    "percent":"60"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"2",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"行业投资走势",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"行业分布变化",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"行业投资走势",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "tablename":"ChartRows",
+                                                    "lTitle":"比例(%)",
+                                                    "caption":"分布图",
+                                                    "showList":true,
+                                                    "aPIIndex":"1",
+                                                    "listWidth":"250",
+                                                    "dyncolumn":true,
+                                                    "tag_dynitem":
+                                                    [
+                                                        {
+                                                            "fieldname":"endDate",
+                                                            "fieldFunc":"cffDate"
+                                                        },
+                                                        {
+                                                            "fieldname":"quarter",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "decidig":"4",
+                                                            "chartType":"ctLine",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"行业分布变化",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer2main",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SizeContainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctSizeContainer2",
+                                                            "btnVisible":true,
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer2",
+                                                                    "borderSides":"0",
+                                                                    "padding":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart2",
+                                                                            "tablename":"fund.f9.investment_portfolio.stock_investment.InvestIndustryChart",
+                                                                            "lTitle":"比例(%)",
+                                                                            "caption":"行业配置",
+                                                                            "aPIIndex":"2",
+                                                                            "rowLegendCount":"2",
+                                                                            "scalesLean":true,
+                                                                            "rWidth":"90",
+                                                                            "showLegend":false,
+																			"rotate": true,
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"占基金净值比例",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer3",
+                                                                    "borderSides":"0",
+                                                                    "padding":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart3",
+                                                                            "tablename":"fund.f9.investment_portfolio.stock_investment.InvestIndustryChart",
+                                                                            "lTitle":"比例(%)",
+                                                                            "caption":"相对上期增减",
+                                                                            "aPIIndex":"2",
+                                                                            "rowLegendCount":"2",
+                                                                            "scalesLean":true,
+                                                                            "rWidth":"95",
+                                                                            "showLegend":false,
+																			"rotate": true,
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A4",
+                                                                                    "caption":"占基金净值比例",
+                                                                                    "chartType":"ctBar",
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer4",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer5",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"ctReport1",
+                                            "tablename":"fund.f9.investment_portfolio.stock_investment.InvestIndustry",
+                                            "caption":" 行业投资",
+                                            "defSelect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "type":"ftcollect"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"行业名称",
+                                                    "width":"280"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"行业市值(元)",
+                                                    "width":"130",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"占基金净值比例(%)",
+                                                    "width":"150",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"较上期增减(%)",
+                                                    "width":"130",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"DateChart",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"2",
+                                                                "P":
+                                                                [
+                                                                    "EndDate"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

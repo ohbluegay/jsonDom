@@ -1,0 +1,365 @@
+{
+    "Page":
+    {
+        "caption":"资金流向数据统计",
+        "name":"STIBCapitalFlowStatistics",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "GilCode":"GilCode",
+                    "Range":"Range",
+                    "ApiName":"STIB.F9.TransactionData.STIBCapitalFlowStatistics"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "caption":"数据导出",
+                            "name":"btnOutput",
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "caption":"交易日",
+                            "name":"cbbxDayRange",
+                            "lblalign":true,
+                            "itemindex":"4",
+                            "mapValues":"1;3;5;15;20;30;60",
+                            "items":"最近1个交易日;近3个交易日;近5个交易日;近15个交易日;近20个交易日;近30个交易日;近60个交易日",
+                            "param":"Range",
+                            "width":"120"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSXshang",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"sizecontainer",
+                                "attrs":
+                                {
+                                    "caption":"上半部分框架容器",
+                                    "name":"szctGroundtop",
+                                    "vertical":false,
+                                    "spltWidth":"5",
+                                    "percent":"38"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Container",
+                                        "attrs":
+                                        {
+                                            "name":"ctright",
+                                            "padding":"0",
+                                            "borderSides":"4"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"chart",
+                                                "attrs":
+                                                {
+                                                    "caption":"资金数据统计",
+                                                    "name":"chart2",
+                                                    "rowLegendCount":"1",
+                                                    "tablename":"STATISTICS",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldFunc":"cffhorz",
+                                                            "fieldname":"A0"
+                                                        },
+                                                        {
+                                                            "caption":"净买入额(亿元)",
+                                                            "fieldname":"A1",
+                                                            "decidig":"2",
+                                                            "chartType":"ctBar"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Container",
+                                        "attrs":
+                                        {
+                                            "name":"ctleft",
+                                            "padding":"0",
+                                            "borderSides":"8"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"chart",
+                                                "attrs":
+                                                {
+                                                    "caption":"资金流向",
+                                                    "name":"chart1",
+                                                    "rowLegendCount":"2",
+                                                    "tablename":"STATISTICS",
+                                                    "showlist":true,
+                                                    "listwidth":"170",
+                                                    "rtitle":"股价(元)",
+                                                    "showRightAxis":true,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldFunc":"cffhorz",
+                                                            "fieldname":"A0"
+                                                        },
+                                                        {
+                                                            "caption":"特大单净买入额(万元)",
+                                                            "fieldname":"A8"
+                                                        },
+                                                        {
+                                                            "caption":"大单净买入额(万元)",
+                                                            "fieldname":"A9",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "caption":"中单净买入额(万元)",
+                                                            "fieldname":"B0",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "caption":"小单净买入额(万元)",
+                                                            "fieldname":"B1",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "caption":"股价",
+                                                            "fieldname":"A7",
+                                                            "decidig":"2",
+                                                            "chartType":"ctline",
+                                                            "leftAxis":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSXxia",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctpadding",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "caption":"资金流向数据统计",
+                                            "name":"rpt1",
+                                            "tablename":"STATISTICS",
+                                            "autochart":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "algmt":"taLeftJustify",
+                                                    "heigh":"100",
+                                                    "rname":"caption"
+                                                },
+                                                {
+                                                    "algmt":"taRightJustify",
+                                                    "heigh":"110",
+                                                    "rname":"row"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "caption":"日期",
+                                                    "fieldname":"A0",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "caption":"流入(万元)",
+                                                    "fieldname":"A1"
+                                                },
+                                                {
+                                                    "caption":"流出(万元)",
+                                                    "fieldname":"A2"
+                                                },
+                                                {
+                                                    "caption":"大单净额DDE(万元)",
+                                                    "width":"150",
+                                                    "fieldname":"A3"
+                                                },
+                                                {
+                                                    "caption":"成交额(万元)",
+                                                    "fieldname":"A3_1"
+                                                },
+                                                {
+                                                    "caption":"资金比(%)",
+                                                    "fieldname":"A4"
+                                                },
+                                                {
+                                                    "caption":"连红天数",
+                                                    "fieldname":"A5"
+                                                },
+                                                {
+                                                    "caption":"涨跌幅",
+                                                    "fieldname":"A6"
+                                                },
+                                                {
+                                                    "caption":"最新收盘价",
+                                                    "fieldname":"A7"
+                                                },
+                                                {
+                                                    "caption":"特大单净买入额(万元)",
+                                                    "width":"150",
+                                                    "fieldname":"A8"
+                                                },
+                                                {
+                                                    "caption":"大单净买入额(万元)",
+                                                    "width":"150",
+                                                    "fieldname":"A9"
+                                                },
+                                                {
+                                                    "caption":"中单净买入额(万元)",
+                                                    "width":"150",
+                                                    "fieldname":"B0"
+                                                },
+                                                {
+                                                    "caption":"小单净买入额(万元)",
+                                                    "width":"150",
+                                                    "fieldname":"B1"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

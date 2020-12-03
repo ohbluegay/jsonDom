@@ -1,0 +1,289 @@
+{
+    "Page":
+    {
+        "name":"jy.topic.stock.strutrue.buy.back.plan",
+        "caption":"股本回购预案",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "EventProcedures":"EventProcedures",
+                    "ApiName":"jy.topic.stock.strutrue.buy.back.plan"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-6;months"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbb2",
+                            "caption":"方案进度",
+                            "width":"120",
+                            "param":"EventProcedures",
+                            "items":"意向;预案;决案;否决;未实施终止;实施中;实施完成",
+                            "mapValues":"1000;1001;1004;1007;1016;1019;1022",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "multishowall":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jy.topic.stock.strutrue.buy.back.plan",
+                                    "caption":"",
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"SecuCode",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SecuAbbr",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"AdvanceDate",
+                                            "caption":"预案披露日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"EventProcedure",
+                                            "caption":"方案进度",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"PurposeDesc",
+                                            "caption":"回购目的",
+                                            "functype":"ftmemo",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"VolumeCeiling",
+                                            "caption":"回购数量上限(万股)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"VolumeFloor",
+                                            "caption":"回购数量下限(万股)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"ValueCeiling",
+                                            "caption":"回购金额上限(万元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"ValueFloor",
+                                            "caption":"回购金额下限(万元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"PriceCeiling",
+                                            "caption":"回购价格上限"
+                                        },
+                                        {
+                                            "fieldname":"PriceFloor",
+                                            "caption":"回购价格下限"
+                                        },
+                                        {
+                                            "fieldname":"StartDate",
+                                            "caption":"回购起始日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"EndDate",
+                                            "caption":"回购截止日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"Code",
+                                            "caption":"资金来源",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"MeetPassDate",
+                                            "caption":"股东大会审议日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SecondIndustryNameZjh",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"SecondIndustryNameSw",
+                                            "caption":"申万行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

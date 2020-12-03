@@ -1,0 +1,438 @@
+{
+    "Page":
+    {
+        "name":"MarketPerformanceReport",
+        "caption":"市场表现比较",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"1",
+                    "ApiName":"MarketPerformanceReport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A5",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Page":
+                    {
+                        "PageNo":1,
+                        "PageSize":"PageSize"
+                    },
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"2",
+                    "ApiName":"MarketPerformanceReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustry",
+                            "caption":"行业",
+                            "param":"Industry",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"1;2;3;4;5",
+                            "itemindex":"2",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTop",
+                            "caption":"查看行业内",
+                            "param":"PageSize",
+                            "paramV1":"Pagesize",
+                            "items":"前20成份股;全部成份股",
+                            "mapValues":"20;10000",
+                            "itemindex":"0",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport0",
+                            "caption":"报表容器",
+                            "padding":"2",
+                            "borderSides":"0",
+                            "align":"alTop",
+                            "height":"104"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport01",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt0",
+                                            "tablename":"MarketPerformanceReport",
+                                            "caption":"",
+                                            "fixedcount":"4",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"行业",
+                                                    "width":"230"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"简称"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"最新日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"最新收盘价(元)"
+                                                },
+                                                {
+                                                    "caption":"涨跌(%)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"最新"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"本周"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"本月"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"本年"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"近一月"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"近三月"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"近六月"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"近一年"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"近一月日均成交额(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"近一月日均换手率(%)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"52周最高价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"52周最低价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"MarketPerformanceReport",
+                                    "caption":"",
+                                    "fixedcount":"4",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"110",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"最新收盘价(元)"
+                                        },
+                                        {
+                                            "caption":"涨跌(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最新"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"本周"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"本月"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"近一月"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"近三月"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"近六月"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"近一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"近一月日均成交额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"近一月日均换手率(%)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"52周最高价(元)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"52周最低价(元)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

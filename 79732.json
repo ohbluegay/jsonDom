@@ -1,0 +1,295 @@
+{
+    "Page":
+    {
+        "name":"HKTopic.MarketPerfor.StockDayPerfor",
+        "caption":"个股日行情表现",
+        "sector":"SECTOR_TREE_HK",
+        "checked":"SECTOR_CHECKED_HK",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TradingDay":"TradingDay",
+                    "Category":"Category",
+                    "Sector":"Sector",
+                    "ApiName":"HKTopic.MarketPerfor.StockDayPerfor"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpTradingDay",
+                            "caption":"日期",
+                            "param":"TradingDay",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxSector",
+                            "caption":"市场板块",
+                            "param":"Sector",
+                            "items":"全部;主板;创业板",
+                            "mapValues":"0;1;2",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCategory",
+                            "caption":"证券类型",
+                            "param":"Category",
+                            "items":"全部;H股;港股;红筹股",
+                            "mapValues":"ALL;HG;GG;HCG",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKTopic.MarketPerfor.StockDayPerfor",
+                                    "fixedcount":"4",
+                                    "defSelect":true,
+                                    "caption":"",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"收盘价"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"涨跌幅"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"振幅"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"换手率"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"成交量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"成交额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"前收盘价"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"开盘价"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"最高价"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"最低价"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"均价"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"港股股数(万股)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"港股市值(万元)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"非港股股数(万股)"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"滚动市盈率(%)"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"市净率(%)"
+                                        },
+                                        {
+                                            "fieldname":"B8_2",
+                                            "caption":"币种",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"聚源行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"恒生行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"证券类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"上市板块",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

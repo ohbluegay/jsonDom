@@ -1,0 +1,550 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGResearch.Insurance.InsuranceAreaPremiums",
+        "caption":"分地区保费收入",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "ApiName":"JYDB.Topic.ORGResearch.Insurance.InsuranceAreaPremiums"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "AreaCode":"AreaCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.Insurance.InsuranceAreaPremiumsDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "Type":"11",
+                    "ApiName":"JY.Topic.ReportDate"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"Type",
+                        "value":"11;default"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "dateType":"2",
+                            "fmtQuarterType":"3",
+                            "showNewest":false,
+                            "endDateFmt":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"JY.Topic.ReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"A0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGResearch.Insurance.InsuranceAreaPremiums",
+                                    "caption":"保险公司分地区保费收入",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"地区",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"保费",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"总收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"财险保费",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"寿险保费",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"意外险保费",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"健康险保费",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"地区代码（从表参数）",
+                                            "fieldname":"A1_1",
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "AreaCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1_1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.ORGResearch.Insurance.InsuranceAreaPremiumsDetail",
+                                                            "caption":"保险公司分地区保费收入（历史明细）",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1_1",
+                                                                    "caption":"地区代码（从表参数）",
+                                                                    "hide":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"地区",
+                                                                    "hide":true
+                                                                },
+                                                                {
+                                                                    "caption":"保费",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"总收入(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"财险保费",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"收入(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"寿险保费",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"收入(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"意外险保费",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"收入(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"健康险保费",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"收入(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

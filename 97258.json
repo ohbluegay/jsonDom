@@ -1,0 +1,645 @@
+{
+    "Page":
+    {
+        "name":"futures.topic.goods.performance.LatestMainContractPerformance",
+        "caption":"主力合约市场表现",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"futures.topic.goods.performance.LatestMainContractPerformance",
+                    "FastDateFilterType":"Customer"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "OptionCode":"OptionCode",
+                    "Exchange":"Exchange",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"futures.topic.goods.performance.HistoryMainContractPerformance",
+                    "FastDateFilterType":"Customer"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "OptionCode":"OptionCode",
+                    "Exchange":"Exchange",
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"futures.topic.goods.performance.MainContractDeal",
+                    "FastDateFilterType":"Customer"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt12",
+                                    "tablename":"futures.topic.goods.performance.LatestMainContractPerformance",
+                                    "caption":"主力合约市场表现",
+                                    "defselect":true,
+                                    "fixedcount":"5",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"主力合约代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"主力合约名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"当日主力合约代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"当日主力合约名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"标的名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"收盘价"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"收盘较前结算价涨跌"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"结算价涨跌"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"成交量(手)"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"持仓量(手)"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"持仓量变化(手)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"成交额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"OptionCode",
+                                            "hide":true,
+											"functype": "ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "OptionCode",
+                                                            "Exchange"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1",
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A2",
+                                                            "A3"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "OptionCode",
+                                                            "Exchange",
+                                                            "InnerCode",
+                                                            "EndDate"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1",
+                                                            "1",
+                                                            "1",
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A2",
+                                                            "A3",
+                                                            "A1",
+                                                            "B6"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scgrid",
+                                            "sheetCount":"2",
+                                            "align":"alClient",
+                                            "tabwidth":"230",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"Itembytype",
+                                                    "caption":"主力合约历史明细表",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"Itembytype1",
+                                                    "caption":"当日主力合约会员成交持仓统计 ",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"Itembytype",
+                                                    "caption":"主力合约历史明细表",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1",
+                                                            "tablename":"futures.topic.goods.performance.HistoryMainContractPerformance",
+                                                            "fixedcount":"6",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"主力合约代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"主力合约名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"当日主力合约代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"当日主力合约名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"标的名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"收盘较前结算价涨跌"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"结算价涨跌"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"成交量(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"持仓量(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"持仓量变化(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"成交额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"Itembytype1",
+                                                    "caption":"当日主力合约会员成交持仓统计 ",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"futures.topic.goods.performance.MainContractDeal",
+                                                            "fixedcount":"5",
+                                                            "aPIIndex":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"主力合约名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"当日主力合约代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"当日主力合约名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3_1",
+                                                                    "caption":"会员简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"成交量",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"成交量(手)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"占比(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"成交量名次"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"较上期增减(手)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"多头持仓",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"持多头量(手)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"占比(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"多头名次"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"较上期增减(手)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"空头持仓",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"持空头量(手)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"占比(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"空头名次"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"较上期增减(手)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"净持仓",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"净多头(手)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"净空头(手)"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

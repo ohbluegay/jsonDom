@@ -1,0 +1,636 @@
+{
+    "Page":
+    {
+        "name":"BaseInfoCompare",
+        "caption":"基本资料",
+        "secucodedef":"430003",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Page":
+                    {
+                        "PageSize":"PageSize",
+                        "PageNo":"1"
+                    },
+                    "Level":"Level",
+                    "StandardCode":"StandardCode",
+                    "MarketTypes":"MarketTypes",
+                    "TradeTypes":"TradeTypes",
+                    "ApiName":"BaseInfoCompare"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":true,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Level":"Level",
+                    "StandardCode":"StandardCode",
+                    "MarketTypes":"MarketTypes",
+                    "TradeTypes":"TradeTypes",
+                    "CountType":"CountType",
+                    "ApiName":"BaseInfoCompareStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":""
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter1",
+                            "caption":"统计筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect2",
+                                    "borderSides":"9",
+                                    "column":"1",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx5",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"mkt2",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx6",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"tdt2",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "showcaption":false,
+                                    "borderSides":"8",
+                                    "param":"CountType",
+                                    "width":"95",
+                                    "column":"2",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"均值",
+                                            "left":"20",
+                                            "mapvalue":"AVG",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中值",
+                                            "left":"20",
+                                            "mapvalue":"MID",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"最低值",
+                                            "left":"20",
+                                            "mapvalue":"MIN",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"最高值",
+                                            "left":"20",
+                                            "mapvalue":"MAX",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter2",
+                            "caption":"明细筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect1",
+                                    "borderSides":"8",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx3",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"mkt1",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx2",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"tdt1",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx4",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"行业内展示",
+                                            "param":"PageSize",
+                                            "paramV1":"PageSizeItem",
+                                            "items":"前20条成份股;前50条成份股;全部",
+                                            "mapValues":"20;50;0",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxstdcode1",
+                            "width":"120",
+                            "caption":"行业",
+                            "param":"StandardCode",
+                            "paramV1":"stdc",
+                            "items":"证监会行业;管理型行业;投资型行业;国民经济行业",
+                            "mapValues":"22;25;26;27",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxlvl2",
+                            "width":"80",
+                            "caption":"行业层级",
+                            "param":"Level",
+                            "paramV1":"level",
+                            "items":"行业1级;行业2级;行业3级;行业4级",
+                            "mapValues":"1;2;3;4",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX",
+                    "btnvisible":true,
+                    "position":"200"
+                },
+                "children":
+                [
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctUp",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"BaseInfoCompareStat",
+                                    "apiindex":"1",
+                                    "caption":"统计数据",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"110",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"Name",
+                                            "caption":"统计名称"
+                                        },
+                                        {
+                                            "fieldname":"EstablishmentDate",
+                                            "caption":"公司存续期(年)"
+                                        },
+                                        {
+                                            "fieldname":"MaketCompanyCount",
+                                            "caption":"做市商数量",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"TotalShareCount",
+                                            "caption":"总股本(万股)"
+                                        },
+                                        {
+                                            "fieldname":"FlowShareCount",
+                                            "caption":"流通股本(万股)"
+                                        },
+                                        {
+                                            "fieldname":"ShareHolderNum",
+                                            "caption":"股东人数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"Top10HolderRate",
+                                            "caption":"十大股东占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"LeaderHoldShareRate",
+                                            "caption":"高管持股占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"InPositionLeaderCount",
+                                            "caption":"在职高管人数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"EmployerCount",
+                                            "caption":"员工数量",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"AvgPersonSalary",
+                                            "caption":"人均薪资(万元)"
+                                        },
+                                        {
+                                            "fieldname":"AvgPersonIncome",
+                                            "caption":"人均创收(万元)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDn",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"BaseInfoCompare",
+                                            "caption":"基本资料",
+                                            "fixedcount":"3",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"secuCode",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"secuName",
+                                                    "caption":"证券简称"
+                                                },
+                                                {
+                                                    "filedname":"establishmentDate",
+                                                    "caption":"公司存续期(年)"
+                                                },
+                                                {
+                                                    "filedname":"marketCompanyCount",
+                                                    "caption":"做市商数量",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "filedname":"totalShareCount",
+                                                    "caption":"总股本(万股)"
+                                                },
+                                                {
+                                                    "filedname":"flowShareCount",
+                                                    "caption":"流通股本(万股)"
+                                                },
+                                                {
+                                                    "filedname":"shareHolderNum",
+                                                    "caption":"股东人数",
+                                                    "fmtStr":"0"
+                                                },
+                                                {
+                                                    "filedname":"top10HolderRate",
+                                                    "caption":"十大股东占比(%)"
+                                                },
+                                                {
+                                                    "filedname":"leaderHoldShareRate",
+                                                    "caption":"高管持股占比(%)"
+                                                },
+                                                {
+                                                    "filedname":"inPositionLeaderCount",
+                                                    "caption":"在职高管人数",
+                                                    "fmtStr":"0"
+                                                },
+                                                {
+                                                    "filedname":"employerCount",
+                                                    "caption":"员工数量",
+                                                    "fmtStr":"0"
+                                                },
+                                                {
+                                                    "filedname":"avgPersonSalary",
+                                                    "caption":"人均薪资(万元)"
+                                                },
+                                                {
+                                                    "filedname":"avgPersonIncome",
+                                                    "caption":"人均创收(万元)"
+                                                },
+                                                {
+                                                    "filedname":"area",
+                                                    "caption":"区域",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

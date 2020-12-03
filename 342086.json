@@ -1,0 +1,364 @@
+{
+    "Page":
+    {
+        "name":"Topic.AchievementForeshow",
+        "caption":"业绩预告",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ForcastType":"ForcastType",
+                    "ReportDate":"ReportDate",
+                    "EndDateT":"EndDateT",
+                    "ApiName":"Topic.AchievementForeshow"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"日期筛选",
+                            "formheight":"375",
+                            "formwidth":"250"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"日期类型",
+                                    "param":"EndDateT",
+                                    "paramV1":"EndTDate",
+                                    "width":"200",
+                                    "borderSides":"1",
+                                    "column":"2",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新报告期",
+                                            "mapvalue":"1",
+                                            "bindname":"[
+                                                dategroup2
+                                            ]
+",
+                                            "bindprop":"[
+                                                Enabled
+                                            ]
+",
+                                            "bindvalue":
+                                            [
+                                                false
+                                            ],
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"固定报告期",
+                                            "mapvalue":"2",
+                                            "bindname":"[
+                                                dategroup2
+                                            ]
+",
+                                            "bindprop":"[
+                                                Enabled
+                                            ]
+",
+                                            "bindvalue":
+                                            [
+                                                true
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcRptDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1",
+                                    "height":"50"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"dategroup",
+                                        "attrs":
+                                        {
+                                            "name":"dategroup2",
+                                            "caption":"报告期",
+                                            "param":"ReportDate",
+                                            "dateType":"1",
+                                            "fmtQuarterType":"2",
+                                            "showNewest":false,
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxForcastType",
+                            "caption":"预告类型",
+                            "param":"ForcastType",
+                            "width":"90",
+                            "itemindex":"0",
+                            "items":"预亏;预警;预盈;预增;预平;经营计划;减亏;预降;提前披露;由盈转亏;扭亏为盈;同向上升;同向下降",
+                            "mapValues":"1;2;3;4;5;6;7;8;10;19;20;21;22",
+                            "multiselect":true,
+                            "multiShowAll":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Topic.AchievementForeshow",
+                                    "caption":" 业绩预告",
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"110",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"200",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"A0",
+                                            "datatype":"ctstring",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "filedname":"A1",
+                                            "datatype":"ctstring",
+                                            "caption":"证券简称",
+                                            "width":"90"
+                                        },
+                                        {
+                                            "filedname":"A2",
+                                            "datatype":"ctstring",
+                                            "caption":"预告类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "filedname":"A3",
+                                            "datatype":"ctstring",
+                                            "caption":"摘要",
+                                            "width":"200",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"预计变动起始",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A4",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"净利润(万元)",
+                                                    "width":"190"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"幅度(%)",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"预计变动截止",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A6",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"净利润(万元)",
+                                                    "width":"190"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"幅度(%)",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "filedname":"A8",
+                                            "datatype":"ctstring",
+                                            "caption":"内容描述",
+                                            "functype":"ftmemo",
+                                            "width":"100"
+                                        },
+                                        {
+                                            "filedname":"A9",
+                                            "datatype":"ctstring",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "filedname":"B0",
+                                            "datatype":"ctstring",
+                                            "caption":"定期报告预计披露日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "filedname":"B1",
+                                            "datatype":"ctstring",
+                                            "caption":"报告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "filedname":"B2",
+                                            "datatype":"ctstring",
+                                            "caption":"证监会行业",
+                                            "width":"240",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

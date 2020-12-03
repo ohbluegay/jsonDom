@@ -1,0 +1,408 @@
+{
+    "Page":
+    {
+        "name":"jydb.topic.company_finance.bond_debt.OtherReceivable",
+        "caption":"其他应收账款账龄结构",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Year":"Year",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "ApiName":"jydb.topic.company_finance.bond_debt.OtherReceivable"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"Year",
+                        "value":"nowYear;-1"
+                    },
+                    {
+                        "key":"FastQuarterReportType",
+                        "value":
+                        [
+                            "Q2nd"
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"报告期",
+                            "param":"Year",
+                            "dateType":"3",
+                            "fmtQuarterType":"3",
+                            "showNewest":false,
+                            "fmtMonth":""
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDate",
+                            "param":"FastQuarterReportType",
+                            "showcaption":false,
+                            "items":"中报;年报",
+                            "mapValues":"Q2nd;Q4th",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018",
+                            "fieldname":"yearyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbxDate",
+                            "bindProp":"itemindex",
+                            "defValue":"0",
+                            "fieldname":"itemindexyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jydb.topic.company_finance.bond_debt.OtherReceivable",
+                                    "caption":" 其他应收账款账龄结构",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"其他应收账款(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"账龄1年内"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"账龄1-2年"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"账龄2-3年"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"账龄3-4年"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"账龄4-5年"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"账龄5年上"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"占全部其他应收账款比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"账龄1年内"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"账龄1-2年"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"账龄2-3年"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"账龄3-4年"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"账龄4-5年"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"账龄5年上"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"坏账准备(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"账龄1年内"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"账龄1-2年"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"账龄2-3年"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"账龄3-4年"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"账龄4-5年"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"账龄5年上"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"坏账准备提取比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"账龄1年内"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"账龄1-2年"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"账龄2-3年"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"账龄3-4年"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"账龄4-5年"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"账龄5年上"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C6",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

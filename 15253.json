@@ -1,0 +1,510 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.DividTrans.BonusPlan",
+        "caption":"分红预案",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.DividTrans.BonusParam"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "ReportYear":"ReportYear",
+                    "Report":"Report",
+                    "DateType":"DateType",
+                    "DividType":"DividType",
+                    "Procedure":"Procedure",
+                    "ApiName":"JYDB.Topic.DividTrans.BonusPlan"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-2;month"
+                    },
+                    {
+                        "key":"ReportYear",
+                        "value":"2017;default"
+                    },
+                    {
+                        "key":"Report",
+                        "value":"2;default"
+                    },
+                    {
+                        "key":"Procedure",
+                        "value":"1004;default"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"日期筛选",
+                            "formheight":"375",
+                            "formwidth":"200"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"日期类型",
+                                    "param":"DateType",
+                                    "width":"200",
+                                    "borderSides":"1",
+                                    "column":"2",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"报告期",
+                                            "mapvalue":"1",
+                                            "bindname":"[
+                                                lcDate,
+                                                lcRptDate
+                                            ]
+",
+                                            "bindprop":"[
+                                                Visible,
+                                                Visible
+                                            ]
+",
+                                            "bindvalue":
+                                            [
+                                                false,
+                                                true
+                                            ],
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"披露日期",
+                                            "mapvalue":"2",
+                                            "bindname":"[
+                                                lcDate,
+                                                lcRptDate
+                                            ]
+",
+                                            "bindprop":"[
+                                                Visible,
+                                                Visible
+                                            ]
+",
+                                            "bindvalue":
+                                            [
+                                                true,
+                                                false
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1",
+                                    "align":"alClient",
+                                    "visible":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBeganDate",
+                                            "caption":"开始日期",
+                                            "param":"BeganDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEndDate",
+                                            "caption":"截止日期",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcRptDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1",
+                                    "height":"50"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"dategroup",
+                                        "attrs":
+                                        {
+                                            "name":"cbbYear",
+                                            "caption":"年度",
+                                            "param":"ReportYear",
+                                            "datetype":"3",
+                                            "left":"25",
+                                            "offset":"-1"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbReport",
+                                            "caption":"报告期",
+                                            "param":"Report",
+                                            "width":"100",
+                                            "items":"中报;年报;特别分红",
+                                            "mapValues":"1;2;3",
+                                            "itemIndex":"1"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbDividType",
+                            "caption":"分红类型",
+                            "param":"DividType",
+                            "items":"全部;含派现;含送股;含转赠;仅派现;仅送股;仅转赠",
+                            "mapValues":"0;1;2;3;4;5;6",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbProcedure",
+                            "caption":"方案进度",
+                            "param":"Procedure",
+                            "items":"预案;意向;决案;股东大会否决;方案实施",
+                            "mapValues":"1001;1000;1004;3125;3131",
+                            "itemIndex":"2",
+                            "width":"130",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"0",
+                    "table":"JYDB.Topic.DividTrans.BonusParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbReport",
+                            "bindProp":"ItemIndex",
+                            "defValue":"1",
+                            "fieldname":"itemindex"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbYear",
+                            "bindProp":"ParamValue",
+                            "defValue":"2017-01-01",
+                            "fieldname":"reportyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.DividTrans.BonusPlan",
+                                    "caption":"分红预案",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"是否分红",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"预案披露日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"方案进度",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"分红对象",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"每十股派现(税前)",
+                                            "algmt":"taRightJustify",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"每十股送股",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"每十股转增",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"基准股本(股)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"股东大会决议公告日",
+                                            "width":"150",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"是否变更",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"原方案说明"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"证监会行业",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"申万行业",
+                                            "width":"180"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

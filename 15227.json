@@ -1,0 +1,872 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.SHResearch.HolderSecoMarketTrade",
+        "caption":"股东二级市场交易",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0_1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "HoldType":"HoldType",
+                    "TradeType":"TradeType",
+                    "ApiName":"JYDB.Topic.SHResearch.HolderSecoMarketTrade"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"TradeType",
+                        "value":"1;default"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "HoldType":"HoldType",
+                    "TradeType":"TradeType",
+                    "SecCode":"SecCode",
+                    "ApiName":"JYDB.Topic.SHResearch.HolderSecoMarketTradeDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "HoldType":"HoldType",
+                    "SecCode":"SecCode",
+                    "Circle":"3",
+                    "TradeType":"TradeType",
+                    "ApiName":"JYDB.Topic.SHResearch.HolderSecoMarketTradeStatChart"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbTradeType",
+                            "caption":"交易类型",
+                            "param":"TradeType",
+                            "items":"竞价交易;大宗交易",
+                            "mapValues":"1;2",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbHoldType",
+                            "caption":"股东类型",
+                            "param":"HoldType",
+                            "items":"全部;第一大股东;高管;其他股东",
+                            "mapValues":"0;1;2;3",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.SHResearch.HolderSecoMarketTrade",
+                                    "caption":" 股东二级市场交易",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0_1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"变动情况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"变动次数"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"增持次数"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"减持次数"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"净买入股数(万股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动股份数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"买入股数(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"买入金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"买入成交均价"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"卖出股数(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"卖出金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"卖出成交均价"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"证监会行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "SecCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "SecCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"股东变动明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"历史交易趋势图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"股东变动明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.SHResearch.HolderSecoMarketTradeDetail",
+                                                            "caption":" 股东二级市场交易（股东变动明细）",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"变动日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"股东名称",
+                                                                    "width":"300",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"股东类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"变动数量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"交易均价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"交易金额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"变动数量占原持股比例(%)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"变动数量占流通股比例(%)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"变动前持股数(万股)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"变动后持股数(万股)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"变动后占总股本比例(%)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"变动日期股票收盘价",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"交易方式",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"关联人",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"股份类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"历史交易趋势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"JYDB.Topic.SHResearch.HolderSecoMarketTradeStatChart",
+                                                            "showList":true,
+                                                            "aPIIndex":"2",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"统计日期",
+                                                                    "datatype":"ctstring"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"买入股数(万股)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"卖出股数(万股)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"净买入股数(万股)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"HolderSecoMarketTrade",
+                                    "reportname":"rpt1",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0_1",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"BDQK_BDCS"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"BDQK_ZCCS"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"BDQK_JCCS"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"BDQK_JMRGS"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"BDGFS_MRGS"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"BDGFS_MRJE"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"BDGFS_MRCJJJ"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"BDGFS_MCGS"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"BDGFS_MCJE"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"BDGFS_MCCJJJ"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"SSHY_ZJHHY"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"SSHY_SWHY"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"HolderSecoMarketTradeDetail",
+                                    "reportname":"rpt11",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"BDRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"GDMC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"GDLX"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"BDSL"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"JYJJ"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"JYJE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"BDSLZYCGBL"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"BDSLZLTGBL"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"BDQCGS"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"BDHCGS"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"BDHZZGBBL"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"BDRQGPSPJ"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"JYFS"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "quantfieldname":"GLR"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "quantfieldname":"GFLX"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

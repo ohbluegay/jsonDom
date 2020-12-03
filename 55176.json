@@ -1,0 +1,434 @@
+{
+    "Page":
+    {
+        "name":"fund.topic.performance_evaluation.performance_reward.FundContango",
+        "caption":"封闭式基金贴水率",
+        "sector":"SECTOR_TREE_JJ",
+        "checked":"SECTOR_CHECKED_JJ",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"fund.topic.performance_evaluation.performance_reward.FundContango"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"fund.topic.performance_evaluation.performance_reward.FundContangoDetails"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.topic.performance_evaluation.performance_reward.FundContango",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"基金代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"基金名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"收盘价(元)",
+                                            "fmtStr":"3"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"成交金额(元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"净值日期",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"单位净值(元)",
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"贴水(元)",
+                                            "fmtStr":"3"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"贴水率(%)",
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"区间平均贴水(元)",
+                                            "fmtStr":"3"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"区间平均贴水率(%)",
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"基金公司",
+                                            "width":"220",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"内部编码（参数不显示）",
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B2"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"排序字段（不显示）",
+                                            "hide":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史贴水明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史贴水明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"fund.topic.performance_evaluation.performance_reward.FundContangoDetails",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"基金代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"基金名称",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"收盘价(元)",
+                                                                    "fmtStr":"3"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"成交金额(元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"净值日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"单位净值(元)",
+                                                                    "fmtStr":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"贴水(元)",
+                                                                    "fmtStr":"3"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"贴水率(%)",
+                                                                    "fmtStr":"4"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

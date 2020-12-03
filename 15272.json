@@ -1,0 +1,460 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGManage.CompaniesPay",
+        "caption":"企业薪酬支出",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"JYDB.Topic.ORGManage.CompaniesPay"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"endYear;-1"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecCode":"SecCode",
+                    "ApiName":"JYDB.Topic.ORGManage.CompaniesPayHistory"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbEndYear",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "paramV1":"EndDate-12-31",
+                            "datetype":"3",
+                            "fmtMonth":"."
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGManage.CompaniesPay",
+                                    "caption":"企业薪酬支出",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A1_1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"年度员工薪酬(万元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"年度高管薪酬(万元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"员工人数"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"员工人均薪酬(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"员工人均创收(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"支出薪酬占营业总收入比例(%)",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"申万行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "SecCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史数据",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"走势图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史数据",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.ORGManage.CompaniesPayHistory",
+                                                            "caption":"企业薪酬支出 -历史数据",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"年度支付薪酬(万元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"年度高管薪酬(万元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"员工人数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"人均薪酬(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"人均创收(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"支出薪酬占营业总收入比例(%)",
+                                                                    "width":"200"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"走势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"SeniorHoldTrend",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.ORGManage.CompaniesPayHistory",
+                                                            "caption":"统计图",
+                                                            "showRightAxis":true,
+                                                            "showList":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"报告期",
+                                                                    "datatype":"ctstring"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"员工人数",
+                                                                    "charttype":"ctbar",
+                                                                    "leftAxis":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"人均薪酬(万元)",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"人均创收(万元)",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"年度薪酬总额(万元)",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

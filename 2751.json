@@ -1,0 +1,361 @@
+{
+    "Page":
+    {
+        "name":"JYAgreeRepurchase",
+        "caption":"约定购回",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"JYViolate.A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYAgreeRepurchase",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"310",
+                            "formwidth":"240"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"240",
+                                    "column":"2",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYAgreeRepurchase",
+                                    "caption":"约定购回",
+                                    "fixedcount":"1",
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股东名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券公司名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"交易时间",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"购回期限(天)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"交易股数(万股)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"交易股份类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"交易后的持股数据(万股)",
+                                            "width":"150",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"占总股本比例(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"购回日期",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

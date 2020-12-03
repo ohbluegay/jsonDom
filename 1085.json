@@ -1,0 +1,423 @@
+{
+    "Page":
+    {
+        "name":"StockBonus",
+        "caption":"分红配股",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"StockBonus"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-03-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"395",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"StockBonus",
+                                    "caption":"分红配股",
+                                    "reverse":true,
+                                    "headField":"endDate",
+                                    "fixedcount":"1",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"180"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"200"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"ifDividend",
+                                            "caption":"分红送转"
+                                        },
+                                        {
+                                            "filedname":"faProcedure",
+                                            "caption":"方案进度"
+                                        },
+                                        {
+                                            "filedname":"bonusShareRatio",
+                                            "caption":"每10股送股(股)"
+                                        },
+                                        {
+                                            "filedname":"tranAddShareRto",
+                                            "caption":"每10股转增(股)"
+                                        },
+                                        {
+                                            "filedname":"cashDivPreTax",
+                                            "caption":"每10股派息(税前)(元)"
+                                        },
+                                        {
+                                            "filedname":"cashDivAfterTax",
+                                            "caption":"每10股派息(税后)(元)"
+                                        },
+                                        {
+                                            "filedname":"rightRegDate",
+                                            "caption":"股权登记日"
+                                        },
+                                        {
+                                            "filedname":"exDivDate",
+                                            "caption":"除权除息日"
+                                        },
+                                        {
+                                            "filedname":"toAccountDate",
+                                            "caption":"派息日"
+                                        },
+                                        {
+                                            "filedname":"bonusShareListD",
+                                            "caption":"红股上市交易日"
+                                        },
+                                        {
+                                            "filedname":"divObject",
+                                            "caption":"分红对象"
+                                        },
+                                        {
+                                            "filedname":"dividendBaseDate",
+                                            "caption":"股本基准日期"
+                                        },
+                                        {
+                                            "filedname":"dividendBase",
+                                            "caption":"基准股本(股)"
+                                        },
+                                        {
+                                            "filedname":"advanceDate",
+                                            "caption":"预案公告日"
+                                        },
+                                        {
+                                            "filedname":"sMDeciPublDate",
+                                            "caption":"股东大会公告日"
+                                        },
+                                        {
+                                            "filedname":"infoPublDate",
+                                            "caption":"实施公告日"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

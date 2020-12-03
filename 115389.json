@@ -1,0 +1,860 @@
+{
+    "Page":
+    {
+        "name":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+        "caption":"我国集成电路进出口",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Period":"Period",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Period":"Period",
+                    "ApiName":"macroindu.topic.Vehicle.PeriodType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbReport",
+                            "caption":"统计周期",
+                            "param":"Period",
+                            "items":"月;年",
+                            "mapValues":"Month;Year",
+                            "itemIndex":"0",
+                            "width":"80",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-10,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"macroindu.topic.Vehicle.PeriodType"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                    "caption":"我国集成电路进出口",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "dynColumn":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "fieldname":"Date",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"130",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1_month",
+                                                    "caption":"进出口额",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2_month",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_month",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem1_year",
+                                                    "caption":"进出口额",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem2_year",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_year",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1_month",
+                                                    "caption":"进出口额",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11_month",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"集成电路:净进口额:当月值(亿美元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"集成电路:净进口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"集成电路:进口额:当月值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"集成电路:进口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"集成电路:出口额:当月值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"b0",
+                                                                    "caption":"集成电路:出口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2_month",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12_month",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"集成电路:净进口额:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"集成电路:净进口额:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"集成电路:进口额:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"集成电路:进口额:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"集成电路:出口额:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"b1",
+                                                                    "caption":"集成电路:出口额:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3_month",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13_month",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"集成电路:净进口额:当月值(亿美元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"集成电路:净进口额:当月同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"集成电路:净进口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"集成电路:净进口额:累计同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"集成电路:进口额:当月值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"集成电路:进口额:当月同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"集成电路:进口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"集成电路:进口额:累计同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"集成电路:出口额:当月值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"集成电路:出口额:当月同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"b0",
+                                                                    "caption":"集成电路:出口额:累计值(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"b1",
+                                                                    "caption":"集成电路:出口额:累计同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1_year",
+                                                    "caption":"进出口额",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11_year",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"集成电路:净进口额(亿美元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"集成电路:进口额(亿美元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"集成电路:出口额(亿美元)",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2_year",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12_year",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"集成电路:净进口额:同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"集成电路:进口额:同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"集成电路:出口额:同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3_year",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13_year",
+                                                            "tablename":"Macroindu.Topic.ElectronicComponent.ChinaICImportAndExport",
+                                                            "showList":true,
+                                                            "listWidth":"240",
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"集成电路:净进口额(亿美元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"集成电路:净进口额:同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"集成电路:进口额(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"集成电路:进口额:同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"集成电路:出口额(亿美元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"集成电路:出口额:同比(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

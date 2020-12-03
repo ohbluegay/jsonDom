@@ -1,0 +1,479 @@
+{
+    "Page":
+    {
+        "name":"Topic.share_shareholder.CompanyStaffCompositionReport",
+        "caption":"公司员工构成",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Type":"Type",
+                    "ApiName":"Topic.share_shareholder.CompanyStaffCompositionReport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "Type":"Type",
+                    "ApiName":"Topic.share_shareholder.CompanyStaffCompositionReportDetailReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbxBegin",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "paramV1":"EndDate-12-31",
+                            "datetype":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbType",
+                            "caption":"数据类型",
+                            "param":"Type",
+                            "items":"数量(人);百分比(%)",
+                            "mapValues":"0;1",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Topic.share_shareholder.CompanyStaffCompositionReport",
+                                    "caption":"公司员工构成",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"员工总数",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"按专业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"管理及行政人员"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"研发及技术人员"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"财务人员"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"生产人员"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"销售人员"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"其他"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"按学历",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"博士及以上"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"硕士"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"本科"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"专科"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"其他"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "SecuCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B5"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细一览",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细一览",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"Topic.share_shareholder.CompanyStaffCompositionReportDetailReport",
+                                                            "caption":"历史数据",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"员工总数",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"按专业",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"管理及行政人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"研发及技术人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"财务人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"生产人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"销售人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"其他"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"按学历",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"博士及以上"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"硕士"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"本科"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"专科"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"其他"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

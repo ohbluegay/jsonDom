@@ -1,0 +1,499 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.IndexMarketRangeStatis",
+        "caption":"指数行情区间统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "IndexType":"IndexType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndexMarketRangeStatis"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-6;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndexMarketRangeStatisDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndexType",
+                            "caption":"指数分类",
+                            "param":"IndexType",
+                            "items":"综合类指数;成份类指数;行业类指数-证监会;行业类指数-申万;行业类指数-上交所;行业类指数-GICS;行业类指数-国证;行业类指数-标普;行业类指数-中证;行业类指数-中信;行业类指数-其他;地区类指数;规模类指数",
+                            "mapValues":"ZHL;CFL;HYLZJH;HYLSSW;HYLSJS;HYLGICS;HYLJC;HYLBP;HYLZZ;HYLZX;HYLQT;DQL;GM",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.IndexMarketRangeStatis",
+                                    "caption":"指数行情区间统计(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0_1",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"指数代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"指数简称",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"交易天数"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"收盘点"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"振幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"成交量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"成交额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"日均成交额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"最高点"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"最低点"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"收盘最高点"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"收盘最低点"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"均价"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"证券内部编码",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B4"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"成分股明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"成分股明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndexMarketRangeStatisDetail",
+                                                            "caption":"指数行情区间统计(成分股明细)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0_1",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易天数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"涨跌幅(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"振幅(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"换手率(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"日均换手率(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"成交量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"成交额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"日均成交额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"最高价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"最低价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"收盘最高价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"收盘最低价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"均价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"证监会行业",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"申万行业",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

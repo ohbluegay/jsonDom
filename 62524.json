@@ -1,0 +1,602 @@
+{
+    "Page":
+    {
+        "name":"HKStock.F9.EquityHolder.CapitalStruc",
+        "caption":"股本结构",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"SecuStruc.A0",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"CompanyStruc.A0",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"GraphData.A1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"HKStock.F9.EquityHolder.CapitalStruc"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"290",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRate1",
+                            "caption":"股份单位",
+                            "width":"75",
+                            "param":"PramRate1",
+                            "items":"股;百股;千股;万股;百万股;亿股;十亿股",
+                            "bindMapValue":false,
+                            "mapValues":"-1;100;1000;10000;1000000;100000000;1000000000",
+                            "itemIndex":"0",
+                            "bindname":"[
+                                rpt2,
+                                rpt3
+                            ]
+",
+                            "bindprop":"ExecRate",
+                            "bindvalue":"PramRate1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctGround",
+                    "percent":"45",
+                    "btnvisible":true,
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "caption":"报表容器",
+                            "borderSides":"15",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"ctChart3",
+                                    "tableName":"GraphData",
+                                    "lTitle":"股本(股)",
+                                    "rTitle":"股价(元)",
+                                    "showRightAxis":true,
+                                    "showList":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A1",
+                                            "fieldfunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"股价(元)",
+                                            "leftAxis":false,
+                                            "charttype":"ctLine"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"港股股本(股)",
+                                            "chartType":"ctMultiBar"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"港股待上市(股)",
+                                            "chartType":"ctMultiBar"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"非港股(股)",
+                                            "chartType":"ctMultiBar"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scgrid",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "tabwidth":"180",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"Item2",
+                                            "caption":"证券股本",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"Item1",
+                                            "caption":"公司股本表",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Item2",
+                                            "caption":"证券股本",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt3",
+                                                    "tablename":"SecuStruc",
+                                                    "caption":"证券股本",
+                                                    "fixedcount":"1",
+                                                    "rowselect":false,
+                                                    "reverse":true,
+                                                    "headfield":"A0",
+                                                    "defselect":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"280",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"130",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"公告日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"变动日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"总股本",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"变动原因"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Item1",
+                                            "caption":"公司股本表",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt2",
+                                                    "tablename":"CompanyStruc",
+                                                    "caption":"公司股本表",
+                                                    "fixedcount":"1",
+                                                    "rowselect":false,
+                                                    "reverse":true,
+                                                    "headfield":"A0",
+                                                    "defselect":true,
+                                                    "autochart":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"280",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"130",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"公告日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"变动日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"总股本",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"普通股数",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"优先股数",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"A股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"流通A股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"限售A股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"无限售A股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"未流通A股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"B股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"海外上市股",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"变动原因"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

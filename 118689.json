@@ -1,0 +1,224 @@
+{
+    "Page":
+    {
+        "name":"ShenWanIndexComponentAndWeight",
+        "caption":"申万指数成份权重",
+        "sectorroot":"#1701004",
+        "sectorDef":"801010.SI",
+        "sectoropt":"KeyDownClick,
+        ShowElems",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "GilCode":"GilCode",
+                    "ApiName":"IndexAnaly.TimePoint.ShenWanIndexComponentAndWeight"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "caption":"报表容器",
+                    "name":"ctGrd1",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Report",
+                        "attrs":
+                        {
+                            "name":"rpt1",
+                            "tablename":"IndexAnaly.TimePoint.ShenWanIndexComponentAndWeight",
+                            "caption":"申万指数成份权重表",
+                            "defselect":true,
+                            "fixedcount":"3",
+                            "tag_row":
+                            [
+                                {
+                                    "rname":"caption",
+                                    "heigh":"70",
+                                    "algmt":"taLeftJustify"
+                                },
+                                {
+                                    "rname":"row",
+                                    "heigh":"100",
+                                    "algmt":"taRightJustify"
+                                }
+
+                            ],
+                            "tag_column":
+                            [
+                                {
+                                    "fieldname":"A0",
+                                    "caption":"股票代码",
+                                    "algmt":"taCenter"
+                                },
+                                {
+                                    "fieldname":"A1",
+                                    "caption":"股票名称"
+                                },
+                                {
+                                    "fieldname":"A2",
+                                    "caption":"截止日期",
+                                    "algmt":"taCenter"
+                                },
+                                {
+                                    "fieldname":"A3",
+                                    "caption":"指数权重(%)",
+                                    "fmtstr":"4"
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"SWIndexComponentWT",
+                                    "reportname":"rpt1",
+                                    "inputfield":"IndexCode",
+                                    "keyfield":"GilCode",
+                                    "valuefield":"gilcode",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"GPDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"GPMC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JZRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"ZSQZ"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

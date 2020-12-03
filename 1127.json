@@ -1,0 +1,584 @@
+{
+    "Page":
+    {
+        "name":"MaketPerformance",
+        "caption":"市场表现",
+        "secucodedef":"430003",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "MarketTypes":"MarketTypes",
+                    "TradeTypes":"TradeTypes",
+                    "StandardCode":"StandardCode",
+                    "ApiName":"MarketPerformance"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StandardCode":"StandardCode",
+                    "SecuCode":"SecuCode",
+                    "CountType":"CountType",
+                    "MarketTypes":"MarketTypes",
+                    "TradeTypes":"TradeTypes",
+                    "ApiName":"MarketPerformanceStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter1",
+                            "caption":"统计筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect2",
+                                    "borderSides":"9",
+                                    "column":"1",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx5",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"MarketTypes1",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx6",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"TradeTypes1",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "showcaption":false,
+                                    "borderSides":"8",
+                                    "param":"CountType",
+                                    "width":"95",
+                                    "column":"2",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"均值",
+                                            "left":"20",
+                                            "mapvalue":"AVG",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中值",
+                                            "left":"20",
+                                            "mapvalue":"MID",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"最低值",
+                                            "left":"20",
+                                            "mapvalue":"MIN",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"最高值",
+                                            "left":"20",
+                                            "mapvalue":"MAX",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter2",
+                            "caption":"明细筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect1",
+                                    "borderSides":"8",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx3",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"MarketTypes2",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx2",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"TradeTypes2",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx4",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"行业内展示",
+                                            "param":"PageSizeItem",
+                                            "items":"前20条成份股;前50条成份股;全部",
+                                            "mapValues":"20;50;0",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxstdcode1",
+                            "lblalign":true,
+                            "width":"150",
+                            "caption":"行业",
+                            "param":"StandardCode",
+                            "paramV1":"stdc",
+                            "items":"证监会一级行业;证监会二级行业;管理型一级行业;管理型二级行业;管理型三级行业;管理型四级行业;投资型行业一级;投资型二级行业;投资型三级行业;投资型四级行业;国民经济一级行业;国民经济二级行业;国民经济三级行业;国民经济四级行业",
+                            "mapValues":"'22','Level':'1;22','Level':'2;25','Level':'1;25','Level':'2;25','Level':'3;25','Level':'4;26','Level':'1;26','Level':'2;26','Level':'3;26','Level':'4;27','Level':'1;27','Level':'2;27','Level':'3;27','Level':'4'",
+                            "itemIndex":"0",
+                            "Level":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX",
+                    "btnvisible":true,
+                    "position":"200"
+                },
+                "children":
+                [
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctUp",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"MarketPerformanceStat",
+                                    "caption":"市场表现统计",
+                                    "aPIIndex":"1",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"78",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"Name",
+                                            "caption":"统计名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"LatestClosePrice",
+                                            "caption":"最新收盘价"
+                                        },
+                                        {
+                                            "fieldname":"WeekRiseAndFallRange",
+                                            "caption":"本周涨跌幅度",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"MonthRiseAndFallRange",
+                                            "caption":"本月涨跌幅度",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestWeekRiseAndFallRange",
+                                            "caption":"近一周涨跌幅",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestMonthRiseAndFallRange",
+                                            "caption":"近一月涨跌幅度",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestThreeMonthRiseAndFallRange",
+                                            "caption":"近三月涨跌幅",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestSixMonthRiseAndFallRange",
+                                            "caption":"近六月涨跌幅",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestOneYearRiseAndFallRange",
+                                            "caption":"近一年涨跌幅",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestOneMonthTurnoverValue",
+                                            "caption":"近一月成交额",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestYearMaxPrice",
+                                            "caption":"近一年最高价",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestOneMonthChangeRate",
+                                            "caption":"近一月日均换手率",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"LatestYearMinPrice",
+                                            "caption":"近一年最低价",
+                                            "width":"120"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctData",
+                            "caption":"数据区容器",
+                            "borderSides":"0",
+                            "align":"alClient"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "align":"alClient"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt11",
+                                            "tablename":"MarketPerformance",
+                                            "caption":" 市场表现",
+                                            "fixedcount":"3",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SecuCode",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"SecuName",
+                                                    "caption":"证券名称",
+                                                    "width":"80"
+                                                },
+                                                {
+                                                    "fieldname":"LatesDate",
+                                                    "caption":"最新收盘日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"LatestClosePrice",
+                                                    "caption":"最新收盘价"
+                                                },
+                                                {
+                                                    "fieldname":"WeekRiseAndFallRange",
+                                                    "caption":"本周涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"MonthRiseAndFallRange",
+                                                    "caption":"本月涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestWeekRiseAndFallRange",
+                                                    "caption":"近一周涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestMonthRiseAndFallRange",
+                                                    "caption":"近一月涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestThreeMonthRiseAndFallRange",
+                                                    "caption":"近三月涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestSixMonthRiseAndFallRange",
+                                                    "caption":"近六月涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestOneYearRiseAndFallRange",
+                                                    "caption":"近一年涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"LatestOneMonthTurnoverValue",
+                                                    "caption":"近一月成交额(万元)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"LatestOneMonthChangeRate",
+                                                    "caption":"近一月日均换手率(%)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"LatestYearMaxPrice",
+                                                    "caption":"近一年最高价"
+                                                },
+                                                {
+                                                    "fieldname":"LatestYearMinPrice",
+                                                    "caption":"近一年最低价"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

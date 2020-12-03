@@ -1,0 +1,486 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.ActivityDetail",
+        "caption":"上市公司调研",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ActivitiesCate":"ActivitiesCate",
+                    "ApiName":"JY.Topic.ActivityDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Id":"Id",
+                    "ApiName":"JY.Topic.ActivityDetail.AgencyDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Id":"Id",
+                    "ApiName":"JY.Topic.TMainContent"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxActivitiesCate",
+                            "caption":"调研类型",
+                            "param":"ActivitiesCate",
+                            "items":"特定对象调研;分析师会议;媒体采访;业绩说明会;新闻发布会;路演活动;现场参观;其他",
+                            "mapValues":"1;2;3;4;5;6;7;99",
+                            "itemIndex":"1",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "lblAlign":true,
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.ActivityDetail",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"调研日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"调研类型"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"标题"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"主要内容",
+                                            "algmt":"taCenter",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"2",
+                                                    "F":"popfrm2",
+                                                    "P":
+                                                    [
+                                                        "Id"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"调研单位及人员"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"接待人员"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"接待地点"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"ID,
+                                            子表传参",
+                                            "hide":true,
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "Id"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtItem1",
+                                                    "caption":"机构明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtItem1",
+                                                    "caption":"机构明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JY.Topic.ActivityDetail.AgencyDetail",
+                                                            "caption":"机构明细",
+                                                            "defselect":true,
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"调研机构"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"机构类型",
+                                                                    "hide":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"调研人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"调研人员职务"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm2",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"主要内容",
+                    "dataexport":false
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"tabmemo",
+                                "attrs":
+                                {
+                                    "name":"JY.Topic.TMainContent",
+                                    "tabField":"",
+                                    "memoField":"A0",
+                                    "tabWidth":"150",
+                                    "aPIIndex":"2"
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

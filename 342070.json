@@ -1,0 +1,625 @@
+{
+    "Page":
+    {
+        "name":"Topic.IndustrySizeStatCluster",
+        "caption":"行业规模统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDatatable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"B3",
+                            "Sort":"asc"
+                        }
+                    ],
+                    "TransType":"TransType",
+                    "IndustryStandardCode":"IndustryStandardCode",
+                    "ApiName":"Topic.IndustrySizeStatCluster"
+                }
+            },
+            {
+                "responsetype":"rtDatatable",
+				"needinit":false,
+                "cdatasection":
+                {
+                    "TransType":"TransType",
+                    "IndustryCode":"IndustryCode",
+                    "IndustryStandardCode":"IndustryStandardCode",
+                    "ApiName":"Topic.StockComponentDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox1",
+                            "width":"180",
+                            "caption":"行业分类",
+                            "param":"IndustryStandardCode",
+                            "items":"证监会一级行业;证监会二级行业;管理型分类一级;管理型分类二级;管理型分类三级;管理型分类四级;投资型分类一级;投资型分类二级;投资型分类三级;投资型分类四级;国民经济行业分类一级;国民经济行业分类二级;国民经济行业分类三级;国民经济行业分类四级",
+                            "mapValues":"'22','Level':'1;22','Level':'2;25','Level':'1;25','Level':'2;25','Level':'3;25','Level':'4;26','Level':'1;26','Level':'2;26','Level':'3;26','Level':'4;27','Level':'1;27','Level':'2;27','Level':'3;27','Level':'4'",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "Level":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox3",
+                            "caption":"转让方式",
+                            "param":"TransType",
+                            "items":"全部;协议;做市;竞价",
+                            "mapValues":"ALL;XY;ZS;JJ"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"filter",
+                "attrs":
+                {
+                    "name":"filter2"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "fieldname":"b2",
+                            "oprttype":"0",
+                            "oprtvalue":"否"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround3",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt222",
+                                            "tablename":"Topic.IndustrySizeStatCluster",
+                                            "caption":" 行业规模统计",
+                                            "fixedcount":"3",
+                                            "defSelect":true,
+                                            "sumfield":"B2",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"B1",
+                                                    "caption":"行业代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A0",
+                                                    "caption":"行业名称",
+                                                    "width":"230"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "caption":"成分股个数",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A2",
+                                                    "caption":"股份总量(万股)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "caption":"流通股本总量(万股)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "caption":"资产合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "caption":"净资产合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "caption":"净资产均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "caption":"营业收入合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "caption":"营业收入均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A9",
+                                                    "caption":"净利润合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"B0",
+                                                    "caption":"净利润均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"B1",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "IndustryCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "B1"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer2",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"2",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"统计图",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"成分股明细",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"统计图",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "tablename":"Topic.IndustrySizeStatCluster",
+                                                    "readType":"crtFieldGrp",
+                                                    "showList":true,
+                                                    "listWidth":"250",
+                                                    "filterName":"filter2",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "fieldFunc":"cffGrp"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"成分股个数"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"股份总量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"流通股本总量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"资产合计(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"净资产合计(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"营业收入合计(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"净利润合计(万元)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"成分股明细",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt121",
+                                                    "tablename":"Topic.StockComponentDetail",
+                                                    "caption":" 成分股明细",
+                                                    "fixedcount":"3",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"证券简称"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"挂牌日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"转让方式",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"总股本(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"流通股本(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"总资产(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"净资产(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"营业收入(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"净利润(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"最新财年",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "caption":"证监会行业分类",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"一级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"二级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"新三板行业划分(管理型)",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"一级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"二级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"三级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"四级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"新三板行业划分(投资型)",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"一级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B8",
+                                                                    "caption":"二级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B9",
+                                                                    "caption":"三级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C0",
+                                                                    "caption":"四级",
+                                                                    "width":"240",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,427 @@
+{
+    "Page":
+    {
+        "name":"HKstock.f9.financial_analysis.OperationalCapability",
+        "caption":"运营能力",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "FastDateFilterType":"fastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"HKstock.f9.financial_analysis.OperationalCapability"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"290",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterTypefastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctbuttom",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt2",
+                                    "tablename":"HKstock.f9.financial_analysis.OperationalCapability",
+                                    "caption":"",
+                                    "defSelect":true,
+                                    "fixedcount":"1",
+                                    "reverse":true,
+                                    "headfield":"A3",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"280"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "caption":"开始日期",
+                                            "fieldname":"a0"
+                                        },
+                                        {
+                                            "caption":"截止日期",
+                                            "fieldname":"a1"
+                                        },
+                                        {
+                                            "caption":"日期标志说明",
+                                            "fieldname":"a2"
+                                        },
+                                        {
+                                            "caption":"财政年度",
+                                            "fieldname":"a3"
+                                        },
+                                        {
+                                            "caption":"营运能力",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "caption":"存货周转率",
+                                                    "fieldname":"a5",
+                                                    "columnchart":true,
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "caption":"流动资产周转率",
+                                                    "fieldname":"a6",
+                                                    "columnchart":true,
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "caption":"固定资产周转率",
+                                                    "fieldname":"a7",
+                                                    "columnchart":true,
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "caption":"总资产周转率",
+                                                    "fieldname":"a8",
+                                                    "columnchart":true,
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chart1",
+                                    "tablename":"HKstock.f9.financial_analysis.OperationalCapability",
+                                    "showScales":true,
+                                    "showTools":true,
+                                    "showMenu":true,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,371 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGResearch.Insurance.InsurancePremiums",
+        "caption":"保险公司保费收入",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"JYDB.Topic.ORGResearch.Insurance.InsurancePremiums"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Version":"1",
+                    "CompanyCode":"CompanyCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.Insurance.InsurancePremiumsDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "Type":"10",
+                    "ApiName":"JY.Topic.ReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "dateType":"2",
+                            "fmtQuarterType":"3",
+                            "showNewest":false,
+                            "endDateFmt":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"JY.Topic.ReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"A0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGResearch.Insurance.InsurancePremiums",
+                                    "caption":"保险公司保费收入",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"公司名称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"公司类型"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"资本结构"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"本年累计保费收入(万元)",
+                                            "width":"200",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"同比增长(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"公司代码（从表参数)",
+                                            "fieldname":"A1_1",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "CompanyCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1_1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYDB.Topic.ORGResearch.Insurance.InsurancePremiumsDetail",
+                                                            "aPIIndex":"1",
+                                                            "caption":"保险公司保费收入（历史明细）",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"公司名称",
+                                                                    "width":"230"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"本年累计保费收入(万元)",
+                                                                    "width":"200",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"同比增长(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

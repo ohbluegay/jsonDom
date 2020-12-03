@@ -1,0 +1,439 @@
+{
+    "Page":
+    {
+        "name":"nqdb.f9.ShareholderTransaction",
+        "caption":"重要股东交易记录",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"nqdb.f9.ShareholderTransaction"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "TransName":"TransName",
+                    "ApiName":"nqdb.f9.TransactionHistory"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2015-10-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "btnState":"2"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"nqdb.f9.ShareholderTransaction",
+                                    "caption":"重要股东交易记录(主表)",
+                                    "fixedcount":"3",
+                                    "defselect":true,
+                                    "autoChart":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股东名称",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"股东类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"变动数量(股)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"交易均价"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"变动前持股数(股)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"变动前占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"变动后持股数(股)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"变动后占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"转让方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"备注",
+                                            "functype":"ftmemo"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "TransName"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport2",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scTable1",
+                                    "sheetCount":"3",
+                                    "tabWidth":"120",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem2",
+                                            "caption":"历史交易明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem2",
+                                            "caption":"历史交易明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt12",
+                                                    "tablename":"nqdb.f9.TransactionHistory",
+                                                    "caption":"重要股东交易记录(子表)",
+                                                    "fixedcount":"3",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"股东名称",
+                                                            "width":"180"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"交易日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"变动数量(股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"交易均价"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"变动前持股数(股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"变动前占比(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"变动后持股数(股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"变动后占比(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"备注",
+                                                            "functype":"ftmemo"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

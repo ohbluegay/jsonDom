@@ -1,0 +1,462 @@
+{
+    "Page":
+    {
+        "name":"HKStrock.f9.transaction_statistics.ImportantShareholdersTrading",
+        "caption":"重要股东买卖",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "ApiName":"HKStrock.f9.transaction_statistics.ImportantShareholdersTrading",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"310",
+                            "formwidth":"240"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"240",
+                                    "column":"2",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb21",
+                                            "caption":"近三月",
+                                            "mapvalue":"Latest3Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb22",
+                                            "caption":"近六月",
+                                            "mapvalue":"Latest6Month",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctGround",
+                    "position":"240",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Chart",
+                                        "attrs":
+                                        {
+                                            "name":"JYShareStru",
+                                            "tablename":"ImportantShareholdersTradingImageRow",
+                                            "readType":"crtNormal",
+                                            "caption":"股价走势图",
+                                            "fixText":false,
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "fieldfunc":"cffHorz"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"股价(元)",
+                                                    "chartType":"ctLine"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"变动股数-好仓",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"变动股数-淡仓",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"变动股数-可供借出的股份",
+                                                    "leftAxis":false
+                                                }
+
+                                            ],
+                                            "tag_attacheditem":
+                                            [
+                                                {
+                                                    "tablename":"ImportantShareholdersTradingImage2Row",
+                                                    "indexfn":"A0",
+                                                    "hostlinefn":"A1",
+                                                    "ptHintfn":"A6",
+                                                    "iconTypefn":"A2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"ImportantShareholdersTradingRow",
+                                            "caption":"",
+                                            "defSelect":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"变动日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"持有人姓名",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"变动股数(股)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"持有权益类型",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"场内每股平均价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"场外每股平均代价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"事件前持股总数(股)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"事件前持股占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"事件后持股总数(股)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"事件后持股占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"持有人性质",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"公告日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"披露原因",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,448 @@
+{
+    "Page":
+    {
+        "name":"ValueAnalysisReport",
+        "caption":"市值分析比较",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"1",
+                    "ApiName":"ValueAnalysisReport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Page":
+                    {
+                        "PageNo":1,
+                        "PageSize":"PageSize"
+                    },
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A6",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"2",
+                    "ApiName":"ValueAnalysisReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustry",
+                            "caption":"行业",
+                            "param":"Industry",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"1;2;3;4;5",
+                            "itemindex":"2",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTop",
+                            "caption":"查看行业内",
+                            "param":"PageSize",
+                            "paramV1":"Pagesize",
+                            "items":"前20成份股;全部成份股",
+                            "mapValues":"20;10000",
+                            "itemindex":"0",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport0",
+                            "caption":"报表容器",
+                            "padding":"2",
+                            "borderSides":"0",
+                            "align":"alTop",
+                            "height":"104"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport01",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt01",
+                                            "tablename":"ValueAnalysisReport",
+                                            "caption":"",
+                                            "fixedcount":"4",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"简称"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"最新日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"最新收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最新涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"总市值(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"流通市值(亿元)"
+                                                },
+                                                {
+                                                    "caption":"每股收益",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"TTM"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"本年"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"下一年"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"市盈率PE",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"TTM"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"本年"
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "caption":"下一年"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"市净率PB(MRQ)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"市现率PCF(TTM)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"市销率PCF(TTM)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"ValueAnalysisReport",
+                                    "caption":"",
+                                    "fixedcount":"4",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"110",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"最新收盘价(元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"最新涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"总市值(亿元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"流通市值(亿元)"
+                                        },
+                                        {
+                                            "caption":"每股收益",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"TTM"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率PE",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"TTM"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"市净率PB(MRQ)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"市现率PCF(TTM)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"市销率PCF(TTM)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

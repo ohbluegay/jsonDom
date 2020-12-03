@@ -1,0 +1,510 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGManage.IndustryStaffStat",
+        "caption":"行业员工统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Level":"Level",
+                    "Standard":"Standard",
+                    "ApiName":"JYDB.Topic.ORGManage.IndustryStaffStat"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"endYear;-1"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Level":"Level",
+                    "Standard":"Standard",
+                    "InduCode":"InduCode",
+                    "ApiName":"JYDB.Topic.ORGManage.IndustryStaffStatDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbEndYear",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "paramV1":"EndDate-12-31",
+                            "datetype":"3",
+                            "fmtMonth":"."
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbStandard",
+                            "left":"10",
+                            "width":"150",
+                            "caption":"行业类型",
+                            "param":"Standard",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"'22','Level':'1;22','Level':'2;24','Level':'1;24','Level':'2;24','Level':'3'",
+                            "itemIndex":"2",
+                            "Level":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGManage.IndustryStaffStat",
+                                    "caption":"行业员工统计",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"员工总数",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"按专业(均值)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"管理及行政人员",
+                                                    "width":"260"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"研发及技术人员",
+                                                    "width":"260"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"财务人员",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"生产人员",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"销售人员",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"其他"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"按学历(均值)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"博士及以上",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"硕士"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"本科"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"专科"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"其他"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InduCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"公司明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"公司明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.ORGManage.IndustryStaffStatDetail",
+                                                            "caption":"行业员工统计-明细",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1_2",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"员工总数",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"按专业(均值)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"管理及行政人员",
+                                                                            "width":"200"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"研发及技术人员",
+                                                                            "width":"200"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"财务人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"生产人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"销售人员"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"其他"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"按学历(均值)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"按学历(均值)-博士及以上",
+                                                                            "width":"200"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"硕士"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"本科"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"专科"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"其他"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"所属行业",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"证监会行业",
+                                                                            "algmt":"taLeftJustify",
+                                                                            "width":"180"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"申万行业",
+                                                                            "algmt":"taLeftJustify",
+                                                                            "width":"180"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

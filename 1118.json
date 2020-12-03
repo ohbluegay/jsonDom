@@ -1,0 +1,663 @@
+{
+    "Page":
+    {
+        "name":"FinancialData",
+        "caption":"财务数据",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Page":
+                    {
+                        "PageSize":"PageSize",
+                        "PageNo":"1"
+                    },
+                    "StandardCode":"StandardCode",
+                    "ReportDate":"ReportDate",
+                    "TradeTypes":"TradeTypes",
+                    "MarketTypes":"MarketTypes",
+                    "ApiName":"FinancialData"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":true,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Page":
+                    {
+                        "PageSize":"PageSize",
+                        "PageNo":"1"
+                    },
+                    "StandardCode":"StandardCode",
+                    "ReportDate":"ReportDate",
+                    "TradeTypes":"TradeTypes",
+                    "MarketTypes":"MarketTypes",
+                    "CountType":"CountType",
+                    "ApiName":"FinancialDataStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(-1,
+                            0,
+                            0)",
+                            "value":"2015-12-31"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter1",
+                            "caption":"统计筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect2",
+                                    "borderSides":"9",
+                                    "column":"1",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx5",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"mkt2",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx6",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"tdt2",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "showcaption":false,
+                                    "borderSides":"8",
+                                    "param":"CountType",
+                                    "width":"95",
+                                    "column":"2",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"均值",
+                                            "left":"20",
+                                            "mapvalue":"AVG",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中值",
+                                            "left":"20",
+                                            "mapvalue":"MID",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"最低值",
+                                            "left":"20",
+                                            "mapvalue":"MIN",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"最高值",
+                                            "left":"20",
+                                            "mapvalue":"MAX",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnfilter2",
+                            "caption":"明细筛选",
+                            "formwidth":"250",
+                            "borderSides":"5"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lncsect1",
+                                    "borderSides":"8",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx3",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"市场",
+                                            "param":"MarketTypes",
+                                            "paramV1":"mkt1",
+                                            "items":"股转系统;沪市主板A股;深市主板A股;中小板;创业板",
+                                            "mapValues":"GZXT;SHAG;SZAG;ZXB;CYB",
+                                            "multiselect":true,
+                                            "itemindex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx2",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"转让方式",
+                                            "param":"TradeTypes",
+                                            "paramV1":"tdt1",
+                                            "items":"全部;协议;做市;竞价",
+                                            "mapValues":"ALL;XY;ZS;JJ",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbx4",
+                                            "width":"130",
+                                            "left":"16",
+                                            "caption":"行业内展示",
+                                            "param":"PageSize",
+                                            "paramV1":"PageSizeItem",
+                                            "items":"前20条成份股;前50条成份股;全部",
+                                            "mapValues":"20;50;0",
+                                            "itemIndex":"0"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxstdcode1",
+                            "lblalign":true,
+                            "width":"150",
+                            "caption":"行业",
+                            "param":"StandardCode",
+                            "paramV1":"stdc",
+                            "items":"证监会行业一级;证监会行业二级;管理型行业一级;管理型行业二级;管理型行业三级;管理型行业四级;投资型行业一级;投资型行业二级;投资型行业三级;投资型行业四级;国民经济行业一级;国民经济行业二级;国民经济行业三级;国民经济行业四级",
+                            "mapValues":"'22','Level':'1;22','Level':'2;25','Level':'1;25','Level':'2;25','Level':'3;25','Level':'4;26','Level':'1;26','Level':'2;26','Level':'3;26','Level':'4;27','Level':'1;27','Level':'2;27','Level':'3;27','Level':'4'",
+                            "itemIndex":"0",
+                            "Level":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"datecombobox",
+                        "attrs":
+                        {
+                            "name":"dtcmbbxrpt",
+                            "width":"110",
+                            "caption":"报告期",
+                            "lblalign":true,
+                            "param":"ReportDate",
+                            "yearOffset":"0",
+                            "ascending":false,
+                            "yearCount":"3",
+                            "dateTimeType":"2",
+                            "itemIndex":"1",
+                            "filterReport":"10"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX",
+                    "btnvisible":true,
+                    "position":"200"
+                },
+                "children":
+                [
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctUp",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"FinancialDataStat",
+                                    "apiindex":"1",
+                                    "caption":"统计数据",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"150",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"140",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"Name",
+                                            "caption":"统计名称",
+                                            "width":"160"
+                                        },
+                                        {
+                                            "fieldname":"OperatingEevenue",
+                                            "caption":"营业收入(万元)"
+                                        },
+                                        {
+                                            "fieldname":"OperatingProfit",
+                                            "caption":"营业利润(万元)"
+                                        },
+                                        {
+                                            "fieldname":"BelongComOwnersProfit",
+                                            "caption":"归属母公司净利润(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"NetProfitCut",
+                                            "caption":"扣除非经营性损益后的净利润(万元)",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"FlowCapital",
+                                            "caption":"流动资产(万元)"
+                                        },
+                                        {
+                                            "fieldname":"NoFlowCapital",
+                                            "caption":"非流动资产(万元)"
+                                        },
+                                        {
+                                            "fieldname":"TotalAssets",
+                                            "caption":"资产合计(万元)"
+                                        },
+                                        {
+                                            "fieldname":"FlowDebts",
+                                            "caption":"流动负债(万元)"
+                                        },
+                                        {
+                                            "fieldname":"NoFlowDebts",
+                                            "caption":"非流动负债(万元)"
+                                        },
+                                        {
+                                            "fieldname":"TotalDebts",
+                                            "caption":"负债合计(万元)"
+                                        },
+                                        {
+                                            "fieldname":"ShareHolderEquity",
+                                            "caption":"股东权益(万元)"
+                                        },
+                                        {
+                                            "fieldname":"NetOperateCashFlow",
+                                            "caption":"经营活动现金净额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"NetInvestCashFlow",
+                                            "caption":"投资活动现金净额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"NetFinanceCashFlow",
+                                            "caption":"筹资活动现金净额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"CashEquivalentIncrease",
+                                            "caption":"现金流量净增加额(万元)",
+                                            "width":"180"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDn",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"FinancialData",
+                                            "caption":"财务数据",
+                                            "reverse":false,
+                                            "showHead":true,
+                                            "fixedcount":"3",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"secuCode",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"secuName",
+                                                    "caption":"证券简称",
+                                                    "width":"80"
+                                                },
+                                                {
+                                                    "filedname":"operatingEevenue",
+                                                    "caption":"营业收入(万元)"
+                                                },
+                                                {
+                                                    "filedname":"operatingProfit",
+                                                    "caption":"营业利润(万元)"
+                                                },
+                                                {
+                                                    "filedname":"belongComOwnersProfit",
+                                                    "caption":"归属母公司净利润(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "filedname":"netProfitCut",
+                                                    "caption":"扣除非经营性损益后的净利润(万元)",
+                                                    "width":"230"
+                                                },
+                                                {
+                                                    "filedname":"flowCapital",
+                                                    "caption":"流动资产(万元)"
+                                                },
+                                                {
+                                                    "filedname":"noFlowCapital",
+                                                    "caption":"非流动资产(万元)"
+                                                },
+                                                {
+                                                    "filedname":"totalAssets",
+                                                    "caption":"资产合计(万元)"
+                                                },
+                                                {
+                                                    "filedname":"flowDebts",
+                                                    "caption":"流动负债(万元)"
+                                                },
+                                                {
+                                                    "filedname":"noFlowDebts",
+                                                    "caption":"非流动负债(万元)"
+                                                },
+                                                {
+                                                    "filedname":"totalDebts",
+                                                    "caption":"负债合计(万元)"
+                                                },
+                                                {
+                                                    "filedname":"shareHolderEquity",
+                                                    "caption":"股东权益(万元)"
+                                                },
+                                                {
+                                                    "filedname":"netOperateCashFlow",
+                                                    "caption":"经营活动现金净额(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "filedname":"netInvestCashFlow",
+                                                    "caption":"投资活动现金净额(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "filedname":"netFinanceCashFlow",
+                                                    "caption":"筹资活动现金净额(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "filedname":"cashEquivalentIncrease",
+                                                    "caption":"现金流量净增加额(万元)",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

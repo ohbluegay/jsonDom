@@ -1,0 +1,497 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGManage.EquityIncentive",
+        "caption":"股权激励一览",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ModeCode":"ModeCode",
+                    "ProceCode":"ProceCode",
+                    "StockSource":"StockSource",
+                    "ApiName":"JYDB.Topic.ORGManage.EquityIncentive"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-6;months"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Version":"2",
+                    "Date":"Date",
+                    "GilCode":"GilCode",
+                    "ApiName":"JYDB.Topic.ORGManage.EquityIncentiveDetailed"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbb1",
+                            "caption":"激励模式",
+                            "param":"ModeCode",
+                            "items":"全部;限制性股票;业绩股票;管理层持股;股票期权;股票增值权;虚拟股票;激励基金;未明确;其他",
+                            "mapValues":"1;10;13;15;21;23;25;31;90;99",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "width":"120",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbb2",
+                            "caption":"方案进度",
+                            "param":"ProceCode",
+                            "items":"全部;意向;预案;决案;否决;批准;未实施终止;实施中;实施完成",
+                            "mapValues":"1;1000;1001;1004;1007;1013;1016;1019;1022",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "width":"110",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbb3",
+                            "caption":"股份来源",
+                            "param":"StockSource",
+                            "items":"全部;发行股份;回购股份;存量股份;其他来源",
+                            "mapValues":"1;11;13;15;99",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGManage.EquityIncentive",
+                                    "caption":"股权激励一览",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"首次披露日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"方案进度",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"激励标的",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"激励总数(万股/万份)",
+                                            "width":"140"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"占总股本比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"每股价格/期权行权价",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"价格确定",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"有效期(年)"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"股份来源",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"授权次数"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"股东大会公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"实施日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"方案说明",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"激励股票出售条件",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"期权行权条件",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"要素变更情况",
+                                            "algmt":"taCenter",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "F":"popfrm1",
+                                                    "P":
+                                                    [
+                                                        "Date",
+                                                        "GilCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B4",
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"申万行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"要素变更"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGManage.EquityIncentiveDetailed",
+                                    "caption":"要素变更",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"1",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"激励类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"激励总数(万股/万份)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"变动数量(万股/万份)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"每股价格/行权价"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"变更原因",
+                                            "functype":"ftMemo",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"备注",
+                                            "algmt":"taLeftJustify",
+                                            "width":"180"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

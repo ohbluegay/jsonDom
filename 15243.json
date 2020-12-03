@@ -1,0 +1,671 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.SHResearch.AppointmentSec",
+        "caption":"约定购回证券交易明细",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "TradeType":"TradeType",
+                    "RepurchaseType":"RepurchaseType",
+                    "ApiName":"JYDB.Topic.SHResearch.AppointmentSec"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "SecCode":"SecCode",
+                    "TradeType":"TradeType",
+                    "RepurchaseType":"RepurchaseType",
+                    "ApiName":"JYDB.Topic.SHResearch.AppointmentSecRangeStat"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "Client":"Client",
+                    "TradeType":"TradeType",
+                    "RepurchaseType":"RepurchaseType",
+                    "ApiName":"JYDB.Topic.SHResearch.AppointmentSecSHDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"BeganDate",
+                            "caption":"开始日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTradeType",
+                            "caption":"交易类型",
+                            "param":"TradeType",
+                            "items":"全部;初始交易;购回交易;暂停交易;终止交易",
+                            "mapValues":"0;100;200;300;400",
+                            "itemIndex":"0",
+                            "width":"120",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRepurchaseType",
+                            "caption":"购回类型",
+                            "param":"RepurchaseType",
+                            "items":"全部;到期购回;提前购回;延期购回;终止购回;其它约定方式",
+                            "mapValues":"0;201;202;203;204;209",
+                            "itemIndex":"0",
+                            "width":"120",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.SHResearch.AppointmentSec",
+                                    "caption":" 约定购回证券交易",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0_1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"交易状态",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"股东名称",
+                                            "algmt":"taLeftJustify",
+                                            "width":"300"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"股东类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"交易数量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"占自身持股比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"交易前持股占总股本比例(%)",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"交易后持股占总股本比例(%)",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"约定购回期限",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"购回/初始交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"购回交易类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"交易对手",
+                                            "width":"200",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"证监会行业",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"申万行业",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4_1",
+                                            "hide":true,
+                                            "caption":"客户代码(从表参数Client)",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "SecCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "Client"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A4_1"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券区间交易统计",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"股东历史交易明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券区间交易统计",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.SHResearch.AppointmentSecRangeStat",
+                                                            "caption":"约定购回证券交易-区间交易统计",
+                                                            "fixedcount":"1",
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "caption":"初始交易",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A0",
+                                                                            "caption":"累计初始交易次数",
+                                                                            "algmt":"taRightJustify",
+                                                                            "width":"150"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"累计交易股东数"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"累计交易数量(万股)",
+                                                                            "width":"150"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"占公司总股本比例(%)",
+                                                                            "width":"150"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"购回交易",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"累计购回交易次数"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"累计交易股东数"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"累计交易数量(万股)",
+                                                                            "width":"150"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"占公司总股本比例(%)",
+                                                                            "width":"150"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"最新剩余未购回股数(万股)",
+                                                                    "width":"180"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"股东历史交易明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "aPIIndex":"2",
+                                                            "tablename":"JYDB.Topic.SHResearch.AppointmentSecSHDetail",
+                                                            "caption":" 约定购回证券交易-股东交易明细",
+                                                            "fixedcount":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"公告日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"交易状态",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"股东类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"交易数量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"占自身持股比例(%)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"交易前持股占总股本比例(%)",
+                                                                    "width":"200"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"交易后持股占总股本比例(%)",
+                                                                    "width":"200"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"约定购回期限",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"购回/初始交易日期",
+                                                                    "width":"150",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"购回交易类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"交易对手",
+                                                                    "width":"200",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

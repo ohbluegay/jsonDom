@@ -1,0 +1,616 @@
+{
+    "Page":
+    {
+        "name":"HKTopic.SecondMarket.IndustryTradeStat",
+        "caption":"分行业交易量统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Category":"Category",
+                    "Currency":"Currency",
+                    "Period":"Period",
+                    "ApiName":"HKTopic.SecondMarket.IndustryTradeStat"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Category":"Category",
+                    "Period":"Period",
+                    "IndustryNum":"IndustryNum",
+                    "ApiName":"HKTopic.SecondMarket.IndustryTradeStatHistory"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Category":"Category",
+                    "Period":"Period",
+                    "IndustryNum":"IndustryNum",
+                    "ApiName":"HKTopic.SecondMarket.IndustryTradeStatStock"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStandard",
+                            "caption":"行业分类",
+                            "param":"Standard",
+                            "width":"160",
+                            "items":"聚源行业分类一级;聚源行业分类二级;聚源行业分类三级;中证指数行业分类一级;中证指数行业分类二级;中证指数行业分类三级;恒生行业分类一级;恒生行业分类二级;恒生行业分类三级",
+                            "mapValues":"'8','Level':'1;8','Level':'2;8','Level':'3;12','Level':'1;12','Level':'2;12','Level':'3;100','Level':'1;100','Level':'2;100','Level':'3'",
+                            "lblalign":true,
+                            "itemIndex":"6",
+                            "Level":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCategory",
+                            "caption":"证券类型",
+                            "param":"Category",
+                            "width":"80",
+                            "items":"全部;H股;港股;红筹股",
+                            "mapValues":"ALL;HG;GG;HCG",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxPeriod",
+                            "caption":"统计周期",
+                            "param":"Period",
+                            "width":"60",
+                            "items":"日;周;月;年",
+                            "mapValues":"0;1;2;3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCurrency",
+                            "caption":"币种",
+                            "param":"Currency",
+                            "items":"港币;人民币",
+                            "mapValues":"0;1",
+                            "width":"80",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKTopic.SecondMarket.IndustryTradeStat",
+                                    "fixedcount":"4",
+                                    "defSelect":true,
+                                    "caption":"",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"a1_0",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"成交量(亿股)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"成交额(亿元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"占总成交额比重",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "IndustryNum"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "a0"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "IndustryNum"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "a0"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable11",
+                                            "sheetCount":"2",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"个股明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "fixedcount":"4",
+                                                            "tablename":"HKTopic.SecondMarket.IndustryTradeStatHistory",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"行业名称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"成交量(亿股)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成交额(亿元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"占总成交额比重(%)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtstr":"4"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"cht12",
+                                                            "tablename":"HKTopic.SecondMarket.IndustryTradeStatHistory",
+                                                            "caption":"",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"成交量(亿股)",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成交额(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"占总成交额比重(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftAxis":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"个股明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "fixedcount":"4",
+                                                            "tablename":"HKTopic.SecondMarket.IndustryTradeStatStock",
+                                                            "caption":"",
+                                                            "aPIIndex":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成交量(亿股)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtstr":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"成交额(亿元)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtstr":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"占总成交额比重(%)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtstr":"4"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

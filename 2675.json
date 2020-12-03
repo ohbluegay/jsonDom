@@ -1,0 +1,438 @@
+{
+    "Page":
+    {
+        "name":"JYManagerHoldPay",
+        "caption":"报告期管理层持股及报酬",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"JYManagerHoldPay.A8",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"JYManagerHoldPay.A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYManagerHoldPay",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"shtctrl1",
+                            "sheetCount":"2",
+                            "tabWidth":"150",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"shtitem11",
+                                    "caption":"管理层持股",
+                                    "show":true
+                                },
+                                {
+                                    "name":"shtitem12",
+                                    "caption":"管理层报酬",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"shtitem11",
+                                    "caption":"管理层持股",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"JYManagerHoldPay",
+                                            "caption":"管理层持股",
+                                            "cansort":false,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "type":"ftcollect"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"姓名"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"职务"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"持股数(股)",
+                                                    "width":"150",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"持股数较年初变动(股)",
+                                                    "width":"170",
+                                                    "algmt":"taRightJustify",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"持股数变动原因"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"shtitem12",
+                                    "caption":"管理层报酬",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"JYManagerHoldPay",
+                                            "caption":"管理层报酬",
+                                            "cansort":false,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "type":"ftcollect"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"姓名"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"职务"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"报酬(元)",
+                                                    "width":"120",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"报酬较上年同期变动(元)",
+                                                    "width":"150",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,587 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.MarketTradeStatGil",
+        "caption":"市场交易统计(聚源统计)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Period":"Period",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.TradeStatistic.MarketTradeStatGil"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStatPeriod",
+                            "caption":"统计周期",
+                            "width":"70",
+                            "param":"Period",
+                            "paramV1":"StatPeriod",
+                            "items":"日;周;月;年",
+                            "mapValues":"0;1;2;3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegan",
+                            "lblalign":true,
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "paramV1":"BeganDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "lblalign":true,
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"ctReport1",
+                                            "caption":" 市场交易统计",
+                                            "tablename":"Topic.TradeStatistic.MarketTradeStatGil",
+                                            "fixedcount":"2",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "caption":"合计",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"做市",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"集合竞价/协议",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"创新层",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"C1",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"C2",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"C3",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"基础层",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"C4",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"C5",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"C6",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"两网及退市",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"成交股票数(家)",
+                                                            "fmtstr":"0"
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"统计图",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"统计图",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "tablename":"Topic.TradeStatistic.MarketTradeStatGil",
+                                                    "showList":true,
+                                                    "showgroup":true,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "fieldFunc":"cffDate"
+                                                        }
+
+                                                    ],
+                                                    "tag_itemGroup":
+                                                    [
+                                                        {
+                                                            "caption":"合计",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"做市",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"集合竞价/协议",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"创新层",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"C1",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C2",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C3",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"基础层",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"C4",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C5",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"C6",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"两网及退市",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"成交量(万股)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"成交额(万元)",
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"成交股票数(家)",
+                                                                    "leftaxis":false,
+                                                                    "chartType":"ctLine",
+                                                                    "decidig":"0"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

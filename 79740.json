@@ -1,0 +1,535 @@
+{
+    "Page":
+    {
+        "name":"HKTopic.ShorSaleDetail",
+        "caption":"港股卖空成交明细",
+        "sector":"SECTOR_TREE_HK",
+        "checked":"SECTOR_CHECKED_HK",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"HKTopic.ShorSaleDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"HKTopic.ShorSaleDetailHistory"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKTopic.ShorSaleDetail",
+                                    "fixedcount":"4",
+                                    "defSelect":true,
+                                    "caption":"",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"上午卖空成交",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"卖空股数(股)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"卖空金额(元)",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"全天总成交",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"卖空股数(股)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"总成交量(股)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"卖空金额(元)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"总成交额(元)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"调整后全天卖空成交",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"卖空股数(股)",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"卖空金额(元)",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"币种",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"是否指定",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"聚源行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"恒生行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"证券类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"上市板块",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"InnerCode子表参数",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable11",
+                                            "sheetCount":"2",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "fixedcount":"4",
+                                                            "tablename":"HKTopic.ShorSaleDetailHistory",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "caption":"上午卖空成交",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"卖空股数(股)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"卖空金额(元)",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"全天总成交",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"卖空股数(股)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"总成交量(股)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"占比(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"卖空金额(元)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"总成交额(元)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"调整后全天卖空成交",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"卖空股数(股)",
+                                                                            "fmtstr":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"卖空金额(元)",
+                                                                            "fmtstr":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"币种",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

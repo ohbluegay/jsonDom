@@ -1,0 +1,664 @@
+{
+    "Page":
+    {
+        "name":"Bond.F9.FinanceAnalysis.QFinanceIndex",
+        "caption":"单季度财务指标",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"ZB.A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "GilCode":"GilCode",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Bond.F9.FinanceAnalysis.QFinanceIndex"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt11",
+                                    "tablename":"ZB",
+                                    "caption":"单季度财务指标",
+                                    "headfield":"A0",
+                                    "fixedcount":"1",
+                                    "reverse":true,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"320"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"单季度.每股收益EPS(元)",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"单季度.扣除非经常损益后的净利润(元)",
+                                            "columnchart":true
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"单季度.经营活动净收益(元)",
+                                            "columnchart":true
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"单季度.价值变动净收益(元)",
+                                            "columnchart":true
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"单季度.净资产收益率ROE",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"单季度.净资产收益率(扣除非经常损益)",
+                                            "columnchart":true
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"单季度.总资产净利率ROA",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"单季度.销售净利率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"单季度.销售毛利率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"单季度.营业总成本/营业总收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"单季度.营业利润/营业总收入 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"单季度.净利润/营业总收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"单季度.销售费用/营业总收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"单季度.管理费用/营业总收入 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"单季度.财务费用/营业总收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"单季度.经营活动净收益/利润总额",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"单季度.价值变动净收益/利润总额 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"单季度.扣除非经常损益后的净利润/净利润 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"单季度.销售商品提供劳务收到的现金/营业收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"单季度.经营活动产生的现金流量净额/营业收入",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"单季度.经营活动产生的现金流量净额/经营活动净收益",
+                                            "columnchart":true
+                                        },
+                                        {
+                                            "fieldname":"C3",
+                                            "caption":"单季度.每股收益EPS同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C4",
+                                            "caption":"单季度.每股收益EPS环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C5",
+                                            "caption":"单季度.营业总收入同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C6",
+                                            "caption":"单季度.营业总收入环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C7",
+                                            "caption":"单季度.营业收入同比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C8",
+                                            "caption":"单季度.营业收入环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"C9",
+                                            "caption":"单季度.营业成本同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D0",
+                                            "caption":"单季度.营业成本环比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D1",
+                                            "caption":"单季度.毛利同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D2",
+                                            "caption":"单季度.毛利环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D3",
+                                            "caption":"单季度.营业利润同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D4",
+                                            "caption":"单季度.营业利润环比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D5",
+                                            "caption":"单季度.净利润同比增长率 ",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D6",
+                                            "caption":"单季度.净利润环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D7",
+                                            "caption":"单季度.归属母公司股东的净利润同比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D8",
+                                            "caption":"单季度.归属母公司股东的净利润环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"D9",
+                                            "caption":"单季度.扣除非经常性损益后的净利润同比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        },
+                                        {
+                                            "fieldname":"E0",
+                                            "caption":"单季度.扣除非经常性损益后的净利润环比增长率",
+                                            "columnchart":true,
+                                            "fmtStr":"4"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chartPop1",
+                                    "tablename":"ZB",
+                                    "showScales":true,
+                                    "showTools":false,
+                                    "showMenu":false,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

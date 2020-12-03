@@ -1,0 +1,511 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.IndexQuote",
+        "caption":"三板指数行情",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"Topic.TradeStatistic.IndexParam"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "InnerCode":"InnerCode",
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.TradeStatistic.IndexQuote"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTransferSectorType",
+                            "showcaption":false,
+                            "apiindex":"0",
+                            "tablename":"Topic.TradeStatistic.IndexParam",
+                            "itemField":"a0",
+                            "mapField":"a1",
+                            "param":"InnerCode",
+                            "lblalign":true,
+                            "width":"120"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegan",
+                            "caption":"日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "lblalign":true,
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctnGround1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctnData1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tableName":"IndexQuote",
+                                            "caption":" 三板指数行情",
+                                            "fixedcount":"2",
+                                            "apiindex":"1",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A1",
+                                                    "datatype":"ctstring",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A2",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"涨跌幅(%)"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"开盘价(元)"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"最高价(元)"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"最低价(元)"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"昨日收盘价(元)"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"成交量(万股)"
+                                                },
+                                                {
+                                                    "filedname":"A9",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"成交额(万元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctnData2",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"sheetcontrol",
+                                "attrs":
+                                {
+                                    "name":"shtControl",
+                                    "sheetCount":"2",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"走势图",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"走势图",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart1",
+                                                    "tablename":"IndexQuote",
+                                                    "showList":true,
+                                                    "showRightAxis":true,
+                                                    "apiindex":"1",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "fieldFunc":"cffHorz"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"收盘价",
+                                                            "chartType":"ctLine",
+                                                            "leftAxis":false
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"涨跌幅",
+                                                            "chartType":"ctBar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"成交量",
+                                                            "chartType":"ctBar"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "fieldFunc":"cffValue",
+                                                            "caption":"成交额",
+                                                            "chartType":"ctBar",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"sheetitem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"指数信息",
+                                            "align":"alClient",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt2",
+                                                    "tableName":"IndexComp",
+                                                    "caption":"指数信息",
+                                                    "apiindex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A0",
+                                                            "datatype":"ctstring",
+                                                            "caption":"指数名称"
+                                                        },
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"指数代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"成分股个数",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"sheetitem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem13",
+                                            "caption":"成分股明细",
+                                            "align":"alClient",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt3",
+                                                    "tableName":"IndexCompDetail",
+                                                    "caption":"成分股明细",
+                                                    "fixedcount":"3",
+                                                    "apiindex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券简称"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"是否成分股",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "datatype":"ctstring",
+                                                            "caption":"纳入时间",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A5",
+                                                            "datatype":"ctstring",
+                                                            "caption":"剔除时间",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证监会行业",
+                                                            "width":"240"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

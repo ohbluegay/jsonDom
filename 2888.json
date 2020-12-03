@@ -1,0 +1,571 @@
+{
+    "Page":
+    {
+        "name":"ProfitForecastReport",
+        "caption":"盈利预测比较",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"1",
+                    "ApiName":"ProfitForecastReport"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Page":
+                    {
+                        "PageNo":1,
+                        "PageSize":"PageSize"
+                    },
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A8",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Industry":"Industry",
+                    "SecuCode":"SecuCode",
+                    "Judgment":"2",
+                    "ApiName":"ProfitForecastReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustry",
+                            "caption":"行业",
+                            "param":"Industry",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"1;2;3;4;5",
+                            "itemindex":"2",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTop",
+                            "caption":"查看行业内",
+                            "param":"PageSize",
+                            "paramV1":"Pagesize",
+                            "items":"前20成份股;全部成份股",
+                            "mapValues":"20;10000",
+                            "itemindex":"0",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport0",
+                            "caption":"报表容器",
+                            "padding":"2",
+                            "borderSides":"0",
+                            "align":"alTop",
+                            "height":"104"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport01",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt0",
+                                            "tablename":"ProfitForecastReport",
+                                            "caption":"",
+                                            "fixedcount":"4",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"行业",
+                                                    "width":"230"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"简称"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"最新日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"最新收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"投资评级"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"机构数"
+                                                },
+                                                {
+                                                    "caption":"每股收益",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"2017"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"2018"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"2019"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"2020"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"市盈率PE",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"2017"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"2018"
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "caption":"2019"
+                                                        },
+                                                        {
+                                                            "fieldname":"B4",
+                                                            "caption":"2020"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"净利润(亿元)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "caption":"2017"
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "caption":"2018"
+                                                        },
+                                                        {
+                                                            "fieldname":"B7",
+                                                            "caption":"2019"
+                                                        },
+                                                        {
+                                                            "fieldname":"B8",
+                                                            "caption":"2020"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"主营业务收入(亿元)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"B9",
+                                                            "caption":"2017"
+                                                        },
+                                                        {
+                                                            "fieldname":"C0",
+                                                            "caption":"2018"
+                                                        },
+                                                        {
+                                                            "fieldname":"C1",
+                                                            "caption":"2019"
+                                                        },
+                                                        {
+                                                            "fieldname":"C2",
+                                                            "caption":"2020"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"预测机构数(家)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"C3",
+                                                            "caption":"2018"
+                                                        },
+                                                        {
+                                                            "fieldname":"C4",
+                                                            "caption":"2019"
+                                                        },
+                                                        {
+                                                            "fieldname":"C5",
+                                                            "caption":"2020"
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"ProfitForecastReport",
+                                    "caption":"",
+                                    "fixedcount":"4",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"简称",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"最新收盘价(元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"投资评级"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"机构数"
+                                        },
+                                        {
+                                            "caption":"每股收益(元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"上一年"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"下一年"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"再下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"上一年"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"下一年"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"再下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净利润(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"上一年"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"下一年"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"再下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"主营业务收入(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"上一年"
+                                                },
+                                                {
+                                                    "fieldname":"c0",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"c1",
+                                                    "caption":"下一年"
+                                                },
+                                                {
+                                                    "fieldname":"c2",
+                                                    "caption":"再下一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"预测机构数(家)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"c3",
+                                                    "caption":"本年"
+                                                },
+                                                {
+                                                    "fieldname":"c4",
+                                                    "caption":"下一年"
+                                                },
+                                                {
+                                                    "fieldname":"c5",
+                                                    "caption":"再下一年"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,897 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.IndustryValuate",
+        "caption":"行业估值",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "CountMethod":"CountMethod",
+                    "RemoveRule":"RemoveRule",
+                    "IndustryType":"IndustryType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndustryValuate"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1;years"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "IndustryType":"IndustryType",
+                    "IndustryCode":"IndustryCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndustryValuateStock"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "IndustryType":"IndustryType",
+                    "CountMethod":"CountMethod",
+                    "RemoveRule":"RemoveRule",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndustryValuateHistory"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustryType",
+                            "caption":"行业分类",
+                            "param":"IndustryType",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"ZJH1HY;ZJH2HY;SW1HY;SW2HY;SW3HY",
+                            "itemIndex":"0",
+                            "width":"135",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCountMethod",
+                            "caption":"计算方法",
+                            "param":"CountMethod",
+                            "items":"平均法;整体法",
+                            "mapValues":"1;2",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRemoveRule",
+                            "caption":"剔除规则",
+                            "param":"RemoveRule",
+                            "items":"不调整;剔除负值",
+                            "mapValues":"1;2",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.IndustryValuate",
+                                    "caption":"行业估值(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"5",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业代码",
+                                            "width":"75",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"成分股个数",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"市盈率LYR",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"样本数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率TTM",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"样本数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市净率MRQ",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"样本数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市现率TTM",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"样本数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市销率TTM",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"行业"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"最大值"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"最小值"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"样本数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C4",
+                                            "caption":"最大交易日期传入个股详情表",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "EndDate",
+                                                            "IndustryCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1",
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "C4",
+                                                            "A1"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "IndustryCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A1"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"个股明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"历史明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"个股明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValuateStock",
+                                                            "caption":"行业估值(个股明细)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"收盘价(元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"市盈率LYR"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"市盈率TTM"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"市净率MRQ"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"市现率TTM"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"市销率TTM"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValuateStock",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "showscales":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"市盈率LYR",
+                                                                    "charttype":"ctPoint",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"市盈率TTM",
+                                                                    "charttype":"ctPoint"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"市净率MRQ",
+                                                                    "charttype":"ctPoint",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"市现率TTM",
+                                                                    "charttype":"ctPoint",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"市销率TTM",
+                                                                    "charttype":"ctPoint",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"历史明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValuateHistory",
+                                                            "caption":"行业估值(历史明细)",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"行业代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"行业名称",
+                                                                    "width":"180",
+                                                                    "hide":true,
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"成分股个数",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"市盈率LYR",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"行业"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"最大值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"最小值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"样本数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市盈率TTM",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"行业"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"最大值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"最小值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"样本数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市净率MRQ",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"行业"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"最大值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"最小值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"样本数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市现率TTM",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"行业"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"最大值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"最小值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"样本数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市销率TTM",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"C0",
+                                                                            "caption":"行业"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C1",
+                                                                            "caption":"最大值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C2",
+                                                                            "caption":"最小值"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C3",
+                                                                            "caption":"样本数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"C4",
+                                                                    "caption":"最大交易日期传入个股详情表",
+                                                                    "hide":true
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

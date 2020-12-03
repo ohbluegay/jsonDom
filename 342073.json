@@ -1,0 +1,311 @@
+{
+    "Page":
+    {
+        "name":"NQ.Topic.ListStockLevelStat",
+        "caption":"挂牌股票分层统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Level":"Level",
+                    "EndDate":"EndDate",
+                    "ApiName":"NQ.Topic.ListStockLevelStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"层级",
+                            "param":"Level",
+                            "width":"120",
+                            "left":"-20",
+                            "items":"全部;创新层;基础层",
+                            "mapValues":"0;1;2",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"NQ.Topic.ListStockLevelStat",
+                                    "caption":" 股票股票分层统计",
+                                    "fixedcount":"5",
+                                    "defSelect":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "heigh":"120",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "heigh":"140",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"层级",
+                                            "algmt":"taLeftJustify",
+                                            "width":"80"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"符合标准",
+                                            "algmt":"taLeftJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "caption":"共同标准",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"实际成交天数占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"是否完成融资",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"标准一",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"净利润(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"上年净利润(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"平均净利润(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"净资产收益率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"上年净资产收益率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"平均净利润净资产收益率(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"最近3个月日均股东人数",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"标准二",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"营业收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"上年营业收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"营业收入增长率T(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"上年营业收入增长率(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"营业收入复合增长率(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"平均营业收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"总股本(万股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"标准三",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"最近3个月日均市值(万元)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"股东权益(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"做市商家数"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C3",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"230"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

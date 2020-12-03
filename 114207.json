@@ -1,0 +1,212 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.StockSecondaryMarket.MarketChangeStatis",
+        "caption":"市场两融环比变动统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StatisPeriodType":"StatisPeriodType",
+                    "MarketType":"MarketType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.StockSecondaryMarket.MarketChangeStatis"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1;years"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStatisPeriodType",
+                            "caption":"统计周期",
+                            "param":"StatisPeriodType",
+                            "items":"日;周;月;年",
+                            "mapValues":"Day;Week;Month;Year",
+                            "itemIndex":"0",
+                            "lblAlign":true,
+                            "width":"60"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"市场类型",
+                            "param":"MarketType",
+                            "items":"沪深两市;沪市;深市",
+                            "mapValues":"HSLS;HS;SS",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctReport1",
+                    "caption":"报表容器",
+                    "padding":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Report",
+                        "attrs":
+                        {
+                            "name":"rpt1",
+                            "tablename":"JY.Topic.StockSecondaryMarket.MarketChangeStatis",
+                            "caption":"市场两融环比变动统计",
+                            "defselect":true,
+                            "fixedcount":"2",
+                            "dyncolumn":true,
+                            "type":
+                            [
+                                {
+                                    "fieldname":"NonamedIndex",
+                                    "type":"index"
+                                }
+
+                            ],
+                            "tag_row":
+                            [
+                                {
+                                    "rname":"caption",
+                                    "heigh":"100",
+                                    "algmt":"taLeftJustify"
+                                },
+                                {
+                                    "rname":"row",
+                                    "heigh":"120",
+                                    "algmt":"taRightJustify"
+                                }
+
+                            ],
+                            "tag_dynColumn":
+                            [
+                                {
+                                    "fieldname":"A0",
+                                    "caption":"交易日期",
+                                    "algmt":"taCenter"
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

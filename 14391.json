@@ -1,0 +1,484 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.NewStockMarketPerform",
+        "caption":"新股上市后市场表现",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "BeginDate":"BeginDate",
+                    "ApiName":"JYTopic.StockPrimaryMarket.NewStockMarketPerform"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1;"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2016-12-31"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2017-03-09"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"上市日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.NewStockMarketPerform",
+                                    "caption":"新股上市后市场表现",
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"上市日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"发行价格",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"上市流通股数(万股)",
+                                            "width":"140",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"首日开盘溢价率(%)",
+                                            "width":"130",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"连续一字板数",
+                                            "algmt":"taRightJustify",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "caption":"上市首日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"开盘价(元)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"收盘价",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"最高价",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"最低价",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"成交均价",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"成交量(万股)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"成交额(万元)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市5日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市10日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市20日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市60日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市120日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市250日表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"上市以来表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"涨跌幅(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C9",
+                                                    "caption":"换手率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"D0",
+                                            "caption":"网上申购中签率(%)",
+                                            "width":"130",
+                                            "fmtStr":"4",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"D1",
+                                            "caption":"网下申购中签率(%)",
+                                            "width":"130",
+                                            "fmtStr":"4",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"D2",
+                                            "caption":"主承销商",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D3",
+                                                    "caption":"证监会行业",
+                                                    "width":"250"
+                                                },
+                                                {
+                                                    "fieldname":"D4",
+                                                    "caption":"申万行业"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"D5",
+                                            "caption":"证券类型",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

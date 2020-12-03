@@ -1,0 +1,306 @@
+{
+    "Page":
+    {
+        "name":"HKstock.topic.ChangeShareholdingReport",
+        "caption":"股东持股变动",
+        "sector":"SECTOR_TREE_HK",
+        "checked":"SECTOR_CHECKED_HK",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Type":"Type",
+                    "ShareHolder":"ShareHolder",
+                    "ApiName":"HKstock.topic.ChangeShareholdingReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxType",
+                            "caption":"持仓类型",
+                            "param":"Type",
+                            "items":"全部;好仓;淡仓",
+                            "mapValues":"0;1;3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxShareHolder",
+                            "caption":"股东身份",
+                            "param":"ShareHolder",
+                            "items":"实益拥有人;投资经理;持有保证权益的人;所控法团;子女或配偶;与另一人共有;其他",
+                            "mapValues":"SXYYR;TZJL;CYBZQYDR;SKFT;ZNHPO;YLYRGY;OTHER",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKstock.topic.ChangeShareholdingReport",
+                                    "defselect":true,
+                                    "caption":"结算所参与者持股统计",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"变动日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"股东名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"变动类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"变动股数(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"股份类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"变动后",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"持股数(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"持股占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"持股身份",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动前",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"持股数(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"变动前持股占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"持股身份",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"每股平均价(元)"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"次日收盘价(元)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"次日涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"变动原因",
+                                            "functype":"ftMemo"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

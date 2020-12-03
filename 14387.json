@@ -1,0 +1,411 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.NewStockSubReward",
+        "caption":"新股申购回报统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "BeginDate":"BeginDate",
+                    "ApiName":"JYTopic.StockPrimaryMarket.NewStockSubReward"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1;"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2016-06-30"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":""
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"上市日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.NewStockSubReward",
+                                    "caption":"新股申购回报统计",
+                                    "fixedcount":"5",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"上市日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"发行价格(元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"首日市场表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"开盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"开盘价相对发行价涨跌幅(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"收盘价相对发行价涨跌幅(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"成交均价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"成交均价相对发行价涨跌幅(%)",
+                                                    "width":"190"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"开板日期",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"开盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"开盘价相对发行价涨跌幅(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"收盘价相对发行价涨跌幅(%)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"成交均价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"成交均价相对发行价涨跌幅(%)",
+                                                    "width":"190"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"网上申购回报率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"网上申购中签率(%)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"中签率*首日均价涨跌幅(%)",
+                                                    "width":"170",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"中签率*开板日均价涨跌幅(%)",
+                                                    "width":"190",
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"网下申购回报率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"网下申购中签率(%)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"中签率*首日均价涨跌幅(%)",
+                                                    "width":"170",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"中签率*开板日均价涨跌幅(%)",
+                                                    "width":"190",
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"主承销商",
+                                            "width":"200",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"证监会行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C5",
+                                            "caption":"证券类型",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

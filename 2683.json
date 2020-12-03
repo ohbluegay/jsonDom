@@ -1,0 +1,597 @@
+{
+    "Page":
+    {
+        "name":"JYTop10SHCirculate",
+        "caption":"十大流通股东",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"EndDate",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"holdratio",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYTop10SHCirculate"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A3",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"HoldSum",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FlagDate":"FlagDate",
+                    "FlagCode":"FlagCode",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYTop10SHCirculateDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"290",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th"
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd"
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd"
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt2",
+                                    "tablename":"JYTop10SHCirculate",
+                                    "caption":"十大流通股东",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "type":"ftcollect"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"SHList",
+                                            "caption":"股东名称",
+                                            "width":"430"
+                                        },
+                                        {
+                                            "fieldname":"HoldSum",
+                                            "caption":"持股数量(股)",
+                                            "fmtstr":"0",
+                                            "width":"150",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"HoldRatio",
+                                            "caption":"持股比例(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"持股数量较上个报告期增减(股)",
+                                            "fmtstr":"0",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"持股数量较上个报告期增减幅度(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"EquityCharacter",
+                                            "caption":"股本性质",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"OtherShares",
+                                            "caption":"该股东持有的其他证券",
+                                            "width":"150",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "F":"popfrm1",
+                                                    "P":
+                                                    [
+                                                        "FlagDate",
+                                                        "FlagCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "FlagDate",
+                                                        "FlagCode"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "funcByParam":false,
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"股东持股详情"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTop10SHCirculateDetail",
+                                    "apiindex":"1",
+                                    "fixedcount":"2",
+                                    "caption":"十大股东(其他持股详情)",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"A3",
+                                            "type":"ftcollect"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"SecuCode",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"ChiNameAbbr",
+                                            "caption":"简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"首次披露日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"持有股份(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"ZtradableRatio",
+                                            "caption":"占流通股比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"HoldSum",
+                                            "caption":"持有无限售流通股份(股)",
+                                            "fmtstr":"0",
+                                            "width":"160"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"较上个报告期持股增减",
+                                            "width":"170",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"较上个报告期持股增减幅度(%)",
+                                            "width":"170"
+                                        },
+                                        {
+                                            "fieldname":"HoldSumChange",
+                                            "caption":"历史持股数量增减(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"HoldSumChangeRate",
+                                            "caption":"历史持股数量增减幅度(%)",
+                                            "width":"130"
+                                        },
+                                        {
+                                            "fieldname":"EquityCharacter",
+                                            "caption":"股本性质",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"区间涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"SameSHlist",
+                                            "caption":"相同股东持有人",
+                                            "width":"170",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

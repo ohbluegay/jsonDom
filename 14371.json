@@ -1,0 +1,312 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.AuditResultInfo",
+        "caption":"发审委审核结果一览",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A3",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "AuditType":"AuditType",
+                    "AuditResult":"AuditResult",
+                    "ApiName":"JYTopic.StockPrimaryMarket.AuditResultInfo"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"审核日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "lblAlign":true,
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxAuditType",
+                            "caption":"审核类型",
+                            "param":"AuditType",
+                            "items":"全部;新股发行;增发新股;配股;并购重组;发行债券;优先股发行;其他",
+                            "mapValues":"1;2;3;4;5;6;7;8",
+                            "itemindex":"0",
+                            "lblalign":true,
+                            "width":"100"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxAuditResult",
+                            "caption":"审核结果",
+                            "param":"AuditResult",
+                            "items":"全部;通过;有条件通过;未通过;取消审核;暂缓审核;其他",
+                            "mapValues":"1;2;3;4;5;6;7",
+                            "itemindex":"0",
+                            "lblalign":true,
+                            "width":"100"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.AuditResultInfo",
+                                    "caption":"发审委审核结果一览",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公司名称",
+                                            "width":"280"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "width":"90",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称",
+                                            "width":"90",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"审核日期",
+                                            "width":"110",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"审核类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"审核结果",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"会议届次",
+                                            "width":"240",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"审核委员",
+                                            "width":"360",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"预计发行股数(万股)",
+                                            "width":"140",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"预计募集资金(万元)",
+                                            "width":"140",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"上市板块",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"交易所",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"主承销商"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"注册地址",
+                                            "width":"350"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"所在省市",
+                                            "width":"75",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"主营业务及产品",
+                                            "width":"240",
+                                            "functype":"ftMemo"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"所属行业或领域",
+                                            "width":"240",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

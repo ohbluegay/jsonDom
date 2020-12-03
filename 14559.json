@@ -1,0 +1,539 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.StockIssueImplement",
+        "caption":"增发实施",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JYTopic.StockPrimaryMarket.StockIssueImplement",
+                    "IssueImplementDateType":"IssueImplementDateType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIssueImplementDateType",
+                            "param":"IssueImplementDateType",
+                            "width":"120",
+                            "items":"增发公告日;增发上市日;董事会公告日;股东大会公告日",
+                            "mapValues":"ZFGGR;ZFSSR;YAGZR;GDDHR"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.StockIssueImplement",
+                                    "caption":"增发实施",
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"增发公告日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"增发上市日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"股价(元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"增发价",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"增发价(前复权)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"最新",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"折溢价率(%)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"增发前",
+                                            "algmt":"taRightJustify",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"增发后",
+                                            "algmt":"taRightJustify",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"最新市盈率(TTM)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"增发募资情况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"数量(万股)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"预计募资(万元)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"实际募资总额(万元)",
+                                                    "algmt":"taRightJustify",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"实际募资净额(万元)",
+                                                    "algmt":"taRightJustify",
+                                                    "width":"140"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行属性",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"发行方式",
+                                                    "width":"160",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"发行对象",
+                                                    "functype":"ftmemo"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"承销方式"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"公告日",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"董事会",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"股东大会",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"发审委",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C1_2",
+                                                    "caption":"证监会",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"主承销商",
+                                            "width":"140"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"证监会行业",
+                                                    "width":"220"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"申万行业",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"证券类型",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"StockIssueImplement",
+                                    "reportname":"rpt1",
+                                    "tag_params":
+                                    [
+                                        {
+                                            "tag_param":
+                                            [
+                                                {
+                                                    "name":"IssueImplementDateType",
+                                                    "caption":"日期类型"
+                                                },
+                                                {
+                                                    "name":"BeginDate",
+                                                    "caption":"开始日期"
+                                                },
+                                                {
+                                                    "name":"EndDate",
+                                                    "caption":"截止日期"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ],
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"ZFGGR"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"ZFSSR"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"GJ_ZFJ"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"GJ_ZFJ1"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"GJ_ZX"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"GJ_ZYJL"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"ZFQ"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"ZFH"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"ZXSYL"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"ZFMZQK_SL"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"ZFMZQK_YJMZ"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"ZFMZQK_SJMZZE"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "quantfieldname":"ZFMZQK_SJMZJE"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "quantfieldname":"FHSX_FHFS"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "quantfieldname":"FHSX_FHDX"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "quantfieldname":"FHSX_CXFS"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "quantfieldname":"GGR_DSH"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "quantfieldname":"GGR_GDDH"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "quantfieldname":"GGR_FSW"
+                                                },
+                                                {
+                                                    "fieldname":"C1_2",
+                                                    "quantfieldname":"GGR_ZJH"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "quantfieldname":"ZCXS"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "quantfieldname":"HY_ZJHHY"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "quantfieldname":"HY_SWHY"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "quantfieldname":"ZQLX"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

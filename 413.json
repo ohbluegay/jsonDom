@@ -1,0 +1,467 @@
+{
+    "Page":
+    {
+        "name":"JYSupervis",
+        "caption":"主办券商持续督导牌统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TransType":"TransType",
+                    "ListState":"ListState",
+                    "MarketType":"MarketType",
+                    "ApiName":"JYSupervis"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "TransType":"TransType",
+                    "ListState":"ListState",
+                    "MarketType":"MarketType",
+                    "BrokerCode":"BrokerCode",
+                    "ApiName":"JYSupervisDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"市场类型",
+                            "param":"MarketType",
+                            "width":"80",
+                            "lblalign":true,
+                            "items":"全部;新三板;老三板",
+                            "mapValues":"0;1;2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxListState",
+                            "caption":"挂牌状态",
+                            "param":"ListState",
+                            "width":"80",
+                            "lblalign":true,
+                            "items":"全部;已挂牌;待挂牌",
+                            "mapValues":"0;1;9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTransType",
+                            "caption":"转让方式",
+                            "param":"TransType",
+                            "width":"80",
+                            "lblalign":true,
+                            "items":"全部;协议;做市;竞价",
+                            "mapValues":"0;1;2;4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"JYSupervis",
+                                    "caption":"主办券商持续督导统计",
+                                    "fixedcount":"2",
+                                    "defselect":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"150",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"A0",
+                                            "datatype":"ctstring",
+                                            "width":"120",
+                                            "caption":"主办券商"
+                                        },
+                                        {
+                                            "filedname":"A1",
+                                            "datatype":"ctinteger",
+                                            "width":"90",
+                                            "caption":"督导家数",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "filedname":"A2",
+                                            "datatype":"ctnumeric",
+                                            "width":"170",
+                                            "caption":"总股本合计(万股)"
+                                        },
+                                        {
+                                            "filedname":"A3",
+                                            "datatype":"ctnumeric",
+                                            "width":"150",
+                                            "caption":"流通股本合计(万股)"
+                                        },
+                                        {
+                                            "filedname":"A4",
+                                            "datatype":"ctnumeric",
+                                            "width":"140",
+                                            "caption":"总资产均值(万元)"
+                                        },
+                                        {
+                                            "filedname":"A5",
+                                            "datatype":"ctnumeric",
+                                            "width":"140",
+                                            "caption":"净资产均值(万元)"
+                                        },
+                                        {
+                                            "filedname":"A6",
+                                            "datatype":"ctnumeric",
+                                            "width":"140",
+                                            "caption":"营业收入均值(万元)"
+                                        },
+                                        {
+                                            "filedname":"A7",
+                                            "datatype":"ctnumeric",
+                                            "width":"140",
+                                            "caption":"净利润均值(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"证券代码或持续督导编码",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "BrokerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A8"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"shtctrl1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"挂牌公司明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"挂牌公司明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"JYSupervisDetail",
+                                                            "caption":"挂牌公司明细",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"150",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A0",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证券简称"
+                                                                },
+                                                                {
+                                                                    "filedname":"A2",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"转让方式",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A3",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"是否推荐挂牌",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A4",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"最新收盘价(元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A5",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"总股本(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A6",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"流通股本(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A7",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"总资产(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A8",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"净资产(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A9",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"营业收入(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"B0",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"净利润(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"B1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"最新财年",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"B2",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"挂牌日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"B3",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证监会行业",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"230"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

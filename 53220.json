@@ -1,0 +1,267 @@
+{
+    "Page":
+    {
+        "name":"fund.topic.asset_allocation.stock_portfolio.AllHoldingDetail",
+        "caption":"全部持股明细",
+        "sector":"SECTOR_TREE_JJ",
+        "checked":"SECTOR_CHECKED_ALL_JJ",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "FundTypeCode":"FundTypeCode",
+                    "ApiName":"fund.topic.asset_allocation.stock_portfolio.AllHoldingDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"Fund.Topic.AssetAllocation.StockPortFolio.StockPortfolioDetailHalfYearLatestReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbYear",
+                            "caption":"报告期",
+                            "param":"ReportDate",
+                            "dateType":"1",
+                            "showNewest":false,
+                            "filterReport":"10",
+                            "offset":"-1",
+                            "offSetByM":false,
+                            "fmtQuarterType":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"基金类别",
+                            "param":"FundTypeCode",
+                            "items":"股票型;混合型;债券型;保本型",
+                            "mapValues":"1101;1103;1105;1107",
+                            "itemindex":"0",
+                            "width":"90"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"Fund.Topic.AssetAllocation.StockPortFolio.StockPortfolioDetailHalfYearLatestReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbYear",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.topic.asset_allocation.stock_portfolio.AllHoldingDetail",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"基金代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"基金名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"股票代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"股票名称",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"持股数量（万股）",
+                                            "algmt":"taRightJustify",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"半年度持股变动（万股）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"持股市值（万元）",
+                                            "algmt":"taRightJustify",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"持股占流通股比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"占股票投资市值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"160"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"占资产净值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"基金类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"基金公司",
+                                            "width":"180"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,1071 @@
+{
+    "Page":
+    {
+        "name":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+        "caption":"酒类进口量和进口价",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Period":"Period",
+                    "ApiName":"macroindu.topic.FoodAndBeverage.LiquorImportPrice"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Period":"Period",
+                    "ApiName":"macroindu.topic.Vehicle.PeriodType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbReport",
+                            "caption":"统计周期",
+                            "param":"Period",
+                            "items":"月;年",
+                            "mapValues":"Month;Year",
+                            "itemIndex":"0",
+                            "width":"80",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-10,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"macroindu.topic.Vehicle.PeriodType"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem4_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem4_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem5_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                    "caption":"酒类进口量和进口价",
+                                    "dynColumn":true,
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "filedname":"endDate",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"9",
+                                            "tabWidth":"130",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1_month",
+                                                    "caption":"进口单价",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2_month",
+                                                    "caption":"进口数量",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_month",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem4_month",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem1_year",
+                                                    "caption":"进口单价",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem2_year",
+                                                    "caption":"进口数量",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_year",
+                                                    "caption":"进口金额",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem4_year",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem5_year",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1_month",
+                                                    "caption":"进口单价",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1_month",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"葡萄酒:当月进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"啤酒:当月进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2_month",
+                                                    "caption":"进口数量",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt2_month",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"葡萄酒:进口数量:当月值(万吨)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"葡萄酒:进口数量:累计值(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"啤酒:进口数量:当月值(万吨)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"啤酒:进口数量:累计值(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3_month",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt3_month",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"葡萄酒:进口数量:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"葡萄酒:进口数量:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"啤酒:进口数量:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"啤酒:进口数量:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem4_month",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt4_month",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"葡萄酒:当月进口:单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"葡萄酒:进口数量:当月值(万吨)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"葡萄酒:进口数量:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"葡萄酒:进口数量:累计值(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"葡萄酒:进口数量:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"啤酒:当月进口:单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"啤酒:进口数量:当月值(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"啤酒:进口数量:当月同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"啤酒:进口数量:累计值(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"啤酒:进口数量:累计同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1_year",
+                                                    "caption":"进口单价",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1_year",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"葡萄酒:进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"啤酒:进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2_year",
+                                                    "caption":"进口数量",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt2_year",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"葡萄酒:进口数量(万吨)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"啤酒:进口数量(万吨)",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3_year",
+                                                    "caption":"进口金额",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt3_year",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"葡萄酒:进口金额(万元)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"啤酒:进口金额(万元)",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem4_year",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt4_year",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"葡萄酒:进口数量同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"葡萄酒:进口金额同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"啤酒:进口数量同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"啤酒:进口金额同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem5_year",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt5_year",
+                                                            "tablename":"macroindu.topic.FoodAndBeverage.LiquorImportPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"a0",
+                                                                    "caption":"葡萄酒:进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a1",
+                                                                    "caption":"葡萄酒:进口数量(万吨)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a2",
+                                                                    "caption":"葡萄酒:进口数量同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a3",
+                                                                    "caption":"葡萄酒:进口金额(万元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a4",
+                                                                    "caption":"葡萄酒:进口金额同比(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a5",
+                                                                    "caption":"啤酒:进口单价(美元/升)",
+                                                                    "decidig":"2",
+                                                                    "checked":false,
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"a6",
+                                                                    "caption":"啤酒:进口数量(万吨)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a7",
+                                                                    "caption":"啤酒:进口数量同比(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a8",
+                                                                    "caption":"啤酒:进口金额(万元)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"a9",
+                                                                    "caption":"啤酒:进口金额同比(%)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false,
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

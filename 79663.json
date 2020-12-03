@@ -1,0 +1,566 @@
+{
+    "Page":
+    {
+        "name":"HKTopic.PriMarket.NStockIssue",
+        "caption":"新股发行",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "DateType":"DateType",
+                    "ApiName":"HKTopic.PriMarket.NStockIssue"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "PublDate":"PublDate",
+                    "ApiName":"HKTopic.PriMarket.NStockIssueAgentDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCategory",
+                            "caption":"",
+                            "showcaption":false,
+                            "param":"DateType",
+                            "items":"首次信息发布日期;上市日期",
+                            "mapValues":"1;0",
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "showcaption":false,
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKTopic.PriMarket.NStockIssue",
+                                    "fixedcount":"3",
+                                    "defSelect":true,
+                                    "caption":"",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"首次信息发布日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"上市日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"发行方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"发行对象",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"发行价(元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"每股发行价"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"币种",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"招股每股最高价"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"招股每股最低价"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"计划发行数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"总计"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"配售新股"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"配售存量股"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"公开发售新股"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"公开发售存量股"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"预计超额配售"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"预计募集资金(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"总额"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"净额"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"超额配售净额"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"发行费用"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"佣金比例(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"实际发行总股数(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"总计"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"配售新股"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"配售存量股"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"公开发售新股"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"公开发售存量股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"实际超额配售(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"总计"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"超额配售新股"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"超额配售存量股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"实际募集资金(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C9",
+                                                    "caption":"总额"
+                                                },
+                                                {
+                                                    "fieldname":"D0",
+                                                    "caption":"净额"
+                                                },
+                                                {
+                                                    "fieldname":"D1",
+                                                    "caption":"超额配售总额"
+                                                },
+                                                {
+                                                    "fieldname":"D2",
+                                                    "caption":"超额配售净额"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"D3",
+                                            "caption":"每股面值"
+                                        },
+                                        {
+                                            "fieldname":"D4",
+                                            "caption":"面值单位",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"D5",
+                                            "caption":"买卖单位(股/手)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"D6",
+                                            "caption":"发行进程",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"D7",
+                                            "caption":"聚源行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"D8",
+                                            "caption":"恒生行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"D9",
+                                            "caption":"证券类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"E0",
+                                            "caption":"上市板块",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"InnerCode",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "fieldname":"A0",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode",
+                                                        "PublDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "InnerCode",
+                                                        "A2"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"发行中介明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"发行中介明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "tablename":"HKTopic.PriMarket.NStockIssueAgentDetail",
+                                                            "caption":"",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"机构类别"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"机构名称"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

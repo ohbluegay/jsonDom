@@ -1,0 +1,291 @@
+{
+  "Page": {
+    "name": "JYTopic.StockPrimaryMarket.RaiseFundInvestChange",
+    "caption": "募集资金投向变更",
+    "sector": "SECTOR_TREE_ZB",
+    "checked": "SECTOR_CHECKED_ZB",
+    "Request": [
+      {
+        "responsetype": "rtDataTable",
+        "cdatasection": {
+          "Sorts": [
+            {
+              "Field": "A2",
+              "Sort": "desc"
+            }
+          ],
+          "ApiName": "JYTopic.StockPrimaryMarket.RaiseFundInvestChange",
+          "BeginDate": "BeginDate",
+          "EndDate": "EndDate"
+        },
+        "formatParams": [
+          {
+            "key": "EndDate",
+            "value": "nowDay"
+          },
+          {
+            "key": "BeginDate",
+            "value": "nowDay;-1"
+          }
+        ]
+      },
+      {
+        "responsetype": "rtDataTable",
+        "needinit": false,
+        "cdatasection": {
+          "ApiName": "JYTopic.StockPrimaryMarket.RaiseFundInvest_Statement",
+          "Rid": "Rid"
+        }
+      }
+    ],
+    "content": [
+      {
+        "tag": "ToolBar",
+        "attrs": {
+          "name": "lcToolbar"
+        },
+        "children": [
+          {
+            "tag": "Button",
+            "attrs": {
+              "name": "btnRequest"
+            },
+            "children": [
+            ]
+          },
+          {
+            "tag": "Button",
+            "attrs": {
+              "name": "btnOutput",
+              "caption": "数据导出",
+              "bindvalue": "OUTPUT",
+              "imageIndex": "9"
+            },
+            "children": [
+            ]
+          },
+          {
+            "tag": "DatePicker",
+            "attrs": {
+              "name": "dtpBegin",
+              "caption": "变更公告日",
+              "param": "BeginDate",
+              "date": "$GetDate(-1,0,0)",
+              "lblAlign": true
+            },
+            "children": [
+            ]
+          },
+          {
+            "tag": "DatePicker",
+            "attrs": {
+              "name": "dtpEnd",
+              "caption": "至",
+              "param": "EndDate",
+              "date": "$GetDate(0,0,0)",
+              "lblAlign": true
+            },
+            "children": [
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "Container",
+        "attrs": {
+          "name": "ctDataGround1",
+          "caption": "报表容器",
+          "borderSides": "0"
+        },
+        "children": [
+          {
+            "tag": "Container",
+            "attrs": {
+              "name": "ctReport1",
+              "caption": "报表容器",
+              "padding": "0"
+            },
+            "children": [
+              {
+                "tag": "Report",
+                "attrs": {
+                  "name": "rpt1",
+                  "tablename": "JYTopic.StockPrimaryMarket.RaiseFundInvestChange",
+                  "caption": "募集资金投向变更",
+                  "fixedcount": "3",
+                  "unRequest": true,
+                  "type": [
+                    {
+                      "fieldname": "NonamedIndex",
+                      "type": "index"
+                    }
+                  ],
+                  "tag_column": [
+                    {
+                      "caption": "",
+                      "width": "200",
+                      "tag_column": [
+                        {
+                          "fieldname": "A0",
+                          "caption": "证券代码",
+                          "algmt": "taCenter"
+                        },
+                        {
+                          "fieldname": "A1",
+                          "caption": "证券简称",
+                          "algmt": "taLeftJustify"
+                        },
+                        {
+                          "fieldname": "A2",
+                          "caption": "变更公告日",
+                          "algmt": "taCenter"
+                        },
+                        {
+                          "fieldname": "A3",
+                          "caption": "募资方式",
+                          "algmt": "taCenter"
+                        }
+                      ]
+                    },
+                    {
+                      "caption": "原项目",
+                      "width": "200",
+                      "tag_column": [
+                        {
+                          "fieldname": "A4",
+                          "caption": "项目名称",
+                          "width": "220"
+                        },
+                        {
+                          "fieldname": "A5",
+                          "caption": "项目说明",
+                          "width": "100",
+                          "functype": "ftDynTable",
+                          "paramEx": {
+                            "API": {
+                              "R": "1",
+                              "F": "popfrm1",
+                              "P": [
+                                "Rid"
+                              ],
+                              "T": [
+                                "1"
+                              ],
+                              "V": [
+                                "R_id"
+                              ]
+                            }
+                          },
+                          "funcByParam": false,
+                          "algmt": "taCenter"
+                        },
+                        {
+                          "fieldname": "A6",
+                          "caption": "计划投入金额(万元)",
+                          "algmt": "taRightJustify",
+                          "width": "140"
+                        },
+                        {
+                          "fieldname": "A7",
+                          "caption": "截止日期",
+                          "algmt": "taCenter"
+                        },
+                        {
+                          "fieldname": "A8",
+                          "caption": "实际投入金额(万元)",
+                          "algmt": "taRightJustify",
+                          "width": "140"
+                        }
+                      ]
+                    },
+                    {
+                      "caption": "变更后项目",
+                      "width": "200",
+                      "tag_column": [
+                        {
+                          "fieldname": "A9",
+                          "caption": "项目名称",
+                          "width": "220"
+                        },
+                        {
+                          "fieldname": "B0",
+                          "caption": "计划投入金额(万元)",
+                          "algmt": "taRightJustify",
+                          "width": "140"
+                        }
+                      ]
+                    },
+                    {
+                      "caption": "",
+                      "tag_column": [
+                        {
+                          "fieldname": "B1",
+                          "caption": "首次公告日",
+                          "algmt": "taCenter"
+                        }
+                      ]
+                    },
+                    {
+                      "caption": "行业",
+                      "width": "200",
+                      "tag_column": [
+                        {
+                          "fieldname": "B2",
+                          "caption": "证监会行业",
+                          "width": "220"
+                        },
+                        {
+                          "fieldname": "B3",
+                          "caption": "申万行业",
+                          "width": "220"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "children": [
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tag": "PopPage",
+        "attrs": {
+          "name": "popfrm1",
+          "sizePercent": "80",
+          "height": "600",
+          "width": "800",
+          "caption": "项目说明",
+          "dataexport": false
+        },
+        "children": [
+          {
+            "tag": "Container",
+            "attrs": {
+              "name": "ctReport1",
+              "caption": "报表容器",
+              "padding": "0"
+            },
+            "children": [
+              {
+                "tag": "tabmemo",
+                "attrs": {
+                  "name": "JYTopic.StockPrimaryMarket.RaiseFundInvest_Statement",
+                  "apiindex": "1",
+                  "tabField": "A3",
+                  "memoField": "A5",
+                  "tabWidth": "150",
+                  "aPIIndex": "1"
+                },
+                "children": [
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

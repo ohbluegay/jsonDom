@@ -1,0 +1,478 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.ActivityStatistics",
+        "caption":"上市公司调研统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.ActivityStatistics"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.ActivityStatisticsDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Id":"Id",
+                    "ApiName":"JY.Topic.TMainContent"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.ActivityStatistics",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"证券名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"被调研次数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"1月内"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"3月内"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"6月内"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"1年内"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"调研机构家数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"1月内"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"3月内"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"6月内"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"1年内"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"申万行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "B0"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JY.Topic.ActivityStatisticsDetail",
+                                                            "caption":"明细",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"调研日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"活动类别"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"标题"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"主要内容",
+                                                                    "algmt":"taCenter",
+                                                                    "functype":"ftDynTable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"2",
+                                                                            "F":"popfrm2",
+                                                                            "P":
+                                                                            [
+                                                                                "Id"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "B0"
+                                                                            ]
+
+                                                                        }
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"调研机构及人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"接待人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"公告日期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm2",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"主要内容",
+                    "dataexport":false
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"tabmemo",
+                                "attrs":
+                                {
+                                    "name":"JY.Topic.TMainContent",
+                                    "tabField":"",
+                                    "memoField":"A0",
+                                    "tabWidth":"150",
+                                    "aPIIndex":"2"
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

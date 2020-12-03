@@ -1,0 +1,488 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.holder_share.HolderStructure",
+        "caption":"持有人结构",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.holder_share.HolderStructure",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                },
+                "needinit":true
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest",
+                            "caption":"提取数据",
+                            "imageIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280",
+                            "imageIndex":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk5",
+                                            "caption":"其他",
+                                            "mapvalue":"Other",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始年份",
+                                            "left":"24",
+                                            "param":"BeginDate",
+                                            "paramV1":"BeginDate-01-01",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-19",
+                                            "yearCount":"20",
+                                            "itemIndex":"16",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DateCombobox",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止年份",
+                                            "left":"24",
+                                            "param":"EndDate",
+                                            "paramV1":"EndDate-12-31",
+                                            "width":"90",
+                                            "ascending":true,
+                                            "yearOffset":"-19",
+                                            "yearCount":"20",
+                                            "itemIndex":"19",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"rpt11",
+                                    "tablename":"fund.f9.holder_share.HolderStructure",
+                                    "width":"800",
+                                    "showList":true,
+                                    "showRightAxis":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"报告期",
+                                            "fieldFunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"持有人户数(户)",
+                                            "charttype":"ctLine",
+                                            "decidig":"2",
+                                            "leftAxis":false
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"机构持有比例(%)",
+                                            "charttype":"ctBar",
+                                            "decidig":"2"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"个人持有比例(%)",
+                                            "charttype":"ctBar",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"fund.f9.holder_share.HolderStructure",
+                                            "caption":" 持有人结构",
+                                            "fixedcount":"2",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"报告期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"持有人户数(户)"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"户均持有份额(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"机构持有份额(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"机构持有比例(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"个人持有份额(份)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"个人持有比例(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"基金从业人员持有份额(份)",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"基金从业人员持有比例(%)",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,516 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Market_profile.Investors_data_statistics.InvestorMarketValue",
+        "caption":"月末投资者市值分布",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "LX":"LX",
+                    "ApiName":"JY.Topic.Market_profile.Investors_data_statistics.InvestorMarketValue"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "LX":"LX",
+                    "ApiName":"JY.Topic.Market_profile.Investors_data_statistics.InvestorMarketValue"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-2,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbLX",
+                            "caption":"市场类型",
+                            "param":"LX",
+                            "items":"合计;机构;自然人",
+                            "mapValues":"1;2;3",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "lblalign":true,
+                            "width":"120"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbL1X",
+                            "caption":"分布图市场类型",
+                            "param":"LX",
+                            "paramV1":"L1X",
+                            "items":"合计",
+                            "mapValues":"1",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "width":"80"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Market_profile.Investors_data_statistics.InvestorMarketValue",
+                                    "caption":" 投资者市值分布",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"1万以下",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"1-10 万",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"10-50 万",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"50-100 万",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"100-500 万",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"500-1000 万",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"1000-1 亿元",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"1 亿以上",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"投资者数量(万)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"比重(%)",
+                                                    "fmtStr":"2"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Chart",
+                                        "attrs":
+                                        {
+                                            "name":"Chart1",
+                                            "tablename":"JY.Topic.Market_profile.Investors_data_statistics.InvestorMarketValue",
+                                            "showList":true,
+                                            "aPIIndex":"1",
+                                            "rightAxis":"trye",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"截止日期",
+                                                    "fieldFunc":"cffHorz",
+                                                    "forcedSort":true
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"1万以下(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"1-10 万(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"10-50 万(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"50-100 万(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"100-500 万(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"500-1000 万(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"1000-1 亿元(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"1 亿以上(万)",
+                                                    "charttype":"ctBar",
+                                                    "checked":false,
+                                                    "decidig":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"上证指数",
+                                                    "charttype":"ctLine",
+                                                    "leftAxis":false,
+                                                    "decidig":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

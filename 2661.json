@@ -1,0 +1,495 @@
+{
+    "Page":
+    {
+        "name":"JYLitigateArbitrate",
+        "caption":"诉讼仲裁",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYLitigateArbitrate",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYLitigateArbitrateImage",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"310",
+                            "formwidth":"240"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"240",
+                                    "column":"2",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"cht1",
+                                    "caption":"",
+                                    "tableName":"LineRow",
+                                    "aPIIndex":"1",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "fieldFunc":"cffDate"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股价(元)",
+                                            "charttype":"ctLine",
+                                            "decidig":"2"
+                                        }
+
+                                    ],
+                                    "tag_attacheditem":
+                                    [
+                                        {
+                                            "tablename":"PointRow",
+                                            "indexfn":"A0",
+                                            "hostlinefn":"A1",
+                                            "ptHintfn":"A2",
+                                            "iconTypefn":"A3"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt3",
+                                            "tablename":"JYLitigateArbitrate",
+                                            "caption":"诉讼仲裁",
+                                            "autochart":true,
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"案件名称",
+                                                    "functype":"ftmemo"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"案件描述",
+                                                    "functype":"ftmemo"
+                                                },
+                                                {
+                                                    "fieldname":"A0_1",
+                                                    "caption":"更新日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"原告方",
+                                                    "width":"350"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"被告方",
+                                                    "width":"350"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"诉讼类型",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"起诉日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"受理法院",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"涉案金额",
+                                                    "width":"150",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"币种",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"判决日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"判决内容"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"是否上诉",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"二审上诉方",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"二审受理法院",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"二审判决日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"二审判决内容",
+                                                    "functype":"ftmemo"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"执行情况",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

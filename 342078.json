@@ -1,0 +1,284 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.StockIssuedStat",
+        "caption":"增发统计(周)(股转中心)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.TradeStatistic.StockIssuedStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegan",
+                            "caption":"日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "left":"-36",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"report1",
+                                    "tablename":"Topic.TradeStatistic.StockIssuedStat",
+                                    "caption":" 市场股票发行统计",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "heigh":"140",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"A1",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"完成发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A2",
+                                                    "caption":"发行家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "caption":"发行次数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "caption":"发行数量(万股)"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "caption":"募资金额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"本周单笔最大发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A7",
+                                                    "caption":"发行数量(万股)"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "caption":"募资金额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"A8_2",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"本年单笔最大发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A9",
+                                                    "caption":"发行股数(万股)"
+                                                },
+                                                {
+                                                    "filedname":"B0",
+                                                    "caption":"募资金额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"B1",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"本年累计发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"B2",
+                                                    "caption":"发行家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "filedname":"B3",
+                                                    "caption":"发行次数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "filedname":"B4",
+                                                    "caption":"发行数量(万股)"
+                                                },
+                                                {
+                                                    "filedname":"B5",
+                                                    "caption":"募资金额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"B6",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

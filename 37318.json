@@ -1,0 +1,637 @@
+{
+    "Page":
+    {
+        "name":"jydb.topic.company_finance.expense_details.SalesExpenseDetails",
+        "caption":"销售费用明细",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "Year":"Year",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "ApiName":"jydb.topic.company_finance.expense_details.SalesExpenseDetails"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"Year",
+                        "value":"nowYear;-1"
+                    },
+                    {
+                        "key":"FastQuarterReportType",
+                        "value":
+                        [
+                            "Q2nd"
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Version":"2",
+                    "Year":"Year",
+                    "GilCode":"GilCode",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "ApiName":"jydb.topic.company_finance.expense_details.SalesExpenseItemDetails"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"报告期",
+                            "param":"Year",
+                            "dateType":"3",
+                            "fmtQuarterType":"3",
+                            "showNewest":false,
+                            "fmtMonth":""
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDate",
+                            "param":"FastQuarterReportType",
+                            "showcaption":false,
+                            "items":"中报;年报",
+                            "mapValues":"Q2nd;Q4th",
+                            "width":"90",
+                            "left":"-12",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018",
+                            "fieldname":"yearyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbxDate",
+                            "bindProp":"itemindex",
+                            "defValue":"0",
+                            "fieldname":"itemindexyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jydb.topic.company_finance.expense_details.SalesExpenseDetails",
+                                    "caption":" 销售费用明细",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"销售费用合计(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"同比变动(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目明细",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"项目数"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"前五费用合计(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目一(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目二(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目三(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目四(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"项目五(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"其他项目合计(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"上年同期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C5",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"证监会二级行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"申万二级行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C8",
+                                            "caption":"临时存放SUM5，不显示",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"C9",
+                                            "caption":"临时存放SUM5L，不显示",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"D0",
+                                            "caption":"临时存放SUMALL，不显示",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"D1",
+                                            "caption":"临时存放SUMALLL，不显示",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "GilCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"项目明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"项目明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"jydb.topic.company_finance.expense_details.SalesExpenseItemDetails",
+                                                            "caption":" 项目明细",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"项目名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"本期(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"上期同期(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"货币单位",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

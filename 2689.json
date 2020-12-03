@@ -1,0 +1,538 @@
+{
+    "Page":
+    {
+        "name":"JYShareholderNum",
+        "caption":"股东户数",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"EndDate",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYShareholderNum"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"310",
+                            "formwidth":"240"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"240",
+                                    "column":"2",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctGround",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Chart",
+                                        "attrs":
+                                        {
+                                            "name":"ImageData",
+                                            "tablename":"JYShareholderNumGraph",
+                                            "caption":"",
+                                            "rowLegendCount":"3",
+                                            "showlist":true,
+                                            "rtitle":"股价(元)",
+                                            "showgroup":true,
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"EndDate",
+                                                    "fieldFunc":"cffHorz"
+                                                },
+                                                {
+                                                    "fieldname":"ClosePrice",
+                                                    "caption":"股价",
+                                                    "charttype":"ctLine",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ],
+                                            "tag_itemGroup":
+                                            [
+                                                {
+                                                    "caption":"持股数",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"DeductAverageHoldSum",
+                                                            "caption":"户均持股(扣除大股东)",
+                                                            "charttype":"ctBar"
+                                                        },
+                                                        {
+                                                            "fieldname":"AverageHoldSum",
+                                                            "caption":"户均持股数",
+                                                            "charttype":"ctBar"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"股东户数",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"ShNum",
+                                                            "caption":"股东户数",
+                                                            "charttype":"ctBar"
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"JYShareholderNum",
+                                            "caption":"股东户数",
+                                            "autochart":true,
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"EndDate",
+                                                    "caption":"报告日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "caption":"股东户数(户)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"ShNum",
+                                                            "caption":"本期数",
+                                                            "algmt":"taRightJustify",
+                                                            "fmtStr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"ShNumChange",
+                                                            "caption":"增减",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"户均持股数(股)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"AverageHoldSum",
+                                                            "caption":"本期数",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"AverageHoldSumChange",
+                                                            "caption":"增减",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"A股(户)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"AshNum",
+                                                            "caption":"总户数",
+                                                            "algmt":"taRightJustify",
+                                                            "fmtStr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"AshNumChange",
+                                                            "caption":"增减",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"AaverageHoldSum",
+                                                            "caption":"户均持股数(股)",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"B股(户)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"BshNum",
+                                                            "caption":"总户数",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"BshNumChange",
+                                                            "caption":"增减",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"BaverageHoldSum",
+                                                            "caption":"户均持股数(股)",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"H股(户)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"HshNum",
+                                                            "caption":"总户数",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"HshNumChange",
+                                                            "caption":"增减",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"HaverageHoldSum",
+                                                            "caption":"户均持股数(股)",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"InfoPublDate",
+                                                    "caption":"公告日期",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

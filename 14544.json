@@ -1,0 +1,938 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRate",
+        "caption":"行业市盈率（中证公司）",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"C6",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "Classification":"Classification",
+                    "ApiName":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRate"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "Classification":"Classification",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRateDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRateDetailGraphics"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbClassification",
+                            "caption":"行业级别",
+                            "param":"Classification",
+                            "items":"证监会一级行业;证监会二级行业;中证一级行业;中证二级行业;中证三级行业;中证四级行业;市场主要板块",
+                            "mapValues":"1;2;4;5;6;7;9",
+                            "itemIndex":"0",
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRate",
+                                    "caption":" 行业市盈率(中证公司)(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股票家数",
+                                            "algmt":"taRightJustify",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "caption":"平均市盈率(静态)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"亏损家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"最新市盈率"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"最近一个月"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最近三个月"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"最近六个月"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"最近一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"平均市盈率(动态)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"亏损家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"最新市盈率"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"最近一个月"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"最近三个月"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"最近六个月"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"最近一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"平均市净率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"净资产为负家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"最新市净率"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"最近一个月"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"最近三个月"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"最近六个月"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"最近一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"平均股息率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"近12个月未分红家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"最新股息率"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"最近一个月"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"最近三个月"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"最近六个月"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"最近一年"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "C6"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "C6"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"130",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"走势图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRateDetail",
+                                                            "caption":" 行业市盈率(中证公司)(明细)",
+                                                            "defselect":true,
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "dynColumn":true,
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_dyncolumn":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "algmt":"taCenter",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"130"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"一级行业编码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"一级行业简称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"二级行业编码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"二级行业简称"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRate",
+                                                            "showList":true,
+                                                            "showgroup":true,
+                                                            "scalesLean":true,
+                                                            "lWidth":"90",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"行业名称",
+                                                                    "fieldFunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"最新市盈率",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"平均市盈率(静态)",
+                                                                            "checked":true
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"平均市盈率(动态)",
+                                                                            "checked":true
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"平均市净率",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C1",
+                                                                            "caption":"平均股息率",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"最近一个月",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"平均市盈率(静态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"平均市盈率(动态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"平均市净率",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C2",
+                                                                            "caption":"平均股息率",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"最近三个月",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"平均市盈率(静态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"平均市盈率(动态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"平均市净率",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C3",
+                                                                            "caption":"平均股息率",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"最近六个月",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"平均市盈率(静态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"平均市盈率(动态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"平均市净率",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C4",
+                                                                            "caption":"平均股息率",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"最近一年",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"平均市盈率(静态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"平均市盈率(动态)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"平均市净率",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C5",
+                                                                            "caption":"平均股息率",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"走势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JY.Topic.Market_profile.Market_scale.IndustrySurplusRateDetailGraphics",
+                                                            "showList":true,
+                                                            "aPIIndex":"2",
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"时间",
+                                                                    "fieldFunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"静态市盈率",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"最新日期值",
+                                                                            "charttype":"ctLine"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"近一个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"近三个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"近六个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"近一年值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"动态市盈率",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"最新日期值",
+                                                                            "charttype":"ctLine"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"近一个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"近三个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"近六个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"近一年值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市净率",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"最新日期值",
+                                                                            "charttype":"ctLine"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"近一个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"近三个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"近六个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"近一年值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"股息率",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"最新日期值",
+                                                                            "charttype":"ctLine"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"近一个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"近三个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"近六个月值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C0",
+                                                                            "caption":"近一年值",
+                                                                            "charttype":"ctLine",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

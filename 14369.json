@@ -1,0 +1,465 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.AuditMemberList",
+        "caption":"发审委委员名单",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "AuditType":"AuditType",
+                    "YearDate":"YearDate",
+                    "MeetingNumber":"MeetingNumber",
+                    "ApiName":"JYTopic.StockPrimaryMarket.AuditMemberList"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"YearDate",
+                        "value":"nowYear"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "AuditType":"AuditType",
+                    "YearDate":"YearDate",
+                    "ApiName":"JYTopic.StockPrimaryMarket.AuditMember"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"YearDate",
+                        "value":"nowYear"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "AuditType":"ZBFSW",
+                    "YearDate":"YearDate",
+                    "MeetingNumber":"MeetingNumber",
+                    "CodeFlag":"CodeFlag",
+                    "ApiName":"JYTopic.StockPrimaryMarket.AuditMemberListDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"YearDate",
+                        "value":"nowYear"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxAuditType",
+                            "caption":"委员会类型",
+                            "param":"AuditType",
+                            "width":"120",
+                            "lblAlign":true,
+                            "items":"主板发审委;创业板发审委;并购重组委",
+                            "mapValues":"ZBFSW;CYBFSW;BGCZW"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbxEnd",
+                            "caption":"届次",
+                            "param":"YearDate",
+                            "datetype":"3",
+                            "fmtMonth":".",
+                            "offset":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbMeetingNumber",
+                            "showcaption":false,
+                            "param":"MeetingNumber",
+                            "apiindex":"1",
+                            "tablename":"JYTopic.StockPrimaryMarket.AuditMember",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.AuditMemberList",
+                                    "caption":"发审委委员名单",
+                                    "defSelect":true,
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"姓名",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"任职情况",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"性别",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"年龄",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"工作单位",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"职务",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"职称",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"学历",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"专业",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"出生年月",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"2",
+                                                    "P":
+                                                    [
+                                                        "CodeFlag"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"3",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"审核明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"审核明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt2",
+                                                            "tablename":"JYTopic.StockPrimaryMarket.AuditMemberListDetail",
+                                                            "caption":"发审委委员名单审核明细",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"公司名称",
+                                                                    "width":"230"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"审核类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"审核结果",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"预计发行股数(万股)",
+                                                                    "width":"140",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"预计募集资金(万元)",
+                                                                    "width":"140",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"审核委员",
+                                                                    "width":"230",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"会议届次",
+                                                                    "width":"230",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"会议届次",
+                                                                    "hide":true,
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"会议日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"所属行业或领域",
+                                                                    "width":"230",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,355 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryInstitutionRating",
+        "caption":"最新行业评级",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchOrgName"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "RatingCode":"RatingCode",
+                    "Adjustment":"Adjustment",
+                    "OrgCode":"OrgCode",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryInstitutionRating"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)",
+                            "enabled":true,
+                            "width":"95",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "width":"95",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"评级类型",
+                            "param":"RatingCode",
+                            "items":"买入;增持;中性;减持;卖出;未评级",
+                            "mapValues":"10;13;20;30;33;99",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "width":"75",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2",
+                            "caption":"评级调整",
+                            "param":"Adjustment",
+                            "items":"调高;维持;调低;首次评级",
+                            "mapValues":"1;2;3;4",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0",
+                            "width":"90",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStandard",
+                            "caption":"行业类型",
+                            "param":"Standard",
+                            "items":"申万一级行业;申万二级行业;申万三级行业;证监会一级行业;证监会二级行业",
+                            "mapValues":"'24','Level':'1;24','Level':'2;24','Level':'3;22','Level':'1;22','Level':'2'",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "lblalign":true,
+                            "Level":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbOrg",
+                            "caption":"机构",
+                            "param":"OrgCode",
+                            "apiindex":"0",
+                            "tablename":"JY.Topic.Profit_forecast.Research_report.LatestStockResearchOrgName",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "width":"100",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryInstitutionRating",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"预测机构",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"机构代码（不显示）",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"研究日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"机构评级",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"上次评级",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"上次评级日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"评级调整方向",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"研报标题"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"研报类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"研报原文",
+                                            "functype":"ftReDirectF9",
+                                            "paramEx":
+                                            {
+                                                "[
+                                                    B5
+                                                ]
+serviceurl":true,
+                                                "action":"waDownload",
+                                                "params":"param",
+                                                "server":"webserver",
+                                                "url":"/queryservice/research/attachment/"
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"页数",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

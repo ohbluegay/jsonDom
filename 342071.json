@@ -1,0 +1,438 @@
+{
+    "Page":
+    {
+        "name":"Topic.AreaListStat",
+        "caption":"地域挂牌统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"B3",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "StatType":"StatType",
+                    "TransType":"TransType",
+                    "ApiName":"Topic.AreaListStat"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StatType":"StatType",
+                    "TransType":"TransType",
+                    "AreaCode":"AreaCode",
+                    "ApiName":"Topic.AreaStockComponentDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStatType",
+                            "caption":"统计类型",
+                            "lblalign":true,
+                            "param":"StatType",
+                            "items":"城市;省份",
+                            "mapValues":"1;2",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox3",
+                            "caption":"转让方式",
+                            "param":"TransType",
+                            "items":"全部;协议;做市;竞价",
+                            "mapValues":"ALL;XY;ZS;JJ"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctDataGround2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"Report1",
+                                            "tablename":"Topic.AreaListStat",
+                                            "caption":" 地域挂牌统计",
+                                            "fixedcount":"2",
+                                            "defSelect":true,
+                                            "sumfield":"B2",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"110",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A0",
+                                                    "caption":"所属区域",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "caption":"挂牌家数"
+                                                },
+                                                {
+                                                    "filedname":"A2",
+                                                    "caption":"股份总量(万股)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "caption":"流通股本总量(万股)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "caption":"资产合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "caption":"净资产合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "caption":"净资产均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "caption":"营业收入合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "caption":"营业收入均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A9",
+                                                    "caption":"净利润合计(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"B0",
+                                                    "caption":"净利润均值(万元)",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"B1",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "AreaCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "B1"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"公司明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"公司明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"report2",
+                                                    "tablename":"Topic.AreaStockComponentDetail",
+                                                    "caption":" 公司明细",
+                                                    "fixedcount":"3",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"120",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A0",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A1",
+                                                            "caption":"证券简称"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"转让方式",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "caption":"挂牌日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "caption":"总股本(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "caption":"流通股本(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A5",
+                                                            "caption":"总资产(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "caption":"净资产(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "caption":"营业收入(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A8",
+                                                            "caption":"净利润(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A9",
+                                                            "caption":"最新财年",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B0",
+                                                            "caption":"所属省份",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B1",
+                                                            "caption":"所属城市",
+                                                            "algmt":"taCenter"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

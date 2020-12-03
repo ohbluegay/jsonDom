@@ -1,0 +1,840 @@
+{
+    "Page":
+    {
+        "caption":"工程机械产销及库存",
+        "name":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Period":"Period",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Period":"Period",
+                    "ApiName":"macroindu.topic.Vehicle.PeriodType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT",
+                            "caption":"数据导出",
+                            "name":"btnOutput"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "itemIndex":"0",
+                            "items":"季;年",
+                            "mapValues":"Month;Year",
+                            "caption":"统计周期",
+                            "lblalign":true,
+                            "name":"cbbReport",
+                            "param":"Period",
+                            "width":"80"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "caption":"起始日期",
+                            "date":"$GetDate(-10,
+                            0,
+                            0)",
+                            "lblalign":true,
+                            "name":"dtpBegin",
+                            "param":"BeginDate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "caption":"截止日期",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true,
+                            "name":"dtpEnd",
+                            "param":"EndDate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"macroindu.topic.Vehicle.PeriodType"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_month",
+                            "bindProp":"visible",
+                            "defValue":true,
+                            "fieldname":"month"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem1_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem2_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"shtitem3_year",
+                            "bindProp":"visible",
+                            "defValue":false,
+                            "fieldname":"year"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "btnvisible":true,
+                    "caption":"报表容器",
+                    "name":"sctSX0",
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "borderSides":"7",
+                            "padding":"0",
+                            "caption":"报表容器",
+                            "name":"cttop1"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "dynColumn":true,
+                                    "caption":"工程机械产销及库存",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "name":"rpt1",
+                                    "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "algmt":"taLeftJustify",
+                                            "rname":"caption"
+                                        },
+                                        {
+                                            "algmt":"taRightJustify",
+                                            "rname":"row"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "algmt":"taCenter",
+                                            "fieldName":"date"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "borderSides":"0",
+                            "caption":"报表容器",
+                            "name":"ctDataGround2"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "borderSides":"0",
+                                    "padding":"0",
+                                    "caption":"报表容器",
+                                    "name":"ctSheetCtrl"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "sheetCount":"2",
+                                            "tabWidth":"130",
+                                            "name":"scTable",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1_month",
+                                                    "caption":"销量",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2_month",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_month",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem1_year",
+                                                    "caption":"销量",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem2_year",
+                                                    "caption":"增速",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3_year",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"销量",
+                                                    "name":"shtitem1_month",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt11_month",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179655",
+                                                                    "caption":"金属切削机床:销售量(万台)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179733",
+                                                                    "caption":"金属切削机床:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179683",
+                                                                    "caption":"挖掘机:销售量(万台)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179761",
+                                                                    "caption":"挖掘机:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"增速",
+                                                    "name":"shtitem2_month",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt12_month",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110104455",
+                                                                    "caption":"金属切削机床:产销率(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179811",
+                                                                    "caption":"金属切削机床:期末库存比年初增减(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179605",
+                                                                    "caption":"挖掘机:产销率(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179839",
+                                                                    "caption":"挖掘机:期末库存比年初增减(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"自定义",
+                                                    "name":"shtitem3_month",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt13_month",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179655",
+                                                                    "caption":"金属切削机床:销售量(万台)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110104455",
+                                                                    "caption":"金属切削机床:产销率(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179733",
+                                                                    "caption":"金属切削机床:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179811",
+                                                                    "caption":"金属切削机床:期末库存比年初增减(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179683",
+                                                                    "caption":"挖掘机:销售量(万台)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179605",
+                                                                    "caption":"挖掘机:产销率(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179761",
+                                                                    "caption":"挖掘机:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179839",
+                                                                    "caption":"挖掘机:期末库存比年初增减(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"销量",
+                                                    "name":"shtitem1_year",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt11_year",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179655",
+                                                                    "caption":"金属切削机床:销售量(万台)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179733",
+                                                                    "caption":"金属切削机床:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179683",
+                                                                    "caption":"挖掘机:销售量(万台)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179761",
+                                                                    "caption":"挖掘机:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"增速",
+                                                    "name":"shtitem2_year",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt12_year",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110104455",
+                                                                    "caption":"金属切削机床:产销率(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179811",
+                                                                    "caption":"金属切削机床:期末库存比年初增减(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179605",
+                                                                    "caption":"挖掘机:产销率(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179839",
+                                                                    "caption":"挖掘机:期末库存比年初增减(%)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "caption":"自定义",
+                                                    "name":"shtitem3_year",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "listWidth":"300",
+                                                            "showAllScale":false,
+                                                            "showList":true,
+                                                            "name":"rpt13_year",
+                                                            "tablename":"Macroindu.Topic.ConstructionMachinery.ConstructionMachinerySalesInventory",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true,
+                                                                    "fieldname":"date"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179655",
+                                                                    "caption":"金属切削机床:销售量(万台)",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110104455",
+                                                                    "caption":"金属切削机床:产销率(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179733",
+                                                                    "caption":"金属切削机床:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179811",
+                                                                    "caption":"金属切削机床:期末库存比年初增减(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179683",
+                                                                    "caption":"挖掘机:销售量(万台)",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179605",
+                                                                    "caption":"挖掘机:产销率(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179761",
+                                                                    "caption":"挖掘机:产销率比上年同期增减(百分点)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"$110179839",
+                                                                    "caption":"挖掘机:期末库存比年初增减(%)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

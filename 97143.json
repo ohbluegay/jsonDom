@@ -1,0 +1,348 @@
+{
+    "Page":
+    {
+        "name":"Futures.F9.VarietyInventoryStatistics.InventoryReport",
+        "caption":"库存统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "GilCode":"GilCode",
+                    "ApiName":"Futures.F9.VarietyInventoryStatistics.InventoryReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-3,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Futures.F9.VarietyInventoryStatistics.InventoryReport",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "caption":"品种库存统计",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"合约结算价(元)"
+                                        },
+                                        {
+                                            "caption":"小计(吨)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"库存"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"较上周变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"期货(吨)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"库存"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"较上周变动"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"较上日变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"可用库容量(吨)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"可用库容量"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"较上周变动"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctTop",
+                                    "caption":"上半部容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scChart",
+                                            "sheetCount":"3",
+                                            "align":"alClient",
+                                            "tabwidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"table2",
+                                                    "caption":"库存走势图",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"table2",
+                                                    "caption":"库存走势图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"chartImageData",
+                                                            "tablename":"Futures.F9.VarietyInventoryStatistics.InventoryReport",
+                                                            "caption":"",
+                                                            "showlist":true,
+                                                            "listWidth":"250",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "fieldfunc":"cffdate"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"合约结算价(元)",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"小计库存(吨)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"期货库存(吨)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"可用库容量(吨)",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

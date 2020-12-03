@@ -1,0 +1,321 @@
+{
+    "Page":
+    {
+        "name":"jydb.topic.company_finance.MainCompositionProduct",
+        "caption":"主营构成(产品)",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_NLMY",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"jydb.topic.company_finance.MainCompositionProduct"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"2Quarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbYear",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "filterReport":"10",
+                            "showNewest":false,
+                            "offset":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbYear",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddateyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jydb.topic.company_finance.MainCompositionProduct",
+                                    "caption":" 主营构成(产品)",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"地区",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"产品"
+                                        },
+                                        {
+                                            "caption":"主营业务收入",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"增长率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"主营业务成本",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"增长率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"主营业务利润",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"增长率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"毛利率(%)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业分类",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"SN",
+                                            "hide":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

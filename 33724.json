@@ -1,0 +1,394 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.TenTradeActiveStock",
+        "caption":"十大成交活跃股明细",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "StatisPeriodType":"StatisPeriodType",
+                    "TradeType":"TradeType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.TenTradeActiveStock"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDays;-1;years"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDays;-1;days"
+                    },
+                    {
+                        "key":"StatisPeriodType",
+                        "value":"29;default"
+                    },
+                    {
+                        "key":"TradeType",
+                        "value":"5;default"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStatisPeriodType",
+                            "caption":"统计周期",
+                            "param":"StatisPeriodType",
+                            "items":"日;月",
+                            "mapValues":"29;28",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"交易类型",
+                            "param":"TradeType",
+                            "items":"全部;沪股通;港股通(沪);深股通;港股通(深)",
+                            "mapValues":"5;1;2;3;4",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.TenTradeActiveStock",
+                                    "caption":"十大成交活跃股明细",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"排名"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"买入金额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"卖出金额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"成交金额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"货币种类",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"交易类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"证监会/恒生行业",
+                                            "algmt":"taLeftJustify",
+                                            "width":"180"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"TenTradeActiveStock",
+                                    "reportname":"rpt1",
+                                    "tag_params":
+                                    [
+                                        {
+                                            "tag_param":
+                                            [
+                                                {
+                                                    "name":"BeginDate",
+                                                    "caption":"开始日期"
+                                                },
+                                                {
+                                                    "name":"EndDate",
+                                                    "caption":"截止日期"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ],
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JYRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"PM"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"MRJE"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"MCJE"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"CJJE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"HBZL"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"JYLX"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"ZJHHSHY"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

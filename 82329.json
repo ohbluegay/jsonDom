@@ -1,0 +1,497 @@
+{
+    "Page":
+    {
+        "name":"TradeCharact",
+        "caption":"风险收益特征",
+        "sectorroot":"#1701001,
+        #1701002,
+        #1701003,
+        #1701004",
+        "sectorDef":"000300.SH",
+        "sectoropt":"KeyDownClick,
+        ShowElems",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "GilCode":"GilCode",
+                    "Sample":"Sample",
+                    "Method":"Method",
+                    "BeginDate":"BeginDate",
+                    "Index":"Index",
+                    "CompPeriod":"CompPeriod",
+                    "Period":"Period",
+                    "ApiName":"IndexAnaly.TimeSeries.RiskReturnCharact",
+                    "Rate":"Rate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"时间周期",
+                            "formwidth":"230"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始日期",
+                                            "param":"BeginDate",
+                                            "left":"75",
+                                            "date":"$GetDate(-1,
+                                            0,
+                                            0)"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止日期",
+                                            "param":"EndDate",
+                                            "left":"75",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcperiod",
+                                    "showcaption":false,
+                                    "bordersides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Combobox",
+                                        "attrs":
+                                        {
+                                            "name":"cbbxPeriod",
+                                            "caption":"时序周期",
+                                            "left":"20",
+                                            "width":"55",
+                                            "param":"Period",
+                                            "items":"日;周;月;年",
+                                            "mapValues":"Day;Week;Month;Year",
+                                            "itemindex":"1"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCompPeriod",
+                            "caption":"计算周期",
+                            "left":"20",
+                            "width":"55",
+                            "param":"CompPeriod",
+                            "items":"日;周;月;年",
+                            "mapValues":"Day;Week;Month;Year",
+                            "lblalign":true,
+                            "itemindex":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"numedit",
+                        "attrs":
+                        {
+                            "name":"cbbxSample",
+                            "caption":"样本数量",
+                            "width":"55",
+                            "param":"Sample",
+                            "text":"52",
+                            "valueRate":"1",
+                            "decidig":"0",
+                            "increment":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndex",
+                            "caption":"标的指数",
+                            "param":"Index",
+                            "items":"上证综指;上证50;上证180;深证成指;深证综指;中证100;沪深300",
+                            "mapValues":"000001.SH;000016.SH;000010.SH;399001.SZ;399106.SZ;000903.SH;000300.SH",
+                            "width":"90",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMethod",
+                            "caption":"收益率计算方法",
+                            "width":"100",
+                            "param":"Method",
+                            "items":"普通收益率;对数收益率",
+                            "mapValues":"0;1",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRate",
+                            "caption":"无风险收益率",
+                            "width":"160",
+                            "param":"Rate",
+                            "items":"一年期定存;一年期国债;最新发行的一年期央票;银行间市场七日回购",
+                            "mapValues":"0;1;2;3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctn0",
+                    "caption":"指数列表",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"指数列表",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"IndexAnaly.TimeSeries.RiskReturnCharact",
+                                    "caption":"交易特征",
+                                    "defselect":true,
+                                    "fixedcount":"1",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"70",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"100",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"平均收益率(%)",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"收益标准差(%)",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"年化收益率(%)",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"年化波动率(%)",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"Alpha(%)",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"Beta",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"标准差系数",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"R_Square",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"Sharpe",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"Treynor",
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"Jensen",
+                                            "fmtstr":"4"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctlow2",
+                            "caption":"报表容器",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"cht1",
+                                    "tablename":"IndexAnaly.TimeSeries.RiskReturnCharact",
+                                    "showList":true,
+                                    "showtools":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "fieldFunc":"cffHorz",
+                                            "forcedsort":true
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"平均收益率(%)",
+                                            "decidig":"4"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"收益标准差(%)",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"年化收益率(%)",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"年化波动率(%)",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"Alpha(%)",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"Beta",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"标准差系数",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"R_Square",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"Sharpe",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"Treynor",
+                                            "decidig":"4",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"Jensen",
+                                            "decidig":"4",
+                                            "checked":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

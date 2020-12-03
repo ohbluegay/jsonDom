@@ -1,0 +1,499 @@
+{
+    "Page":
+    {
+        "name":"DBMarketSequence",
+        "caption":"估值分析",
+        "Request":
+        [
+            {
+                "responsetype":"rtDatatable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"qrydate",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "ApiName":"DBMarketSequence",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "GilCodes":"GilCodes",
+                    "Codes":
+                    [
+                        "33828",
+                        "33860",
+                        "33856",
+                        "33862",
+                        "33858"
+                    ],
+                    "TimeInterval":"TimeInterval",
+                    "EquityUnit":"0",
+                    "CurrencyType":"3",
+                    "MarketValueUnit":"0",
+                    "Subscription":"0",
+                    "ExportType":"0",
+                    "TimePeriod":"0"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"TimeInterval",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"近一周",
+                                            "mapvalue":"OneWeek",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"近一月",
+                                            "mapvalue":"OneMonth",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近三月",
+                                            "mapvalue":"ThreeMonths",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近半年",
+                                            "mapvalue":"HalfYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近一年",
+                                            "mapvalue":"OneYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近三年",
+                                            "mapvalue":"ThreeYears",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"近五年",
+                                            "mapvalue":"FiveYears",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"上市以来",
+                                            "mapvalue":"SinceListing",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb10",
+                                            "caption":"自定义",
+                                            "mapvalue":"BetweenDates",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"ctSizeContain1",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctcht",
+                            "caption":"图形",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"ctChart1",
+                                    "tablename":"DBMarketSequence",
+                                    "caption":"估值分析图形",
+                                    "showRightAxis":true,
+                                    "showlist":true,
+                                    "showgroup":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"qrydate",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldname":"33828",
+                                            "caption":"股价",
+                                            "charttype":"ctline",
+                                            "decidig":"2"
+                                        }
+
+                                    ],
+                                    "tag_itemgroup":
+                                    [
+                                        {
+                                            "caption":"市盈率PE",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"33856",
+                                                    "caption":"市盈率PE",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市净率PB",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"33858",
+                                                    "caption":"市净率PB",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市销率PS",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"33862",
+                                                    "caption":"市销率PS",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市现率PCF",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"33860",
+                                                    "caption":"市现率PCF",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"DBMarketSequence",
+                                            "caption":"估值分析",
+                                            "fixedcount":"1",
+                                            "autochart":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"130",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"qrydate",
+                                                    "caption":"日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"33856",
+                                                    "caption":"市盈率PE"
+                                                },
+                                                {
+                                                    "fieldname":"33858",
+                                                    "caption":"市净率PB"
+                                                },
+                                                {
+                                                    "fieldname":"33862",
+                                                    "caption":"市销率PS"
+                                                },
+                                                {
+                                                    "fieldname":"33860",
+                                                    "caption":"市现率PCF"
+                                                },
+                                                {
+                                                    "fieldname":"33828",
+                                                    "caption":"股价"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

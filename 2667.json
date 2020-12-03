@@ -1,0 +1,1084 @@
+{
+    "Page":
+    {
+        "name":"JYShareStru",
+        "caption":"股本结构",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYShareStru"
+                },
+                "needinit":true
+            },
+            {
+                "responsetype":"rtDataSet",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYShareStruImage"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"Customer",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYShareStru"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "OutField":
+                    [
+                        "g1",
+                        "g3",
+                        "g5"
+                    ],
+                    "Filters":
+                    [
+                        {
+                            "FilterType":"equal",
+                            "Value":"Value",
+                            "Field":"a0"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYShareStru"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest",
+                            "caption":"提取数据",
+                            "imageIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"290",
+                            "formwidth":"280",
+                            "imageIndex":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRate1",
+                            "caption":"股份单位",
+                            "width":"75",
+                            "param":"PramRate1",
+                            "items":"股;百股;千股;万股;百万股;亿股;十亿股",
+                            "bindMapValue":false,
+                            "mapValues":"-1;100;1000;10000;1000000;100000000;1000000000",
+                            "itemIndex":"0",
+                            "bindname":"[
+                                rpt2,
+                                rpt3
+                            ]
+",
+                            "bindprop":"ExecRate",
+                            "bindvalue":"PramRate1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctGround",
+                    "percent":"45",
+                    "btnvisible":true,
+                    "borderSides":"9"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0",
+                            "fold":true
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scChart",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"table1",
+                                            "caption":"股本结构",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"ItemHisData",
+                                            "caption":"历史变动情况",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"table1",
+                                            "caption":"股本结构",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctTab1",
+                                                    "padding":"0",
+                                                    "borderSides":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"sizecontainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"sctTab1",
+                                                            "percent":"66",
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctLeftmiddle",
+                                                                    "padding":"0",
+                                                                    "borderSides":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"sctLeftmiddle",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctLeftMost",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"0"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctChart3",
+                                                                                            "caption":"",
+                                                                                            "tableName":"tableRow",
+                                                                                            "readType":"crtLinePie",
+                                                                                            "pieTabHeight":"30",
+                                                                                            "aPIIndex":"2",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"A3",
+                                                                                                    "caption":"A股",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"A8",
+                                                                                                    "caption":"B股",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"B1",
+                                                                                                    "caption":"H股",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"B2",
+                                                                                                    "caption":"海外上市股",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"F6",
+                                                                                                    "caption":"其他",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctMiddle",
+                                                                                    "borderSides":"0",
+                                                                                    "padding":"0"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctChart2",
+                                                                                            "caption":"",
+                                                                                            "apiindex":"1",
+                                                                                            "tableName":"imagerow1",
+                                                                                            "readType":"crtLinePie",
+                                                                                            "pieTabHeight":"30",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"A0",
+                                                                                                    "fieldFunc":"cffValue",
+                                                                                                    "caption":"有限售条件的流通A股"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"A1",
+                                                                                                    "fieldFunc":"cffValue",
+                                                                                                    "caption":"无限售条件的流通A股"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctRight",
+                                                                    "padding":"0",
+                                                                    "borderSides":"0"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart1",
+                                                                            "caption":"",
+                                                                            "apiindex":"3",
+                                                                            "tableName":"tableRow",
+                                                                            "readType":"crtLinePie",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"g1",
+                                                                                    "fieldFunc":"cffValue",
+                                                                                    "caption":"机构持股"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"g3",
+                                                                                    "fieldFunc":"cffValue",
+                                                                                    "caption":"高管持股"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"g5",
+                                                                                    "fieldFunc":"cffValue",
+                                                                                    "caption":"其他"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"ItemHisData",
+                                            "caption":"历史变动情况",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"ctChart4",
+                                                    "tableName":"historyRow",
+                                                    "readType":"crtPctBar",
+                                                    "lTitle":"比例(%)",
+                                                    "rTitle":"股价(元)",
+                                                    "showRightAxis":true,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "fieldfunc":"cffHorz"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "chartType":"ctMultiBar",
+                                                            "caption":"有限售条件的流通A股"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "chartType":"ctMultiBar",
+                                                            "caption":"无限售条件的流通A股"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "chartType":"ctMultiBar",
+                                                            "caption":"其他"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "chartType":"ctLine",
+                                                            "caption":"股价",
+                                                            "decidig":"2",
+                                                            "leftAxis":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"folder",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"9",
+                            "padding":"0",
+                            "element":
+                            [
+                                "ctDataGround1",
+                                "ctDataGround2"
+                            ]
+
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"9",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scgrid",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "tabwidth":"180",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"按股票类型分类",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"Itembyproperty",
+                                            "caption":"按股票性质分类",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"按股票类型分类",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt2",
+                                                    "tablename":"tableRow",
+                                                    "caption":"股本结构(按股票类型分类)",
+                                                    "fixedcount":"1",
+                                                    "rowselect":false,
+                                                    "reverse":true,
+                                                    "headfield":"A0",
+                                                    "defselect":true,
+                                                    "autochart":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"280",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"130",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"股本变动原因",
+                                                            "width":"180"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"总股本",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"A股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"流通A股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"有限售条件的流通A股",
+                                                                            "fmtstr":"0",
+                                                                            "width":"180",
+                                                                            "ratename":"PramRate1"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"无限售条件流通A股",
+                                                                            "fmtstr":"0",
+                                                                            "width":"180",
+                                                                            "ratename":"PramRate1"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"未流通A股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"B股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"流通B股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"未流通B股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"H股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"海外上市股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"S股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"N股",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"hiddenNonamed",
+                                                            "hide":true,
+                                                            "functype":"ftdyntable",
+                                                            "paramEx":
+                                                            [
+                                                                {
+                                                                    "API":
+                                                                    {
+                                                                        "R":"1",
+                                                                        "P":
+                                                                        [
+                                                                            "EndDate"
+                                                                        ],
+                                                                        "T":
+                                                                        [
+                                                                            "1"
+                                                                        ],
+                                                                        "V":
+                                                                        [
+                                                                            "A0"
+                                                                        ]
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "API":
+                                                                    {
+                                                                        "R":"2",
+                                                                        "P":
+                                                                        [
+                                                                            "BeginDate",
+                                                                            "EndDate"
+                                                                        ],
+                                                                        "T":
+                                                                        [
+                                                                            "1",
+                                                                            "1"
+                                                                        ],
+                                                                        "V":
+                                                                        [
+                                                                            "A0",
+                                                                            "A0"
+                                                                        ]
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "API":
+                                                                    {
+                                                                        "R":"3",
+                                                                        "P":
+                                                                        [
+                                                                            "Value"
+                                                                        ],
+                                                                        "T":
+                                                                        [
+                                                                            "1"
+                                                                        ],
+                                                                        "V":
+                                                                        [
+                                                                            "A0"
+                                                                        ]
+
+                                                                    }
+
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Itembyproperty",
+                                            "caption":"按股票性质分类",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt3",
+                                                    "tablename":"tableRow",
+                                                    "caption":"股本结构(按股票性质分类)",
+                                                    "fixedcount":"1",
+                                                    "rowselect":false,
+                                                    "reverse":true,
+                                                    "headfield":"A0",
+                                                    "defselect":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"280",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"130",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"股本变动原因"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"总股本",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1"
+                                                        },
+                                                        {
+                                                            "fieldname":"g1",
+                                                            "caption":"机构持股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"g2",
+                                                                    "caption":"机构持股(限售)",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"g3",
+                                                            "caption":"高管持股",
+                                                            "fmtstr":"0",
+                                                            "ratename":"PramRate1",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"g4",
+                                                                    "caption":"高管持股(限售)",
+                                                                    "fmtstr":"0",
+                                                                    "ratename":"PramRate1"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

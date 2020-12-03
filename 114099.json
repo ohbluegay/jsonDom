@@ -1,0 +1,1205 @@
+{
+  "Page":
+  {
+    "name":"Bond.F9.FinanceAnalysis.GrowthAbility",
+    "caption":"成长能力",
+    "Request":
+    [
+      {
+        "responsetype":"rtDataSet",
+        "orderopt":"[
+        opShow,
+        opLayout
+      ]
+        ",
+        "requestopt":"roAlways",
+        "cdatasection":
+        {
+          "GilCode":"GilCode",
+          "FastQuarterReportType":"FastQuarterReportType",
+          "FastDateFilterType":"FastDateFilterType",
+          "BeginDate":"BeginDate",
+          "EndDate":"EndDate",
+          "ApiName":"Bond.F9.FinanceAnalysis.GrowthAbility"
+        }
+
+      }
+
+    ],
+    "content":
+    [
+      {
+        "tag":"ToolBar",
+        "attrs":
+        {
+          "name":"lcToolbar"
+        },
+        "children":
+        [
+          {
+            "tag":"Button",
+            "attrs":
+            {
+              "name":"btnRequest"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"FilterForm",
+            "attrs":
+            {
+              "name":"btnDate",
+              "caption":"区间筛选",
+              "formheight":"415",
+              "formwidth":"280"
+            },
+            "children":
+            [
+              {
+                "tag":"CheckGroup",
+                "attrs":
+                {
+                  "name":"grpPeriod",
+                  "caption":"报告期",
+                  "param":"FastQuarterReportType",
+                  "paramV1":"QuarterReportType",
+                  "width":"290",
+                  "column":"2",
+                  "borderSides":"1",
+                  "tag_checkBox":
+                  [
+                    {
+                      "name":"chk1",
+                      "caption":"一季报",
+                      "mapvalue":"Q1th",
+                      "checked":true
+                    },
+                    {
+                      "name":"chk2",
+                      "caption":"中报",
+                      "mapvalue":"Q2nd",
+                      "checked":true
+                    },
+                    {
+                      "name":"chk3",
+                      "caption":"三季报",
+                      "mapvalue":"Q3rd",
+                      "checked":true
+                    },
+                    {
+                      "name":"chk4",
+                      "caption":"年报",
+                      "mapvalue":"Q4th",
+                      "checked":true
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              },
+              {
+                "tag":"RadioGroup",
+                "attrs":
+                {
+                  "name":"grpDateRange",
+                  "caption":"时间范围",
+                  "param":"FastDateFilterType",
+                  "paramV1":"fastDateFilterType",
+                  "column":"3",
+                  "width":"300",
+                  "borderSides":"1",
+                  "tag_radiobutton":
+                  [
+                    {
+                      "name":"rdb1",
+                      "caption":"最新日期",
+                      "mapvalue":"LatestTime",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb2",
+                      "caption":"今年以来",
+                      "mapvalue":"CurrentYear",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb3",
+                      "caption":"近一年",
+                      "mapvalue":"Latest1Year",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb4",
+                      "caption":"近二年",
+                      "mapvalue":"Latest2Year",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb5",
+                      "caption":"近三年",
+                      "mapvalue":"Latest3Year",
+                      "checked":true,
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb6",
+                      "caption":"近五年",
+                      "mapvalue":"Latest5Year",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb7",
+                      "caption":"全部",
+                      "mapvalue":"AllYear",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":false
+                    },
+                    {
+                      "name":"rdb8",
+                      "caption":"自定义",
+                      "mapvalue":"Customer",
+                      "bindname":"[
+                      dtpEnd,
+                      dtpBegin
+                    ]
+                      ",
+                      "bindprop":"Enabled",
+                      "bindvalue":true
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              },
+              {
+                "tag":"LineContainer",
+                "attrs":
+                {
+                  "name":"lcDate",
+                  "caption":"筛选",
+                  "showcaption":false,
+                  "borderSides":"1"
+                },
+                "children":
+                [
+                  {
+                    "tag":"DatePicker",
+                    "attrs":
+                    {
+                      "name":"dtpBegin",
+                      "caption":"开始时间",
+                      "param":"BeginDate",
+                      "date":"$GetDate(0,
+                      -2,
+                      0)",
+                      "enabled":false
+                    },
+                    "children":
+                    [
+
+                    ]
+
+                  },
+                  {
+                    "tag":"DatePicker",
+                    "attrs":
+                    {
+                      "name":"dtpEnd",
+                      "caption":"至",
+                      "param":"EndDate",
+                      "date":"$GetDate(0,
+                      0,
+                      0)",
+                      "enabled":false
+                    },
+                    "children":
+                    [
+
+                    ]
+
+                  }
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Button",
+            "attrs":
+            {
+              "name":"btnOutput",
+              "caption":"数据导出",
+              "bindvalue":"OUTPUT",
+              "imageIndex":"9"
+            },
+            "children":
+            [
+
+            ]
+
+          }
+
+        ]
+
+      },
+      {
+        "tag":"layoutsignal",
+        "attrs":
+        {
+          "apiindex":"0",
+          "table":"DESC"
+        },
+        "children":
+        [
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ctReport1",
+              "bindProp":"visible",
+              "defValue":true,
+              "fieldname":"zb"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ctReport2",
+              "bindProp":"visible",
+              "defValue":false,
+              "fieldname":"xsb"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ctReport3",
+              "bindProp":"visible",
+              "defValue":false,
+              "fieldname":"gg"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ct1",
+              "bindProp":"visible",
+              "defValue":true,
+              "fieldname":"zb"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ct2",
+              "bindProp":"visible",
+              "defValue":false,
+              "fieldname":"xsb"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"item",
+            "attrs":
+            {
+              "bindName":"ct3",
+              "bindProp":"visible",
+              "defValue":false,
+              "fieldname":"gg"
+            },
+            "children":
+            [
+
+            ]
+
+          }
+
+        ]
+
+      },
+      {
+        "tag":"Container",
+        "attrs":
+        {
+          "name":"ctDataGround1",
+          "caption":"报表容器",
+          "borderSides":"0"
+        },
+        "children":
+        [
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ctReport1",
+              "caption":"报表容器",
+              "padding":"0",
+              "borderSides":"0",
+              "apiindex": 0,
+              "visible": {
+                "key": "zb",
+                "value": true,
+                "tableName": "DESC"
+              }
+            },
+            "children":
+            [
+              {
+                "tag":"Report",
+                "attrs":
+                {
+                  "name":"rpt1",
+                  "tablename":"ZB",
+                  "caption":"成长能力",
+                  "headfield":"A0",
+                  "fixedcount":"1",
+                  "reverse":true,
+                  "tag_row":
+                  [
+                    {
+                      "rname":"caption",
+                      "heigh":"320"
+                    },
+                    {
+                      "rname":"row",
+                      "heigh":"120",
+                      "algmt":"taRightJustify"
+                    }
+
+                  ],
+                  "tag_column":
+                  [
+                    {
+                      "caption":"同比增长率",
+                      "tag_column":
+                      [
+                        {
+                          "fieldname":"A2",
+                          "caption":"每股收益-基本",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A3",
+                          "caption":"每股收益-稀释",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A4",
+                          "caption":"每股经营活动产生的现金流量净额",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A5",
+                          "caption":"营业总收入",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A6",
+                          "caption":"营业收入",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A7",
+                          "caption":"营业成本",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A8",
+                          "caption":"毛利",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"A9",
+                          "caption":"营业利润",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B0",
+                          "caption":"利润总额",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B1",
+                          "caption":"归属母公司股东的净利润",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B2",
+                          "caption":"归属母公司股东的净利润-扣除非经常损益",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B3",
+                          "caption":"经营活动产生的现金流量净额",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B4",
+                          "caption":"净资产收益率",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B5",
+                          "caption":"销售商品、提供劳务收到的现金",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B6",
+                          "caption":"购买商品、接受劳务支付的现金",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B7",
+                          "caption":"支付给职工以及为职工支付的现金",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B8",
+                          "caption":"净利润现金含量",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"B9",
+                          "caption":"净资产",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"C0",
+                          "caption":"总负债",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"C1",
+                          "caption":"总资产",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"C2",
+                          "caption":"现金净流量",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        }
+
+                      ]
+
+                    },
+                    {
+                      "caption":"相对年初增长率",
+                      "tag_column":
+                      [
+                        {
+                          "fieldname":"C3",
+                          "caption":"每股净资产",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"C4",
+                          "caption":"资产总计",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "fieldname":"C5",
+                          "caption":"归属母公司的股东权益",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        }
+
+                      ]
+
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ctReport2",
+              "caption":"报表容器",
+              "padding":"0",
+              "apiindex": 0,
+              "visible": {
+                "key": "xsb",
+                "value": false,
+                "tableName": "DESC"
+              }
+            },
+            "children":
+            [
+              {
+                "tag":"Report",
+                "attrs":
+                {
+                  "name":"XSB",
+                  "caption":"成长能力",
+                  "fixedcount":"1",
+                  "headfield":"A0",
+                  "reverse":true,
+                  "tag_row":
+                  [
+                    {
+                      "rname":"caption",
+                      "heigh":"320"
+                    },
+                    {
+                      "rname":"row",
+                      "heigh":"100",
+                      "algmt":"taRightJustify"
+                    }
+
+                  ],
+                  "tag_column":
+                  [
+                    {
+                      "caption":"同比增长率",
+                      "tag_column":
+                      [
+                        {
+                          "filedname":"a3",
+                          "caption":"每股收益-基本(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a4",
+                          "caption":"每股收益-稀释(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a5",
+                          "caption":"每股收益-基本/扣除(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a6",
+                          "caption":"每股经营活动产生的现金流量净额(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a7",
+                          "caption":"营业总收入(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a8",
+                          "caption":"营业收入(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"a9",
+                          "caption":"营业利润(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b1",
+                          "caption":"利润总额(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b2",
+                          "caption":"净利润(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b3",
+                          "caption":"归属母公司股东的净利润(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b4",
+                          "caption":"归属母公司股东的净利润-扣除非经常损益(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b5",
+                          "caption":"经营活动产生的现金流量净额(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b6",
+                          "caption":"净资产收益率(摊薄)(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b7",
+                          "caption":"总资产(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b8",
+                          "caption":"总负债(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"b9",
+                          "caption":"现金净流量(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        }
+
+                      ]
+
+                    },
+                    {
+                      "caption":"相对年初增长率",
+                      "tag_column":
+                      [
+                        {
+                          "filedname":"c2",
+                          "caption":"每股净资产(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"c3",
+                          "caption":"资产总计(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        },
+                        {
+                          "filedname":"c4",
+                          "caption":"归属母公司的股东权益(%)",
+                          "fmtstr":"4",
+                          "columnchart":true
+                        }
+
+                      ]
+
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ctReport3",
+              "caption":"报表容器",
+              "padding":"0",
+              "apiindex": 0,
+              "visible": {
+                "key": "gg",
+                "value": false,
+                "tableName": "DESC"
+              }
+            },
+            "children":
+            [
+              {
+                "tag":"Report",
+                "attrs":
+                {
+                  "name":"rpt3",
+                  "tablename":"GG",
+                  "caption":"成长能力",
+                  "fixedcount":"1",
+                  "reverse":true,
+                  "headfield":"A3",
+                  "tag_row":
+                  [
+                    {
+                      "rname":"caption",
+                      "heigh":"280"
+                    },
+                    {
+                      "rname":"row",
+                      "heigh":"120",
+                      "algmt":"taRightJustify"
+                    }
+
+                  ],
+                  "tag_column":
+                  [
+                    {
+                      "caption":"成长能力",
+                      "tag_column":
+                      [
+                        {
+                          "caption":"营业收入(年增长率)(%)",
+                          "fieldname":"a5",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"营业收入(近3年增长率)(%)",
+                          "fieldname":"a6",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"毛利(年增长率)(%)",
+                          "fieldname":"a7",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"毛利(近3年增长率)(%)",
+                          "fieldname":"a8",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"营业利润(年增长率)(%)",
+                          "fieldname":"a9",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"营业利润(近3年增长率)(%)",
+                          "fieldname":"b0",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"税前利润(年增长率)(%)",
+                          "fieldname":"b1",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"税前利润(近3年增长率)(%)",
+                          "fieldname":"b2",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"净利润(年增长率)(%)",
+                          "fieldname":"b3",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"净利润(近3年增长率)(%)",
+                          "fieldname":"b4",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"归属母公司股东的净利润(年增长率)(%)",
+                          "fieldname":"b5",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"归属母公司股东的净利润(近3年增长率)(%)",
+                          "fieldname":"b6",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"资产总计(年增长率)(%)",
+                          "fieldname":"b7",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"资产总计(近3年增长率)(%)",
+                          "fieldname":"b8",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"归属母公司股东的权益(年增长率)(%)",
+                          "fieldname":"b9",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"归属母公司股东的权益(近3年增长率)(%)",
+                          "fieldname":"c0",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"股东权益(年增长率)(%)",
+                          "fieldname":"c1",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"股东权益(近3年增长率)(%)",
+                          "fieldname":"c2",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"负债合计(年增长率)(%)",
+                          "fieldname":"c3",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"负债合计(近3年增长率)(%)",
+                          "fieldname":"c4",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"基本每股收益(年增长率)(%)",
+                          "fieldname":"c5",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"基本每股收益(近3年增长率)(%)",
+                          "fieldname":"c6",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"每股净资产(年增长率)(%)",
+                          "fieldname":"c7",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        },
+                        {
+                          "caption":"每股净资产(近3年增长率)(%)",
+                          "fieldname":"c8",
+                          "columnchart":true,
+                          "fmtStr":"4"
+                        }
+
+                      ]
+
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          }
+
+        ]
+
+      },
+      {
+        "tag":"PopPage",
+        "attrs":
+        {
+          "name":"fixedpopfrm",
+          "height":"500",
+          "width":"900",
+          "caption":"caption"
+        },
+        "children":
+        [
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ct1",
+              "caption":"报表容器",
+              "borderSides":"15",
+              "apiindex": 0,
+              "visible": {
+                "key": "zb",
+                "value": false,
+                "tableName": "DESC"
+              }
+
+            },
+            "children":
+            [
+              {
+                "tag":"chart",
+                "attrs":
+                {
+                  "name":"chartPop1",
+                  "tablename":"ZB",
+                  "showScales":true,
+                  "showTools":false,
+                  "showMenu":false,
+                  "rowLegendCount":"1",
+                  "unRequest":true,
+                  "tag_item":
+                  [
+                    {
+                      "fieldName":"fieldhorz",
+                      "fieldfunc":"cffdate"
+                    },
+                    {
+                      "fieldName":"fieldindex",
+                      "caption":"caption",
+                      "decidig":"2"
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ct2",
+              "caption":"报表容器",
+              "borderSides":"15",
+              "apiindex": 0,
+              "visible": {
+                "key": "xsb",
+                "value": false,
+                "tableName": "DESC"
+              }
+
+            },
+            "children":
+            [
+              {
+                "tag":"chart",
+                "attrs":
+                {
+                  "name":"chartPop2",
+                  "tablename":"XSB",
+                  "aPIIndex":"0",
+                  "showScales":true,
+                  "showTools":false,
+                  "showMenu":false,
+                  "rowLegendCount":"1",
+                  "tag_item":
+                  [
+                    {
+                      "fieldName":"fieldhorz",
+                      "fieldfunc":"cffdate"
+                    },
+                    {
+                      "fieldName":"fieldindex",
+                      "caption":"caption",
+                      "decidig":"2"
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ct3",
+              "caption":"报表容器",
+              "borderSides":"15",
+              "apiindex": 0,
+              "visible": {
+                "key": "gg",
+                "value": false,
+                "tableName": "DESC"
+              }
+            },
+            "children":
+            [
+              {
+                "tag":"chart",
+                "attrs":
+                {
+                  "name":"chartPop3",
+                  "tablename":"GG",
+                  "aPIIndex":"0",
+                  "showScales":true,
+                  "showTools":false,
+                  "showMenu":false,
+                  "rowLegendCount":"1",
+                  "tag_item":
+                  [
+                    {
+                      "fieldName":"fieldhorz",
+                      "fieldfunc":"cffdate"
+                    },
+                    {
+                      "fieldName":"fieldindex",
+                      "caption":"caption",
+                      "decidig":"2"
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          }
+
+        ]
+
+      }
+
+    ]
+
+  }
+
+}

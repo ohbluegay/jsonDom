@@ -1,0 +1,796 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStat",
+        "caption":"各行业重仓股统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "Standard":"Standard",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStat"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"beforeQuarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "Standard":"Standard",
+                    "IndustryCode":"IndustryCode",
+                    "GilCode":"GilCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStatTrend"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A4",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "Standard":"Standard",
+                    "IndustryCode":"IndustryCode",
+                    "GilCode":"GilCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStatDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Standard":"Standard",
+                    "ApiName":"JY.Topic.Market_profile.Market_scale.Industry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "Type":"7",
+                    "ApiName":"JY.Topic.ReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "showNewest":false,
+                            "offset":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxOrgTye",
+                            "param":"OrgType",
+                            "caption":"机构类型",
+                            "items":"全部;基金;基金管理公司;基金专户理财;QFII;券商;券商集合理财;银行;保险公司;社保基金;信托公司;信托计划;财务公司;企业年金;上市公司及下属公司;国资局;院校;其他",
+                            "mapValues":"0;1;2;3;4;5;6;7;8;9;10;11;12;13",
+                            "width":"150",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"eventcombobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStandardLevel",
+                            "caption":"行业分类",
+                            "param":"Standard",
+                            "execAPI":"3",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"'22','Level':'1;22','Level':'2;24','Level':'1;24','Level':'2;24','Level':'3;6','Level':'1;6','Level':'2;6','Level':'3;6','Level':'4'",
+                            "itemIndex":"2",
+                            "width":"126",
+                            "lblalign":true,
+                            "Level":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbIndustryCode",
+                            "caption":"行业选择",
+                            "param":"IndustryCode",
+                            "apiindex":"3",
+                            "tablename":"JY.Topic.Market_profile.Market_scale.Industry",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "width":"230",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"4",
+                    "table":"JY.Topic.ReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"A0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStat",
+                                    "caption":"各行业重仓股统计",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"机构持股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"机构家数"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"持股数量（万股）"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"占流通A股比例（%）"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"持股市值（万元）"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"占本行业持股市值比例（%）",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"收盘价"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"流通A股市值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"每股收益EPS（元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"TTM",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"静态",
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率PE",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"TTM"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"静态"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新年报盈利预测",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"预测机构家数"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"预测EPS平均值（元）"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新投资评级",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"评级机构家数"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"综合评级",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"200"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "fieldname":"A0_1",
+                                            "caption":"公司代码（从表参数）",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "GilCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "GilCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"3",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"变动趋势",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"持股明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"变动趋势",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"JYShareStru",
+                                                            "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStatTrend",
+                                                            "showList":true,
+                                                            "showRightAxis":true,
+                                                            "rowLegendCount":"3",
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"报告期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"持股数量（万股）",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"机构家数",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"持股市值（万元）",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"占流通A股比例（%）",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"占行业持股总市值比例（%）",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"收盘价",
+                                                                    "charttype":"ctLine",
+                                                                    "leftAxis":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"持股明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.IndustryLargeSharesStatDetail",
+                                                            "caption":"各行业重仓股统计（持股明细）",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"机构名称",
+                                                                    "width":"300",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"机构类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"持股数量（万股）",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"本期"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"变动"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"上期"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"占流通A股比例（%）",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"本期"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"变动"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"上期"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股市值（万元）",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"本期"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"变动"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"上期"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

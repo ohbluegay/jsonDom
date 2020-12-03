@@ -1,0 +1,427 @@
+{
+    "Page":
+    {
+        "name":"jydb.topic.company_finance.others.WagesPayable",
+        "caption":"应付职工薪酬明细",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "ApiName":"jydb.topic.company_finance.others.WagesPayable"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"2Quarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbYear",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "paramV1":"Year",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "filterReport":"10",
+                            "showNewest":false,
+                            "offset":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbYear",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddateyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jydb.topic.company_finance.others.WagesPayable",
+                                    "caption":" 应付职工薪酬明细",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"合计（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"工资、奖金、津贴和补贴（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"职工福利费（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"社会保险费 （万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"住房公积金（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"工会经费和教育经费(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"非货币性福利（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"因解除劳动关系给予的补偿（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"其他（万元）",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"期末余额"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"本期增加"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"本期减少"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C9",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业分类",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D0",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"D1",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

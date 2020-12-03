@@ -1,0 +1,596 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.StockTrans",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "caption":"协议转让",
+        "Request":
+        [
+            {
+                "responsetype":"rtDatatable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A8",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "ApiName":"Topic.TradeStatistic.StockTrans",
+                    "TradeDate":"TradeDate",
+                    "TransType":"1"
+                }
+
+            },
+            {
+                "responsetype":"rtdataset",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "TradeDate":"TradeDate",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"Topic.TradeStatistic.StockTransDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpkDate1",
+                            "caption":"日期",
+                            "param":"TradeDate",
+                            "date":"2018-01-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rptReport1",
+                                            "tablename":"Topic.TradeStatistic.StockTrans",
+                                            "caption":"协议转让",
+                                            "defselect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"收盘价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"涨跌(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"换手率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"成交量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"成交额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"交易笔数",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"前收盘价"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"开盘价"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"最高价"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"最低价"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"流通市值（亿元）"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"总市值（亿元）"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"上市日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"协议转让起始日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"证监会行业",
+                                                    "width":"240",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"C0",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "InnerCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "C0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"3",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"当日成交统计",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"当日报买信息",
+                                            "show":false
+                                        },
+                                        {
+                                            "name":"shtitem13",
+                                            "caption":"当日报卖信息",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"当日成交统计",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt111",
+                                                    "tablename":"AgreeTrans_Statistics",
+                                                    "caption":"成交统计数据",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"交易日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"成交价(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"成交额(元)",
+                                                            "fmtStr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"成交量(股)",
+                                                            "fmtStr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"成交时间",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"买方券商",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"卖方券商",
+                                                            "algmt":"taLeftJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"当日报买信息",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt121",
+                                                    "tablename":"AgreeTrans_Buy",
+                                                    "caption":"报买信息数据",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"报价时间",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"报价价格"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"股份数量",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"委托类别",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"报价单元"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"自动约定号"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem13",
+                                            "caption":"当日报卖信息",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt131",
+                                                    "tablename":"AgreeTrans_Sell",
+                                                    "caption":"报卖信息数据",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"报价时间",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"报价价格"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"股份数量",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"委托类别",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"报价单元"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"自动约定号"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

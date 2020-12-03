@@ -1,0 +1,530 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.NewStockIssueInfo",
+        "caption":"新股发行资料",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "BeginDate":"BeginDate",
+                    "StockDateType":"SGRQ",
+                    "ApiName":"JYTopic.StockPrimaryMarket.NewStockIssueInfo"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2017-01-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":""
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTransferSectorType",
+                            "param":"StockDateType",
+                            "width":"100",
+                            "items":"申购日期;上市日期;招股公告日;发行公告日",
+                            "mapValues":"SGRQ;SSRQ;ZGGGR;FXGGR",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true,
+                            "left":"-22"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.NewStockIssueInfo",
+                                    "caption":"新股发行资料",
+                                    "fixedcount":"5",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "caption":"",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"NonamedIndex",
+                                                    "colContain":"tccIndex"
+                                                },
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"申购日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"上市日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"上市市场",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"上市板块",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"发行价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"总计"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"网上发行"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"网下配售"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"网上网下配售比(%)",
+                                                    "width":"130"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行市盈率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"发行前"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"发行后"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"募集资金(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"拟募资金额"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"实际募资总额"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"募资净额"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"发行费用"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"发行费率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"承销及保荐费"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"审计及验资费"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"律师费用"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"每股发行费用(元/股)",
+                                                    "width":"150"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"网上发行情况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"有效申购户数",
+                                                    "fmtStr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"有效申购股数(万股)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"中签率(%)",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"认购倍数(倍)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"网下配售情况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"有效报价家数",
+                                                    "fmtStr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"网下申购配售对象家数",
+                                                    "fmtStr":"0",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"有效申购数量(万股)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"C9",
+                                                    "caption":"有效申购资金(亿元)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "fieldname":"D0",
+                                                    "caption":"有效申购获配比例(%)",
+                                                    "width":"150",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"D1",
+                                                    "caption":"认购倍数(倍)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D2",
+                                                    "caption":"发行方式",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"D3",
+                                                    "caption":"承销方式",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"D4",
+                                                    "caption":"承销商认购余股(万股)",
+                                                    "width":"140"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"公告日",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D5",
+                                                    "caption":"招股公告日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"D6",
+                                                    "caption":"发行公告日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"D7",
+                                                    "caption":"中签率公告日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"D8",
+                                                    "caption":"发行结果公告日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D9",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"E0",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"E1",
+                                                    "caption":"证券类型",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

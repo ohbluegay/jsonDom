@@ -1,0 +1,755 @@
+{
+    "Page":
+    {
+        "name":"Topic.AdditionalStat",
+        "caption":"增发统计(聚源统计)",
+        "Request":
+        [
+            {
+                "index":"0",
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "TransType":"TransType",
+                    "DateStatType":"DateStatType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.AdditionalStat"
+                }
+
+            },
+            {
+                "index":"1",
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "TransType":"TransType",
+                    "DateStatType":"DateStatType",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.AdditionalStatisticsPlansDetail"
+                }
+
+            },
+            {
+                "index":"2",
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "TransType":"TransType",
+                    "DateStatType":"DateStatType",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.AdditionalStatisticsImplementationDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDateStatType",
+                            "caption":"统计周期",
+                            "param":"DateStatType",
+                            "width":"70",
+                            "items":"周;月;年",
+                            "mapValues":"0;1;2",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTransType",
+                            "caption":"转让方式",
+                            "param":"TransType",
+                            "width":"70",
+                            "items":"全部;协议;做市;竞价",
+                            "mapValues":"ALL;XY;ZS;JJ",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"ctReport1",
+                                            "tableName":"Topic.AdditionalStat",
+                                            "caption":"增发统计",
+                                            "defSelect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A0",
+                                                    "datatype":"ctstring",
+                                                    "caption":"截止日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "caption":"新增预案",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"增发次数",
+                                                            "width":"130"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"增发家数",
+                                                            "width":"130",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"增发数量(万股)",
+                                                            "width":"170"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"预计募资(亿元)",
+                                                            "width":"170"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"实施完成",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A5",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"增发次数",
+                                                            "width":"130"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"增发家数",
+                                                            "width":"130",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"增发数量(万股)",
+                                                            "width":"170"
+                                                        },
+                                                        {
+                                                            "filedname":"A8",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"募资总额(亿元)",
+                                                            "width":"170"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"A0",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "EndDate"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        },
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"2",
+                                                                "P":
+                                                                [
+                                                                    "EndDate"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtControl1",
+                                    "sheetCount":"2",
+                                    "caption":"报表容器",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtItem1",
+                                            "caption":"预案明细",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtItem2",
+                                            "caption":"实施明细",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtItem1",
+                                            "caption":"预案明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"ctReport2",
+                                                    "tableName":"Topic.AdditionalStatisticsPlansDetail",
+                                                    "caption":"预案明细",
+                                                    "fixedcount":"2",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A0",
+                                                            "datatype":"ctstring",
+                                                            "caption":" 证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券简称",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctstring",
+                                                            "caption":"预案公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctstring",
+                                                            "caption":"方案进度",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "caption":"发行价",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A4",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"上限(元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A5",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"下限(元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A6",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"定价方式",
+                                                                    "functype":"ftmemo"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"发行量",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A7",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"上限(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A8",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"下限(万股)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"预计募资",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A9",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"上限(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"B0",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"下限(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"B1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"募集资金用途",
+                                                                    "functype":"ftmemo"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"公告日",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"B2",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"股东大会",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"B3",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证监会核准",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "filedname":"B4",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证监会行业",
+                                                            "algmt":"taLeftJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtItem2",
+                                            "caption":"实施明细",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"ctReport3",
+                                                    "tableName":"Topic.AdditionalStatisticsImplementationDetail",
+                                                    "caption":"实施明细",
+                                                    "fixedcount":"2",
+                                                    "aPIIndex":"2",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A0",
+                                                            "datatype":"ctstring",
+                                                            "caption":" 证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券简称",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctstring",
+                                                            "caption":"增发公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctstring",
+                                                            "caption":"增发上市日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"增发价格"
+                                                        },
+                                                        {
+                                                            "filedname":"A5",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"增发数量(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"预计募资(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"实际募资(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A8",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"发行对象数量",
+                                                            "fmtstr":"0"
+                                                        },
+                                                        {
+                                                            "filedname":"A9",
+                                                            "datatype":"ctstring",
+                                                            "caption":"大股东是否参与",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B0",
+                                                            "datatype":"ctstring",
+                                                            "caption":"预案公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"股东大会公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B2",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证监会核准公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B3",
+                                                            "datatype":"ctstring",
+                                                            "caption":"认购公告日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"B4",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证监会行业",
+                                                            "algmt":"taLeftJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

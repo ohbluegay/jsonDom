@@ -1,0 +1,902 @@
+{
+    "Page":
+    {
+        "name":"DailyTransactionData",
+        "caption":"每日交易数据",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"TradingDay",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"Customer",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"DailyTransactionData"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "TradingDate":"TradingDate",
+                    "ApiName":"QuoteDeclare"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "TradingDate":"TradingDate",
+                    "ApiName":"TransactionDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始时间",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -2,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "lblalign":true,
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "borderSides":"0",
+                    "padding":"2",
+                    "align":"altop",
+                    "height":"65"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"6",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"DailyStatisticalData",
+                                    "caption":"每日交易数据",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rowname":"caption",
+                                            "heigh":"200",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "rowname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"intervalTurnoverVolume",
+                                            "caption":"区间成交量(股)",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "filedname":"intervalTurnoverValue",
+                                            "caption":"区间成交额(元)"
+                                        },
+                                        {
+                                            "filedname":"intervalHighPrice",
+                                            "caption":"区间最高价"
+                                        },
+                                        {
+                                            "filedname":"intervalLowPrice",
+                                            "caption":"区间最低价"
+                                        },
+                                        {
+                                            "filedname":"avgPrice",
+                                            "caption":"平均价"
+                                        },
+                                        {
+                                            "filedname":"intervalChangePCT",
+                                            "caption":"区间涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"IntervaleChangeTurnRate",
+                                            "caption":"区间换手率(%)"
+                                        },
+                                        {
+                                            "fieldname":"RangeExceptCount",
+                                            "caption":"区间异动次数",
+                                            "fmtstr":"0"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"DailyDetailedTransaction",
+                                    "caption":"每日交易数据",
+                                    "fixedcount":"1",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rowname":"caption",
+                                            "heigh":"110"
+                                        },
+                                        {
+                                            "rowname":"row",
+                                            "heigh":"90",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"TradingDay",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"closePrice",
+                                            "caption":"收盘价"
+                                        },
+                                        {
+                                            "fieldname":"PreClosePrice",
+                                            "caption":"前收盘价"
+                                        },
+                                        {
+                                            "fieldname":"turnoverVolume",
+                                            "caption":"成交量(股)",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"turnoverValue",
+                                            "caption":"成交金额(元)"
+                                        },
+                                        {
+                                            "fieldname":"turnoverDeals",
+                                            "caption":"交易笔数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"ChangeOfPrice",
+                                            "caption":"涨跌(元)"
+                                        },
+                                        {
+                                            "fieldname":"changePCT",
+                                            "caption":"涨跌幅(%)"
+                                        },
+                                        {
+                                            "fieldname":"lowPrice",
+                                            "caption":"当日最低价"
+                                        },
+                                        {
+                                            "fieldname":"highPrice",
+                                            "caption":"当日最高价"
+                                        },
+                                        {
+                                            "fieldname":"turnrate",
+                                            "caption":"换手率(%)"
+                                        },
+                                        {
+                                            "fieldname":"declaredetail",
+                                            "caption":"申报明细",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "F":"popfrm1",
+                                                    "P":
+                                                    [
+                                                        "TradingDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "TradingDay"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"dealdetail",
+                                            "caption":"成交明细",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"2",
+                                                    "F":"popfrm2",
+                                                    "P":
+                                                    [
+                                                        "TradingDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "TradingDay"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"申报明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"sizecontainer",
+                        "attrs":
+                        {
+                            "name":"sctPop1",
+                            "position":"85",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctpop1shang",
+                                    "borderSides":"0",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable1",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"当日报价统计",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"当日报价统计",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"tpt10",
+                                                            "tablename":"QuoteStatistics",
+                                                            "caption":"申报明细统计数据",
+                                                            "apiindex":"1",
+                                                            "unRequest":true,
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rowname":"caption",
+                                                                    "heigh":"200",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "rowname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"AvgBuyPrice",
+                                                                    "caption":"报买均价"
+                                                                },
+                                                                {
+                                                                    "filedname":"AvgSellPrice",
+                                                                    "caption":"报卖均价"
+                                                                },
+                                                                {
+                                                                    "filedname":"BuyStockNum",
+                                                                    "caption":"报买股数(股)",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "filedname":"SellStockNum",
+                                                                    "caption":"报卖股数(股)",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "filedname":"BuyStocks",
+                                                                    "caption":"报买笔数",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "filedname":"SellStocks",
+                                                                    "caption":"报卖笔数",
+                                                                    "fmtStr":"0"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctpop1xia",
+                                    "borderSides":"0",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable2",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"报买信息",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"报买信息",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"DeclarationDetail",
+                                                            "apiindex":"1",
+                                                            "caption":"申报明细",
+                                                            "fixedcount":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"QuotedPrice",
+                                                                    "caption":"报价价格",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"ShareAmount",
+                                                                    "caption":"股份数量(股)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"MS",
+                                                                    "caption":"委托类别"
+                                                                },
+                                                                {
+                                                                    "fieldname":"QuotedOrgName",
+                                                                    "caption":"报价单元"
+                                                                },
+                                                                {
+                                                                    "fieldname":"AutoConvent",
+                                                                    "caption":"自动约定号",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"QuotedTime",
+                                                                    "caption":"报价时间"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm2",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"成交明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"sizecontainer",
+                        "attrs":
+                        {
+                            "name":"sctPop1",
+                            "position":"85",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctrptgrd2",
+                                    "caption":"报表容器",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable3",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"当日成交统计",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"当日成交统计",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rptmx",
+                                                            "tablename":"TransactionStatistics",
+                                                            "caption":"成交明细统计数据",
+                                                            "apiindex":"2",
+                                                            "unRequest":true,
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rowname":"caption",
+                                                                    "heigh":"200",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "rowname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"AvgTurnoverValue",
+                                                                    "caption":"成交均价"
+                                                                },
+                                                                {
+                                                                    "filedname":"SumTurnoverVolume",
+                                                                    "caption":"成交股数(股)",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "filedname":"SumTurnoverValue",
+                                                                    "caption":"成交金额(元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"Count",
+                                                                    "caption":"成交笔数",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "filedname":"MaxTurnoverPrice",
+                                                                    "caption":"最高价"
+                                                                },
+                                                                {
+                                                                    "filedname":"MinTurnoverPrice",
+                                                                    "caption":"最低价"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctDataGround31",
+                                    "caption":"报表容器",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable4",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem4",
+                                                    "caption":"成交明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem4",
+                                                    "caption":"成交明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt111",
+                                                            "tablename":"TransactionDetail",
+                                                            "apiindex":"2",
+                                                            "caption":"成交明细",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"TurnoverPrice",
+                                                                    "caption":"成交价格",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"TurnoverVolume",
+                                                                    "caption":"成交股数(股)",
+                                                                    "algmt":"taRightJustify",
+                                                                    "fmtStr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"TurnoverValue",
+                                                                    "caption":"成交金额(元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"BuyOrgName",
+                                                                    "caption":"买方劵商"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SaleOrgName",
+                                                                    "caption":"卖方劵商"
+                                                                },
+                                                                {
+                                                                    "fieldname":"TurnoverTime",
+                                                                    "caption":"成交时间"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

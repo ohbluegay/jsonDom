@@ -1,0 +1,264 @@
+{
+    "Page":
+    {
+        "name":"cfAssetSide",
+        "caption":"资产端现金流归集",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"Bond.F9.Abs.Cash_flow.AssetSideOfCashFlow"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"Bond.F9.Abs.Cash_flow.AssetSideOfCashFlowChart"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始时间(图)",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "left":"80"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截至时间(图)",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            2,
+                            0)",
+                            "left":"80"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "percent":"45",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"chart1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"HistoryImageData",
+                                    "caption":"现金流",
+                                    "apiindex":"1",
+                                    "tableName":"Bond.F9.Abs.Cash_flow.AssetSideOfCashFlowChart",
+                                    "showList":true,
+                                    "showRightAxis":true,
+                                    "rowLegendCount":"2",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "fieldFunc":"cffHorz",
+                                            "charttype":"ctLine",
+                                            "forcedSort":true
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"本期应收本金(万元)",
+                                            "charttype":"ctLine"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"本期应收利息(万元)",
+                                            "charttype":"ctLine",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"本期应收本息额(万元)",
+                                            "charttype":"ctLine",
+                                            "checked":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctreport1",
+                            "caption":"资产端现金流归集",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt2",
+                                    "tablename":"Bond.F9.Abs.Cash_flow.AssetSideOfCashFlow",
+                                    "caption":"资产端现金流归集",
+                                    "defSelect":true,
+                                    "autoNodeHeight":false,
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "width":"90",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"期初本金余额(万元)",
+                                            "width":"90",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"本期应收本金(万元)",
+                                            "width":"90",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"本期应收利息(万元)",
+                                            "width":"90",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"本期应收本息额(万元)",
+                                            "width":"60",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"期末本金余额(万元)",
+                                            "width":"60",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"CPR值(%)",
+                                            "width":"60",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

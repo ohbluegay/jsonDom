@@ -1,0 +1,606 @@
+{
+    "Page":
+    {
+        "name":"JYAgencyRate",
+        "caption":"估值分析",
+        "Request":
+        [
+            {
+                "responsetype":"rtDatatable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"JYValuateAnalyse.A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYValuateAnalyse"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"ctSizeContain1",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctcht",
+                            "caption":"图形",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"ctChart1",
+                                    "tablename":"JYValuateAnalyse",
+                                    "caption":"估值分析图形",
+                                    "showRightAxis":true,
+                                    "showlist":true,
+                                    "showgroup":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"股价",
+                                            "charttype":"ctline",
+                                            "decidig":"2"
+                                        }
+
+                                    ],
+                                    "tag_itemgroup":
+                                    [
+                                        {
+                                            "caption":"市盈率",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"市盈率",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"均值",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"均值+1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"均值-1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"PEG",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"PEG",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"均值",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"均值+1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"均值-1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市净率",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"市净率",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"均值",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"均值+1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"均值-1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市现率",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"市现率",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"均值",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"均值+1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"均值-1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市销率",
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"市销率",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"均值",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"均值+1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"均值-1sd",
+                                                    "charttype":"ctline",
+                                                    "decidig":"2",
+                                                    "leftAxis":false
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"JYValuateAnalyse",
+                                            "caption":"估值分析",
+                                            "fixedcount":"1",
+                                            "autochart":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"130",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"市盈率TTM"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"预测市盈率(动)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"PEG预测"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"PEG历史"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"市盈率MRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"市销率TTM"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"市现率TTM"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"EV2/EBITDE"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

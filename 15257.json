@@ -1,0 +1,470 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.DividTrans.BonusImplIndustry",
+        "caption":"分红与盈利统计(按行业)",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "ApiName":"JYDB.Topic.DividTrans.BonusImplIndustry"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowYear;-1"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"JYDB.Topic.DividTrans.BonusImplIndustryDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowYear;-1"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbStandard",
+                            "caption":"行业名称",
+                            "param":"Standard",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业;中证一级行业;中证二级行业;中证三级行业;中证四级行业;中信一级行业;中信二级行业;中信三级行业;SSE一级行业",
+                            "mapValues":"'22','Level':'1;22','Level':'2;24','Level':'1;24','Level':'2;24','Level':'3;28','Level':'1;28','Level':'2;28','Level':'3;28','Level':'4;3','Level':'1;3','Level':'2;3','Level':'3;5','Level':'1'",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "lblalign":true,
+                            "itemindex":"2",
+                            "Level":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbEndYear",
+                            "caption":"年度",
+                            "param":"EndDate",
+                            "datetype":"3",
+                            "fmtMonth":"."
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.DividTrans.BonusImplIndustry",
+                                    "caption":"分红实施行业统计",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业简称"
+                                        },
+                                        {
+                                            "caption":"统计公司数量",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"公司数",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"盈利",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"亏损",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"分红",
+                                                    "width":"160"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"统计公司数量(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"盈利/全部家数",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"分红/全部家数",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"分红/盈利家数",
+                                                    "width":"160"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"分红总额(万元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业净利润统计_均值(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"全行业统计"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"盈利公司统计"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"股利支付率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"盈利公司"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"全行业"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"公司明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"公司明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.DividTrans.BonusImplIndustryDetail",
+                                                            "caption":"分红实施行业统计-公司明细",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"年度净利润(万元)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"年度分红总额(万元)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"股利支付率(%)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

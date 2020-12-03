@@ -1,0 +1,348 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.EnterpriseBondIssue",
+        "caption":"企债发行",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JYTopic.StockPrimaryMarket.EnterpriseBondIssue",
+                    "BondType":"BondType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"BondType",
+                        "value":
+                        [
+                            "ALL"
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2016-12-31"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2017-03-09"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"发行上市日",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxConvertBondDateType",
+                            "caption":"债券类型",
+                            "param":"BondType",
+                            "items":"全部;企业债券;金融债券;公司债券;ABS;中期票据;短期融资券;超短期融资券;其他债权",
+                            "mapValues":"ALL;QYZ;JRZ;GSZ;ABS;ZQPJ;DQRZQ;CDQRZQ;OTHER",
+                            "multiselect":true,
+                            "width":"120",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.EnterpriseBondIssue",
+                                    "caption":"企债发行",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"企债代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"企债简称",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"债券类型",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"发行上市日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"发行对象",
+                                            "functype":"ftmemo"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"发行规模(亿元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"面值(元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"期限(年)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"债券形式",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"利率(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"计息方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"付息方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"付息频率(次/年)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"起息日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"到期日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"兑付方式",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"证监会行业",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"申万行业",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"发行人",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

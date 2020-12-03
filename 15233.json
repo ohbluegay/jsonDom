@@ -1,0 +1,519 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChange",
+        "caption":"高管持股变动统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "Period":"Period",
+                    "MType":"MType",
+                    "ApiName":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChange"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-6;months"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "MType":"MType",
+                    "ApiName":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChangeDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-6;days"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeganDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"结束日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbPeriod",
+                            "caption":"统计周期",
+                            "param":"Period",
+                            "items":"周;月;日",
+                            "mapValues":"1;2;3",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbMType",
+                            "caption":"市场类型",
+                            "param":"MType",
+                            "items":"全部;沪市主板;深市主板;中小板;创业板",
+                            "mapValues":"0;1;2;3;4",
+                            "width":"90",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChange",
+                                    "defselect":true,
+                                    "caption":" 两市高管持股变动",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "width":"120",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"买入股数",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"买入金额",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"卖出股数"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"卖出金额"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"净买入股数"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"净买入金额"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"变动公司数"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"变动高管数"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "BeganDate",
+                                                        "EndDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "a0_1",
+                                                        "a0_2"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"统计图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChangeDetail",
+                                                            "caption":" 两市高管持股变动统计（证券明细）",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"净买入数量(万股)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"净买入金额(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"变动高管",
+                                                                    "width":"350",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"统计图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"SeniorHoldTrend",
+                                                            "aPIIndex":"0",
+                                                            "tablename":"JYDB.Topic.SHResearch.TwoMarketSeniorHoldChange",
+                                                            "caption":"走势图",
+                                                            "showList":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctstring"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"买入金额",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"卖出金额",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"净买入金额",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"买入股数",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"卖出股数",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"净买入股数",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

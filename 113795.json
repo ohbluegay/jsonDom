@@ -1,0 +1,284 @@
+{
+    "Page":
+    {
+        "name":"nqdb.f9.SaleUnLimitV2Report",
+        "caption":"限售解禁时间表",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"nqdb.f9.SaleUnLimitV2Report"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FloatBeginDt":"FloatBeginDt",
+                    "ApiName":"nqdb.f9.SaleUnLimitV2DetailReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround2",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"nqdb.f9.SaleUnLimitV2Report",
+                                    "caption":"限售解禁时间表",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"解禁日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"解禁数量(股)",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"占已流通股比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"占总股本比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"剩余未解禁数量(股)",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"解禁股东明细",
+                                            "algmt":"taCenter",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "F":"popfrm1",
+                                                    "P":
+                                                    [
+                                                        "FloatBeginDt"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            },
+                                            "funcByParam":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"限售解禁明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"nqdb.f9.SaleUnLimitV2DetailReport",
+                                    "apiindex":"1",
+                                    "fixedcount":"2",
+                                    "caption":"明细",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"股东名称"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"解禁日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"解禁数量(股)",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"占已流通股本比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"占总股本比例(%)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

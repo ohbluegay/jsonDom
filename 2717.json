@@ -1,0 +1,873 @@
+{
+    "Page":
+    {
+        "name":"JYBonusStock",
+        "caption":"分红配股",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"Bonus.EndDate",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYBonusStock"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JY.F9.JYBonusStockPolicyReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctG",
+                    "caption":"背景",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"stcL",
+                            "sheetCount":"2",
+                            "tabWidth":"120",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"st1",
+                                    "caption":"分红",
+                                    "show":true
+                                },
+                                {
+                                    "name":"st2",
+                                    "caption":"配股",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"st1",
+                                    "caption":"分红",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"sizecontainer",
+                                        "attrs":
+                                        {
+                                            "name":"ctSizeContainer1",
+                                            "percent":"45",
+                                            "btnvisible":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctB1",
+                                                    "caption":"图形背景1",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctP1",
+                                                            "caption":"图形1",
+                                                            "padding":"0",
+                                                            "borderSides":"2"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Chart",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"chart1",
+                                                                    "tablename":"Bonus",
+                                                                    "caption":"分红与股价走势",
+                                                                    "showRightAxis":true,
+                                                                    "showlist":true,
+                                                                    "rowLegendCount":"2",
+                                                                    "rtitle":"股利支付率(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"EndDate",
+                                                                            "caption":"报告日期",
+                                                                            "datatype":"ctstring",
+                                                                            "charttype":"ctBar",
+                                                                            "fieldFunc":"cffDate"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"NetProfit",
+                                                                            "caption":"净利润(元)",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"CashDiviRMB",
+                                                                            "caption":"现金分红总额(元)",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"DividendPayRatio",
+                                                                            "caption":"股利支付率(%)",
+                                                                            "charttype":"ctLine",
+                                                                            "leftAxis":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctB2",
+                                                    "caption":"报表容器",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SheetControl",
+                                                        "attrs":
+                                                        {
+                                                            "name":"stcL1",
+                                                            "sheetCount":"2",
+                                                            "tabWidth":"120",
+                                                            "sheetContent":
+                                                            [
+                                                                {
+                                                                    "name":"st11",
+                                                                    "caption":"分红统计",
+                                                                    "show":true
+                                                                },
+                                                                {
+                                                                    "name":"st12",
+                                                                    "caption":"分红明细",
+                                                                    "show":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"st11",
+                                                                    "caption":"分红统计",
+                                                                    "show":true
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Container",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctP11",
+                                                                            "caption":"报表容器",
+                                                                            "padding":"0",
+                                                                            "borderSides":"1"
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Report",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"rpt11",
+                                                                                    "tablename":"Bonus",
+                                                                                    "caption":"分红统计",
+                                                                                    "fixedcount":"1",
+                                                                                    "tag_row":
+                                                                                    [
+                                                                                        {
+                                                                                            "rname":"caption",
+                                                                                            "heigh":"120",
+                                                                                            "algmt":"taLeftJustify"
+                                                                                        },
+                                                                                        {
+                                                                                            "rname":"row",
+                                                                                            "heigh":"160",
+                                                                                            "algmt":"taRightJustify"
+                                                                                        }
+
+                                                                                    ],
+                                                                                    "tag_column":
+                                                                                    [
+                                                                                        {
+                                                                                            "fieldname":"EndDate",
+                                                                                            "caption":"报告日期",
+                                                                                            "algmt":"taCenter"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"CashDiviRMB",
+                                                                                            "caption":"现金分红总额(元 )"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"NetProfit",
+                                                                                            "caption":"净利润(元)"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"EndDProfit",
+                                                                                            "caption":"期末可分配利润(元)"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"EndUDProfit",
+                                                                                            "caption":"期末未分配利润(元)"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"DividendPayRatio",
+                                                                                            "caption":"股利支付率(%)",
+                                                                                            "fmtstr":"2"
+                                                                                        },
+                                                                                        {
+                                                                                            "fieldname":"BonusEFRatio",
+                                                                                            "caption":"分红和股权融资比例(%)"
+                                                                                        }
+
+                                                                                    ]
+
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"st12",
+                                                                    "caption":"分红明细",
+                                                                    "show":false
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Container",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctRightDown",
+                                                                            "borderSides":"0"
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"SheetControl",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"stcRightDown",
+                                                                                    "sheetCount":"2",
+                                                                                    "tabWidth":"200",
+                                                                                    "sheetContent":
+                                                                                    [
+                                                                                        {
+                                                                                            "name":"stRightDown1",
+                                                                                            "caption":"分红明细",
+                                                                                            "show":true
+                                                                                        },
+                                                                                        {
+                                                                                            "name":"stRightDown2",
+                                                                                            "caption":"差别化个人所得税政策",
+                                                                                            "show":false
+                                                                                        }
+
+                                                                                    ]
+
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"SheetItem",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"stRightDown1",
+                                                                                            "caption":"分红明细",
+                                                                                            "show":true
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Report",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"rpt12",
+                                                                                                    "tablename":"BonusDetails",
+                                                                                                    "caption":"分红明细",
+                                                                                                    "showhead":true,
+                                                                                                    "tag_row":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "rname":"caption",
+                                                                                                            "heigh":"150",
+                                                                                                            "algmt":"taLeftJustify"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "rname":"row",
+                                                                                                            "heigh":"200",
+                                                                                                            "algmt":"taRightJustify"
+                                                                                                        }
+
+                                                                                                    ],
+                                                                                                    "tag_column":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "fieldname":"A0",
+                                                                                                            "caption":"预案公布日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A1",
+                                                                                                            "caption":"除权除息日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A2",
+                                                                                                            "caption":"方案进度",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A3",
+                                                                                                            "caption":"分红对象",
+                                                                                                            "algmt":"taLeftJustify"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A4",
+                                                                                                            "caption":"每股股利(税前)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A5",
+                                                                                                            "caption":"每股股利(税后)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A6",
+                                                                                                            "caption":"每股红股"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A7",
+                                                                                                            "caption":"每股转增"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A8",
+                                                                                                            "caption":"股东大会公告日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A9",
+                                                                                                            "caption":"股权登记日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"B0",
+                                                                                                            "caption":"实施公告日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"B1",
+                                                                                                            "caption":"派息日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"B2",
+                                                                                                            "caption":"红股上市日",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"B3",
+                                                                                                            "caption":"EndDate(排序字段)",
+                                                                                                            "hide":true
+                                                                                                        }
+
+                                                                                                    ]
+
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    },
+                                                                                    {
+                                                                                        "tag":"SheetItem",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"stRightDown2",
+                                                                                            "caption":"差别化个人所得税政策",
+                                                                                            "show":false
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Report",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"rptRightDown1",
+                                                                                                    "tablename":"JY.F9.JYBonusStockPolicyReport",
+                                                                                                    "caption":"上市公司股息红利差别化个人所得税政策",
+                                                                                                    "showhead":true,
+                                                                                                    "aPIIndex":"1",
+                                                                                                    "autonodeheight":true,
+                                                                                                    "autoColumnWidth":false,
+                                                                                                    "tag_column":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "fieldname":"A0",
+                                                                                                            "caption":"上市公司股息红利差别化个人所得税政策",
+                                                                                                            "algmt":"taLeftJustify",
+                                                                                                            "width":"1000"
+                                                                                                        }
+
+                                                                                                    ]
+
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"st2",
+                                    "caption":"配股",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"sizecontainer",
+                                        "attrs":
+                                        {
+                                            "name":"ctSizeContainer2",
+                                            "percent":"45",
+                                            "btnvisible":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctB3",
+                                                    "caption":"图形背景1",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctP3",
+                                                            "caption":"图形1",
+                                                            "padding":"0",
+                                                            "borderSides":"2"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Chart",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"chart2",
+                                                                    "tablename":"LineRow",
+                                                                    "caption":"配股与股价走势",
+                                                                    "showRightAxis":true,
+                                                                    "rowLegendCount":"3",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A0",
+                                                                            "fieldFunc":"cffDate"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"股价(元)",
+                                                                            "charttype":"ctLine"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_attacheditem":
+                                                                    [
+                                                                        {
+                                                                            "tablename":"pointrow",
+                                                                            "indexfn":"A0",
+                                                                            "hostlinefn":"A1",
+                                                                            "ptHintfn":"A2",
+                                                                            "iconTypefn":"A3"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctB4",
+                                                    "caption":"报表容器",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctP5",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "borderSides":"1"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"rpt2",
+                                                                    "tablename":"StockAllotment",
+                                                                    "caption":"配股",
+                                                                    "reverse":true,
+                                                                    "showhead":true,
+                                                                    "autonodeheight":true,
+                                                                    "autochart":true,
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"caption",
+                                                                            "heigh":"150",
+                                                                            "algmt":"taLeftJustify"
+                                                                        },
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "heigh":"200",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"PlaObject",
+                                                                            "caption":"配股对象",
+                                                                            "width":"220"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"",
+                                                                            "caption":"股东大会公告日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlanPlaVol",
+                                                                            "caption":"计划配股数",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PayStartDate",
+                                                                            "caption":"缴款起始日"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaPrice",
+                                                                            "caption":"配股价",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaListDate",
+                                                                            "caption":"配股上市日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ApprovedDate",
+                                                                            "caption":"获准日期",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ActualPlaVol",
+                                                                            "caption":"实际配股数",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaRatio",
+                                                                            "caption":"配股比例",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"MainUnderwriteSmdeciPublDater",
+                                                                            "caption":"主承销商",
+                                                                            "width":"280"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"BenchmarkStock",
+                                                                            "caption":"基准股本",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaPublDate",
+                                                                            "caption":"配股公告日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaCost",
+                                                                            "caption":"配售费用",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlaMode",
+                                                                            "caption":"配股方式",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"AdvanceDate",
+                                                                            "caption":"预案公告日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"UnderwriterMode",
+                                                                            "caption":"承销方式",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"AraiseFund",
+                                                                            "caption":"实际募集资金",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"RaiseFundSum",
+                                                                            "caption":"募集资金合计",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ExRightDate",
+                                                                            "caption":"除权日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"TradeStockApla",
+                                                                            "caption":"已流通股实际配股数",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PayEndDate",
+                                                                            "caption":"缴款终止日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"TradeStockTpla",
+                                                                            "caption":"已流通股理论配股数",
+                                                                            "algmt":"taRightJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"RightRegDate",
+                                                                            "caption":"股权登记日",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"PlanProcess",
+                                                                            "caption":"方案进度",
+                                                                            "algmt":"taCenter"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"Distributor",
+                                                                            "caption":"分销商",
+                                                                            "width":"280"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"EquityBenchmarkDate",
+                                                                            "caption":"股本基准日期",
+                                                                            "algmt":"taCenter"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

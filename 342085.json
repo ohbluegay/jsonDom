@@ -1,0 +1,681 @@
+{
+    "Page":
+    {
+        "name":"NQ.Topic.IndustryAppraisementCompare",
+        "caption":"行业估值对比",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "IndustryStandardCode":"IndustryStandardCode",
+                    "DelRule":"DelRule",
+                    "MarketPlates":"MarketPlates",
+                    "EndDate":"EndDate",
+                    "ApiName":"NQ.Topic.IndustryAppraisementCompare"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "IndustryStandardCode":"IndustryStandardCode",
+                    "DelRule":"DelRule",
+                    "MarketPlates":"MarketPlates",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"NQ.Topic.IndustryAppraisementCompareHistory"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox1",
+                            "width":"180",
+                            "caption":"行业分类",
+                            "param":"IndustryStandardCode",
+                            "items":"证监会一级行业;证监会二级行业;管理型分类一级;管理型分类二级;管理型分类三级;管理型分类四级;投资型分类一级;投资型分类二级;投资型分类三级;投资型分类四级;国民经济行业分类一级;国民经济行业分类二级;国民经济行业分类三级;国民经济行业分类四级",
+                            "mapValues":"'22','Level':'1;22','Level':'2;25','Level':'1;25','Level':'2;25','Level':'3;25','Level':'4;26','Level':'1;26','Level':'2;26','Level':'3;26','Level':'4;27','Level':'1;27','Level':'2;27','Level':'3;27','Level':'4'",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "Level":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketPlates",
+                            "caption":"市场板块",
+                            "param":"MarketPlates",
+                            "items":"全部;新三板;创业板;中小板;上证A股;深成500;沪深300;上证380;上证500",
+                            "mapValues":"ALL;XSB;CYB;ZXB;SHAG;SC500;HS300;SH380;SH500",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "width":"120",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDelRule",
+                            "caption":"剔除规则",
+                            "param":"DelRule",
+                            "width":"90",
+                            "items":"不调整;剔除负值",
+                            "mapValues":"NoChange;DelNegative",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"NQ.Topic.IndustryAppraisementCompare",
+                                    "caption":"行业估值对比",
+                                    "reverse":false,
+                                    "dynColumn":true,
+                                    "fixedcount":"3",
+                                    "defselect":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "fieldname":"industryCode",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"industryName",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"tradeDate",
+                                            "algmt":"taCenter",
+                                            "caption":"从表参数",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "industryCode"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scHsTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史估值明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"对比图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"历史估值明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"NQ.Topic.IndustryAppraisementCompareHistory",
+                                                            "caption":"",
+                                                            "reverse":false,
+                                                            "dynColumn":true,
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_dyncolumn":
+                                                            [
+                                                                {
+                                                                    "fieldname":"tradeDate",
+                                                                    "algmt":"taCenter",
+                                                                    "width":"230"
+                                                                },
+                                                                {
+                                                                    "fieldname":"industryName",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"230"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"对比图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"cht1",
+                                                            "tablename":"NQ.Topic.IndustryAppraisementCompareHistory",
+                                                            "caption":"",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"tradeDate",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemgroup":
+                                                            [
+                                                                {
+                                                                    "fieldname":"grp1",
+                                                                    "caption":"PE均值",
+                                                                    "checked":true,
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"XSB-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"新三板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"CYB-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"创业板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ZXB-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"中小板",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SHAG-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证A股",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SC500-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"深成500",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"HS300-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"沪深300",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH380-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证380",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH500-avgpe",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证500",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"grp2",
+                                                                    "caption":"PB均值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"XSB-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"新三板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"CYB-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"创业板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ZXB-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"中小板",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SHAG-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证A股",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SC500-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"深成500",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"HS300-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"沪深300",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH380-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证380",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH500-avgpb",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证500",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"grp3",
+                                                                    "caption":"PCF均值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"XSB-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"新三板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"CYB-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"创业板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ZXB-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"中小板",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SHAG-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证A股",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SC500-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"深成500",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"HS300-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"沪深300",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH380-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证380",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH500-avgpcf",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证500",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"grp4",
+                                                                    "caption":"PS均值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"XSB-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"新三板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"CYB-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"创业板"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ZXB-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"中小板",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SHAG-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证A股",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SC500-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"深成500",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"HS300-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"沪深300",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH380-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证380",
+                                                                            "checked":false
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SH500-avgps",
+                                                                            "charttype":"ctBar",
+                                                                            "caption":"上证500",
+                                                                            "checked":false
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

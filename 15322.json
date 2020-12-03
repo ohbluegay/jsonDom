@@ -1,0 +1,227 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockAchievementForecast",
+        "caption":"新股盈利预测",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StatisPeriod":"StatisPeriod",
+                    "ApiName":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockAchievementForecast"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"StatisPeriod",
+                        "value":"90;default"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx3",
+                            "caption":"统计区间",
+                            "param":"StatisPeriod",
+                            "items":"近7日;近30日;近60日;近90日;近180日",
+                            "mapValues":"7;30;60;90;180",
+                            "itemIndex":"3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockAchievementForecast",
+                                    "caption":" 新股业绩预测",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "dynColumn":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dynColumn":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"预测机构",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"研究员",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"研究日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"基期年度"
+                                        },
+                                        {
+                                            "fieldname":"C9",
+                                            "caption":"证监会二级行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"D0",
+                                            "caption":"申万二级行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C7",
+                                            "caption":"研报类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C8",
+                                            "caption":"研报原文",
+                                            "algmt":"taLeftJustify",
+                                            "functype":"ftReDirectF9",
+                                            "paramEx":
+                                            {
+                                                "[
+                                                    D3
+                                                ]
+serviceurl":true,
+                                                "action":"waDownload",
+                                                "params":"param",
+                                                "server":"webserver",
+                                                "url":"/queryservice/research/attachment/"
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

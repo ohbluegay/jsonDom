@@ -1,0 +1,754 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatistics",
+        "caption":"个股目标价统计",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "StatisPeriod":"StatisPeriod",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatistics"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "StatisPeriod":"StatisPeriod",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatisticsDetails"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatisticsImage"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"统计区间",
+                            "param":"StatisPeriod",
+                            "items":"近30日;近60日;近90日;近180日",
+                            "mapValues":"30;60;90;180",
+                            "itemIndex":"0",
+                            "multiselect":true,
+                            "multiShowAll":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatistics",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"统计周期(日)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"预测机构数"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"目标价次数"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"最小值"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"最大值"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"平均值"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"去除最高最低平均值"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"中值"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"标准差"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"目标价分歧度(%)"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"申万行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "InnerCode",
+                                                            "StatisPeriod"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1",
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "B5",
+                                                            "A3"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "InnerCode",
+                                                            "StatisPeriod"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1",
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "B5",
+                                                            "A3"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"研究机构明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"目标价走势",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"研究机构明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatisticsDetails",
+                                                            "caption":" 研究机构明细",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"预测机构",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"研究员",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"研究日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"机构评级",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"目标价格"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"目标价格下限"
+                                                                },
+                                                                {
+                                                                    "caption":"目标价分歧",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"近30日"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"近60日"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"近90日"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"近180日"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"研究报告",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"研报类型",
+                                                                            "algmt":"taLeftJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"研报原文",
+                                                                            "algmt":"taLeftJustify",
+                                                                            "functype":"ftReDirectF9",
+                                                                            "paramEx":
+                                                                            {
+                                                                                "[
+                                                                                    B5
+                                                                                ]
+serviceurl":true,
+                                                                                "action":"waDownload",
+                                                                                "params":"param",
+                                                                                "server":"webserver",
+                                                                                "url":"/queryservice/research/attachment/"
+                                                                            }
+
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"页数"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"所属行业",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"证监会行业",
+                                                                            "algmt":"taLeftJustify",
+                                                                            "width":"180"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"申万行业",
+                                                                            "algmt":"taLeftJustify",
+                                                                            "width":"180"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"目标价走势",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"chart1",
+                                                            "aPIIndex":"2",
+                                                            "tablename":"JY.Topic.Profit_forecast.Institutions_investment_rating.TargetPriceStatisticsImage",
+                                                            "caption":"走势图",
+                                                            "showList":true,
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"C0",
+                                                                    "caption":"截止日期",
+                                                                    "fieldfunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"最小值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"30日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"60日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"90日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"180日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"最大值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"30日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"60日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"90日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"180日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"平均值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A0",
+                                                                            "caption":"30日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"60日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"90日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"180日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"中值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"30日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"60日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"90日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"180日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"去出最高最低平均值",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"30日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"60日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"90日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"180日",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

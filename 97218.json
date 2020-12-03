@@ -1,0 +1,415 @@
+{
+    "Page":
+    {
+        "name":"Index.F9.Valuation.CashDividend",
+        "caption":"现金分红统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Period":"Period",
+                    "ApiName":"Index.F9.Valuation.CashDividend"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxPeriod",
+                            "caption":"区间选择",
+                            "param":"Period",
+                            "items":"近1年;近2年;近3年;近5年",
+                            "mapValues":"0;1;2;4",
+                            "itemindex":"0",
+                            "width":"75",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGroundMain",
+                    "caption":"报表容器",
+                    "borderSides":"0",
+                    "padding":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"scgrid",
+                            "sheetCount":"2",
+                            "align":"alClient",
+                            "tabwidth":"180",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"Item1",
+                                    "caption":"历史现金分红统计",
+                                    "show":true
+                                },
+                                {
+                                    "name":"Item2",
+                                    "caption":"即将现金分红预案",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"Item1",
+                                    "caption":"历史现金分红统计",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"sizecontainer",
+                                        "attrs":
+                                        {
+                                            "name":"sctGround",
+                                            "percent":"45",
+                                            "btnvisible":true,
+                                            "borderSides":"0",
+                                            "padding":"0"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctDataGround1",
+                                                    "caption":"报表容器",
+                                                    "borderSides":"2",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"sizecontainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"sctleft",
+                                                            "percent":"50",
+                                                            "btnvisible":true,
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctItem1",
+                                                                    "padding":"0",
+                                                                    "borderSides":"8"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart1",
+                                                                            "caption":"",
+                                                                            "tablename":"STAT",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"平均分红家数",
+                                                                                    "decidig":"2"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1_2",
+                                                                                    "caption":"分红家数占比(%)",
+                                                                                    "charttype":"ctLine",
+                                                                                    "leftAxis":false,
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctItem2",
+                                                                    "padding":"0",
+                                                                    "borderSides":"4"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctChart2",
+                                                                            "caption":"",
+                                                                            "tablename":"STAT",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "fieldFunc":"cffHorz"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"平均分红总额(亿元)",
+                                                                                    "decidig":"2"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2_2",
+                                                                                    "caption":"分红总额占比(%)",
+                                                                                    "charttype":"ctLine",
+                                                                                    "leftAxis":false,
+                                                                                    "decidig":"2"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctDataGround12",
+                                                    "caption":"报表容器",
+                                                    "borderSides":"1",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"STAT",
+                                                            "fixedcount":"1",
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"row",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"月份",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"平均分红家数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"平均分红总额(亿元)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"Item2",
+                                    "caption":"即将现金分红预案",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Container",
+                                        "attrs":
+                                        {
+                                            "name":"ctDataGround22",
+                                            "caption":"报表容器",
+                                            "borderSides":"0",
+                                            "padding":"0"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt22",
+                                                    "tablename":"SOON",
+                                                    "fixedcount":"1",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"证券简称"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"除权除息日",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"现金分红(元/股)",
+                                                            "algmt":"taRightJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"方案进度",
+                                                            "algmt":"taCenter"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

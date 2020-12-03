@@ -1,0 +1,380 @@
+{
+    "Page":
+    {
+        "name":"HKstock.topic.company_research.merge_split.MergeSplit",
+        "caption":"合并拆细",
+        "sector":"SECTOR_TREE_HK",
+        "checked":"SECTOR_CHECKED_HK",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Type":"Type",
+                    "ApiName":"HKstock.topic.company_research.merge_split.MergeSplit"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCategory",
+                            "caption":"",
+                            "showcaption":false,
+                            "param":"Type",
+                            "paramV1":"type",
+                            "items":"董事会公告日;股份变更生效日",
+                            "mapValues":"0;1",
+                            "width":"150"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"",
+                            "showcaption":false,
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKstock.topic.company_research.merge_split.MergeSplit",
+                                    "fixedcount":"3",
+                                    "defSelect":true,
+                                    "caption":"",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"董事会公告日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"股份变更生效日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"方案进度",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"方案说明",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"每股合并拆细比例(%)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"面值(元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"完成前",
+                                                    "fmtstr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"完成后",
+                                                    "fmtstr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"单位",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"买卖单位(元/股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"完成前",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"完成后",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行股数(股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"完成前",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"完成后",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"临时交易",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"买卖单位(元/股)"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"买卖开始日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"并行买卖日期",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"开始日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"截止日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"零碎股买卖",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"开始日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"截止日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"代理人",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C3",
+                                            "caption":"代理人电话",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C4",
+                                            "caption":"聚源行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C5",
+                                            "caption":"恒生行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C6",
+                                            "caption":"证券类型"
+                                        },
+                                        {
+                                            "fieldname":"C7",
+                                            "caption":"上市板块"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

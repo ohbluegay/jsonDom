@@ -1,0 +1,597 @@
+{
+    "Page":
+    {
+        "name":"PayDebtAbility",
+        "caption":"偿债能力",
+        "secucodedef":"430003",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"PayDebtAbility"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-03-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"395",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "borderSides":"1",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1",
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"PayDebtAbility",
+                                    "caption":"偿债能力",
+                                    "fixedcount":"1",
+                                    "headfield":"A0",
+                                    "reverse":true,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"300"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"100",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"a1",
+                                            "caption":"流动比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a2",
+                                            "caption":"速动比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a3",
+                                            "caption":"保守速动比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a4",
+                                            "caption":"现金比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a5",
+                                            "caption":"现金到期债务比(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a6",
+                                            "caption":"产权比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a7",
+                                            "caption":"归属母公司股东权益/负债合计",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a8",
+                                            "caption":"归属母公司股东的权益/带息债务",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"a9",
+                                            "caption":"有形资产/负债合计",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b1",
+                                            "caption":"有形资产/带息债务",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b2",
+                                            "caption":"有形资产/净债务",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b4",
+                                            "caption":"经营活动产生的现金流量净额/负债合计",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b5",
+                                            "caption":"经营活动产生的现金流量净额/带息债务",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b6",
+                                            "caption":"经营活动产生的现金流量净额/流动负债",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b7",
+                                            "caption":"经营活动产生的现金流量净额/净债务",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b8",
+                                            "caption":"经营活动产生的现金流量净额/非流动负债",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"b9",
+                                            "caption":"非筹资性产生的现金流量净额比率(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"c1",
+                                            "caption":"非筹资性产生的现金流量总额比率(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"c3",
+                                            "caption":"长期债务与营运资金比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"c4",
+                                            "caption":"长期负债比(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"c5",
+                                            "caption":"有形净值债务率(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chart1",
+                                    "tablename":"PayDebtAbility",
+                                    "showScales":true,
+                                    "showTools":true,
+                                    "showMenu":true,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

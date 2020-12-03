@@ -1,0 +1,451 @@
+{
+    "Page":
+    {
+        "name":"macroindu.topic.NonferrousMetals.CopperPrice",
+        "caption":"铅价及库存",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "MetalType":"Pb",
+                    "ApiName":"macroindu.topic.NonferrousMetals.CopperPrice"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"macroindu.topic.NonferrousMetals.CopperPrice",
+                                    "caption":"铅价及库存",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"LME3个月铅期货价(美元/吨)"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"SHFE铅收盘价(元/吨)"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"长江有色市场:平均价:铅1#(元/吨)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"LME铅库存(吨)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"SHFE铅库存(吨)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"130",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"价格",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"库存",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"价格",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"macroindu.topic.NonferrousMetals.CopperPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffDate"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"LME3个月铅期货价(美元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "leftaxis":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"SHFE铅收盘价(元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"长江有色市场:平均价:铅1#(元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"库存",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"macroindu.topic.NonferrousMetals.CopperPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffDate"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"LME铅库存(吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctArea"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"SHFE铅库存(吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctArea"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"自定义",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"macroindu.topic.NonferrousMetals.CopperPrice",
+                                                            "showList":true,
+                                                            "listWidth":"260",
+                                                            "showMenu":true,
+                                                            "showAllScale":false,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffDate"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"LME3个月铅期货价(美元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"SHFE铅收盘价(元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"长江有色市场:平均价:铅1#(元/吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctLine",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"LME铅库存(吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctArea",
+                                                                    "leftaxis":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"SHFE铅库存(吨)",
+                                                                    "decidig":"2",
+                                                                    "charttype":"ctArea",
+                                                                    "leftaxis":false,
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

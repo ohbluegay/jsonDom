@@ -1,0 +1,708 @@
+{
+    "Page":
+    {
+        "name":"jy.topic.stock.strutrue.lastest",
+        "caption":"最新股本结构",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "DataType":"DataType",
+                    "ApiName":"jy.topic.stock.strutrue.lastest"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"jy.topic.stock.strutrue.lastest.sum"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"EndDate",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"jy.topic.stock.strutrue.lastest.detail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDataType",
+                            "param":"DataType",
+                            "caption":"数据类型",
+                            "items":"原始数据(万股);占总股本比例(%)",
+                            "mapValues":"1;2",
+                            "width":"150",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jy.topic.stock.strutrue.lastest",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"SecuCode",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SecuAbbr",
+                                            "caption":"证券名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"EndDate",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"TotalShares",
+                                            "caption":"总股本",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "caption":"流通股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"NonRestrictedShares",
+                                                    "caption":"流通A股"
+                                                },
+                                                {
+                                                    "fieldname":"ListedBShares",
+                                                    "caption":"流通B股"
+                                                },
+                                                {
+                                                    "fieldname":"Hshares",
+                                                    "caption":"流通H股"
+                                                },
+                                                {
+                                                    "fieldname":"OtherFloatShares",
+                                                    "caption":"境外流通股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"限售股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"NonListedRestrictedAShares",
+                                                    "caption":"限售A股"
+                                                },
+                                                {
+                                                    "fieldname":"NonListedRestrictedBShares",
+                                                    "caption":"限售B股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"限售股_按持有者",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"StateHolding",
+                                                    "caption":"国家持股"
+                                                },
+                                                {
+                                                    "fieldname":"SLegalPersonHolding",
+                                                    "caption":"国有法人持股"
+                                                },
+                                                {
+                                                    "fieldname":"DLegalPersonHolding",
+                                                    "caption":"境内法人持股"
+                                                },
+                                                {
+                                                    "fieldname":"DNaturalPersonHolding",
+                                                    "caption":"境内自然人持股"
+                                                },
+                                                {
+                                                    "fieldname":"ManagementShares",
+                                                    "caption":"高管股"
+                                                },
+                                                {
+                                                    "fieldname":"FLegalPersonHolding",
+                                                    "caption":"境外法人持股"
+                                                },
+                                                {
+                                                    "fieldname":"FNaturalPersonHolding",
+                                                    "caption":"境外自然人持股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SecondIndustryNameZjh",
+                                                    "caption":"证监会行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"SecondIndustryNameSw",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "SecuCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "SecuCodeparam"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史变动明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"统计数据",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史变动明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"jy.topic.stock.strutrue.lastest.detail",
+                                                            "caption":" 变动明细",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"EndDate",
+                                                                    "caption":"变动日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"Reason",
+                                                                    "caption":"变动原因",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"TotalShares",
+                                                                    "caption":"总股本(万股)"
+                                                                },
+                                                                {
+                                                                    "caption":"流通股(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"ListedAShares",
+                                                                            "caption":"流通A股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ListedBShares",
+                                                                            "caption":"流通B股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ListedHShares",
+                                                                            "caption":"流通H股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"OtherFloatShares",
+                                                                            "caption":"境外流通股"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"限售股(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"NonListedRestrictedAShares",
+                                                                            "caption":"限售A股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"NonListedRestrictedBShares",
+                                                                            "caption":"限售B股"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"限售股_按持有者(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"StateHolding",
+                                                                            "caption":"国家持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SLegalPersonHolding",
+                                                                            "caption":"国有法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"DLegalPersonHolding",
+                                                                            "caption":"境内法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"DNaturalPersonHolding",
+                                                                            "caption":"境内自然人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ManagementShares",
+                                                                            "caption":"高管股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"FLegalPersonHolding",
+                                                                            "caption":"境外法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"FNaturalPersonHolding",
+                                                                            "caption":"境外自然人"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"统计数据",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"jy.topic.stock.strutrue.lastest.sum",
+                                                            "caption":" 股本合计",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"CompanyCount",
+                                                                    "caption":"上市公司数",
+                                                                    "algmt":"tarightJustify",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"FullCompanyCount",
+                                                                    "caption":"全流通家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"TotalShares",
+                                                                    "caption":"总股本(亿股)"
+                                                                },
+                                                                {
+                                                                    "caption":"流通股(亿股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"ListedShares",
+                                                                            "caption":"合计"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ListedAShares",
+                                                                            "caption":"流通A股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ListedBShares",
+                                                                            "caption":"流通B股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ListedHShares",
+                                                                            "caption":"流通H股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"OtherFloatShares",
+                                                                            "caption":"境外流通股"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"限售股(亿股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"NonListedRestrictedShares",
+                                                                            "caption":"合计"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"NonListedRestrictedAShares",
+                                                                            "caption":"限售A股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"NonListedRestrictedBShares",
+                                                                            "caption":"限售B股"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"限售股_按持有者(亿股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"StateHolding",
+                                                                            "caption":"国家持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"SLegalPersonHolding",
+                                                                            "caption":"国有法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"DLegalPersonHolding",
+                                                                            "caption":"境内法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"DNaturalPersonHolding",
+                                                                            "caption":"境内自然人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"ManagementShares",
+                                                                            "caption":"高管股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"FLegalPersonHolding",
+                                                                            "caption":"境外法人持股"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"FNaturalPersonHolding",
+                                                                            "caption":"境外自然人"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

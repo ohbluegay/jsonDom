@@ -1,0 +1,572 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockForecastaAdjustment",
+        "caption":"个股预测调整",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Year":"Year",
+                    "Num":"Num",
+                    "ApiName":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockForecastaAdjustment"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"Year",
+                        "value":"nowYear"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-10;days"
+                    },
+                    {
+                        "key":"Num",
+                        "value":"0;default"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode",
+                    "Year":"Year",
+                    "ApiName":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockForecastaAdjustmentDetails"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -10)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2",
+                            "caption":"机构数量",
+                            "param":"Num",
+                            "items":"全部;3家以上;5家以上;7家以上;10家以上;15家以上",
+                            "mapValues":"0;3;5;7;10;15",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DateCombobox",
+                        "attrs":
+                        {
+                            "name":"cbbYear",
+                            "caption":"预测年度",
+                            "param":"Year",
+                            "width":"90",
+                            "ascending":true,
+                            "yearOffset":"0",
+                            "yearCount":"3",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"NumEdit",
+                        "attrs":
+                        {
+                            "name":"cbbx3",
+                            "caption":"调整幅度(%)",
+                            "increment":"1",
+                            "param":"Zdf1",
+                            "width":"60",
+                            "lblalign":true,
+                            "valueMax":"1000",
+                            "valueMin":"-1000",
+                            "valueRate":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"NumEdit",
+                        "attrs":
+                        {
+                            "name":"cbbx4",
+                            "caption":"到",
+                            "param":"Zdf2",
+                            "increment":"1",
+                            "itemIndex":"10",
+                            "width":"60",
+                            "lblalign":true,
+                            "valueMax":"1000",
+                            "valueMin":"-1000",
+                            "valueRate":"1",
+                            "text":"100"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockForecastaAdjustment",
+                                    "dynColumn":true,
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dynColumn":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"机构数量",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "caption":"T年(E)每股收益",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"最新预测值"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"期初预测值"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"调整幅度(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"T+1年(E)每股收益",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"最新预测值"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"期初预测值"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"调整幅度(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"T+2年(E)每股收益",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"最新预测值"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"期初预测值"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"调整幅度(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"证监会二级行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"申万二级行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B4"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"机构预测明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"机构预测明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockForecastaAdjustmentDetails",
+                                                            "dynColumn":true,
+                                                            "caption":" 机构预测明细",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_dynColumn":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"机构名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"研究员",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"研究日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"EPS-(T)E"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"EPS-(T+1)E"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"EPS-(T+2)E"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"EPS-(T-1)A"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"研报类型",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"研报原文",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "functype":"ftReDirectF9",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "[
+                                                                            A9
+                                                                        ]
+serviceurl":true,
+                                                                        "action":"waDownload",
+                                                                        "params":"param",
+                                                                        "server":"webserver",
+                                                                        "url":"/queryservice/research/attachment/"
+                                                                    }
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

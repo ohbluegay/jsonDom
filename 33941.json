@@ -1,0 +1,713 @@
+{
+    "Page":
+    {
+        "name":"jy.topic.stock.strutrue.floating.period.statistic",
+        "caption":"限售解禁阶段统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "DataType":"DataType",
+                    "SourceType":"SourceType",
+                    "ApiName":"jy.topic.stock.strutrue.floating.period.statistic"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;3"
+                    },
+                    {
+                        "key":"DataType",
+                        "value":"3;default"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "StatisticDate":"StatisticDate",
+                    "DataType":"DataType",
+                    "SourceType":"SourceType",
+                    "ApiName":"jy.topic.stock.strutrue.floating.period.detail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "DataType":"DataType",
+                    "SourceType":"SourceType",
+                    "ApiName":"jy.topic.stock.strutrue.floating.period.chart"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;3"
+                    },
+                    {
+                        "key":"DataType",
+                        "value":"3;default"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeganDate",
+                            "paramV1":"BeginDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(3,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbDataType",
+                            "caption":"统计周期",
+                            "param":"DataType",
+                            "items":"日;周;月;季;年",
+                            "mapValues":"1;2;3;4;5",
+                            "itemIndex":"2",
+                            "width":"60",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbSourceType",
+                            "caption":"解禁类型",
+                            "param":"SourceType",
+                            "items":"发行前股份限售流通;股权激励限售流通;高管股份变动;增发A股法人配售上市;延长限售锁定期流通;A股发行法人配售上市",
+                            "mapValues":"82;80;105;24;90;4",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "selectIndexs":"-1",
+                            "width":"180",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jy.topic.stock.strutrue.floating.period.statistic",
+                                    "caption":" 统计结果",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"StatisticDate",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"本期解禁上市家数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"ListedCount",
+                                                    "caption":"总量",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"ListedHsCount",
+                                                    "caption":"沪市",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"ListedSsCount",
+                                                    "caption":"深市",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"ListedZxbCount",
+                                                    "caption":"中小板",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"ListedCybCount",
+                                                    "caption":"创业板",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"本期解禁数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"NewMarketableAShares",
+                                                    "caption":"总量"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesHs",
+                                                    "caption":"沪市"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesSs",
+                                                    "caption":"深市"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesCyb",
+                                                    "caption":"创业板"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesZxb",
+                                                    "caption":"中小板"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"本期解禁市值(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"NewMarketableASharesPrice",
+                                                    "caption":"总量"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPriceHs",
+                                                    "caption":"沪市"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPriceSs",
+                                                    "caption":"深市"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPriceCyb",
+                                                    "caption":"创业板"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPriceZxb",
+                                                    "caption":"中小板"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "StatisticDate"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "StatisticDate"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "StatisticDate"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "StatisticDate"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"解禁证券明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"解禁数量统计图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"解禁证券明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"jy.topic.stock.strutrue.floating.period.detail",
+                                                            "caption":" 解禁证券明细",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"SecuCode",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SecuAbbr",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"StartDateForFloating",
+                                                                    "caption":"解禁日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"FloatingTypeMs",
+                                                                    "caption":"解禁股份类型",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"NewMarketableAShares",
+                                                                    "caption":"解禁数量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"AccuMarketableAShares",
+                                                                    "caption":"解禁后流通股(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"Proportion1",
+                                                                    "caption":"本次解禁占解禁前流通股比例(%)",
+                                                                    "width":"200"
+                                                                },
+                                                                {
+                                                                    "fieldname":"NonMarketableAShares",
+                                                                    "caption":"剩余未解禁股份(万股)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SecondIndustryNameZjh",
+                                                                    "caption":"证监会行业",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SecondIndustryNameSw",
+                                                                    "caption":"申万行业",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"解禁数量统计图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"SeniorHoldTrend",
+                                                            "aPIIndex":"2",
+                                                            "tablename":"jy.topic.stock.strutrue.floating.period.chart",
+                                                            "showList":true,
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"解禁上市公司数量",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2_1",
+                                                                            "caption":"沪市",
+                                                                            "charttype":"ctMultiBar",
+                                                                            "decidig":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2_3",
+                                                                            "caption":"深市主板",
+                                                                            "charttype":"ctMultiBar",
+                                                                            "decidig":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2_4",
+                                                                            "caption":"中小板",
+                                                                            "charttype":"ctMultiBar",
+                                                                            "decidig":"0"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2_5",
+                                                                            "caption":"创业板",
+                                                                            "charttype":"ctMultiBar",
+                                                                            "decidig":"0"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"解禁股份(亿股)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3_1",
+                                                                            "caption":"沪市",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3_3",
+                                                                            "caption":"深市主板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3_4",
+                                                                            "caption":"中小板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3_5",
+                                                                            "caption":"创业板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"解禁市值(亿元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4_1",
+                                                                            "caption":"沪市",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4_3",
+                                                                            "caption":"深市主板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4_4",
+                                                                            "caption":"中小板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4_5",
+                                                                            "caption":"创业板",
+                                                                            "charttype":"ctMultiBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

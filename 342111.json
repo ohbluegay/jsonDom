@@ -1,0 +1,524 @@
+{
+    "Page":
+    {
+        "name":"Topic.ShareStruct",
+        "caption":"最新股本结构",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.ShareStruct"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Version":"2",
+                    "GilCode":"GilCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.ShareStruct.HoldShareDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Version":"2",
+                    "GilCode":"GilCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.ShareStruct.HistoryShareStruct"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"report1",
+                                            "tablename":"Topic.ShareStruct",
+                                            "caption":"股本结构",
+                                            "fixedcount":"3",
+                                            "defselect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"150",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A0",
+                                                    "datatype":"ctstring",
+                                                    "caption":" 证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "datatype":"ctstring",
+                                                    "caption":"证券简称",
+                                                    "width":"110"
+                                                },
+                                                {
+                                                    "filedname":"A2",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"总股本(万股)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"流通股本(万股)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"流通股本占比(%)",
+                                                    "width":"140"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"限售股(万股)",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "datatype":"ctnumeric",
+                                                    "caption":"限售股占比(%)",
+                                                    "width":"120"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "datatype":"ctstring",
+                                                    "caption":"截止日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "datatype":"ctstring",
+                                                    "caption":"证监会行业",
+                                                    "width":"210",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "GilCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        },
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"2",
+                                                                "P":
+                                                                [
+                                                                    "GilCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer2",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"2",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"持股明细",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"历史股本",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"持股明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt11",
+                                                    "tablename":"Topic.ShareStruct.HoldShareDetail",
+                                                    "caption":" 持股明细",
+                                                    "fixedcount":"2",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"持有人"
+                                                        },
+                                                        {
+                                                            "caption":"流通股",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"持股数(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"持股比例(%)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"限售股",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"持股数(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"持股比例(%)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"是否是合计行",
+                                                            "hide":true,
+                                                            "algmt":"taLeftJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"历史股本",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt1",
+                                                    "tablename":"Topic.ShareStruct.HistoryShareStruct",
+                                                    "caption":" 历史股本",
+                                                    "fixedcount":"3",
+                                                    "aPIIndex":"2",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":" 证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"证券简称"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"截止日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"总股本(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"流通股本(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"流通股本占比(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"限售股(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"限售股占比(%)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

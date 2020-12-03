@@ -1,0 +1,495 @@
+{
+    "Page":
+    {
+        "name":"",
+        "caption":"持仓结构",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"Futures.F9.Mechanism.Structure.Param"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Date":"Date",
+                    "InnerCode":"InnerCode",
+                    "GilCode":"GilCode",
+                    "ApiName":"Futures.F9.Mechanism.structure.PositionStructure"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpDate",
+                            "caption":"选择日期",
+                            "param":"Date",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbb4",
+                            "showcaption":false,
+                            "apiindex":"0",
+                            "tablename":"Futures.F9.Mechanism.Structure.Param",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "param":"InnerCode",
+                            "lblalign":true,
+                            "width":"120"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"PositionStructureRow",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"1",
+                                    "sumfield":"B0",
+                                    "caption":"持仓结构",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"合约代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"结算价(元)"
+                                        },
+                                        {
+                                            "caption":"成交量(手)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"成交量"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"多头持仓(手)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"持多头量"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"空头持仓(手)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"持空头量"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净持仓(手)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"净多头"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"净空头"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctTop",
+                                    "caption":"上半部容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scChart",
+                                            "sheetCount":"3",
+                                            "align":"alClient",
+                                            "tabwidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"table2",
+                                                    "caption":"比例图",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"table2",
+                                                    "caption":"比例图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"sizecontainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"sctleft",
+                                                            "percent":"66",
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctLeftight1",
+                                                                    "padding":"0",
+                                                                    "borderSides":"8"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"sctLeft2",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctLeft3",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"chtMngAge",
+                                                                                            "caption":"成交持仓比例",
+                                                                                            "tableName":"PositionStructureImageRow",
+                                                                                            "readType":"crReversePie",
+                                                                                            "apiIndex":"1",
+                                                                                            "decidig":"4",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"a0",
+                                                                                                    "fieldFunc":"cffKey"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"a1",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctMiddle",
+                                                                                    "borderSides":"4",
+                                                                                    "padding":"0"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"cht2",
+                                                                                            "caption":"多头持仓比例",
+                                                                                            "tableName":"PositionStructureImageRow",
+                                                                                            "readType":"crReversePie",
+                                                                                            "apiIndex":"1",
+                                                                                            "decidig":"4",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"a0",
+                                                                                                    "fieldFunc":"cffKey"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"a2",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctRight",
+                                                                    "padding":"0",
+                                                                    "borderSides":"4"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"cht1",
+                                                                            "caption":"空头持仓比例",
+                                                                            "tableName":"PositionStructureImageRow",
+                                                                            "readType":"crReversePie",
+                                                                            "apiIndex":"1",
+                                                                            "decidig":"4",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"a0",
+                                                                                    "fieldFunc":"cffKey"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"a3",
+                                                                                    "fieldFunc":"cffValue"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,352 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.MainUnderIncomeRankIssue",
+        "caption":"主承销商承销收入排名(来自发行统计)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "ApiName":"JYTopic.StockPrimaryMarket.MainUnderIncomeRankIssue",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "CompanyType":"CompanyType"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2015-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"发行公告日",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCompanyType",
+                            "caption":"机构类型",
+                            "param":"CompanyType",
+                            "width":"100",
+                            "items":"全部;券商;信托;银行;财务公司;其他",
+                            "mapValues":"QB;QS;XT;YH;CWGS;QT",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.MainUnderIncomeRankIssue",
+                                    "caption":"主承销商承销收入排名(来自发行统计)",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"280",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"200",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"机构名称"
+                                        },
+                                        {
+                                            "caption":"主承销合计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"首发",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"增发",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"配股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"可转债发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"债券发行",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"收入(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"市场份额(%)"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

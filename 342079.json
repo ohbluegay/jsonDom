@@ -1,0 +1,451 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.IndustryDayTradeStat",
+        "caption":"行业当日交易统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TransType":"TransType",
+                    "IndustryCategory":"IndustryCategory",
+                    "TradeDate":"TradeDate",
+                    "ApiName":"Topic.TradeStatistic.IndustryDayTradeStat"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+				"needinit":false,
+                "cdatasection":
+                {
+                    "TransType":"TransType",
+                    "IndustryCode":"IndustryCode",
+                    "IndustryCategory":"IndustryCategory",
+                    "TradeDate":"TradeDate",
+                    "ApiName":"Topic.TradeStatistic.IndustryDayTradeDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox1",
+                            "width":"180",
+                            "caption":"行业分类",
+                            "param":"IndustryCategory",
+                            "items":"证监会一级行业;证监会二级行业;管理型分类一级;管理型分类二级;管理型分类三级;管理型分类四级;投资型分类一级;投资型分类二级;投资型分类三级;投资型分类四级;国民经济行业分类一级;国民经济行业分类二级;国民经济行业分类三级;国民经济行业分类四级",
+                            "mapValues":"'22','IndustryLevel':'1;22','IndustryLevel':'2;25','IndustryLevel':'1;25','IndustryLevel':'2;25','IndustryLevel':'3;25','IndustryLevel':'4;26','IndustryLevel':'1;26','IndustryLevel':'2;26','IndustryLevel':'3;26','IndustryLevel':'4;27','IndustryLevel':'1;27','IndustryLevel':'2;27','IndustryLevel':'3;27','IndustryLevel':'4'",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "IndustryLevel":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpTradeDate",
+                            "caption":"交易日期",
+                            "param":"TradeDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTransType",
+                            "caption":"转让方式",
+                            "param":"TransType",
+                            "items":"全部;协议;做市;竞价",
+                            "mapValues":"0;1;2;4",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"ctReport1",
+                                            "tablename":"Topic.TradeStatistic.IndustryDayTradeStat",
+                                            "caption":"行业当日交易统计",
+                                            "defSelect":true,
+                                            "fixedcount":"4",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"B0",
+                                                    "caption":"行业代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "caption":"行业名称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "filedname":"B1",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A2",
+                                                    "caption":"成分股个数"
+                                                },
+                                                {
+                                                    "filedname":"A3",
+                                                    "caption":"成交股票个数"
+                                                },
+                                                {
+                                                    "filedname":"A4",
+                                                    "caption":"成交量(万股)"
+                                                },
+                                                {
+                                                    "filedname":"A5",
+                                                    "caption":"成交额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"A6",
+                                                    "caption":"总市值(亿元)"
+                                                },
+                                                {
+                                                    "filedname":"A7",
+                                                    "caption":"流通市值（亿元）"
+                                                },
+                                                {
+                                                    "filedname":"A8",
+                                                    "caption":"总股本(万股)"
+                                                },
+                                                {
+                                                    "filedname":"A9",
+                                                    "caption":"流通股本(万股)"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"B0",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "IndustryCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "B0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"成分股明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"成分股明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"ctReport2",
+                                                    "tablename":"Topic.TradeStatistic.IndustryDayTradeDetail",
+                                                    "caption":"成分股明细",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"交易日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctstring",
+                                                            "caption":"证券简称",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "datatype":"ctinteger",
+                                                            "caption":"转让方式",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "filedname":"A5",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"换手率"
+                                                        },
+                                                        {
+                                                            "filedname":"A8",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"总市值(亿元)"
+                                                        },
+                                                        {
+                                                            "filedname":"A9",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"流通市值（亿元）"
+                                                        },
+                                                        {
+                                                            "filedname":"B0",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"总股本(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"B1",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"流通股本(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"B2",
+                                                            "datatype":"ctnumeric",
+                                                            "caption":"市盈率(LYR)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

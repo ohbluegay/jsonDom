@@ -1,0 +1,632 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.netvalue_reward.NetworthPerformance",
+        "caption":"净值表现",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"a0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.netvalue_reward.NetworthPerformance",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"F9.netvalue_reward.PerformanceReport",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb13",
+                                            "caption":"近一月",
+                                            "mapvalue":"Latest1Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb14",
+                                            "caption":"近三月",
+                                            "mapvalue":"Latest3Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb15",
+                                            "caption":"近六月",
+                                            "mapvalue":"Latest6Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"日期从",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scTable",
+                                    "sheetCount":"2",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem1",
+                                            "caption":"业绩表现",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem2",
+                                            "caption":"净值表现",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem1",
+                                            "caption":"业绩表现",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt11",
+                                                    "tablename":"F9.netvalue_reward.PerformanceReport",
+                                                    "aPIIndex":"1",
+                                                    "showList":true,
+                                                    "showRightAxis":true,
+                                                    "dyncolumn":true,
+                                                    "tag_dynitem":
+                                                    [
+                                                        {
+                                                            "fieldname":"a0",
+                                                            "caption":"报告期",
+                                                            "fieldFunc":"cffDate"
+                                                        },
+                                                        {
+                                                            "fieldname":"a1",
+                                                            "caption":"本基金",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"a4",
+                                                            "caption":"比较基准",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"a2",
+                                                            "caption":"偏股型",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"a3",
+                                                            "caption":"偏股混合型",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"a5",
+                                                            "caption":"沪深300",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"a6",
+                                                            "caption":"附加列",
+                                                            "hide":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem2",
+                                            "caption":"净值表现",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt12",
+                                                    "tablename":"fund.f9.netvalue_reward.NetworthPerformance",
+                                                    "showList":true,
+                                                    "showRightAxis":true,
+                                                    "dyncolumn":true,
+                                                    "tag_dynitem":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"日期",
+                                                            "fieldFunc":"cffDate"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"当前基金/单位净值(元)",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "hide":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"同类平均",
+                                                            "hide":true,
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"沪深300",
+                                                            "decidig":"2",
+                                                            "charttype":"ctLine",
+                                                            "leftAxis":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"fund.f9.netvalue_reward.NetworthPerformance",
+                                            "caption":" 净值表现",
+                                            "dynColumn":true,
+                                            "fixedcount":"2",
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_dyncolumn":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"单位净值（元）",
+                                                    "fmtStr":"4",
+                                                    "width":"180",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"收盘价（元）",
+                                                    "fmtStr":"4",
+                                                    "width":"180",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"单位累计净值（元）",
+                                                    "fmtStr":"4",
+                                                    "width":"180",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"复权单位净值（元）",
+                                                    "fmtStr":"4",
+                                                    "width":"180",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"复权单位净值日增长率(%)",
+                                                    "fmtStr":"4",
+                                                    "width":"180",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"同类平均（图表）",
+                                                    "hide":true
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"沪深300（图表）",
+                                                    "hide":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

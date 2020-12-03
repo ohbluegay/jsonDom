@@ -1,0 +1,350 @@
+{
+    "Page":
+    {
+        "name":"Futures.Topic.Rank.HoldingSumStatistics",
+        "caption":"持仓合计统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "OptionCode":"OptionCode",
+                    "ApiName":"Futures.Topic.Rank.HoldingSumStatisticsParam"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "OptionCode":"OptionCode",
+                    "ContractInnerCode":"ContractInnerCode",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Futures.Topic.Rank.HoldingSumStatistics"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"eventcombobox",
+                        "attrs":
+                        {
+                            "name":"cbbOptionCode",
+                            "execAPI":"0",
+                            "caption":"选择品种",
+                            "items":"上证50股指期货(IH);沪深300股指期货(IF);中证500股指期货(IC)",
+                            "mapValues":"46;3145;4978",
+                            "itemIndex":"0",
+                            "param":"OptionCode",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbMemberInnerCode",
+                            "caption":"期货合约",
+                            "param":"ContractInnerCode",
+                            "tablename":"Futures.Topic.Rank.HoldingSumStatisticsParam",
+                            "itemField":"a1",
+                            "mapField":"a0",
+                            "width":"120",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Futures.Topic.Rank.HoldingSumStatistics",
+                                    "caption":"持仓合计统计",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "aPIIndex":"1",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"成交量合计(手)"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"持多头量合计(手)"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"持空头量合计(手)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"净多头合计(手)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"净空头合计(手)"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSheetCtrl",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scgrid",
+                                    "sheetCount":"2",
+                                    "align":"alClient",
+                                    "tabwidth":"180",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"持仓合计统计趋势图",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"Itembytype",
+                                            "caption":"持仓合计统计趋势图",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt13",
+                                                    "tablename":"Futures.Topic.Rank.HoldingSumStatistics",
+                                                    "aPIIndex":"1",
+                                                    "showlist":true,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"交易日期",
+                                                            "fieldfunc":"cffHorz"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"成交量合计(手)",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"持多头量合计(手)",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"持空头量合计(手)",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"净多头合计(手)",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"净空头合计(手)",
+                                                            "charttype":"ctLine"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

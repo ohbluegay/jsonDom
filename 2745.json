@@ -1,0 +1,429 @@
+{
+    "Page":
+    {
+        "name":"JYOfferBuy",
+        "caption":"要约收购",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "FastDateFilterType":"FastDateFilterType",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYOfferBuy",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"310",
+                            "formwidth":"240"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"240",
+                                    "column":"2",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYOfferBuy",
+                                    "caption":"邀约收购",
+                                    "reverse":true,
+                                    "showHead":false,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "heigh":"280"
+                                        },
+                                        {
+                                            "heigh":"320"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"收购人名称"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"要约收购类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"预受要约申报代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"申报简称"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"要约价格"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"货币编码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"要约价格说明",
+                                            "funcType":"ftmemo"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"预定收购数量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"预定收购资金总额(元)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"预定占总股本的比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"方案说明",
+                                            "funcType":"ftmemo"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"是否以退市为目的",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"要约收购期限(自然日)"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"要约收购有效期开始日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"要约收购有效期截止日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"要约收购生效条件"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"财务顾问"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"律师事务所"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"要约期满时预受要约股份数(股)"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"预受要约股份数占总股本比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"应付收购资金总数(元)"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"过户完成后收购人持股总数(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"过户完成后收购人持股占总股本比例(%)"
+                                        },
+                                        {
+                                            "fieldname":"C3",
+                                            "caption":"要约收购报告书摘要公告日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"C4",
+                                            "caption":"要约收购报告书公告日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"C5",
+                                            "caption":"要约收购结果公告日",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

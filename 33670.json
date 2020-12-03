@@ -1,0 +1,222 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.StockMarketPeform",
+        "caption":"个股行情表现",
+        "sector":"SECTOR_TREE_ZB",
+        "sectordef":"1101012",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "MarketType":"HSLS",
+                    "SecuType":"All",
+                    "EndDate":"EndDate",
+                    "DatePerformType":"DatePerformType",
+                    "ApiName":"JYTopic.StockSecondaryMarket.StockMarketPeform"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"交易日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDatePerformType",
+                            "param":"DatePerformType",
+                            "caption":"统计类型",
+                            "items":"日表现;近一周表现;本周以来表现;近一月表现;本月以来表现;近三个月表现;近半年表现;近一年表现;今年以来表现;上市以来表现",
+                            "mapValues":"RBX;JYZBX;BZYLBX;JYYBX;BYYLBX;JSGYBX;JBNBX;JYNBX;JNYLBX;SSYLBX",
+                            "multiselect":true,
+                            "selectIndexs":"0",
+                            "itemIndex":"0",
+                            "width":"120",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"report1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.StockMarketPeform",
+                                    "caption":"个股行情表现",
+                                    "dynColumn":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "fieldname":"a7",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"a8",
+                                            "algmt":"taLeftJustify",
+                                            "width":"200"
+                                        }
+
+                                    ],
+                                    "tag_dynColumn":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

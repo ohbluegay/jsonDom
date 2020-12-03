@@ -1,0 +1,386 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Market_profile.Basics_info.CompanyScale",
+        "caption":"上市公司规模排名",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "DateLX":"DateLX",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "TradingDay":"TradingDay",
+                    "ApiName":"JY.Topic.Market_profile.Basics_info.CompanyScale"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"TradingDay",
+                        "value":"nowDay"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"290",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"公司上市时间筛选",
+                                    "param":"DateLX",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"截止日期",
+                                            "mapvalue":"1",
+                                            "bindname":"[
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"上市区间",
+                                            "mapvalue":"2",
+                                            "bindname":"[
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"起始日期",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(-1,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"截止日期",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":true
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpTradingDay",
+                            "caption":"交易截止日期",
+                            "param":"TradingDay",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Market_profile.Basics_info.CompanyScale",
+                                    "caption":" 上市公司规模排名",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公司简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"已发行证券",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"已发行债券(只)"
+                                        },
+                                        {
+                                            "caption":"公司概况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"总资产(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"净资产(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"营业总收入(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"净利润(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"员工人数(人)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"总市值(CNY:亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"A股"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"B股"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"H股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"流通市值(CNY:亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"A股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

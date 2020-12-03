@@ -1,0 +1,561 @@
+{
+    "Page":
+    {
+        "name":"NQ.F9.CompanyInfo.PlateAndIndexIndustry",
+        "caption":"所属板块及指数",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"NQ.F9.CompanyInfo.PlateAndIndexIndustry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "ApiName":"NQ.F9.CompanyInfo.PlateAndIndexSameIndustry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "ApiName":"NQ.F9.CompanyInfo.PlateAndIndexHistory"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"NQ.F9.CompanyInfo.PlateAndIndexIndex"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctTop",
+                    "caption":"上半部容器",
+                    "padding":"0",
+                    "borderSides":"6"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"scChart",
+                            "sheetCount":"3",
+                            "align":"alClient",
+                            "tabwidth":"150",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"table1",
+                                    "caption":"行业板块",
+                                    "show":true
+                                },
+                                {
+                                    "name":"table2",
+                                    "caption":"指数板块",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"table1",
+                                    "caption":"行业板块",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tablename":"NQ.F9.CompanyInfo.PlateAndIndexIndustry",
+                                            "caption":"所属板块及指数（行业）",
+                                            "reverse":true,
+                                            "headField":"A0",
+                                            "autonodeheight":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"150"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"240"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"列标题"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"行业名称"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"行业代码"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"进入日期"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"同行业个股",
+                                                    "functype":"ftDynTable",
+                                                    "paramEx":
+                                                    {
+                                                        "API":
+                                                        {
+                                                            "R":"1",
+                                                            "F":"popfrm1",
+                                                            "P":
+                                                            [
+                                                                "Standard",
+                                                                "Level"
+                                                            ],
+                                                            "T":
+                                                            [
+                                                                "1",
+                                                                "1"
+                                                            ],
+                                                            "V":
+                                                            [
+                                                                "A1_1",
+                                                                "A1_2"
+                                                            ]
+
+                                                        }
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"历史变动情况",
+                                                    "functype":"ftDynTable",
+                                                    "paramEx":
+                                                    {
+                                                        "API":
+                                                        {
+                                                            "R":"2",
+                                                            "F":"popfrm2",
+                                                            "P":
+                                                            [
+                                                                "Standard",
+                                                                "Level"
+                                                            ],
+                                                            "T":
+                                                            [
+                                                                "1",
+                                                                "1"
+                                                            ],
+                                                            "V":
+                                                            [
+                                                                "A1_1",
+                                                                "A1_2"
+                                                            ]
+
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"table2",
+                                    "caption":"指数板块",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt12",
+                                            "tablename":"NQ.F9.CompanyInfo.PlateAndIndexIndex",
+                                            "caption":"所属板块及指数(指数)",
+                                            "aPIIndex":"3",
+                                            "fixedcount":"3",
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"指数代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"指数名称",
+                                                    "width":"250"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"发布机构",
+                                                    "width":"200"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"进入日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"退出日期",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"同行业个股",
+                    "defapiindex":"1"
+                },
+                "children":
+                [
+                    {
+                        "tag":"ToolBar",
+                        "attrs":
+                        {
+                            "name":"lcToolbar",
+                            "caption":"工具栏"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Button",
+                                "attrs":
+                                {
+                                    "name":"btnOutput",
+                                    "caption":"数据导出",
+                                    "bindvalue":"OUTPUT",
+                                    "imageIndex":"9"
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt11",
+                                    "tablename":"NQ.F9.CompanyInfo.PlateAndIndexSameIndustry",
+                                    "apiindex":"1",
+                                    "caption":"所属板块及指数(行业)(同行业个股)",
+                                    "fixedcount":"3",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"每股收益(TTM)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"近三个月涨跌幅(%)",
+                                            "algmt":"taRightJustify",
+                                            "width":"120"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"近三个月成交量",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"每股净资产(MRQ)",
+                                            "algmt":"taRightJustify",
+                                            "width":"120"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm2",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"历史变动情况"
+                },
+                "children":
+                [
+                    {
+                        "tag":"ToolBar",
+                        "attrs":
+                        {
+                            "name":"lcToolbar1",
+                            "caption":"工具栏"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Button",
+                                "attrs":
+                                {
+                                    "name":"btnOutput",
+                                    "caption":"数据导出",
+                                    "bindvalue":"OUTPUT",
+                                    "imageIndex":"9"
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"NQ.F9.CompanyInfo.PlateAndIndexHistory",
+                                    "apiindex":"2",
+                                    "caption":"所属板块及指数(行业)(历史变动情况)",
+                                    "fixedcount":"2",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"变动日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业名称",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

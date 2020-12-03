@@ -1,0 +1,483 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.MarginMemberStatis",
+        "caption":"会员两融交易明细",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "MarketType":"MarketType",
+                    "EndYear":"EndYear",
+                    "EndMonth":"EndMonth",
+                    "ApiName":"JYTopic.StockSecondaryMarket.MarginMemberStatis"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"MarketType",
+                        "value":"1;default"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"B0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "MarketType":"MarketType",
+                    "EndYear":"EndYear",
+                    "EndMonth":"EndMonth",
+                    "MemberCode":"MemberCode",
+                    "ApiName":"JYTopic.StockSecondaryMarket.MarginMemberStatisDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"市场类型",
+                            "param":"MarketType",
+                            "items":"沪深两市;沪市;深市",
+                            "mapValues":"1;2;3",
+                            "itemIndex":"0",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbxEndYear",
+                            "caption":"截止日期",
+                            "param":"EndYear",
+                            "datetype":"3",
+                            "offset":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DateCombobox",
+                        "attrs":
+                        {
+                            "name":"cbbxBeginMonth",
+                            "showcaption":false,
+                            "left":"-12",
+                            "param":"EndMonth",
+                            "dateTimeType":"3",
+                            "width":"70",
+                            "ascending":false,
+                            "offset":"1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"labels",
+                        "attrs":
+                        {
+                            "name":"label",
+                            "caption":"该数据已于2018-05 停止披露",
+                            "top":"40",
+                            "alignment":"taLeftJustify"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.MarginMemberStatis",
+                                    "caption":"融资融券会员交易统计(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"会员名称"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"本月累计融资买入额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"本月累计融券卖出量(万股)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"本月累计融券卖出额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"卖券还款(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"买券还券(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"月末融资余额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"月末融券余量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"月末融券余额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"月末融资融券余额(万元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"如果当前是主表,
+                                            传入从表参数",
+                                            "hide":true
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "MemberCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.MarginMemberStatisDetail",
+                                                            "caption":"融资融券会员交易统计(历史明细)",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"截止日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"会员名称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"本月累计融资买入额(万元)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"本月累计融券卖出量(万股)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"本月累计融券卖出额(万元)",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"卖券还款(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"买券还券(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"月末融资余额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"月末融券余量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"月末融券余额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"月末融资融券余额(万元)",
+                                                                    "width":"180"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

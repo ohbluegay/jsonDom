@@ -1,0 +1,377 @@
+{
+    "Page":
+    {
+        "name":"fund.topic.asset_allocation.qdii_asset_allocation.asset_allocation.AllAssetAllocation",
+        "caption":"QDII资产配置汇总",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "ApiName":"fund.topic.asset_allocation.qdii_asset_allocation.asset_allocation.AllAssetAllocation"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "AssetType":"AssetType",
+                    "ApiName":"fund.topic.asset_allocation.qdii_asset_allocation.asset_allocation.AllAssetAllocation.FundDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"Fund.Topic.AssetAllocation.StockPortFolio.QDIIAssetAllocationLatestReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup1",
+                            "caption":"报告期",
+                            "param":"ReportDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"Fund.Topic.AssetAllocation.StockPortFolio.QDIIAssetAllocationLatestReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup1",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.topic.asset_allocation.qdii_asset_allocation.asset_allocation.AllAssetAllocation",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"资产类别",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"市值（万元）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"占总值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"占净值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"市值增长率（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"AssetType(传参)",
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "AssetType"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A5"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"fund.topic.asset_allocation.qdii_asset_allocation.asset_allocation.AllAssetAllocation.FundDetail",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"基金代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"基金名称",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"市值（万元）",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"占资产总值比（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"占资产净值比（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"市值增长率（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"基金公司",
+                                                                    "width":"180"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

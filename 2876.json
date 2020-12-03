@@ -1,0 +1,592 @@
+{
+    "Page":
+    {
+        "name":"JYFinanceMarginStatis",
+        "caption":"融资融券数据统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"TableRow.A0",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"ImageRow.A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYFinanceMarginStatis"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2016-06-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-09-30"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb13",
+                                            "caption":"近一月",
+                                            "mapvalue":"Latest1Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb14",
+                                            "caption":"近三月",
+                                            "mapvalue":"Latest3Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false,
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"rdb15",
+                                            "caption":"近六月",
+                                            "mapvalue":"Latest6Month",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctsx",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctGroundtop",
+                            "caption":"框架上",
+                            "padding":"0",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctGroundRight",
+                                    "caption":"右图",
+                                    "borderSides":"0",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Chart",
+                                        "attrs":
+                                        {
+                                            "name":"JYShareStru2",
+                                            "tablename":"ImageRow",
+                                            "caption":"融资融券余额",
+                                            "rowLegendCount":"2",
+                                            "showlist":true,
+                                            "showLeftAxis":true,
+                                            "listwidth":"200",
+                                            "showgroup":true,
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"",
+                                                    "fieldFunc":"cffHorz"
+                                                }
+
+                                            ],
+                                            "tag_itemgroup":
+                                            [
+                                                {
+                                                    "caption":"融资融券余额",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"融资余额-融券余额(元)",
+                                                            "charttype":"ctLine",
+                                                            "checked":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"融资情况",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"融资买入额(元)",
+                                                            "charttype":"ctLine",
+                                                            "checked":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"融资偿还额(元)",
+                                                            "charttype":"ctLine",
+                                                            "checked":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"融券情况",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"融券卖出额(元)",
+                                                            "charttype":"ctLine",
+                                                            "checked":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"融券偿还额(元)",
+                                                            "charttype":"ctLine",
+                                                            "checked":true
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctGround0bottom",
+                            "caption":"框架下表格",
+                            "padding":"0",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"TableRow",
+                                    "caption":"融资融券数据统计",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"90",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"收盘价",
+                                            "width":"100"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"融资成本价(元)",
+                                            "width":"105"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"融资买入额(元)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"融资买入量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"融资偿还额(元)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"融资偿还量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"融资余额(元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"融资余量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"净买入额(元)"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"净买入量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"融券卖出额(元)"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"融券卖出量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"融券偿还额(元)"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"融券偿还量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"融券余额(元)"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"融券余量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"净卖出额(元)"
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"净卖出量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"买入卖出差额(元)"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"买入卖出差量(股)",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"融资融券余额(元)",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"融资融券差额(元)",
+                                            "width":"150"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

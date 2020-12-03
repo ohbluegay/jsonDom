@@ -1,0 +1,469 @@
+{
+    "Page":
+    {
+        "name":"jy.topic.stock.strutrue.floating.info",
+        "caption":"限售解禁明细",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SourceTypes":"SourceTypes",
+                    "ApiName":"jy.topic.stock.strutrue.floating.info"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;3"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "SourceTypes":"SourceTypes",
+                    "ApiName":"jy.topic.stock.strutrue.floating.info.detail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(3,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbSourceTypes",
+                            "caption":"解禁类型",
+                            "param":"SourceTypes",
+                            "items":"发行前股份限售流通;股权激励限售流通;高管股份变动;增发A股法人配售上市;延长限售锁定期流通;A股发行法人配售上市",
+                            "mapValues":"82;80;105;24;90;4",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0",
+                            "width":"180"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"jy.topic.stock.strutrue.floating.info",
+                                    "caption":" 限售解禁列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"GilCode",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SecuAbbr",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"本次解禁",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"StartDateForFloating",
+                                                    "caption":"解禁日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableAShares",
+                                                    "caption":"解禁数量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPercent",
+                                                    "caption":"占总股本比例(%)"
+                                                },
+                                                {
+                                                    "fieldname":"NewMarketableASharesPercentA",
+                                                    "caption":"占流通A股比例(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"解禁前",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"PreTotalShares",
+                                                    "caption":"总股本(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"PreAShares",
+                                                    "caption":"流通A股(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"PreSharesPercent",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"解禁后",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SufTotalShares",
+                                                    "caption":"总股本(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"SufAShares",
+                                                    "caption":"流通A股(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"SufSharesPercent",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"SourceType",
+                                            "caption":"解禁股份类型",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"ClosePrice",
+                                            "caption":"最新收盘价"
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SecondIndustryNameZjh",
+                                                    "caption":"证监会行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"SecondIndustryNameSw",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "SecuCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "SecuCode"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"解禁股份变动图",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"解禁股份变动图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"SeniorHoldTrend",
+                                                            "tablename":"jy.topic.stock.strutrue.floating.info.detail",
+                                                            "aPIIndex":"1",
+                                                            "showList":true,
+                                                            "listwidth":"230",
+                                                            "showrightAxis":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"StartDateForFloating",
+                                                                    "caption":"解禁日期",
+                                                                    "fieldfunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"NewMarketableAShares",
+                                                                    "caption":"解禁股数(万股)",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"Price",
+                                                                    "caption":"解禁市值(万元)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"NewMarketableASharesPercent",
+                                                                    "caption":"占总股本比例(%)",
+                                                                    "charttype":"ctline",
+                                                                    "leftAxis":false,
+                                                                    "checked":false,
+                                                                    "decidig":"2"
+                                                                },
+                                                                {
+                                                                    "fieldname":"NewProportion",
+                                                                    "caption":"解禁股份占比前次流通股比例(%)",
+                                                                    "charttype":"ctline",
+                                                                    "leftAxis":false,
+                                                                    "checked":false,
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

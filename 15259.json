@@ -1,0 +1,202 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.DividTrans.BonusImplDetail",
+        "caption":"分红与盈利明细",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"secCode",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndYear":"EndYear",
+                    "BeganYear":"BeganYear",
+                    "ApiName":"JYDB.Topic.DividTrans.BonusImplDetail"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndYear",
+                        "value":"nowYear;-1"
+                    },
+                    {
+                        "key":"BeganYear",
+                        "value":"nowYear;-3"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbBeganYear",
+                            "caption":"分红起始年度",
+                            "param":"BeganYear",
+                            "datetype":"3",
+                            "fmtMonth":".",
+                            "offset":"-2",
+                            "width":"90"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbEndYear",
+                            "caption":"截止年度",
+                            "param":"EndYear",
+                            "datetype":"3",
+                            "fmtMonth":".",
+                            "width":"90"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctReport1",
+                    "caption":"报表容器",
+                    "padding":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Report",
+                        "attrs":
+                        {
+                            "name":"rpt1",
+                            "tablename":"JYDB.Topic.DividTrans.BonusImplDetail",
+                            "caption":"分红与盈利明细",
+                            "dynColumn":true,
+                            "fixedcount":"2",
+                            "type":
+                            [
+                                {
+                                    "fieldname":"NonamedIndex",
+                                    "type":"index"
+                                }
+
+                            ],
+                            "tag_row":
+                            [
+                                {
+                                    "rname":"caption",
+                                    "heigh":"340"
+                                },
+                                {
+                                    "rname":"row",
+                                    "heigh":"120",
+                                    "algmt":"taRightJustify"
+                                }
+
+                            ],
+                            "tag_dyncolumn":
+                            [
+                                {
+                                    "fieldname":"secCode",
+                                    "caption":"证券代码",
+                                    "algmt":"taCenter",
+                                    "width":"100"
+                                },
+                                {
+                                    "fieldname":"secAbbr",
+                                    "algmt":"taLeftJustify",
+                                    "width":"100"
+                                },
+                                {
+                                    "fieldname":"zjhhy",
+                                    "caption":"证监会行业",
+                                    "algmt":"taLeftJustify",
+                                    "width":"200"
+                                },
+                                {
+                                    "fieldname":"swhy",
+                                    "caption":"申万行业",
+                                    "algmt":"taLeftJustify",
+                                    "width":"180"
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

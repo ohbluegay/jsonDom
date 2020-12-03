@@ -1,0 +1,549 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.IndustrySectionTradeStat",
+        "caption":"行业区间交易统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "IndustryCategory":"IndustryCategory",
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.TradeStatistic.IndustrySectionTradeStat"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "IndustryCategory":"IndustryCategory",
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"Topic.TradeStatistic.IndustrySectionTradeDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbCombobox1",
+                            "width":"180",
+                            "caption":"行业分类",
+                            "param":"IndustryCategory",
+                            "items":"证监会一级行业;证监会二级行业;管理型分类一级;管理型分类二级;管理型分类三级;管理型分类四级;投资型分类一级;投资型分类二级;投资型分类三级;投资型分类四级;国民经济行业分类一级;国民经济行业分类二级;国民经济行业分类三级;国民经济行业分类四级",
+                            "mapValues":"'22','IndustryLevel':'1;22','IndustryLevel':'2;25','IndustryLevel':'1;25','IndustryLevel':'2;25','IndustryLevel':'3;25','IndustryLevel':'4;26','IndustryLevel':'1;26','IndustryLevel':'2;26','IndustryLevel':'3;26','IndustryLevel':'4;27','IndustryLevel':'1;27','IndustryLevel':'2;27','IndustryLevel':'3;27','IndustryLevel':'4'",
+                            "itemIndex":"0",
+                            "lblalign":true,
+                            "IndustryLevel":"4"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeganDate",
+                            "caption":"交易日期",
+                            "param":"BeganDate",
+                            "paramV1":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"ctReport1",
+                                            "tableName":"Topic.TradeStatistic.IndustrySectionTradeStat",
+                                            "caption":" 行业区间交易统计",
+                                            "defSelect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"B4",
+                                                    "caption":"行业代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "caption":"行业名称",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "caption":"成分股个数",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A2",
+                                                            "caption":"合计"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "caption":"协议"
+                                                        },
+                                                        {
+                                                            "filedname":"A4",
+                                                            "caption":"做市"
+                                                        },
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "caption":"竞价"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"区间成交量(万股)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A5",
+                                                            "caption":"合计"
+                                                        },
+                                                        {
+                                                            "filedname":"A6",
+                                                            "caption":"协议"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "caption":"做市"
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "caption":"竞价"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"区间成交额(万元)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A8",
+                                                            "caption":"合计"
+                                                        },
+                                                        {
+                                                            "filedname":"A9",
+                                                            "caption":"协议"
+                                                        },
+                                                        {
+                                                            "filedname":"B0",
+                                                            "caption":"做市"
+                                                        },
+                                                        {
+                                                            "fieldname":"B7",
+                                                            "caption":"竞价"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"区间成交额占比(%)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"B1",
+                                                            "caption":"合计"
+                                                        },
+                                                        {
+                                                            "filedname":"B2",
+                                                            "caption":"协议"
+                                                        },
+                                                        {
+                                                            "filedname":"B3",
+                                                            "caption":"做市"
+                                                        },
+                                                        {
+                                                            "fieldname":"B8",
+                                                            "caption":"竞价"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"B4",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "IndustryCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "B4"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"历史明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"历史明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"ctReport2",
+                                                    "tableName":"Topic.TradeStatistic.IndustrySectionTradeDetail",
+                                                    "caption":"成分股交易明细",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A1",
+                                                            "datatype":"ctstring",
+                                                            "caption":"交易日期",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "caption":"成分股个数",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A2",
+                                                                    "caption":"合计"
+                                                                },
+                                                                {
+                                                                    "filedname":"A3",
+                                                                    "caption":"协议"
+                                                                },
+                                                                {
+                                                                    "filedname":"A4",
+                                                                    "caption":"做市"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"竞价"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"成交量(万股)",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A5",
+                                                                    "caption":"合计"
+                                                                },
+                                                                {
+                                                                    "filedname":"A6",
+                                                                    "caption":"协议"
+                                                                },
+                                                                {
+                                                                    "filedname":"A7",
+                                                                    "caption":"做市"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"竞价"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"成交额(万元)",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A8",
+                                                                    "caption":"合计"
+                                                                },
+                                                                {
+                                                                    "filedname":"A9",
+                                                                    "caption":"协议"
+                                                                },
+                                                                {
+                                                                    "filedname":"B0",
+                                                                    "caption":"做市"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"竞价"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "caption":"成交额占比(%)",
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"B1",
+                                                                    "caption":"合计"
+                                                                },
+                                                                {
+                                                                    "filedname":"B2",
+                                                                    "caption":"协议"
+                                                                },
+                                                                {
+                                                                    "filedname":"B3",
+                                                                    "caption":"做市"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"竞价"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

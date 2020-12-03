@@ -1,0 +1,331 @@
+{
+    "Page":
+    {
+        "name":"Topic.GQZXDataMarketSizeStat",
+        "caption":"市场规模统计(股转中心月报)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.GQZXDataMarketSizeStat"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-3,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "lblalign":true,
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"Topic.GQZXDataMarketSizeStat",
+                                    "caption":" 聚源统计",
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"120"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"挂牌公司家数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"新增"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"月末"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"挂牌公司股本",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"总股本(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"流通股本(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"限售股本(亿股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"总市值(亿元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"平均市盈率"
+                                        },
+                                        {
+                                            "caption":"成交股票",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"成交数量(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"成交金额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"成交笔数(万笔)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"成交均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"拟发行股票",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"次数"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"股票数量(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"募集金额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"完成发行股票",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"次数"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"股票数量(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"募集金额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"均价(元)"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

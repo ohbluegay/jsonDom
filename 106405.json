@@ -1,0 +1,575 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.HSHKHoldingChange",
+        "caption":"沪(深)港通持股变动",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TradingType":"TradingType",
+                    "ApiName":"JYTopic.StockSecondaryMarket.HSHKHoldingChange"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "TradingType":"TradingType",
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.HSHKHoldingChangeDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"交易类型",
+                            "param":"TradingType",
+                            "items":"沪股通;深股通;港股通",
+                            "mapValues":"HGT;SGT;GGT",
+                            "itemIndex":"0",
+                            "lblAlign":true,
+                            "multiselect":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.HSHKHoldingChange",
+                                    "caption":"沪(深)港通持股变动 ",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新收盘价"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"持股数量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"持股占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A5_1",
+                                            "caption":"持股市值(万元)"
+                                        },
+                                        {
+                                            "caption":"持股市值变动(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"1日"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"3日"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"5日"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"10日"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"30日"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"60日"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"涨跌幅",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"1日"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"3日"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"5日"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"10日"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"30日"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"60日"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"交易类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"证监会/恒生行业",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode",
+                                                        "EndDate"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B4",
+                                                        "B5"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"变动图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.HSHKHoldingChangeDetail",
+                                                            "caption":"沪(深)港通持股变动 ",
+                                                            "defselect":true,
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"涨跌幅"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3_1",
+                                                                    "caption":"持股数量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"持股占比(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"持股市值(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5_1",
+                                                                    "caption":"持股市值较前日变动(万元)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"变动图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.HSHKHoldingChangeDetail",
+                                                            "showList":true,
+                                                            "listwidth":"180",
+                                                            "aPIIndex":"1",
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"收盘价",
+                                                                    "decidig":"2",
+                                                                    "leftAxis":false,
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"涨跌幅",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"涨跌幅",
+                                                                            "decidig":"2",
+                                                                            "charttype":"ctLine"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股数量(万股)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3_1",
+                                                                            "caption":"持股数量(万股)",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股占比(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"持股占比(%)",
+                                                                            "charttype":"ctLine",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股市值(万元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"持股市值(万元)",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股市值较前日变动(万元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A5_1",
+                                                                            "caption":"持股市值较前日变动(万元)",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

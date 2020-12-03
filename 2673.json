@@ -1,0 +1,286 @@
+{
+    "Page":
+    {
+        "name":"JYHistoryManager",
+        "caption":"历任董高监",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYHistoryManager"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "SecuCode":"SecuCode",
+                    "PointDesc":"PointDesc",
+                    "ApiName":"JYHistoryManagerImage"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "percent":"45",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"JYShareStru",
+                                    "tablename":"LineRow",
+                                    "apiindex":"1",
+                                    "caption":"股价走势",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "fieldFunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股价",
+                                            "charttype":"ctLine",
+                                            "decidig":"2"
+                                        }
+
+                                    ],
+                                    "tag_attacheditem":
+                                    [
+                                        {
+                                            "tablename":"pointrow",
+                                            "indexfn":"A0",
+                                            "hostlinefn":"A1",
+                                            "ptHintfn":"A2",
+                                            "iconTypefn":"A3"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt2",
+                                            "tablename":"JYHistoryManager",
+                                            "caption":"历任董高监",
+                                            "defSelect":true,
+                                            "autoColumnWidth":false,
+                                            "autoNodeHeight":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "type":"ftcollect"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"姓名",
+                                                    "width":"90",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"职务",
+                                                    "width":"90",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"任职日期",
+                                                    "width":"90",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"离职日期",
+                                                    "width":"90",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"性别",
+                                                    "width":"60",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"学历",
+                                                    "width":"60",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"出生年份",
+                                                    "width":"90",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"个人简历",
+                                                    "width":"420"
+                                                },
+                                                {
+                                                    "fieldname":"hiddenNonamed",
+                                                    "hide":true,
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    {
+                                                        "API":
+                                                        {
+                                                            "R":"1",
+                                                            "P":
+                                                            [
+                                                                "PointDesc",
+                                                                "BeginDate",
+                                                                "EndDate"
+                                                            ],
+                                                            "T":
+                                                            [
+                                                                "1",
+                                                                "1",
+                                                                "1"
+                                                            ],
+                                                            "V":
+                                                            [
+                                                                "B0",
+                                                                "B1",
+                                                                "B2"
+                                                            ]
+
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

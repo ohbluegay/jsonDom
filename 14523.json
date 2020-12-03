@@ -1,0 +1,382 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockPrimaryMarket.PreferStockBasicInfo",
+        "caption":"优先股基本资料",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"JYTopic.StockPrimaryMarket.PreferStockBasicInfo",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "PreferStockBasicDateType":"FXSSR"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-2"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxPreferStockBasicDateType",
+                            "param":"PreferStockBasicDateType",
+                            "width":"120",
+                            "items":"募资说明公告日",
+                            "mapValues":"FXSSR"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-2,
+                            0,
+                            0)",
+                            "left":"-12"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockPrimaryMarket.PreferStockBasicInfo",
+                                    "caption":"优先股基本资料",
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "caption":"上市公司",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"优先股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"交易代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"交易简称",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"发行情况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"募资说明公告日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"发行方式",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"交易货币",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"实际发行量(万股)",
+                                                    "algmt":"taRightJustify",
+                                                    "width":"130"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"票面金额(元)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"发行价格(元)",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"基本资料",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"存续期限",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"股息率是否浮动",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"股息率(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"浮动利率计息基准",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"股息描述",
+                                                    "functype":"ftMemo"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"固定溢价率(%)",
+                                                    "algmt":"taRightJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"付息方式",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"计息起始日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"首次派息日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"股息是否累积",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"是否参与剩余利润分配",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"是否可强制转股",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"转股概况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"转股简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"转股代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"初始转股价(元/股)",
+                                                    "algmt":"taRightJustify",
+                                                    "width":"130"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"转股起始日",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"转股截止日",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"证监会行业",
+                                                    "width":"220"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"申万行业"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

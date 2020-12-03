@@ -1,0 +1,544 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Market_profile.Investors_data_statistics.AccountStatistics",
+        "caption":"投资者开户情况统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "LX":"LX",
+                    "ApiName":"JY.Topic.Market_profile.Investors_data_statistics.AccountStatistics"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-2"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-2,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbLX",
+                            "caption":"报表类型",
+                            "param":"LX",
+                            "items":"周报;月报",
+                            "mapValues":"6;1",
+                            "width":"70",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Market_profile.Investors_data_statistics.AccountStatistics",
+                                    "caption":" 投资者开户情况统计",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"新增投资者数量(万)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"自然人"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"非自然人"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"期末投资者数量(自然人)(万)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"A股"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"B股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"期末投资者数量(非自然人)(万)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"A股"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"B股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"期末持仓投资者数量(万)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"A股"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"B股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"期间参与交易的投资者数量(万)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"合计"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"A股"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"B股"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"走势图",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"走势图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"char1",
+                                                            "tablename":"JY.Topic.Market_profile.Investors_data_statistics.AccountStatistics",
+                                                            "caption":"走势图",
+                                                            "showList":true,
+                                                            "listWidth":"200",
+                                                            "rightAxis":"trye",
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"截止日期",
+                                                                    "fieldFunc":"cffHorz",
+                                                                    "forcedSort":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"上证指数",
+                                                                    "charttype":"ctLine",
+                                                                    "leftAxis":false,
+                                                                    "decidig":"2"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"新增投资者数量(万)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"合计",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"自然人",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"非自然人",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"期末投资者数量(自然人)(万)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"合计",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"A股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"B股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"期末投资者数量(非自然人)(万)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"合计",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"A股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"B股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"期末持仓投资者数量(万)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"合计",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"A股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"B股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"期间参与交易的投资者数量(万)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"合计",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"A股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"B股",
+                                                                            "checked":false,
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

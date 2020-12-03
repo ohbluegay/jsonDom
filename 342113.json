@@ -1,0 +1,489 @@
+{
+    "Page":
+    {
+        "name":"Topic.ManagerHoldShare",
+        "caption":"高管持股",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "ApiName":"Topic.ManagerHoldShare"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Version":"2",
+                    "GilCode":"GilCode",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.ManagerHoldShareDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"Topic.AchievementFlashLatestTimeReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "paramV1":"ReportDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"Topic.AchievementFlashLatestTimeReport"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"EndDate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "tablename":"Topic.ManagerHoldShare",
+                                            "name":"report1",
+                                            "caption":"高管持股",
+                                            "fixedcount":"3",
+                                            "defselect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"150",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"A0",
+                                                    "datatype":"ctstring",
+                                                    "width":"110",
+                                                    "caption":" 证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"A1",
+                                                    "datatype":"ctstring",
+                                                    "width":"110",
+                                                    "caption":"证券简称"
+                                                },
+                                                {
+                                                    "caption":"全部高管合计",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A2",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"期末持股数(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A3",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"占总股本比例(%)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"董事长",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A4",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"期末持股数(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A5",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"占总股本比例(%)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"董事(不含董事长)",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A6",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"期末持股数(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A7",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"占总股本比例(%)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"监事",
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "filedname":"A8",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"期末持股数(万股)"
+                                                        },
+                                                        {
+                                                            "filedname":"A9",
+                                                            "datatype":"ctnumeric",
+                                                            "width":"180",
+                                                            "caption":"占总股本比例(%)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "filedname":"B0",
+                                                    "datatype":"ctstring",
+                                                    "width":"180",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    {
+                                                        "API":
+                                                        {
+                                                            "R":"1",
+                                                            "P":
+                                                            [
+                                                                "GilCode"
+                                                            ],
+                                                            "T":
+                                                            [
+                                                                "1"
+                                                            ],
+                                                            "V":
+                                                            [
+                                                                "A0"
+                                                            ]
+
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport12",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"shtctrl1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"高管持股明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"高管持股明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"Topic.ManagerHoldShareDetail",
+                                                            "caption":" 高管持股明细",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "heigh":"140",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A0",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"姓名",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "filedname":"A1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"职务",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "filedname":"A2",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"期末持股数(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A3",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"占总股本比例(%)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A4",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"变动股数(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A5",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"期初持股数(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A6",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"期末持股票期权数(份)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

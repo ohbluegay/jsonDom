@@ -1,0 +1,402 @@
+{
+  "Page":
+  {
+    "name":"futures.topic.goods.HoldingQuery",
+    "caption":"成分股权重",
+    "Request":
+    [
+      {
+        "responsetype":"rtDataTable",
+        "cdatasection":
+        {
+          "ApiName":"Futures.Topic.Index.StockQuotesParam"
+        }
+
+      },
+      {
+        "responsetype":"rtDataTable",
+        "cdatasection":
+        {
+          "InnerCode":"InnerCode",
+          "StartDate":"StartDate",
+          "EndDate":"EndDate",
+          "ApiName":"Futures.Topic.Weights.StockWeights"
+        }
+
+      },
+      {
+        "responsetype":"rtDataTable",
+        "needinit":false,
+        "cdatasection":
+        {
+          "InnerCode":"InnerCode",
+          "SecuInnerCode":"SecuInnerCode",
+          "StartDate":"StartDate",
+          "EndDate":"EndDate",
+          "ApiName":"Futures.Topic.Weights.StockWeightsDetail"
+        }
+
+      }
+
+    ],
+    "content":
+    [
+      {
+        "tag":"ToolBar",
+        "attrs":
+        {
+          "name":"lcToolbar"
+        },
+        "children":
+        [
+          {
+            "tag":"Button",
+            "attrs":
+            {
+              "name":"btnRequest"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"Button",
+            "attrs":
+            {
+              "name":"btnOutput",
+              "caption":"数据导出",
+              "bindvalue":"OUTPUT",
+              "imageIndex":"9"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"tablecombobox",
+            "attrs":
+            {
+              "name":"cbbGoodsType",
+              "caption":"选择指数",
+              "param":"InnerCode",
+              "tablename":"Futures.Topic.Index.StockQuotesParam",
+              "itemField":"a0",
+              "mapField":"a1",
+              "width":"120",
+              "itemIndex":"0",
+              "lblalign":true
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"DatePicker",
+            "attrs":
+            {
+              "name":"dtpBegin",
+              "caption":"开始日期",
+              "param":"StartDate",
+              "paramV1":"BeginDate",
+              "date":"$GetDate(0,
+              -6,
+              0)"
+            },
+            "children":
+            [
+
+            ]
+
+          },
+          {
+            "tag":"DatePicker",
+            "attrs":
+            {
+              "name":"dtpEnd",
+              "caption":"截止日期",
+              "param":"EndDate",
+              "date":"$GetDate(0,
+              0,
+              0)"
+            },
+            "children":
+            [
+
+            ]
+
+          }
+
+        ]
+
+      },
+      {
+        "tag":"SizeContainer",
+        "attrs":
+        {
+          "name":"sctSX0",
+          "caption":"报表容器",
+          "btnvisible":true,
+          "percent":"40"
+        },
+        "children":
+        [
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"cttop1",
+              "caption":"报表容器",
+              "borderSides":"7",
+              "padding":"0"
+            },
+            "children":
+            [
+              {
+                "tag":"Report",
+                "attrs":
+                {
+                  "name":"rpt1",
+                  "tablename":"Futures.Topic.Weights.StockWeights",
+                  "caption":"成分股权重",
+                  "defselect":true,
+                  "fixedcount":"3",
+                  "aPIIndex":"1",
+                  "type":
+                  [
+                    {
+                      "fieldname":"NonamedIndex",
+                      "type":"index"
+                    }
+
+                  ],
+                  "tag_column":
+                  [
+                    {
+                      "fieldname":"A0",
+                      "caption":"证券代码",
+                      "algmt":"taCenter"
+                    },
+                    {
+                      "fieldname":"A1",
+                      "caption":"证券简称"
+                    },
+                    {
+                      "fieldname":"A2",
+                      "caption":"披露日期",
+                      "algmt":"taCenter"
+                    },
+                    {
+                      "fieldname":"A3",
+                      "caption":"披露权重(%)",
+                      "algmt":"taRightJustify"
+                    },
+                    {
+                      "fieldname":"A4",
+                      "caption":"子表传参",
+                      "hide":true,
+                      "functype": "ftdyntable",
+                      "paramEx":
+                      {
+                        "API":
+                        {
+                          "R":"2",
+                          "P":
+                          [
+                            "SecuInnerCode"
+                          ],
+                          "T":
+                          [
+                            "1"
+                          ],
+                          "V":
+                          [
+                            "A4"
+                          ]
+
+                        }
+
+                      }
+
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+
+                ]
+
+              }
+
+            ]
+
+          },
+          {
+            "tag":"Container",
+            "attrs":
+            {
+              "name":"ctSheetCtrl",
+              "caption":"报表容器",
+              "padding":"0",
+              "borderSides":"0"
+            },
+            "children":
+            [
+              {
+                "tag":"SheetControl",
+                "attrs":
+                {
+                  "name":"scgrid",
+                  "sheetCount":"2",
+                  "align":"alClient",
+                  "tabwidth":"180",
+                  "sheetContent":
+                  [
+                    {
+                      "name":"Tab2",
+                      "caption":"历史权重明细表",
+                      "show":true
+                    },
+                    {
+                      "name":"Itembytype3",
+                      "caption":"历史权重走势图",
+                      "show":false
+                    }
+
+                  ]
+
+                },
+                "children":
+                [
+                  {
+                    "tag":"SheetItem",
+                    "attrs":
+                    {
+                      "name":"Tab2",
+                      "caption":"历史权重明细表",
+                      "show":true
+                    },
+                    "children":
+                    [
+                      {
+                        "tag":"Report",
+                        "attrs":
+                        {
+                          "name":"rpt12",
+                          "tablename":"Futures.Topic.Weights.StockWeightsDetail",
+                          "caption":"历史权重明细表",
+                          "fixedcount":"1",
+                          "aPIIndex":"2",
+                          "type":
+                          [
+                            {
+                              "fieldname":"NonamedIndex",
+                              "type":"index"
+                            }
+
+                          ],
+                          "tag_column":
+                          [
+                            {
+                              "fieldname":"A0",
+                              "caption":"证券代码",
+                              "algmt":"taCenter"
+                            },
+                            {
+                              "fieldname":"A1",
+                              "caption":"证券简称"
+                            },
+                            {
+                              "fieldname":"A2",
+                              "caption":"披露日期",
+                              "algmt":"taCenter"
+                            },
+                            {
+                              "fieldname":"A3",
+                              "caption":"披露权重(%)",
+                              "algmt":"taRightJustify"
+                            }
+
+                          ]
+
+                        },
+                        "children":
+                        [
+
+                        ]
+
+                      }
+
+                    ]
+
+                  },
+                  {
+                    "tag":"SheetItem",
+                    "attrs":
+                    {
+                      "name":"Itembytype3",
+                      "caption":"历史权重走势图",
+                      "show":false
+                    },
+                    "children":
+                    [
+                      {
+                        "tag":"Chart",
+                        "attrs":
+                        {
+                          "name":"rpt13",
+                          "tablename":"Futures.Topic.Weights.StockWeightsDetail",
+                          "caption":"历史权重走势图",
+                          "aPIIndex":"2",
+                          "showList":true,
+                          "tag_item":
+                          [
+                            {
+                              "fieldname":"A2",
+                              "fieldfunc":"cffHorz"
+                            },
+                            {
+                              "fieldname":"A3",
+                              "caption":"披露权重(%)",
+                              "charttype":"ctLine",
+                              "leftAxis":false
+                            }
+
+                          ]
+
+                        },
+                        "children":
+                        [
+
+                        ]
+
+                      }
+
+                    ]
+
+                  }
+
+                ]
+
+              }
+
+            ]
+
+          }
+
+        ]
+
+      }
+
+    ]
+
+  }
+
+}

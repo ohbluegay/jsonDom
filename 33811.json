@@ -1,0 +1,1225 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStock",
+        "caption":"机构持股汇总(按股票)",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStock"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"beforeQuarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockTrend"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A4",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "OrgType":"OrgType",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockQuitDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "Type":"7",
+                    "ApiName":"JY.Topic.ReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "showNewest":false,
+                            "offset":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxOrgTye",
+                            "param":"OrgType",
+                            "caption":"机构类型",
+                            "items":"全部;基金;基金管理公司;基金专户理财;QFII;券商;券商集合理财;银行;保险公司;社保基金;信托公司;信托计划;财务公司;企业年金;上市公司及下属公司;国资局;院校;其他",
+                            "mapValues":"0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17",
+                            "width":"160",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"4",
+                    "table":"JY.Topic.ReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"A0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStock",
+                                    "caption":"机构持股汇总（按股票）",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"机构家数",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"变动"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"上期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"持股数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"变动"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"上期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"占流通A股比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"本期",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"变动",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"上期",
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"持股市值(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"变动"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"上期"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"收盘价"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"流通A股市值(亿元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"每股收益EPS(元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"TTM",
+                                                    "fmtStr":"4"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"静态",
+                                                    "fmtStr":"4"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率PE",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"TTM"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"静态"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新年报盈利预测",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"预测机构家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"预测EPS平均值(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最新投资评级",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"评级机构家数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"综合评级",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C4",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A0_1",
+                                            "caption":"证券内码(从表参数)",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            [
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"1",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0_1"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"2",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0_1"
+                                                        ]
+
+                                                    }
+
+                                                },
+                                                {
+                                                    "API":
+                                                    {
+                                                        "R":"3",
+                                                        "P":
+                                                        [
+                                                            "InnerCode"
+                                                        ],
+                                                        "T":
+                                                        [
+                                                            "1"
+                                                        ],
+                                                        "V":
+                                                        [
+                                                            "A0_1"
+                                                        ]
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"3",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"变动趋势",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"持股明细",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"退出机构明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"变动趋势",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"JYShareStru",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockTrend",
+                                                            "showList":true,
+                                                            "showRightAxis":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"报告期",
+                                                                    "datatype":"ctstring"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"持股数量(万股)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"占流通A股比例(%)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false,
+                                                                    "fmtStr":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"持股市值(万元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"收盘价(元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "leftAxis":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"持股明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockDetail",
+                                                            "caption":"机构持股汇总（按股票）（持股明细）",
+                                                            "aPIIndex":"2",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "hide":true,
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"机构名称",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"350"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"机构类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "caption":"持股数量(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"本期"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"变动"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"上期"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"占流通A股比例(%)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"本期",
+                                                                            "fmtStr":"4"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"变动",
+                                                                            "fmtStr":"4"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"上期",
+                                                                            "fmtStr":"4"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"持股市值(万元)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"本期"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"变动"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"上期"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"退出机构明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"JYDB.Topic.ORGResearch.ORGHoldSum.OrgHoldSumWithStockQuitDetail",
+                                                            "caption":"机构持股汇总（按股票）(退出机构明细)",
+                                                            "aPIIndex":"3",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"机构名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"机构类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"持股数量(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"占流通A股比例(%)",
+                                                                    "fmtStr":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"持股市值(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"报告期",
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"OrgHoldSumWithStock",
+                                    "reportname":"rpt1",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JGJS_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"JGJS_BD"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"JGJS_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"CGSL_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"CGSL_BD"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"CGSL_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"ZLTAGBL_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"ZLTAGBL_BD"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"ZLTAGBL_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"CGSZ_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"CGSZ_BD"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"CGSZ_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "quantfieldname":"ZX_SPJ"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "quantfieldname":"ZX_LTAGSZ"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "quantfieldname":"MGSYEPS_TTM"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "quantfieldname":"MGSYEPS_JT"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "quantfieldname":"SYLPE_TTM"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "quantfieldname":"SYLPE_JT"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "quantfieldname":"ZXNBYLYC_YCJGJS"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "quantfieldname":"ZXNBYLYC_YCEPSPJZ"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "quantfieldname":"ZXTZPJ_PJJGJS"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "quantfieldname":"ZXTZPJ_ZHPJ"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "quantfieldname":"BGQ"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "quantfieldname":"HY_ZJHHY"
+                                                },
+                                                {
+                                                    "fieldname":"C6",
+                                                    "quantfieldname":"HY_SWHY"
+                                                },
+                                                {
+                                                    "fieldname":"A0_1",
+                                                    "quantfieldname":"ZQNM"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"JGOrgHoldSumWithStockDetail",
+                                    "reportname":"rpt12",
+                                    "inputfield":"SecuCode",
+                                    "keyfield":"InnerCode",
+                                    "valuefield":"secuid",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JGMC"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"JGLX"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"CGSL_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"CGSL_BD"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"CGSL_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"ZLTAGBL_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"ZLTAGBL_BD"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"ZLTAGBL_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"CGSZ_BQ"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"CGSZ_BD"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"CGSZ_SQ"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"BGQ"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"OrgHoldSumWithStockQuitDetail",
+                                    "reportname":"rpt13",
+                                    "inputfield":"SecuCode",
+                                    "keyfield":"InnerCode",
+                                    "valuefield":"secuid",
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JGMC"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"JGLX"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"CGSL"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"ZLTAGBL"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"CGSZ"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"BGQ"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

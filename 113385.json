@@ -1,0 +1,296 @@
+{
+    "Page":
+    {
+        "name":"Topic.RecentEquityChangesReport",
+        "caption":"近期股本变动",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"Topic.RecentEquityChangesReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"report1",
+                                    "tablename":"Topic.RecentEquityChangesReport",
+                                    "caption":"近期股本变动 ",
+                                    "fixedcount":"5",
+                                    "defselect":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"150",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公告日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"变动日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"变动原因",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"变动股份数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"流通股本"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"限售股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动股份市值(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"总市值"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"流通市值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动后(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"流通股本"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"流通股本占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"限售股"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"限售股占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动前(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"流通股本"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"流通股本占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"限售股"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"限售股占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"证监会行业",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

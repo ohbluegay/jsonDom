@@ -1,0 +1,452 @@
+{
+    "Page":
+    {
+        "name":"MarketStatistic",
+        "caption":"做市商统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "StartDate":"StartDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"MarketStatistic"
+                }
+
+            },
+            {
+                "responsetype":"rtDatatable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "StartDate":"StartDate",
+                    "EndDate":"EndDate",
+                    "MktMakeCode":"MktMakeCode",
+                    "ApiName":"MarketStatisticDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"做市起始日",
+                            "param":"StartDate",
+                            "lblalign":true,
+                            "date":"2000-01-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEndDate",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "lblalign":true,
+                            "date":"$GetDate(0,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"MarketStatistic",
+                                    "caption":" 做市商统计",
+                                    "fixedcount":"2",
+                                    "defselect":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"150",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"A0",
+                                            "datatype":"ctstring",
+                                            "width":"100",
+                                            "caption":"做市商"
+                                        },
+                                        {
+                                            "filedname":"A1",
+                                            "datatype":"ctinteger",
+                                            "width":"100",
+                                            "caption":"做市家数",
+                                            "fmtstr":"0"
+                                        },
+                                        {
+                                            "filedname":"A2",
+                                            "datatype":"ctnumeric",
+                                            "width":"100",
+                                            "caption":"占总量比(%)"
+                                        },
+                                        {
+                                            "filedname":"A3",
+                                            "datatype":"ctnumeric",
+                                            "caption":"总股本(万股)"
+                                        },
+                                        {
+                                            "filedname":"A4",
+                                            "datatype":"ctnumeric",
+                                            "caption":"流通股本(万股)"
+                                        },
+                                        {
+                                            "filedname":"A5",
+                                            "datatype":"ctnumeric",
+                                            "caption":"总市值(万元)"
+                                        },
+                                        {
+                                            "filedname":"A6",
+                                            "datatype":"ctnumeric",
+                                            "caption":"流通市值(万元)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"做市商编码",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "MktMakeCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A7"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"shtctrl1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"挂牌公司明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"挂牌公司明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt2",
+                                                            "tableName":"MarketStatisticDetail",
+                                                            "caption":" 做市股票",
+                                                            "fixedcount":"3",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"150",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "filedname":"A0",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证券简称"
+                                                                },
+                                                                {
+                                                                    "filedname":"A2",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"是否主办券商",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A3_1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"做市商数量"
+                                                                },
+                                                                {
+                                                                    "filedname":"A3",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"所有做市商",
+                                                                    "funcType":"ftMemo",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"A4",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"最新收盘价(元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A5",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"总股本(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A6",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"流通股本(万股)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A7",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"总市值(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A8",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"流通市值(万元)"
+                                                                },
+                                                                {
+                                                                    "filedname":"A9",
+                                                                    "datatype":"ctnumeric",
+                                                                    "caption":"市盈率(LYR)"
+                                                                },
+                                                                {
+                                                                    "filedname":"B0",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"做市起始日",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"B1",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"挂牌日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "filedname":"B2",
+                                                                    "datatype":"ctstring",
+                                                                    "caption":"证监会行业",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

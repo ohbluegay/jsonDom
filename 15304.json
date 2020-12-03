@@ -1,0 +1,682 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryAttentionStatistics",
+        "caption":"个股关注度统计(按行业)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "StatisPeriod":"StatisPeriod",
+                    "Standard":"Standard",
+                    "EndDate":"EndDate",
+                    "Level":"Level",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryAttentionStatistics"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "IndustryCode":"IndustryCode",
+                    "StatisPeriod":"StatisPeriod",
+                    "Standard":"Standard",
+                    "Level":"Level",
+                    "EndDate":"EndDate",
+                    "ApiName":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryAttentionStatisticsDetails"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"行业类型",
+                            "param":"Standard",
+                            "items":"申万一级行业;申万二级行业;申万三级行业;证监会一级行业;证监会二级行业",
+                            "mapValues":"'24','Level':'1;24','Level':'2;24','Level':'3;22','Level':'1;22','Level':'2'",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "lblalign":true,
+                            "Level":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx3",
+                            "caption":"统计区间",
+                            "param":"StatisPeriod",
+                            "items":"全部;近30日;近60日;近90日;近180日",
+                            "mapValues":";30;60;90;180",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"IndustryAttentionStatisticsRow",
+                                    "caption":"行业关注度统计",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业名称",
+                                            "width":"230",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"统计周期(日)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"板块股票总数"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"评级个股总数"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"评级股票占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"评级机构数"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"研报数量"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"板块关注度"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"买入评级数占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"增持评级数占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"中性评级数占比(%)"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryCode",
+                                                        "StatisPeriod"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0",
+                                                        "A3"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"证券明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JY.Topic.Profit_forecast.Institutions_investment_rating.IndustryAttentionStatisticsDetails",
+                                                            "caption":"证券明细",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"预测机构",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"研究员",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "width":"180"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"研究日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"机构评级",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"目标价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"除权目标价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B6",
+                                                                    "caption":"目标价涨幅下限(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B7",
+                                                                    "caption":"目标价涨幅上限(%)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"预测PE"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"预测EPS"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"预测净利润(百万元)",
+                                                                    "hide":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"最新收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"研报类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"研报原文",
+                                                                    "algmt":"taLeftJustify",
+                                                                    "functype":"ftReDirectF9",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "[
+                                                                            B8
+                                                                        ]
+serviceurl":true,
+                                                                        "action":"waDownload",
+                                                                        "params":"param",
+                                                                        "server":"webserver",
+                                                                        "url":"/queryservice/research/attachment/"
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"页数"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"分布图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"chart1",
+                                                            "tablename":"IndustryAttentionStatisticsImageRow",
+                                                            "showList":true,
+                                                            "showgroup":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "fieldfunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemGroup":
+                                                            [
+                                                                {
+                                                                    "caption":"板块关注度",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"30日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"60日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"90日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"180日",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"评级股票占比(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"30日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"60日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"90日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"180日",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买入评级数占比(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"30日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"60日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"90日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"180日",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"增持评级数占比(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"30日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"60日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"90日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C0",
+                                                                            "caption":"180日",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"中性评级数占比(%)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"30日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"60日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"90日",
+                                                                            "decidig":"2"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C1",
+                                                                            "caption":"180日",
+                                                                            "decidig":"2"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

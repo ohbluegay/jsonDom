@@ -1,0 +1,517 @@
+{
+    "Page":
+    {
+        "name":"HKTopic.PriMarket.SecuIssueSizeIndustry",
+        "caption":"证券发行规模统计(行业)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Standard":"Standard",
+                    "Category":"Category",
+                    "Currency":"Currency",
+                    "ApiName":"HKTopic.PriMarket.SecuIssueSizeIndustry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "IndustryNum":"IndustryNum",
+                    "Standard":"Standard",
+                    "Category":"Category",
+                    "Currency":"Currency",
+                    "ApiName":"HKTopic.PriMarket.SecuIssueSizeIndustryDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxStandard",
+                            "caption":"行业分类",
+                            "param":"Standard",
+                            "width":"180",
+                            "items":"聚源行业分类一级;聚源行业分类二级;聚源行业分类三级;中证指数行业分类一级;中证指数行业分类二级;中证指数行业分类三级;恒生行业分类一级;恒生行业分类二级;恒生行业分类三级",
+                            "mapValues":"'8','Level':'1;8','Level':'2;8','Level':'3;12','Level':'1;12','Level':'2;12','Level':'3;100','Level':'1;100','Level':'2;100','Level':'3'",
+                            "lblalign":true,
+                            "itemIndex":"6",
+                            "Level":"3"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCategory",
+                            "caption":"证券类型",
+                            "param":"Category",
+                            "width":"100",
+                            "items":"全部;H股;港股;红筹股",
+                            "mapValues":"0;3;51;53",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCurrency",
+                            "caption":"币种",
+                            "param":"Currency",
+                            "items":"港币;人民币",
+                            "mapValues":"0;1",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HKTopic.PriMarket.SecuIssueSizeIndustry",
+                                    "fixedcount":"3",
+                                    "defSelect":true,
+                                    "caption":"证券发行规模统计(行业)(主表)",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0_1",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "caption":"募集资金合计(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"募集资金总额"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"实际募集资金"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"IPO统计(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"家数(家)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"股数(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"募集资金"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"发行费用"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"实际募集资金"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"配售统计(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"家数(家)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"股数(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"募集资金"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"费用"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"实际募集资金"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"供股及公开招股统计(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"家数(家)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"股数(亿股)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"募集资金"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"费用"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"实际募集资金"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "hide":true,
+                                            "fieldname":"A0",
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryNum"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "bordersides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable1",
+                                            "sheetCount":"2",
+                                            "tabWidth":"120",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"发行明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"发行明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "tablename":"HKTopic.PriMarket.SecuIssueSizeIndustryDetail",
+                                                            "caption":"",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"证券简称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"发行日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"股数(万股)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"募集资金(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"发行费用(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"实际募集资金(万元)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"发行方式",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

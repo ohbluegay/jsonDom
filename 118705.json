@@ -1,0 +1,561 @@
+{
+    "Page":
+    {
+        "caption":"现金流量表",
+        "name":"STIBCashFlow",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "GilCode":"GilCode",
+                    "ReportType":"ReportType",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Currency":"Currency",
+                    "NewestReportDate":"NewestReportDate",
+                    "ApiName":"STIB.F9.FinancialData.STIBCashFlow"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "formwidth":"280",
+                            "formheight":"415",
+                            "caption":"区间筛选"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "caption":"报表类型",
+                                    "name":"grprpty",
+                                    "borderSides":"1",
+                                    "param":"ReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "caption":"合并",
+                                            "name":"chk5",
+                                            "mapvalue":"MergeReport",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"母公司",
+                                            "name":"chk6",
+                                            "mapvalue":"ParentReport"
+                                        },
+                                        {
+                                            "caption":"合并调整",
+                                            "name":"chk7",
+                                            "mapvalue":"MergeAdjust"
+                                        },
+                                        {
+                                            "caption":"母公司调整",
+                                            "name":"chk8",
+                                            "mapvalue":"ParentAdjust"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "caption":"报告期",
+                                    "name":"grpPeriod",
+                                    "borderSides":"1",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "caption":"一季报",
+                                            "name":"chk1",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"中报",
+                                            "name":"chk2",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"三季报",
+                                            "name":"chk3",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"年报",
+                                            "name":"chk4",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "caption":"最新报告期",
+                                    "name":"lcNewestReport",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"CheckBox",
+                                        "attrs":
+                                        {
+                                            "caption":"最新报告期",
+                                            "name":"chkNewestReport1",
+                                            "param":"NewestReportDate",
+                                            "checked":true
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "caption":"时间范围",
+                                    "name":"grpDateRange",
+                                    "borderSides":"1",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "caption":"最新日期",
+                                            "name":"rdb1",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"LatestTime"
+                                        },
+                                        {
+                                            "caption":"今年以来",
+                                            "name":"rdb2",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"CurrentYear"
+                                        },
+                                        {
+                                            "caption":"近一年",
+                                            "name":"rdb3",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest1Year"
+                                        },
+                                        {
+                                            "caption":"近二年",
+                                            "name":"rdb4",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest2Year"
+                                        },
+                                        {
+                                            "caption":"近三年",
+                                            "name":"rdb5",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true
+                                        },
+                                        {
+                                            "caption":"近五年",
+                                            "name":"rdb6",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Latest5Year"
+                                        },
+                                        {
+                                            "caption":"全部",
+                                            "name":"rdb7",
+                                            "bindvalue":false,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"AllYear"
+                                        },
+                                        {
+                                            "caption":"自定义",
+                                            "name":"rdb8",
+                                            "bindvalue":true,
+                                            "bindprop":"Enabled",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "mapvalue":"Customer"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "caption":"筛选",
+                                    "name":"lcDate",
+                                    "borderSides":"1",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "caption":"开始时间",
+                                            "name":"dtpBegin",
+                                            "enabled":false,
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "param":"BeginDate"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "caption":"至",
+                                            "name":"dtpEnd",
+                                            "enabled":false,
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "param":"EndDate"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "caption":"数据导出",
+                            "name":"btnOutput",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "caption":"货币单位",
+                            "name":"cbbxRate1",
+                            "param":"PramRate1",
+                            "width":"75",
+                            "bindvalue":"PramRate1",
+                            "bindprop":"ExecRate",
+                            "bindname":"[
+                                rpt1
+                            ]
+",
+                            "lblalign":true,
+                            "itemIndex":"0",
+                            "mapValues":"1;10000;1000000;10000000;100000000",
+                            "bindMapValue":false,
+                            "items":"元;万元;百万元;千万元;亿元"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "caption":"汇率换算",
+                            "name":"cbbxCurrency",
+                            "param":"Currency",
+                            "width":"90",
+                            "lblalign":true,
+                            "itemIndex":"0",
+                            "mapValues":"CNY;HKD;USD;EUR;GBP;CAD;AUD;CHF;NZD;JPY;SGD",
+                            "items":"人民币;港币;美元;欧元;英镑;加元;澳元;瑞士法郎;新西兰元;日元;新加坡元"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "caption":"报表容器",
+                    "name":"ctDataGround1",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "caption":"报表容器",
+                            "name":"ctReport1",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "caption":"现金流量表",
+                                    "name":"rpt1",
+                                    "excRateBoxName":"cbbxCurrency",
+                                    "dyncolchart":true,
+                                    "fixedcount":"1",
+                                    "dynColumn":true,
+                                    "reverse":true,
+                                    "headField":"enddate",
+                                    "tablename":"STIB.F9.FinancialData.STIBCashFlow",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "heigh":"340",
+                                            "rname":"caption"
+                                        },
+                                        {
+                                            "heigh":"180",
+                                            "rname":"row",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dyncolumn":
+                                    [
+                                        {
+                                            "ratename":"PramRate1",
+                                            "fieldName":"noname_dtDouble"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "caption":"caption",
+                    "name":"fixedpopfrm",
+                    "width":"900",
+                    "height":"500"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "caption":"报表容器",
+                            "name":"ct1",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chart1",
+                                    "tablename":"STIB.F9.FinancialData.STIBCashFlow",
+                                    "rowLegendCount":"1",
+                                    "showMenu":true,
+                                    "showTools":true,
+                                    "showScales":true,
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldfunc":"cffdate",
+                                            "fieldName":"fieldhorz"
+                                        },
+                                        {
+                                            "caption":"caption",
+                                            "fieldName":"fieldindex",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

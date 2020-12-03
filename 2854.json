@@ -1,0 +1,790 @@
+{
+    "Page":
+    {
+        "name":"JYPerStockIndicator",
+        "caption":"现金流量",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "NewestReportDate":"NewestReportDate",
+                    "ApiName":"JYFACashFlow"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "NewestReportDate":"NewestReportDate",
+                    "ApiName":"JYFACashFlowAdjusted"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcNewestReport",
+                                    "caption":"最新报告期",
+                                    "showcaption":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"CheckBox",
+                                        "attrs":
+                                        {
+                                            "name":"chkNewestReport1",
+                                            "caption":"最新报告期",
+                                            "param":"NewestReportDate",
+                                            "checked":true
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scTable",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"合并未调整",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"合并调整",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem12",
+                                            "caption":"合并未调整",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt2",
+                                                    "tablename":"JYFACashFlow",
+                                                    "caption":"现金流量",
+                                                    "headfield":"A0",
+                                                    "fixedcount":"1",
+                                                    "reverse":true,
+                                                    "redminus":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"320"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"上市前后"
+                                                        },
+                                                        {
+                                                            "fieldname":"B4",
+                                                            "caption":"报表格式"
+                                                        },
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "caption":"报表类型"
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "caption":"发布日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"销售商品提供劳务收到的现金／营业收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"经营活动产生的现金流量净额／营业收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"经营活动产生的现金流量净额／经营活动净收益%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"资本支出／折旧和摊销",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"净利润现金含量%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"经营性现金净流量/营业总收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"现金满足投资比率%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"全部资产现金回收率%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"现金股利保障倍数",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"现金活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"投资活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "caption":"筹资活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"合并调整",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rpt1",
+                                                    "tablename":"JYFACashFlowAdjusted",
+                                                    "caption":"现金流量",
+                                                    "headfield":"A0",
+                                                    "fixedcount":"1",
+                                                    "reverse":true,
+                                                    "aPIIndex":"1",
+                                                    "redminus":true,
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "rname":"caption",
+                                                            "heigh":"320"
+                                                        },
+                                                        {
+                                                            "rname":"row",
+                                                            "heigh":"120",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"上市前后"
+                                                        },
+                                                        {
+                                                            "fieldname":"B4",
+                                                            "caption":"报表格式"
+                                                        },
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "caption":"报表类型"
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "caption":"发布日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"销售商品提供劳务收到的现金／营业收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"经营活动产生的现金流量净额／营业收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"经营活动产生的现金流量净额／经营活动净收益%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"资本支出／折旧和摊销",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"净利润现金含量%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"经营性现金净流量/营业总收入%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"现金满足投资比率%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"全部资产现金回收率%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"现金股利保障倍数",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"现金活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"投资活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "caption":"筹资活动产生的现金流量净额占比%",
+                                                            "columnchart":true,
+                                                            "fmtStr":"4"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chartPop1",
+                                    "tablename":"JYFACashFlow",
+                                    "showScales":true,
+                                    "showTools":false,
+                                    "showMenu":false,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chartPop2",
+                                    "tablename":"JYFACashFlowAdjusted",
+                                    "aPIIndex":"1",
+                                    "showScales":true,
+                                    "showTools":false,
+                                    "showMenu":false,
+                                    "rowLegendCount":"1",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,348 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.ORGResearch.Insurance.InsuranceSpecialData",
+        "caption":"保险公司专项数据",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "Mark":"Mark",
+                    "ApiName":"JYDB.Topic.ORGResearch.Insurance.InsuranceSpecialData"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"2Quarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "Type":"8",
+                    "ApiName":"JY.Topic.ReportDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup2",
+                            "caption":"截至日期",
+                            "param":"EndDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "showNewest":false,
+                            "filterReport":"10",
+                            "offset":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMark",
+                            "param":"Mark",
+                            "caption":"报表类型",
+                            "items":"合并未调整;合并调整;母公司未调整;母公司调整",
+                            "mapValues":"2;1;4;3",
+                            "width":"120",
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"JY.Topic.ReportDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup2",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"A0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.ORGResearch.Insurance.InsuranceSpecialData",
+                                    "caption":"保险公司专项数据",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"公司名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"上市代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"综合",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"总投资收益率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"净投资收益率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"核心资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"实际资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"最低资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"偿付能力充足率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"核心偿债能力充足率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"产险",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"核心资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"实际资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"最低资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"核心偿债能力充足率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"偿债能力充足率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"已赚保费增长率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"综合成本率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"综合赔付率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"寿险",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"核心资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"实际资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"最低资本(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"核心偿债能力充足率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"偿债能力充足率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"已赚保费增长率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"退保率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,994 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.StockCapitalFlow",
+        "caption":"个股资金流向",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "DayRangeType":"DayRangeType",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.StockCapitalFlow"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    },
+                    {
+                        "key":"DayRangeType",
+                        "value":"Day3;default"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"D4",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "DayRangeType":"DayRangeType",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode",
+                    "ApiName":"JYTopic.StockSecondaryMarket.StockCapitalFlowDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxDayRangeType",
+                            "caption":"统计区间",
+                            "param":"DayRangeType",
+                            "items":"1日;3日;5日;10日;20日;30日;60日",
+                            "mapValues":"Day1;Day3;Day5;Day10;Day20;Day30;Day60",
+                            "itemIndex":"1",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.StockCapitalFlow",
+                                    "caption":"个股资金流向(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"大资金动向",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"净买入额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"占成交额比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"净买入量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"占流通股比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行情表现",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"成交额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"换手率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"成交均价(元)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净买入金额(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"买入金额(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"卖出金额(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净买入量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"买入量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"C9",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"卖出量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D0",
+                                                    "caption":"超大单"
+                                                },
+                                                {
+                                                    "fieldname":"D1",
+                                                    "caption":"大单"
+                                                },
+                                                {
+                                                    "fieldname":"D2",
+                                                    "caption":"中单"
+                                                },
+                                                {
+                                                    "fieldname":"D3",
+                                                    "caption":"小单"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D4",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"D5",
+                                                    "caption":"申万行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"D6",
+                                            "caption":"内部编码作为参数传入详情表",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "D6"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"个股明细",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"个股明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.StockCapitalFlowDetail",
+                                                            "caption":"个股资金流向(个股明细)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"D4",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"证券代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "caption":"大资金动向",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"净买入额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"占成交额比(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"净买入量(万股)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"占流通股比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"行情表现",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"成交额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"涨跌幅(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"换手率(%)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"收盘价"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"净买入金额(万元)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买入金额(万元)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"卖出金额(万元)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C0",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C1",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"净买入量(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"C2",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C3",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C4",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C5",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买入量(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"C6",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C7",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C8",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C9",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"卖出量(万股)",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"D0",
+                                                                            "caption":"超大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D1",
+                                                                            "caption":"大单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D2",
+                                                                            "caption":"中单"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D3",
+                                                                            "caption":"小单"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"JYShareStru",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.StockCapitalFlowDetail",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"D4",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                }
+
+                                                            ],
+                                                            "tag_itemgroup":
+                                                            [
+                                                                {
+                                                                    "caption":"净买入金额(万元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B1",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B2",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B3",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买入金额(万元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B4",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B5",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B6",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B7",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"卖出金额(万元)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"B8",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B9",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C0",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C1",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"净买入量(万股)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"C2",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C3",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C4",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C5",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买入量(万股)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"C6",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C7",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C8",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"C9",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"卖出量(万股)",
+                                                                    "tag_item":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"D0",
+                                                                            "caption":"超大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D1",
+                                                                            "caption":"大单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D2",
+                                                                            "caption":"中单",
+                                                                            "charttype":"ctBar"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"D3",
+                                                                            "caption":"小单",
+                                                                            "charttype":"ctBar"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

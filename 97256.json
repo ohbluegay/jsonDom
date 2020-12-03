@@ -1,0 +1,454 @@
+{
+    "Page":
+    {
+        "name":"futures.topic.goods.performance.LatestQuotedContractPerformance",
+        "caption":"上市合约最新市场表现",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"futures.topic.goods.performance.GoodsType"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "GoodsType":"GoodsType",
+                    "ApiName":"futures.topic.goods.performance.LatestQuotedContractPerformance"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "ContractInnerCode":"ContractInnerCode",
+                    "ApiName":"futures.topic.goods.performance.HistoryQuotedContractPerformance"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"tablecombobox",
+                        "attrs":
+                        {
+                            "name":"cbbGoodsType",
+                            "caption":"选择品种",
+                            "param":"GoodsType",
+                            "tablename":"futures.topic.goods.performance.GoodsType",
+                            "itemField":"a0",
+                            "mapField":"a2",
+                            "width":"120",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true,
+                    "percent":"40"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt12",
+                                    "tablename":"futures.topic.goods.performance.LatestQuotedContractPerformance",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "caption":"上市合约最新市场表现",
+                                    "aPIIndex":"1",
+                                    "needinit":false,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"合约代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"合约名称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"前结算价"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"开盘价"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"最高价"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"最低价"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"收盘价"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"结算价"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"收盘较前结算价涨跌"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"结算价涨跌"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"成交量(手)"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"持仓量(手)"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"持仓量变化(手)"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"成交额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"交易代码(最新)",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"DeliveryYear(最新)",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"DeliveryMonth(最新)",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"B8",
+                                            "caption":"ContractInnerCode(传参)",
+                                            "hide":true,
+											"functype": "ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"2",
+                                                    "P":
+                                                    [
+                                                        "ContractInnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B8"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scgrid",
+                                            "sheetCount":"2",
+                                            "align":"alClient",
+                                            "tabwidth":"180",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"Itembytype",
+                                                    "caption":"历史明细表 ",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"Itembytype",
+                                                    "caption":"历史明细表 ",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1",
+                                                            "tablename":"futures.topic.goods.performance.HistoryQuotedContractPerformance",
+                                                            "defselect":true,
+                                                            "fixedcount":"5",
+                                                            "aPIIndex":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"合约代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"合约名称",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"前结算价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"开盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"最高价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"最低价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"收盘价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"结算价"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"收盘较前结算价涨跌"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"结算价涨跌"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"成交量(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"持仓量(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"持仓量变化(手)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"成交额(万元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"交易代码(最新)",
+                                                                    "hide":true
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

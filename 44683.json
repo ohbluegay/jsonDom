@@ -1,0 +1,664 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.finance_data.IncomeStatement",
+        "caption":"利润表",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"D3",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.finance_data.IncomeStatement",
+                    "CurrencyType":"CurrencyType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk2",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk5",
+                                            "caption":"其他",
+                                            "mapvalue":"Other",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxCurrencyType",
+                            "caption":"货币类型",
+                            "param":"CurrencyType",
+                            "width":"90",
+                            "items":"人民币;港币;美元;欧元;英镑;加元;澳元;瑞士法郎;新西兰元;日元;新加坡元",
+                            "mapValues":"CNY;HKD;USD;EUR;GBP;CAD;AUD;CHF;NZD;JPY;SGD",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxRate1",
+                            "caption":"货币单位",
+                            "width":"75",
+                            "param":"PramRate1",
+                            "items":"元;万元;百万元;千万元;亿元",
+                            "bindMapValue":false,
+                            "mapValues":"1;10000;1000000;10000000;100000000",
+                            "itemIndex":"0",
+                            "bindname":"[
+                                rpt1
+                            ]
+",
+                            "bindprop":"ExecRate",
+                            "bindvalue":"PramRate1",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.f9.finance_data.IncomeStatement",
+                                    "caption":" 利润表",
+                                    "reverse":true,
+                                    "showHead":true,
+                                    "headField":"A0",
+                                    "fixedCount":"1",
+                                    "excRateBoxName":"cbbxCurrencyType",
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rName":"row1",
+                                            "heigh":"250"
+                                        },
+                                        {
+                                            "rName":"row2",
+                                            "heigh":"200",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "caption":"收入",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"利息收入",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true,
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"存款利息收入",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"债券利息收入",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"资产支持证券利息收入",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"买入返售金融资产收入",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"其他利息收入",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"投资收益",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true,
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"股票投资收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"债券投资收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"资产支持证券投资收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"衍生工具收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"股利收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        },
+                                                        {
+                                                            "fieldname":"B3",
+                                                            "caption":"其他投资收益",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"公允价值变动收益",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"其他收入",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"收入合计",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"费用",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"管理人报酬",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"托管费",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"销售服务费",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"交易费用",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"利息支出",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true,
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"C4",
+                                                            "caption":"卖出回购金融资产支出",
+                                                            "ratename":"PramRate1",
+                                                            "columnchart":true
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"其他费用",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"费用合计",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"利润",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D2",
+                                                    "caption":"利润总额",
+                                                    "ratename":"PramRate1",
+                                                    "columnchart":true
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chartPop",
+                                    "tablename":"fund.f9.finance_data.IncomeStatement",
+                                    "showScales":true,
+                                    "showTools":true,
+                                    "showMenu":true,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"D3",
+                                            "fieldfunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

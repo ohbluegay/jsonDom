@@ -1,0 +1,646 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.IndustryValueCompare",
+        "caption":"行业市值对比",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "IndustryType":"IndustryType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndustryValueCompare"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-6;months"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "IndustryType":"IndustryType",
+                    "IndustryCode":"IndustryCode",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.IndustryValueCompareDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustryType",
+                            "caption":"行业分类",
+                            "param":"IndustryType",
+                            "items":"证监会一级行业;证监会二级行业;申万一级行业;申万二级行业;申万三级行业",
+                            "mapValues":"ZJH1HY;ZJH2HY;SW1HY;SW2HY;SW3HY",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -6,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.IndustryValueCompare",
+                                    "caption":"行业市值比较(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"证券家数"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"总市值(亿元)"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"总流通市值(亿元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"A股总市值(亿元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"A股流通市值(亿元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"B股总市值(亿元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"B股流通市值(亿元)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "IndustryCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A1"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"对比图",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史明细",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"对比图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ChartIndustryValueCompare",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValueCompare",
+                                                            "showList":true,
+                                                            "showRightAxis":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"行业名称",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"总市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"证券家数",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "leftAxis":false,
+                                                                    "checked":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"总流通市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"A股总市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"A股流通市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"B股总市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"B股流通市值(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"历史明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValueCompareDetail",
+                                                            "caption":"行业市值比较(历史明细)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"4",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"行业代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"行业名称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"证券家数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"总市值(亿元)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"总流通市值(亿元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"A股总市值(亿元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"A股流通市值(亿元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"B股总市值(亿元)",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"B股流通市值(亿元)",
+                                                                    "width":"150"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"趋势图",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ChartIndustryValueCompareDetail",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.IndustryValueCompareDetail",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "showRightAxis":true,
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易日期",
+                                                                    "datatype":"ctstring"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"总市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"证券家数",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "leftAxis":false,
+                                                                    "checked":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"总流通市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"A股总市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"A股流通市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"B股总市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"B股流通市值(亿元)",
+                                                                    "charttype":"ctLine",
+                                                                    "datatype":"ctnumeric",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,606 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Market_profile.Market_scale.JYMarketSizeStatistics",
+        "caption":"市场规模统计（聚源统计）",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Market":"Market",
+                    "LX":"LX",
+                    "ApiName":"JY.Topic.Market_profile.Market_scale.JYMarketSizeStatistics"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay"
+                    },
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"Market",
+                        "value":
+                        [
+                            "83"
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbMarket",
+                            "caption":"市场类型",
+                            "param":"Market",
+                            "items":"沪市;深市;沪深两市",
+                            "mapValues": "[83];[90];[83,90]",
+                            "itemIndex":"2",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbLX",
+                            "caption":"统计周期",
+                            "param":"LX",
+                            "items":"日;月;年",
+                            "mapValues":"1;2;3",
+                            "itemIndex":"1",
+                            "width":"60",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Market_profile.Market_scale.JYMarketSizeStatistics",
+                                    "caption":" 市场规模统计（聚源计算）",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"股票统计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"公司总数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"股票总数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"A股总数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"B股总数",
+                                                    "fmtstr":"0"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"总股本(亿股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"A股股本"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"B股股本"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"H股股本"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"流通股本(亿股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"流通股本"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"流通A股本"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"流通B股本"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"限售流通股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"限售流通A股(亿股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"总市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"总市值"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"A股市值"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"B股市值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"流通市值(亿元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"流通市值"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"流通A股市值"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"流通B股市值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"A股交易状况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"成交金额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"成交量(亿股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"B股交易状况",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"成交金额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"成交量(亿股)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"股票估值",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"平均市盈率"
+                                                },
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"平均市净率"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Chart",
+                                        "attrs":
+                                        {
+                                            "name":"Chart1",
+                                            "tablename":"JY.Topic.Market_profile.Market_scale.JYMarketSizeStatistics",
+                                            "caption":"统计图",
+                                            "showList":true,
+                                            "aPIIndex":"0",
+                                            "showgroup":true,
+                                            "tag_item":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"交易日期",
+                                                    "fieldFunc":"cffHorz",
+                                                    "forcedSort":true
+                                                }
+
+                                            ],
+                                            "tag_itemgroup":
+                                            [
+                                                {
+                                                    "caption":"数量统计",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"上市公司总数",
+                                                            "charttype":"ctbar"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"上市股票总数",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"上市A股总数",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"上市B股总数",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"股本统计",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"总股本(亿股)",
+                                                            "charttype":"ctbar"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"流通股本",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"流通A股本(亿股)",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"C4",
+                                                            "caption":"限售流通A股(亿股)",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"市值统计",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"B2",
+                                                            "caption":"总市值(亿元)",
+                                                            "charttype":"ctbar"
+                                                        },
+                                                        {
+                                                            "fieldname":"B5",
+                                                            "caption":"流通市值(亿元)",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        },
+                                                        {
+                                                            "fieldname":"B6",
+                                                            "caption":"流通A股市值(亿元)",
+                                                            "charttype":"ctbar",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"成交量统计",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"B8",
+                                                            "caption":"A股成交金额(亿元)",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"B9",
+                                                            "caption":"A股成交量(亿股)",
+                                                            "charttype":"ctLine",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                {
+                                                    "caption":"估值统计",
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"C2",
+                                                            "caption":"股票平均市盈率",
+                                                            "charttype":"ctLine"
+                                                        },
+                                                        {
+                                                            "fieldname":"C3",
+                                                            "caption":"股票平均市净率",
+                                                            "charttype":"ctLine",
+                                                            "checked":false
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

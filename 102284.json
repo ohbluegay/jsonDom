@@ -1,0 +1,434 @@
+{
+    "Page":
+    {
+        "name":"Topic.TradeStatistic.SectionTrans",
+        "sector":"SECTOR_TREE_XSB",
+        "checked":"SECTOR_CHECKED_XSB",
+        "caption":"竞价转让",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A6",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "ApiName":"Topic.TradeStatistic.SectionTrans",
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "TransType":"4"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ApiName":"Topic.TradeStatistic.SectionTransDetail",
+                    "BeganDate":"BeganDate",
+                    "EndDate":"EndDate",
+                    "InnerCode":"InnerCode"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "lblalign":true,
+                            "caption":"日期",
+                            "param":"BeganDate",
+                            "paramV1":"BeginDate",
+                            "date":"$GetDate(0,
+                            -2,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "lblalign":true,
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rptReport1",
+                                            "tableName":"Topic.TradeStatistic.SectionTrans",
+                                            "caption":"竞价转让",
+                                            "defselect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"交易天数",
+                                                    "fmtstr":"0"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"换手率(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"成交量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"成交额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"最高价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"最低价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"成交均价(元)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"主办券商",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"上市日期"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"230"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"B5",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "InnerCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "B5"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scTable",
+                                    "sheetCount":"3",
+                                    "tabWidth":"150",
+                                    "padding":"0",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"区间成交明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"区间成交明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rptReport2",
+                                                    "tableName":"Topic.TradeStatistic.SectionTransDetail",
+                                                    "caption":"区间成交明细",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"交易日期"
+                                                        },
+                                                        {
+                                                            "fieldname":"B1",
+                                                            "caption":"转让方式",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"开盘价(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"最高价(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"最低价(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"收盘价(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"价格涨跌(元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"涨跌幅(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"换手率(%)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"成交额(万元)"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

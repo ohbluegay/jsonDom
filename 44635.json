@@ -1,0 +1,339 @@
+{
+    "Page":
+    {
+        "name":"fund.f9.fund_profile.FundManager",
+        "caption":"基金经理",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"fund.f9.fund_profile.FundManager"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "paramopt":"prmBreak",
+				"needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "BeginDate":"BeginDate",
+                    "Names":"Names",
+                    "ApiName":"fund.f9.fund_profile.FundGraphicsReport"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.f9.fund_profile.FundManager",
+                                    "caption":"基金经理(信息显示表格)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"姓名",
+                                            "functype":"ftReDirectF9",
+                                            "paramEx":
+                                            {
+                                                "serviceurl":true,
+                                                "action":"waNewPage",
+                                                "params":"gilcode;Param",
+                                                "server":"webserver",
+                                                "url":"/fund/factsheet/jjjlcode.html?name="
+                                            }
+
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"性别",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"出生日期",
+                                            "fmtStr":"YYYY-MM",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最高学历",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"到任日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"离职日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"任职期收益表现(%)",
+                                            "fmtStr":"2",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"任职年化回报(%)",
+                                            "fmtStr":"2",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "BeginDate",
+                                                        "EndDate",
+                                                        "Names"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A4",
+                                                        "A5",
+                                                        "A0"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ],
+                                    "sortTable":true
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"基金经理在职表现一览",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"基金经理在职表现一览",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"LineRow",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "showRightAxis":true,
+                                                            "dyncolumn":true,
+                                                            "tag_dynItem":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"交易日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"当前基金",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"4"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"沪深300",
+                                                                    "charttype":"ctLine",
+                                                                    "decidig":"4",
+                                                                    "leftAxis":false
+                                                                }
+
+                                                            ],
+                                                            "tag_attacheditem":
+                                                            [
+                                                                {
+                                                                    "tablename":"pointrow",
+                                                                    "indexfn":"A0",
+                                                                    "hostlinefn":"A1",
+                                                                    "ptHintfn":"A2",
+                                                                    "iconTypefn":"A3"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

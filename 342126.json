@@ -1,0 +1,418 @@
+{
+    "Page":
+    {
+        "name":"NQ.Topic.TradeStatistic.TradeTransactionPubInfo",
+        "caption":"交易异动榜",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TradeDate":"TradeDate",
+                    "ApiName":"NQ.Topic.TradeStatistic.TradeTransactionPubInfo"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "Version":"2",
+                    "ApiName":"NQ.Topic.TradeStatistic.TradeTransactionPubInfoDetail",
+                    "TradeDate":"TradeDate",
+                    "GilCode":"GilCode"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"日期",
+                            "param":"TradeDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"scSizeContainer1",
+                    "btnvisible":true,
+                    "percent":"45"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer1",
+                            "caption":"报表容器",
+                            "borderSides":"0",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctContainer2",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rptReport1",
+                                            "tableName":"NQ.Topic.TradeStatistic.TradeTransactionPubInfo",
+                                            "caption":"交易异动数据统计",
+                                            "fixedcount":"4",
+                                            "defSelect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "heigh":"140",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"交易日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A0",
+                                                    "caption":"证券代码",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "caption":"证券简称",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"成交均价"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"变动幅度较收盘价（%）",
+                                                    "width":"150"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"变动幅度较前收盘价（%）",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"异动成交量(万股)",
+                                                    "width":"130"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"占总成交量比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"异动成交额(万元)",
+                                                    "width":"130"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"占总成交额比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"证监会行业",
+                                                    "width":"240",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "hide":true,
+                                                    "fieldname":"A1_1",
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    [
+                                                        {
+                                                            "API":
+                                                            {
+                                                                "R":"1",
+                                                                "P":
+                                                                [
+                                                                    "GilCode"
+                                                                ],
+                                                                "T":
+                                                                [
+                                                                    "1"
+                                                                ],
+                                                                "V":
+                                                                [
+                                                                    "A0"
+                                                                ]
+
+                                                            }
+
+                                                        }
+
+                                                    ]
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctContainer3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"shtctrl1",
+                                    "sheetCount":"1",
+                                    "tabWidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"异动明细",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem11",
+                                            "caption":"异动明细",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Report",
+                                                "attrs":
+                                                {
+                                                    "name":"rptReport2",
+                                                    "tableName":"NQ.Topic.TradeStatistic.TradeTransactionPubInfoDetail",
+                                                    "caption":"交易异动数据统计",
+                                                    "fixedcount":"3",
+                                                    "aPIIndex":"1",
+                                                    "type":
+                                                    [
+                                                        {
+                                                            "fieldname":"NonamedIndex",
+                                                            "type":"index"
+                                                        }
+
+                                                    ],
+                                                    "tag_row":
+                                                    [
+                                                        {
+                                                            "heigh":"100",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "heigh":"140",
+                                                            "algmt":"taRightJustify"
+                                                        }
+
+                                                    ],
+                                                    "tag_column":
+                                                    [
+                                                        {
+                                                            "fieldname":"A0",
+                                                            "caption":"证券代码",
+                                                            "algmt":"taCenter"
+                                                        },
+                                                        {
+                                                            "fieldname":"A1",
+                                                            "caption":"证券简称",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A6",
+                                                            "caption":"成交价"
+                                                        },
+                                                        {
+                                                            "fieldname":"A7",
+                                                            "caption":"变动幅度较收盘价",
+                                                            "width":"140"
+                                                        },
+                                                        {
+                                                            "fieldname":"A8",
+                                                            "caption":"变动幅度较前收盘价",
+                                                            "width":"150"
+                                                        },
+                                                        {
+                                                            "fieldname":"A9",
+                                                            "caption":"成交量(万股)"
+                                                        },
+                                                        {
+                                                            "fieldname":"B0",
+                                                            "caption":"成交额(万元)"
+                                                        },
+                                                        {
+                                                            "fieldname":"A2",
+                                                            "caption":"买方账户",
+                                                            "width":"240",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A3",
+                                                            "caption":"买方营业部",
+                                                            "width":"240",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A4",
+                                                            "caption":"卖方账户",
+                                                            "width":"240",
+                                                            "algmt":"taLeftJustify"
+                                                        },
+                                                        {
+                                                            "fieldname":"A5",
+                                                            "caption":"卖方营业部",
+                                                            "width":"240",
+                                                            "algmt":"taLeftJustify"
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

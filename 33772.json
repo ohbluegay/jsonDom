@@ -1,0 +1,624 @@
+{
+    "Page":
+    {
+        "name":"JYDB.Topic.company_financia.financial_analysis.BankIndex",
+        "caption":"银行业专项指标",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "EndDate":"EndDate",
+                    "Mark":"Mark",
+                    "ApiName":"JYDB.Topic.company_financia.financial_analysis.BankIndex"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"EndDate",
+                        "value":"2Quarter"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"cbbYear",
+                            "caption":"报告期",
+                            "param":"EndDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2",
+                            "showNewest":false,
+                            "filterReport":"10"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMark",
+                            "caption":"合并调整标志",
+                            "param":"Mark",
+                            "items":"合并未调整;合并调整;母公司未调整;母公司调整",
+                            "mapValues":"2;1;4;3",
+                            "itemIndex":"0",
+                            "width":"150",
+                            "left":"25"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"1",
+                    "table":"JYDB.Topic.CompanyFinance.CompanyFinanceParam"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"cbbYear",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddateyear"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctGrd1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctPd2",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYDB.Topic.company_financia.financial_analysis.BankIndex",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "aPIIndex":"0",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"一级资本充足率(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"核心一级资本充足率(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"不良贷款比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净息差(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净利差(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"利息回收率(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"成本收入比(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C0",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"存贷款比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C3",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"C4",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"C5",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"存贷款比例(人民币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C6",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"C7",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"C8",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"存贷款比例(外币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"C9",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"D0",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"D1",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"短期资产流动性比例(人民币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D2",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"D3",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"D4",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"短期资产流动性比例(外币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D5",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"D6",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"D7",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"备付金比例(人民币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"D8",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"D9",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"E0",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"备付金比例(外币)(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"E1",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"E2",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"E3",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"拆入资金比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"E4",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"E5",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"E6",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"拆出资金比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"E7",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"E8",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"E9",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"单一最大客户贷款比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"F0",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"F1",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"F2",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"最大十家客户贷款比例(%)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"F3",
+                                                    "caption":"本期"
+                                                },
+                                                {
+                                                    "fieldname":"F4",
+                                                    "caption":"上年同期"
+                                                },
+                                                {
+                                                    "fieldname":"F5",
+                                                    "caption":"同比变动"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"F6",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"F7",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"F8",
+                                                    "caption":"申万行业",
+                                                    "width":"180",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

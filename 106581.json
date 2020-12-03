@@ -1,0 +1,592 @@
+{
+    "Page":
+    {
+        "name":"PEPBBands",
+        "caption":"PEPBBands",
+        "Request":
+        [
+            {
+                "responsetype":"rtDatatable",
+                "cdatasection":
+                {
+                    "FastDateFilterType":"FastDateFilterType",
+                    "MultipleInterval":"MultipleInterval",
+                    "EndDate":"EndDate",
+                    "AdjustStyle":0,
+                    "Indicators":
+                    [
+                        "S_DQ_CLOSE"
+                    ],
+                    "AutoCalc":false,
+                    "BeginDate":"BeginDate",
+                    "MinMultiple":"MinMultiple",
+                    "BandsCount":"BandsCount",
+                    "ForcastValues":"ForcastValues",
+                    "ChartType":"ChartType",
+                    "ForcastType":"ForcastType",
+                    "Codes":"Codes",
+                    "ApiName":"Excel.BandsChart"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"415",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"commandcombobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTop",
+                            "caption":"指标",
+                            "param":"ChartType",
+                            "items":"PE;PB",
+                            "mapValues":"1;2",
+                            "itemindex":"0",
+                            "width":"60",
+                            "lblalign":true,
+                            "bindName":"[
+                                lcEps,
+                                cmbFcsTyp
+                            ]
+",
+                            "bindProp":"[
+                                caption,
+                                PePbSet
+                            ]
+",
+                            "bindValues":"[
+                                预测EPS,
+                                PE
+                            ]
+;[
+                                预测BPS,
+                                PB
+                            ]
+",
+                            "execAPI":"-1"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnParam",
+                            "caption":"参数设置",
+                            "formheight":"615",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcParam",
+                                    "caption":"参数调整",
+                                    "column":"2",
+                                    "showcaption":true,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"numedit",
+                                        "attrs":
+                                        {
+                                            "name":"nbeMin",
+                                            "caption":"最小倍数",
+                                            "param":"MinMultiple",
+                                            "text":"5",
+                                            "valueRate":"1",
+                                            "decidig":"0",
+                                            "increment":"1",
+                                            "left":"65",
+                                            "lblAlign":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"numedit",
+                                        "attrs":
+                                        {
+                                            "name":"nbeInterval",
+                                            "caption":"倍数间隔",
+                                            "param":"MultipleInterval",
+                                            "paramV1":"Interval",
+                                            "text":"2",
+                                            "valueRate":"1",
+                                            "decidig":"0",
+                                            "increment":"1",
+                                            "left":"90",
+                                            "lblAlign":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"numedit",
+                                        "attrs":
+                                        {
+                                            "name":"nbeBondsCnt",
+                                            "caption":"Bands条数",
+                                            "param":"BandsCount",
+                                            "text":"5",
+                                            "valueRate":"1",
+                                            "decidig":"0",
+                                            "increment":"1",
+                                            "left":"65",
+                                            "lblAlign":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcEps",
+                                    "caption":"预测EPS",
+                                    "showcaption":true,
+                                    "borderSides":"1",
+                                    "column":"3"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"pepbcombobox",
+                                        "attrs":
+                                        {
+                                            "name":"cmbFcsTyp",
+                                            "showcaption":false,
+                                            "param":"ForcastType",
+                                            "itemindex":"0",
+                                            "width":"130",
+                                            "lblalign":true,
+                                            "bindName":"edtForcastValues"
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"edit",
+                                        "attrs":
+                                        {
+                                            "name":"edtForcastValues",
+                                            "param":"ForcastValues",
+                                            "left":"55",
+                                            "text":"1",
+                                            "width":"60",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnSetDef",
+                            "caption":"重置参数",
+                            "bindName":"[
+                                cmbFcsTyp,
+                                nbeMin,
+                                nbeInterval,
+                                nbeBondsCnt
+                            ]
+",
+                            "bindProp":"[
+                                itemindex,
+                                Text,
+                                Text,
+                                Text
+                            ]
+",
+                            "bindvalue":
+                            [
+                                0,
+                                5,
+                                2,
+                                5
+                            ],
+                            "imageIndex":"0"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctSX",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSXshang",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"JYShareStru",
+                                    "tableindex":"0",
+                                    "dynColumn":true,
+                                    "showlist":true,
+                                    "tag_dynitem":
+                                    [
+                                        {
+                                            "fieldname":"Date",
+                                            "fieldFunc":"cffDate"
+                                        },
+                                        {
+                                            "fieldname":"EPS",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"BPS",
+                                            "hide":true
+                                        },
+                                        {
+                                            "decidig":"4",
+                                            "chartType":"ctLine",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctSXxia",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctpadding",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt1",
+                                            "tableindex":"0",
+                                            "ignoreHeadGroup":false,
+                                            "dynColumn":true,
+                                            "caption":"数据表",
+                                            "autochart":true,
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

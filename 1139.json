@@ -1,0 +1,611 @@
+{
+    "Page":
+    {
+        "name":"ProfitAbility",
+        "caption":"盈利能力",
+        "secucodedef":"830899",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "FastQuarterReportType":"FastQuarterReportType",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"ProfitAbility",
+                    "SecuCode":"SecuCode"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-03-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"395",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"CheckGroup",
+                                "attrs":
+                                {
+                                    "name":"grpPeriod",
+                                    "caption":"报告期",
+                                    "param":"FastQuarterReportType",
+                                    "paramV1":"QuarterReportType",
+                                    "width":"290",
+                                    "column":"2",
+                                    "borderSides":"1",
+                                    "tag_checkBox":
+                                    [
+                                        {
+                                            "name":"chk1",
+                                            "top":"-10",
+                                            "caption":"一季报",
+                                            "mapvalue":"Q1th",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk2",
+                                            "top":"-10",
+                                            "caption":"中报",
+                                            "mapvalue":"Q2nd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk3",
+                                            "top":"-10",
+                                            "caption":"三季报",
+                                            "mapvalue":"Q3rd",
+                                            "checked":true
+                                        },
+                                        {
+                                            "name":"chk4",
+                                            "top":"-10",
+                                            "caption":"年报",
+                                            "mapvalue":"Q4th",
+                                            "checked":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"ProfitAbility",
+                                    "caption":"盈利能力",
+                                    "fixedcount":"1",
+                                    "headfield":"ReportDate",
+                                    "reverse":true,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"220"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"100",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"diluteNetAssetRevenueRate",
+                                            "caption":"净资产收益率-摊薄(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"weightNetAssetRevenueRate",
+                                            "caption":"净资产收益率-加权(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"avgNetAssetRevenueRate",
+                                            "caption":"净资产收益率-平均(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"diluteCutNetAssetRevenueRate",
+                                            "caption":"净资产收益率-扣除/摊薄(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"weightCutNetAssetRevenueRate",
+                                            "caption":"净资产收益率-扣除/加权(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"avgCutNetAssetRevenueRate",
+                                            "caption":"净资产收益率-扣除/平均(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"yearNetAssetRevenueRate",
+                                            "caption":"净资产收益率-年化(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"totalNetProfiteRate",
+                                            "caption":"总资产净利率(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"yearTotalNetProfiteRate",
+                                            "caption":"总资产净利率-年化(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"investRecompenseRate",
+                                            "caption":"投入资本回报率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleNetProfitRate",
+                                            "caption":"销售净利率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleTotalProfitRate",
+                                            "caption":"销售毛利率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleCostRate",
+                                            "caption":"销售成本率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleChargeRate",
+                                            "caption":"销售期间费用率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleCostProfitRate",
+                                            "caption":"销售成本费用利润率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"operatingProfitRate",
+                                            "caption":"主营业务比率",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"netProfitDivOperatiRevenue",
+                                            "caption":"净利润/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"operatProfitDivOperatiRevenue",
+                                            "caption":"营业利润/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"operatCostDivOperatiRevenue",
+                                            "caption":"营业总成本/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"saleCostDivOperatiRevenue",
+                                            "caption":"销售费用/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"manageCostDivOperatiRevenue",
+                                            "caption":"管理费用/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"finacialCostDivOperatiRevenue",
+                                            "caption":"财务费用/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        },
+                                        {
+                                            "filedname":"assetDecreaseDivOperatiRevenue",
+                                            "caption":"资产减值损失/营业总收入(%)",
+                                            "columnchart":true,
+                                            "fmtstr":"4"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"fixedpopfrm",
+                    "height":"500",
+                    "width":"900",
+                    "caption":"caption"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1",
+                            "caption":"报表容器",
+                            "borderSides":"15"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"chart",
+                                "attrs":
+                                {
+                                    "name":"chart1",
+                                    "tablename":"ProfitAbility",
+                                    "showScales":true,
+                                    "showTools":true,
+                                    "showMenu":true,
+                                    "rowLegendCount":"1",
+                                    "unRequest":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldName":"fieldhorz",
+                                            "fieldfunc":"cffdate"
+                                        },
+                                        {
+                                            "fieldName":"fieldindex",
+                                            "caption":"caption",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

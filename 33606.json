@@ -1,0 +1,870 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.StockTradeBillBoard",
+        "caption":"个股交易龙虎榜",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Type":"Type",
+                    "ApiName":"JYTopic.StockSecondaryMarket.StockTradeBillBoard"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDay;-3;months"
+                    },
+                    {
+                        "key":"Type",
+                        "value":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "FlagField":"FlagField",
+                    "ID":"ID",
+                    "ApiName":"JYTopic.StockSecondaryMarket.StockTradeBillBoardTop5"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBeginDate",
+                            "caption":"日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(0,
+                            -3,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"异动类型",
+                            "param":"Type",
+                            "items":"日涨幅偏离值达7%;日跌幅偏离值达7%;日振幅值达15%;日换手率达20%;连续三个交易日内，涨幅偏离值累计达20%;连续三个交易日内，跌幅偏离值累计达20%;连续三个交易日内，涨幅偏离值累计达到15%(ST、*ST和S证券);连续三个交易日内，跌幅偏离值累计达到15%(ST、*ST和S证券);当日融资买入数量达到当日该证券总交易量的50%以上;当日融券卖数量达到当日该证券总交易量的50％以上;其他",
+                            "mapValues":"202;204;203;205;206;208;210;212;301;302;111",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemindex":"0",
+                            "width":"380"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYTopic.StockSecondaryMarket.StockTradeBillBoard",
+                                    "caption":"个股交易龙虎榜(主表)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"异动区间行情",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"开始日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"截止日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"异动天数"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "caption":"异动类型",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"成交量(万股)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"成交额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"涨跌幅(%)"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"换手率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"买入龙虎榜合计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"卖出龙虎榜合计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"交易合计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"净买入合计",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"金额(万元)"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"证监会行业",
+                                                    "width":"230",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "caption":"申万行业",
+                                                    "width":"200",
+                                                    "algmt":"taLeftJustify"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"传参",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"传参到买卖交易前五名表",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "FlagField",
+                                                        "ID"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "C0",
+                                                        "C2"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"买卖交易前5名",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"买卖金额前五名对比",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"买卖交易前5名",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.StockTradeBillBoardTop5",
+                                                            "caption":"个股交易龙虎榜(买卖交易前5名)",
+                                                            "aPIIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"买/卖",
+                                                                    "width":"75",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"营业部名称",
+                                                                    "width":"350"
+                                                                },
+                                                                {
+                                                                    "caption":"买入",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"金额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"卖出",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"金额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"买卖合计",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"金额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"净买入",
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"金额(万元)"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"占比(%)"
+                                                                        }
+
+                                                                    ]
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"买卖金额前五名对比",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"JYShareStru",
+                                                            "tablename":"JYTopic.StockSecondaryMarket.StockTradeBillBoardTop5",
+                                                            "aPIIndex":"1",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"买/卖"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"买入/卖出的金额(万元)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"StockTradeBillBoard",
+                                    "reportname":"rpt1",
+                                    "tag_params":
+                                    [
+                                        {
+                                            "tag_param":
+                                            [
+                                                {
+                                                    "name":"BeginDate",
+                                                    "caption":"开始日期"
+                                                },
+                                                {
+                                                    "name":"EndDate",
+                                                    "caption":"截止日期"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ],
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"ZQDM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"ZQJC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"YDQJHQ_KSRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"YDQJHQ_JZRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"YDQJHQ_YDTS"
+                                                },
+                                                {
+                                                    "fieldname":"C1",
+                                                    "quantfieldname":"YDQJHQ_YDLX"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"YDQJHQ_CJL"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"YDQJHQ_CJE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"YDQJHQ_ZDF"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"YDQJHQ_HSL"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"MRLHBHJ_JE"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"MRLHBHJ_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"MCLHBHJ_JE"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"MCLHBHJ_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"JYHJ_JE"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "quantfieldname":"JYHJ_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "quantfieldname":"JMRHJ_JE"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "quantfieldname":"JMRHJ_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "quantfieldname":"HY_ZJHHY"
+                                                },
+                                                {
+                                                    "fieldname":"B9",
+                                                    "quantfieldname":"HY_SWHY"
+                                                },
+                                                {
+                                                    "fieldname":"C2",
+                                                    "quantfieldname":"ID"
+                                                },
+                                                {
+                                                    "fieldname":"C0",
+                                                    "quantfieldname":"FlagField"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"StockTradeBillBoardTop5",
+                                    "reportname":"rpt11",
+                                    "tag_params":
+                                    [
+                                        {
+                                            "tag_param":
+                                            [
+                                                {
+                                                    "name":"BeginDate",
+                                                    "caption":"开始日期"
+                                                },
+                                                {
+                                                    "name":"EndDate",
+                                                    "caption":"截止日期"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ],
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"MM"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"YYBMC"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"MR_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"MR_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"MC_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"MC_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"MMHJ_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"MMHJ_ZB"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"JMR_JE"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"JMR_ZB"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

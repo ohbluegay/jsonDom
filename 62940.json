@@ -1,0 +1,377 @@
+{
+    "Page":
+    {
+        "name":"HKstock.f9.peer_comparison.FinancialDataComparison",
+        "caption":"财务数据比较",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Level":"Level",
+                    "Top":"Top",
+                    "GilCode":"GilCode",
+                    "ApiName":"HKstock.f9.peer_comparison.FinancialDataComparison"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "ApiName":"HKstock.f9.peer_comparison.FinancialDataComparisonIndustry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Level":"Level",
+                    "Top":"Top",
+                    "GilCode":"GilCode",
+                    "ApiName":"HKstock.f9.peer_comparison.ThisStockFinanDataComparison"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxIndustry",
+                            "caption":"行业",
+                            "param":"Level",
+                            "items":"恒生一级行业;恒生二级行业;恒生三级行业",
+                            "mapValues":"1;2;3",
+                            "itemindex":"0",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxTop",
+                            "caption":"查看行业内",
+                            "param":"Top",
+                            "items":"前20成份股;全部成份股",
+                            "mapValues":"1;2",
+                            "itemindex":"0",
+                            "width":"150",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+					{
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport11",
+                            "caption":"报表容器",
+                            "padding":"0",
+                            "borderSides":"7",
+                            "align":"alTop",
+                            "height":"52"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt11",
+                                    "tablename":"HKstock.f9.peer_comparison.FinancialDataComparisonIndustry",
+                                    "caption":"",
+                                    "aPIIndex":"1",
+                                    "tag_column":
+                                    [
+                                        {
+                                            "filedname":"A0",
+                                            "caption":"所属行业",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport12",
+                            "caption":"报表容器",
+                            "padding":"3",
+                            "borderSides":"0",
+                            "align":"alTop",
+                            "height":"104"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport121",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"7"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rpt12",
+                                            "tablename":"HKstock.f9.peer_comparison.ThisStockFinanDataComparison",
+                                            "caption":"",
+                                            "aPIindex":"2",
+                                            "dyncolumn":true,
+                                            "fixedcount":"2",
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100",
+                                                    "algmt":"taLeftJustify"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"110",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_dyncolumn":
+                                            [
+                                                {
+                                                    "fieldname":"dm",
+                                                    "funcType":"ftReDirectF9",
+                                                    "algmt":"taCenter"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround3",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scTable3",
+                                    "sheetCount":"2",
+                                    "tabWidth":"120",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"shtitem3",
+                                            "caption":"财务数据比较",
+                                            "show":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"shtitem3",
+                                            "caption":"财务数据比较",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctDataGround13",
+                                                    "caption":"报表容器",
+                                                    "borderSides":"0",
+                                                    "padding":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1",
+                                                            "tablename":"HKstock.f9.peer_comparison.FinancialDataComparison",
+                                                            "caption":"",
+                                                            "fixedcount":"2",
+                                                            "dyncolumn":true,
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"110",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_dyncolumn":
+                                                            [
+                                                                {
+                                                                    "fieldname":"xh",
+                                                                    "hide":true
+                                                                },
+                                                                {
+                                                                    "fieldname":"dm",
+                                                                    "funcType":"ftReDirectF9",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"jc",
+                                                                    "algmt":"taLeftJustify"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

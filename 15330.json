@@ -1,0 +1,585 @@
+{
+    "Page":
+    {
+        "name":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockValuationStatistics",
+        "caption":"个股估值统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "EndDate":"EndDate",
+                    "StatisPeriod":"StatisPeriod",
+                    "Num":"Num",
+                    "ApiName":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockValuationStatistics"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"StatisPeriod",
+                        "value":"30;default"
+                    },
+                    {
+                        "key":"Num",
+                        "value":"0;default"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;-1;days"
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "InnerCode":"InnerCode",
+                    "EndDate":"EndDate",
+                    "StatisPeriod":"StatisPeriod",
+                    "ApiName":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockValuationStatisticsDetails"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "enabled":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"预测数量",
+                            "param":"Num",
+                            "items":"--;3家以上;5家以上;7家以上;10家以上;15家以上",
+                            "mapValues":"0;3;5;7;10;15",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx2",
+                            "caption":"统计周期",
+                            "param":"StatisPeriod",
+                            "items":"近30日;近60日;近90日;近180日",
+                            "mapValues":"30;60;90;180",
+                            "itemIndex":"0",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockValuationStatistics",
+                                    "caption":" 列表",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "dynColumn":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_dynColumn":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"预测数量"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"统计周期",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"每股收益（元）",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"E"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"(T+1)E"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"(T+2)E"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"(T)E12M"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"(T+1)E12M"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"(T+2)E12M"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"市盈率",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"(T)E"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"(T+1)E"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"(T+2)E"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"(T)E12M"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"(T+1)E12M"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"(T+2)E12M"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"预测PEG",
+                                            "tag_dynColumn":
+                                            [
+                                                {
+                                                    "fieldname":"B6",
+                                                    "caption":"(T)E"
+                                                },
+                                                {
+                                                    "fieldname":"B7",
+                                                    "caption":"(T+1)E"
+                                                },
+                                                {
+                                                    "fieldname":"B8",
+                                                    "caption":"(T+2)E"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B9",
+                                            "caption":"最新收盘价"
+                                        },
+                                        {
+                                            "fieldname":"C0",
+                                            "caption":"PETTM"
+                                        },
+                                        {
+                                            "fieldname":"C1",
+                                            "caption":"证监会二级行业",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C2",
+                                            "caption":"申万二级行业",
+                                            "width":"180",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"C3",
+                                            "hide":true,
+                                            "functype":"ftdyntable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InnerCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "C3"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"2",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"机构预测明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"机构预测明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "aPIIndex":"1",
+                                                            "tablename":"JY.Topic.Profit_forecast.Stock_performance_forecast.StockValuationStatisticsDetails",
+                                                            "caption":" 明细",
+                                                            "fixedcount":"4",
+                                                            "dynColumn":true,
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_dynColumn":
+                                                            [
+                                                                {
+                                                                    "caption":"",
+                                                                    "tag_dynColumn":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A0",
+                                                                            "caption":"机构名称",
+                                                                            "algmt":"taLeftJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A1",
+                                                                            "caption":"研究员",
+                                                                            "width":"180",
+                                                                            "algmt":"taLeftJustify"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A2",
+                                                                            "caption":"研究日期",
+                                                                            "algmt":"taCenter"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"每股收益",
+                                                                    "tag_dynColumn":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A3",
+                                                                            "caption":"(T)E"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A4",
+                                                                            "caption":"(T+1)E"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A5",
+                                                                            "caption":"(T+2)E"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"市盈率",
+                                                                    "tag_dynColumn":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A6",
+                                                                            "caption":"(T)E"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A7",
+                                                                            "caption":"(T+1)E"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"A8",
+                                                                            "caption":"(T+2)E"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "caption":"",
+                                                                    "tag_dynColumn":
+                                                                    [
+                                                                        {
+                                                                            "fieldname":"A9",
+                                                                            "caption":"最新收盘价"
+                                                                        },
+                                                                        {
+                                                                            "fieldname":"B0",
+                                                                            "caption":"PETTM"
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"研报类型",
+                                                                    "width":"180",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"研报原文",
+                                                                    "functype":"ftReDirectF9",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "[
+                                                                            B3
+                                                                        ]
+serviceurl":true,
+                                                                        "action":"waDownload",
+                                                                        "params":"param",
+                                                                        "server":"webserver",
+                                                                        "url":"/queryservice/research/attachment/"
+                                                                    }
+
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

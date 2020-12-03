@@ -1,0 +1,555 @@
+{
+    "Page":
+    {
+        "name":"EquityFinance",
+        "caption":"股权融资",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"EquityFinance"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "SubId":"SubId",
+                    "ApiName":"SubObjectDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-03-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"320",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGround3",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"EquityFinance",
+                                    "tablename":"EquityFinance",
+                                    "caption":"股权融资",
+                                    "headField":"PublishDate",
+                                    "reverse":true,
+                                    "autoNodeHeight":true,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rowname":"caption",
+                                            "heigh":"200"
+                                        },
+                                        {
+                                            "rowname":"row",
+                                            "heigh":"320"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"EventProcedure",
+                                            "caption":"方案进度"
+                                        },
+                                        {
+                                            "fieldname":"PricingModel",
+                                            "caption":"定价方式"
+                                        },
+                                        {
+                                            "fieldname":"IssuePriceFloor",
+                                            "caption":"发行价格上限(元/股)"
+                                        },
+                                        {
+                                            "fieldname":"IssuePriceCeil",
+                                            "caption":"发行价格下限(元/股)"
+                                        },
+                                        {
+                                            "fieldname":"IssueVolFloor",
+                                            "caption":"预计发行数量上限(万股)"
+                                        },
+                                        {
+                                            "fieldname":"IssueVolCeil",
+                                            "caption":"预计发行数量下限(万股)"
+                                        },
+                                        {
+                                            "fieldname":"PlaProceedCeil",
+                                            "caption":"预计募集资金(万元)"
+                                        },
+                                        {
+                                            "fieldname":"IssuePrice",
+                                            "caption":"实际发行价格(元/股)"
+                                        },
+                                        {
+                                            "fieldname":"IssueVolume",
+                                            "caption":"实际发行数量(万股)"
+                                        },
+                                        {
+                                            "fieldname":"MjFundTotal",
+                                            "caption":"募集资金总额(万元)"
+                                        },
+                                        {
+                                            "fieldname":"IssueCost",
+                                            "caption":"发行费用(万元)"
+                                        },
+                                        {
+                                            "fieldname":"PlaProceeds",
+                                            "caption":"实际募集资金(万元)"
+                                        },
+                                        {
+                                            "fieldname":"SubObjectDetail",
+                                            "caption":"认购对象明细",
+                                            "functype":"ftDynTable",
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "F":"popfrm1",
+                                                    "P":"SubId",
+                                                    "T":"1",
+                                                    "V":"SubObjectDetailId"
+                                                }
+
+                                            },
+                                            "funcByParam":false
+                                        },
+                                        {
+                                            "fieldname":"EquityRegDate",
+                                            "caption":"新增股份登记日"
+                                        },
+                                        {
+                                            "fieldname":"NewShareListDt",
+                                            "caption":"新增股份挂牌日"
+                                        },
+                                        {
+                                            "fieldname":"InitInfoPublD",
+                                            "caption":"预案公告日"
+                                        },
+                                        {
+                                            "fieldname":"SmDeciPublDt",
+                                            "caption":"股东大会公告日"
+                                        },
+                                        {
+                                            "fieldname":"LatestInfoPublD",
+                                            "caption":"最新公告日"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"960",
+                    "caption":"股权融资认购对象明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctpopReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rptpop1",
+                                    "tablename":"SubObjectDetail",
+                                    "apiindex":"1",
+                                    "caption":"股权融资认购对象明细",
+                                    "unRequest":true,
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rowname":"caption",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "rowname":"row",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"ObjectName",
+                                            "caption":"对象名称",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"ObjectType",
+                                            "caption":"对象类型",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SubscribeNumber",
+                                            "caption":"认购数量(万股)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"SubscribePrice",
+                                            "caption":"认购价格(元/股)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"SubscribeValue",
+                                            "caption":"认购金额(万元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"HolderRatio",
+                                            "caption":"发行后持股比例",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"SubscribeMethod",
+                                            "caption":"认购方式",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

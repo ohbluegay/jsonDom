@@ -1,0 +1,771 @@
+{
+    "Page":
+    {
+        "name":"JYTopic.StockSecondaryMarket.HSHKStockDay",
+        "caption":"沪(深)港通交易统计(每日)",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A1",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "TradeType":"TradeType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.HSHKStockDay"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeginDate",
+                        "value":"nowDays;-1;years"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDays;-1;days"
+                    },
+                    {
+                        "key":"TradeType",
+                        "value":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "TradeType":
+                    [
+                        
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYTopic.StockSecondaryMarket.HSHKStockDay"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbxMarketType",
+                            "caption":"交易类型",
+                            "param":"TradeType",
+                            "items":"沪股通;港股通(沪);深股通;港股通(深)",
+                            "mapValues":"1;2;3;4",
+                            "itemIndex":"0",
+                            "lblAlign":true,
+                            "multiSelect":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"交易日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"至",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)",
+                            "lblAlign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"HSHKStockDayRows",
+                                    "caption":"沪(深)港通交易统计(每日)",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"交易日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"交易类型",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "caption":"交易额度(亿元)(人民币)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A2",
+                                                    "caption":"每日额度"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "caption":"当日额度余额"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"实际交易",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A3_1",
+                                                    "caption":"净买入额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "caption":"买入成交额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "caption":"买入成交数(笔)"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "caption":"卖出成交额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "caption":"卖出成交数(笔)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"前十大成交活跃股",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A8",
+                                                    "caption":"买入额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "caption":"买入额占比(%)"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "caption":"卖出额(亿元)"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "caption":"卖出额占比(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"港币兑人民币汇率",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"B2",
+                                                    "caption":"买入参考汇率"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "caption":"卖出参考汇率"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "caption":"买入结算汇兑"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "caption":"卖出结算汇兑"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"交易单位",
+                                            "algmt":"taLeftJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"趋势图",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"北向净买入",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"南向净买入",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"趋势图",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"HSHKStockDayRows",
+                                                            "showList":true,
+                                                            "listwidth":"230",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"买入成交额(亿元)",
+                                                                    "charttype":"ctBar"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"卖出成交额(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"买入成交数(笔)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"卖出成交数(笔)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false,
+                                                                    "decidig":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"每日额度",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"当日额度余额",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"前十大成交活跃股买入额(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"前十大成交活跃股卖出额(亿元)",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"买入参考汇率",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"B3",
+                                                                    "caption":"卖出参考汇率",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"B4",
+                                                                    "caption":"买入结算汇兑",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                },
+                                                                {
+                                                                    "fieldname":"B5",
+                                                                    "caption":"卖出结算汇兑",
+                                                                    "charttype":"ctBar",
+                                                                    "checked":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"北向净买入",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"NorthHSHKStockDayChatRows",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "listwidth":"150",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"港股通(沪)",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"港股通(深)",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"合计",
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem13",
+                                                    "caption":"南向净买入",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Chart",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt13",
+                                                            "tablename":"SouthHSHKStockDayChatRows",
+                                                            "showList":true,
+                                                            "aPIIndex":"1",
+                                                            "listwidth":"150",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"日期",
+                                                                    "fieldFunc":"cffHorz"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"港股通(沪)",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"港股通(深)",
+                                                                    "charttype":"ctLine"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"合计",
+                                                                    "charttype":"ctLine"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"QuantDefine",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"ReportList",
+                        "attrs":
+                        {
+                            
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "quantname":"HSHKStockDay",
+                                    "reportname":"rpt1",
+                                    "tag_params":
+                                    [
+                                        {
+                                            "tag_param":
+                                            [
+                                                {
+                                                    "name":"BeginDate",
+                                                    "caption":"开始日期"
+                                                },
+                                                {
+                                                    "name":"EndDate",
+                                                    "caption":"截止日期"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ],
+                                    "tag_columns":
+                                    [
+                                        {
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"A0",
+                                                    "quantfieldname":"JYRQ"
+                                                },
+                                                {
+                                                    "fieldname":"A1",
+                                                    "quantfieldname":"JYLX"
+                                                },
+                                                {
+                                                    "fieldname":"A2",
+                                                    "quantfieldname":"JYEDYY_MRED"
+                                                },
+                                                {
+                                                    "fieldname":"A3",
+                                                    "quantfieldname":"JYEDYY_DREDYE"
+                                                },
+                                                {
+                                                    "fieldname":"A3_1",
+                                                    "quantfieldname":"SJJY_JMRE"
+                                                },
+                                                {
+                                                    "fieldname":"A4",
+                                                    "quantfieldname":"SJJY_MRCJE"
+                                                },
+                                                {
+                                                    "fieldname":"A5",
+                                                    "quantfieldname":"SJJY_MRCJS"
+                                                },
+                                                {
+                                                    "fieldname":"A6",
+                                                    "quantfieldname":"SJJY_MCCJE"
+                                                },
+                                                {
+                                                    "fieldname":"A7",
+                                                    "quantfieldname":"SJJY_MCCJS"
+                                                },
+                                                {
+                                                    "fieldname":"A8",
+                                                    "quantfieldname":"QSDCJHYG_MRE"
+                                                },
+                                                {
+                                                    "fieldname":"A9",
+                                                    "quantfieldname":"QSDCJHYG_MREZB"
+                                                },
+                                                {
+                                                    "fieldname":"B0",
+                                                    "quantfieldname":"QSDCJHYG_MCE"
+                                                },
+                                                {
+                                                    "fieldname":"B1",
+                                                    "quantfieldname":"QSDCJHYG_MCEZB"
+                                                },
+                                                {
+                                                    "fieldname":"B2",
+                                                    "quantfieldname":"GBDRMBHL_MRCKHL"
+                                                },
+                                                {
+                                                    "fieldname":"B3",
+                                                    "quantfieldname":"GBDRMBHL_MCCKHL"
+                                                },
+                                                {
+                                                    "fieldname":"B4",
+                                                    "quantfieldname":"GBDRMBHL_MRJSHD"
+                                                },
+                                                {
+                                                    "fieldname":"B5",
+                                                    "quantfieldname":"GBDRMBHL_MCJSHD"
+                                                },
+                                                {
+                                                    "fieldname":"B6",
+                                                    "quantfieldname":"JYDW"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

@@ -1,0 +1,949 @@
+{
+    "Page":
+    {
+        "name":"JYPlateConcept",
+        "caption":"所属板块及指数",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2_1",
+                            "Sort":"asc"
+                        },
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYPlateIndustry"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYPlateConcept"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A2_1",
+                            "Sort":"asc"
+                        },
+                        {
+                            "Field":"A2",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"A1",
+                            "Sort":"desc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "ApiName":"JYPlateIndex"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"A0",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "SecuCode":"SecuCode",
+                    "IndexCode":"IndexCode",
+                    "ImageType":"ImageType",
+                    "FastDateFilterType":"Customer",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"JYPlateIndexIndustryImage"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Code":"Code",
+                    "ApiName":"JYPlateIndexIndustryDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "Code":"Code",
+                    "ApiName":"JYPlateConceptDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sct1",
+                    "percent":"40",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct1chart",
+                            "caption":"图形容器边框",
+                            "borderSides":"14",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"chartImageData",
+                                    "tablename":"JYPlateIndexIndustryImage",
+                                    "apiindex":"3",
+                                    "ltitle":"指数(点)",
+                                    "rtitle":"股价(元)",
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "fieldfunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"股价",
+                                            "charttype":"ctLine",
+                                            "leftAxis":false,
+                                            "decidig":"2"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"指数",
+                                            "charttype":"ctLine",
+                                            "decidig":"2"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"folder",
+                        "attrs":
+                        {
+                            "name":"ct2table",
+                            "caption":"报表容器",
+                            "borderSides":"1",
+                            "element":
+                            [
+                                "ct1chart",
+                                "ct2table"
+                            ]
+
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ct2table",
+                            "caption":"报表容器",
+                            "borderSides":"1"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"3",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"相关指数",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"行业指数",
+                                                    "show":false
+                                                },
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"概念板块",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem2",
+                                                    "caption":"相关指数",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt2",
+                                                            "tablename":"JYPlateIndex",
+                                                            "aPIIndex":"2",
+                                                            "caption":"所属板块及指数(指数)",
+                                                            "defSelect":true,
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A2_1",
+                                                                    "type":"ftcollect"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"指数代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"指数名称",
+                                                                    "width":"300"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"入选时间",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"剔除日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"最新",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"三天涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"一周涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"一个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"三个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"hiddenNonamed",
+                                                                    "hide":true,
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"3",
+                                                                            "P":
+                                                                            [
+                                                                                "IndexCode",
+                                                                                "ImageType",
+                                                                                "BeginDate",
+                                                                                "EndDate"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1",
+                                                                                "3",
+                                                                                "1",
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "A9",
+                                                                                "1",
+                                                                                "B0",
+                                                                                "B1"
+                                                                            ]
+
+                                                                        }
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8_2",
+                                                                    "caption":"成分股查询",
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"4",
+                                                                            "F":"popfrm1",
+                                                                            "P":
+                                                                            [
+                                                                                "Code"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "A9"
+                                                                            ]
+
+                                                                        }
+
+                                                                    },
+                                                                    "funcByParam":false,
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"行业指数",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt1",
+															 "needinit":true,
+                                                            "tablename":"JYPlateIndustry",
+                                                            "caption":"所属板块及指数(行业)",
+                                                            "defSelect":true,
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A2_1",
+                                                                    "type":"ftcollect"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"行业代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"行业类别"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"行业指数名称",
+                                                                    "width":"300"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"入选时间",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"剔除日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"最新",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"三天涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"一周涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"一个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"三个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"hiddenNonamed",
+                                                                    "hide":true,
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"3",
+                                                                            "P":
+                                                                            [
+                                                                                "IndexCode",
+                                                                                "ImageType",
+                                                                                "BeginDate",
+                                                                                "EndDate"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1",
+                                                                                "3",
+                                                                                "1",
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "C0",
+                                                                                "1",
+                                                                                "c1",
+                                                                                "c2"
+                                                                            ]
+
+                                                                        }
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9_2",
+                                                                    "caption":"成分股查询",
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"4",
+                                                                            "F":"popfrm1",
+                                                                            "P":
+                                                                            [
+                                                                                "Code"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "C0"
+                                                                            ]
+
+                                                                        }
+
+                                                                    },
+                                                                    "funcByParam":false,
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem3",
+                                                    "caption":"概念板块",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt3",
+                                                            "aPIIndex":"1",
+																 "needinit":true,
+                                                            "tablename":"JYPlateConcept",
+                                                            "caption":"所属板块及指数(概念)",
+                                                            "defSelect":true,
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"板块名称"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"纳入日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"最新",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"3天涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"1周涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"一个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"三个月涨跌幅(%)",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"hiddenNonamed",
+                                                                    "hide":true,
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"3",
+                                                                            "P":
+                                                                            [
+                                                                                "IndexCode",
+                                                                                "ImageType",
+                                                                                "BeginDate",
+                                                                                "EndDate"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1",
+                                                                                "3",
+                                                                                "1",
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "A7",
+                                                                                "2",
+                                                                                "A8",
+                                                                                "A9"
+                                                                            ]
+
+                                                                        }
+
+                                                                    }
+
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6_2",
+                                                                    "caption":"成分股查询",
+                                                                    "functype":"ftdyntable",
+                                                                    "paramEx":
+                                                                    {
+                                                                        "API":
+                                                                        {
+                                                                            "R":"5",
+                                                                            "F":"popfrm2",
+                                                                            "P":
+                                                                            [
+                                                                                "Code"
+                                                                            ],
+                                                                            "T":
+                                                                            [
+                                                                                "1"
+                                                                            ],
+                                                                            "V":
+                                                                            [
+                                                                                "A7"
+                                                                            ]
+
+                                                                        }
+
+                                                                    },
+                                                                    "funcByParam":false,
+                                                                    "algmt":"taCenter"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm1",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"成分股明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYPlateIndexIndustryDetail",
+                                    "apiindex":"4",
+                                    "fixedcount":"1",
+                                    "caption":"成分股明细",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"入选时间",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新交易日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"收盘价(元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"涨跌幅(%)",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"PopPage",
+                "attrs":
+                {
+                    "name":"popfrm2",
+                    "sizePercent":"80",
+                    "height":"600",
+                    "width":"800",
+                    "caption":"成分股明细"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"JYPlateConceptDetail",
+                                    "apiindex":"5",
+                                    "fixedcount":"1",
+                                    "caption":"成分股明细",
+                                    "unRequest":true,
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taCenter"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"证券简称"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"入选时间",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"最新交易日",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"收盘价(元)",
+                                            "algmt":"taRightJustify"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"涨跌幅(%)",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

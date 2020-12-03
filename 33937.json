@@ -1,0 +1,582 @@
+{
+    "Page":
+    {
+        "name":"jy.topic.stock.strutrue.change",
+        "caption":"近期股本变动信息",
+        "sector":"SECTOR_TREE_ZB",
+        "checked":"SECTOR_CHECKED_ZB",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "Sorts":
+                    [
+                        {
+                            "Field":"EndDate",
+                            "Sort":"desc"
+                        },
+                        {
+                            "Field":"SecuCode",
+                            "Sort":"asc"
+                        }
+
+                    ],
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ChangeTypes":"ChangeTypes",
+                    "ApiName":"jy.topic.stock.strutrue.change"
+                },
+                "formatParams":
+                [
+                    {
+                        "key":"BeganDate",
+                        "value":"nowDay;-1"
+                    },
+                    {
+                        "key":"EndDate",
+                        "value":"nowDay;7;days"
+                    }
+
+                ]
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"开始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            7)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbChangeTypes",
+                            "caption":"变动原因",
+                            "param":"ChangeTypes",
+                            "items":"发行前股份限售流通;股权激励限售流通;高管股份变动;增发A股法人配售上市;延长限售锁定期流通;A股发行法人配售上市",
+                            "mapValues":"82;80;105;24;90;4",
+                            "multiselect":true,
+                            "multiShowAll":true,
+                            "itemIndex":"0",
+                            "width":"180"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"ctDataGround1",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctReport1",
+                            "caption":"报表容器",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"changeRows",
+                                    "caption":" 近期股本变动信息",
+                                    "defselect":true,
+                                    "fixedcount":"3",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"120",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"SecuCode",
+                                            "caption":"证券代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"SecuAbbr",
+                                            "caption":"证券简称",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "fieldname":"EndDate",
+                                            "caption":"变动日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"ChangeReason",
+                                            "caption":"变动原因",
+                                            "algmt":"taLeftJustify",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "caption":"变动股份数量(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"ChangeTotalShares",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"ChangeListedAShares",
+                                                    "caption":"流通A股"
+                                                },
+                                                {
+                                                    "fieldname":"ChangeListedHShares",
+                                                    "caption":"流通H股"
+                                                },
+                                                {
+                                                    "fieldname":"ChangeListedBShares",
+                                                    "caption":"流通B股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动股份市值(万元)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"ChangePriceTotal",
+                                                    "caption":"总市值"
+                                                },
+                                                {
+                                                    "fieldname":"ChangePriceListedA",
+                                                    "caption":"流通A市值"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动前(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"PreTotalShares",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"PreListedAShares",
+                                                    "caption":"流通A股"
+                                                },
+                                                {
+                                                    "fieldname":"PreListedBShares",
+                                                    "caption":"流通B股"
+                                                },
+                                                {
+                                                    "fieldname":"PreListedHShares",
+                                                    "caption":"流通H股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "caption":"变动后(万股)",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SufTotalShares",
+                                                    "caption":"总股本"
+                                                },
+                                                {
+                                                    "fieldname":"SufListedAShares",
+                                                    "caption":"流通A股"
+                                                },
+                                                {
+                                                    "fieldname":"SufListedBShares",
+                                                    "caption":"流通B股"
+                                                },
+                                                {
+                                                    "fieldname":"SufListedHShares",
+                                                    "caption":"流通H股"
+                                                }
+
+                                            ]
+
+                                        },
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"备注",
+                                            "funcType":"ftMemo"
+                                        },
+                                        {
+                                            "caption":"所属行业",
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "fieldname":"SecondIndustryNameZjh",
+                                                    "caption":"证监会行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                },
+                                                {
+                                                    "fieldname":"SecondIndustryNameSw",
+                                                    "caption":"申万行业",
+                                                    "algmt":"taLeftJustify",
+                                                    "width":"180"
+                                                }
+
+                                            ]
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"区间统计",
+                                                    "show":true
+                                                },
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"每日统计明细",
+                                                    "show":false
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem11",
+                                                    "caption":"区间统计",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"sectionStatisticRows",
+                                                            "caption":" 近期股本变动信息/(区间合计)/(每日合计)",
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"SectionChangeCount",
+                                                                    "caption":"股本变动次数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionAddCount",
+                                                                    "caption":"增发家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionFreeCount",
+                                                                    "caption":"解禁家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionTranslateCount",
+                                                                    "caption":"送转家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionAddTotalShares",
+                                                                    "caption":"增发股数合计(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionFreeTotalShares",
+                                                                    "caption":"解禁股数(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"SectionTranslateTotalShares",
+                                                                    "caption":"送转股数(万股)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem12",
+                                                    "caption":"每日统计明细",
+                                                    "show":false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt12",
+                                                            "tablename":"dayStatisticRows",
+                                                            "caption":" 近期股本变动信息/(区间合计)/(每日合计)",
+                                                            "fixedcount":"2",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_row":
+                                                            [
+                                                                {
+                                                                    "rname":"caption",
+                                                                    "heigh":"100",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "rname":"row",
+                                                                    "heigh":"120",
+                                                                    "algmt":"taRightJustify"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"DayEndDate",
+                                                                    "caption":"日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayChangeCount",
+                                                                    "caption":"股本变动家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayAddCount",
+                                                                    "caption":"增发家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayFreeCount",
+                                                                    "caption":"解禁家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayTranslateCount",
+                                                                    "caption":"送转家数",
+                                                                    "fmtstr":"0"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayAddTotalShares",
+                                                                    "caption":"增发股数合计(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayFreeTotalShares",
+                                                                    "caption":"解禁股数(万股)"
+                                                                },
+                                                                {
+                                                                    "fieldname":"DayTranslateTotalShares",
+                                                                    "caption":"送转股数(万股)"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

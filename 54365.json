@@ -1,0 +1,399 @@
+{
+    "Page":
+    {
+        "name":"fund.topic.fund_company.portfolio.IndustryDistribution",
+        "caption":"行业分布",
+        "sector":"SECTOR_TREE_JJ",
+        "checked":"SECTOR_CHECKED_ALL_JJ",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "ApiName":"fund.topic.fund_company.portfolio.IndustryDistribution"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "InvestAdvisorCode":"InvestAdvisorCode",
+                    "IndustryCode":"IndustryCode",
+                    "ApiName":"fund.topic.fund_company.portfolio.IndustryDistribution.FundDetail"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "orderopt":"opLayout",
+                "requestopt":"roInitOnce",
+                "cdatasection":
+                {
+                    "ApiName":"Fund.Topic.AssetAllocation.StockPortFolio.InvestIndustryLatestRepotDate"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"dategroup",
+                        "attrs":
+                        {
+                            "name":"dategroup1",
+                            "caption":"报告期",
+                            "param":"ReportDate",
+                            "dateType":"1",
+                            "fmtQuarterType":"2"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"layoutsignal",
+                "attrs":
+                {
+                    "apiindex":"2",
+                    "table":"Fund.Topic.AssetAllocation.StockPortFolio.InvestIndustryLatestRepotDate"
+                },
+                "children":
+                [
+                    {
+                        "tag":"item",
+                        "attrs":
+                        {
+                            "bindName":"dategroup1",
+                            "bindProp":"ParamValue",
+                            "defValue":"2018-01-01",
+                            "fieldname":"enddate"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.topic.fund_company.portfolio.IndustryDistribution",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"4",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"基金管理公司",
+                                            "width":"230"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"报告期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"行业代码",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"行业名称"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"市值（万元）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"市值增长率（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"150"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"占基金公司股票投资市值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"200"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"占基金公司资产净值比（%）",
+                                            "algmt":"taRightJustify",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"InvestAdvisorCode(参数)",
+                                            "hide":true
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"IndustryCode(参数)",
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "InvestAdvisorCode",
+                                                        "IndustryCode"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1",
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "A7",
+                                                        "A8"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"fund.topic.fund_company.portfolio.IndustryDistribution.FundDetail",
+                                                            "caption":"",
+                                                            "apiIndex":"1",
+                                                            "fixedcount":"3",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"基金代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"基金名称",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"投资市值（万元）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"市值增长率（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"占股票投资市值比（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"占净值比（%）",
+                                                                    "algmt":"taRightJustify",
+                                                                    "width":"150"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

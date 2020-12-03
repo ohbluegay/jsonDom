@@ -1,0 +1,477 @@
+{
+    "Page":
+    {
+        "name":"fund.topic.market_profile.classification_fund.PhaseStatistics",
+        "caption":"基金发行阶段统计",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TimingCycle":"TimingCycle",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"fund.topic.market_profile.classification_fund.PhaseStatistics"
+                }
+
+            },
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "TimingCycle":"TimingCycle",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "Date":"Date",
+                    "ApiName":"fund.topic.market_profile.classification_fund.PhaseStatisticsDetail"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Combobox",
+                        "attrs":
+                        {
+                            "name":"cbbx1",
+                            "caption":"时间周期",
+                            "param":"TimingCycle",
+                            "items":"月;季;年",
+                            "mapValues":"1;2;3",
+                            "itemindex":"0",
+                            "width":"75",
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpBegin",
+                            "caption":"起始日期",
+                            "param":"BeginDate",
+                            "date":"$GetDate(-1,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpEnd",
+                            "caption":"截止日期",
+                            "param":"EndDate",
+                            "date":"$GetDate(0,
+                            0,
+                            0)",
+                            "enabled":true,
+                            "lblalign":true
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"SizeContainer",
+                "attrs":
+                {
+                    "name":"sctSX0",
+                    "caption":"报表容器",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"cttop1",
+                            "caption":"报表容器",
+                            "borderSides":"7",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Report",
+                                "attrs":
+                                {
+                                    "name":"rpt1",
+                                    "tablename":"fund.topic.market_profile.classification_fund.PhaseStatistics",
+                                    "caption":"",
+                                    "defselect":true,
+                                    "fixedcount":"2",
+                                    "type":
+                                    [
+                                        {
+                                            "fieldname":"NonamedIndex",
+                                            "type":"index"
+                                        }
+
+                                    ],
+                                    "tag_row":
+                                    [
+                                        {
+                                            "rname":"caption",
+                                            "heigh":"100",
+                                            "algmt":"taLeftJustify"
+                                        },
+                                        {
+                                            "rname":"row",
+                                            "heigh":"150",
+                                            "algmt":"taRightJustify"
+                                        }
+
+                                    ],
+                                    "tag_column":
+                                    [
+                                        {
+                                            "fieldname":"A0",
+                                            "caption":"截止日期",
+                                            "algmt":"taCenter"
+                                        },
+                                        {
+                                            "fieldname":"A1",
+                                            "caption":"总数"
+                                        },
+                                        {
+                                            "fieldname":"A2",
+                                            "caption":"发行总份额(亿份)"
+                                        },
+                                        {
+                                            "fieldname":"A3",
+                                            "caption":"平均发行份额(亿份)"
+                                        },
+                                        {
+                                            "fieldname":"A4",
+                                            "caption":"股票型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A5",
+                                            "caption":"股票型基金占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A6",
+                                            "caption":"混合型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A7",
+                                            "caption":"混合型基金占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"A8",
+                                            "caption":"债券型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"A9",
+                                            "caption":"债券型基金占比(%)"
+                                        },
+                                        {
+                                            "fieldname":"B0",
+                                            "caption":"货币型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B1",
+                                            "caption":"货币型基金总数占比(%)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B2",
+                                            "caption":"保本型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B3",
+                                            "caption":"保本型基金总数占比(%)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B4",
+                                            "caption":"QDII型基金总数",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B5",
+                                            "caption":"QDII型基金总数占比(%)",
+                                            "width":"180"
+                                        },
+                                        {
+                                            "fieldname":"B6",
+                                            "caption":"其他型基金",
+                                            "fmtStr":"0"
+                                        },
+                                        {
+                                            "fieldname":"B7",
+                                            "caption":"其他型基金占比(%)"
+                                        },
+                                        {
+                                            "functype":"ftdyntable",
+                                            "hide":true,
+                                            "paramEx":
+                                            {
+                                                "API":
+                                                {
+                                                    "R":"1",
+                                                    "P":
+                                                    [
+                                                        "Date"
+                                                    ],
+                                                    "T":
+                                                    [
+                                                        "1"
+                                                    ],
+                                                    "V":
+                                                    [
+                                                        "B9"
+                                                    ]
+
+                                                }
+
+                                            }
+
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctDataGround2",
+                            "caption":"报表容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctSheetCtrl2",
+                                    "caption":"报表容器",
+                                    "padding":"0",
+                                    "borderSides":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetControl",
+                                        "attrs":
+                                        {
+                                            "name":"scTable",
+                                            "sheetCount":"1",
+                                            "tabWidth":"150",
+                                            "sheetContent":
+                                            [
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"SheetItem",
+                                                "attrs":
+                                                {
+                                                    "name":"shtitem1",
+                                                    "caption":"基金明细",
+                                                    "show":true
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Report",
+                                                        "attrs":
+                                                        {
+                                                            "name":"rpt11",
+                                                            "tablename":"fund.topic.market_profile.classification_fund.PhaseStatisticsDetail",
+                                                            "caption":"",
+                                                            "aPIIndex":"1",
+                                                            "type":
+                                                            [
+                                                                {
+                                                                    "fieldname":"NonamedIndex",
+                                                                    "type":"index"
+                                                                }
+
+                                                            ],
+                                                            "tag_column":
+                                                            [
+                                                                {
+                                                                    "fieldname":"A0",
+                                                                    "caption":"基金代码",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A1",
+                                                                    "caption":"基金名称",
+                                                                    "width":"150"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A2",
+                                                                    "caption":"发行份额",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A3",
+                                                                    "caption":"单位面值",
+                                                                    "algmt":"taRightJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A4",
+                                                                    "caption":"招募说明书公告日",
+                                                                    "width":"150",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A5",
+                                                                    "caption":"发行起始日",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A6",
+                                                                    "caption":"发行截止日",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A7",
+                                                                    "caption":"成立日期",
+                                                                    "algmt":"taCenter"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A8",
+                                                                    "caption":"基金类型",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"A9",
+                                                                    "caption":"运作方式",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B0",
+                                                                    "caption":"基金经理",
+                                                                    "algmt":"taLeftJustify"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B1",
+                                                                    "caption":"基金公司",
+                                                                    "width":"230"
+                                                                },
+                                                                {
+                                                                    "fieldname":"B2",
+                                                                    "caption":"基金托管人"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

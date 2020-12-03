@@ -1,0 +1,2091 @@
+{
+    "Page":
+    {
+        "name":"Index.F9.Index_Compare.IndexFinanceRateCompare",
+        "caption":"品种成交持仓",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.VolumeList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.LongPositionsList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.ShortPositionsList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.NetLongPositions"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.LongMasukuraList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.LongLightenTheList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.NetShortPositionList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.ShortMasukuraList"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "GilCode":"GilCode",
+                    "Date":"Date",
+                    "ApiName":"Futures.F9.VarietyTurnoverPositions.ShortLightenTheList"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"DatePicker",
+                        "attrs":
+                        {
+                            "name":"dtpDate",
+                            "caption":"选择日期",
+                            "param":"Date",
+                            "date":"$GetDate(0,
+                            0,
+                            -1)"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"Container",
+                "attrs":
+                {
+                    "name":"ctDataGroundAll",
+                    "caption":"报表容器",
+                    "borderSides":"0"
+                },
+                "children":
+                [
+                    {
+                        "tag":"SheetControl",
+                        "attrs":
+                        {
+                            "name":"SheetControl",
+                            "align":"alClient",
+                            "tabwidth":"180",
+                            "sheetContent":
+                            [
+                                {
+                                    "name":"Tab1",
+                                    "caption":"成交持仓榜单",
+                                    "show":true
+                                },
+                                {
+                                    "name":"Tab2",
+                                    "caption":"多头增减仓榜单",
+                                    "show":false
+                                },
+                                {
+                                    "name":"Tab3",
+                                    "caption":"空头增减仓榜单",
+                                    "show":false
+                                }
+
+                            ]
+
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"Tab1",
+                                    "caption":"成交持仓榜单",
+                                    "show":true
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SizeContainer",
+                                        "attrs":
+                                        {
+                                            "name":"TabContainer1",
+                                            "caption":"报表容器",
+                                            "percent":"40",
+                                            "btnvisible":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer1Top",
+                                                    "caption":"报表容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0",
+													"vertical": false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer1TopLeft",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370",
+                                                            "borderSides":"2"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt11",
+                                                                    "tablename":"VolumeListRow",
+                                                                    "fixedcount":"1",
+                                                                    "caption":"成交量榜单",
+                                                                    "aPIIndex":"0",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"成交量榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"成交量(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"较上期增减(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer1TopMiddle",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt12",
+                                                                    "tablename":"LongPositionsListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"1",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"多头持仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"持多头量(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"较上期增减(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer1TopRight",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt13",
+                                                                    "tablename":"ShortPositionsListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"2",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"空头持仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"持空头量(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"较上期增减(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer1Botton",
+                                                    "caption":"下半部容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SheetControl",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer1BottonSheet",
+                                                            "sheetCount":"3",
+                                                            "align":"alClient",
+                                                            "tabwidth":"150",
+                                                            "sheetContent":
+                                                            [
+                                                                {
+                                                                    "name":"ctContainer1BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                },
+                                                                {
+                                                                    "name":"ctContainer11BottonTab1",
+                                                                    "caption":"占比统计",
+                                                                    "show":false
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer1BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctContainer1Botton1",
+                                                                            "percent":"66",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer1Botton11",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8",
+																					"align": "ctLeftmiddle"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"sizecontainer",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctContainer1Botton1Left",
+                                                                                            "vertical":false
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer1Left",
+                                                                                                    "padding":"0",
+                                                                                                    "borderSides":"8",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"ctContainer1LeftChart1",
+                                                                                                            "caption":"成交量",
+                                                                                                            "tableName":"VolumeListSummaryRow",
+                                                                                                            "apiIndex":"0",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"成交量汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            },
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer1Middle",
+                                                                                                    "borderSides":"4",
+                                                                                                    "padding":"0",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"ctContainer1MiddleChart2",
+                                                                                                            "caption":"多头持仓",
+                                                                                                            "tableName":"LongPositionsListSummaryRow",
+                                                                                                            "apiIndex":"1",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"多头持仓汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer1Right",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"4",
+																					"align": "ctRight"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Report",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "cansort":false,
+                                                                                            "name":"ctContainer1RightChart3",
+                                                                                            "caption":"空头持仓",
+                                                                                            "tableName":"ShortPositionsListSummaryRow",
+                                                                                            "apiIndex":"2",
+                                                                                            "tag_row":
+                                                                                            [
+                                                                                                {
+                                                                                                    "rname":"row",
+                                                                                                    "algmt":"taRightJustify"
+                                                                                                }
+
+                                                                                            ],
+                                                                                            "tag_column":
+                                                                                            [
+                                                                                                {
+                                                                                                    "caption":"空头持仓汇总统计",
+                                                                                                    "tag_column":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "fieldname":"A0",
+                                                                                                            "caption":"汇总类型",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A1",
+                                                                                                            "caption":"本日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A2",
+                                                                                                            "caption":"上日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A3",
+                                                                                                            "caption":"增减(手)"
+                                                                                                        }
+
+                                                                                                    ]
+
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer11BottonTab1",
+                                                                    "caption":"占比统计",
+                                                                    "show":false
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctContainer11Botton1",
+                                                                            "percent":"66",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer11Botton11",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8",
+																					"align": "ctLeftmiddle"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"sizecontainer",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctContainer11Botton1Left",
+                                                                                            "vertical":false
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer11Left",
+                                                                                                    "padding":"0",
+                                                                                                    "borderSides":"8"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Chart",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "name":"ctContainer11LeftChart1",
+                                                                                                            "caption":"成交量占比",
+                                                                                                            "tableName":"VolumeListAccountRow",
+                                                                                                            "readType":"crReversePie",
+                                                                                                            "apiIndex":"0",
+                                                                                                            "tag_item":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "fieldname":"a0",
+                                                                                                                    "fieldFunc":"cffKey"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "fieldname":"a1",
+                                                                                                                    "fieldFunc":"cffValue"
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            },
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer11Middle",
+                                                                                                    "borderSides":"4",
+                                                                                                    "padding":"0"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Chart",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "name":"ctContainer11MiddleChart2",
+                                                                                                            "caption":"多头持仓占比",
+                                                                                                            "tableName":"LongPositionsListAccountRow",
+                                                                                                            "readType":"crReversePie",
+                                                                                                            "apiIndex":"1",
+                                                                                                            "tag_item":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "fieldname":"a0",
+                                                                                                                    "fieldFunc":"cffKey"
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "fieldname":"a1",
+                                                                                                                    "fieldFunc":"cffValue"
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer11Right",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"4",
+																					"align": "ctRight"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctContainer11RightChart3",
+                                                                                            "caption":"空头持仓占比",
+                                                                                            "tableName":"ShortPositionsListAccountRow",
+                                                                                            "readType":"crReversePie",
+                                                                                            "apiIndex":"2",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"a0",
+                                                                                                    "fieldFunc":"cffKey"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"a1",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"Tab2",
+                                    "caption":"多头增减仓榜单",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SizeContainer",
+                                        "attrs":
+                                        {
+                                            "name":"TabContainer2",
+                                            "caption":"报表容器",
+                                            "btnvisible":true,
+                                            "percent":"40",
+                                            "borderSides":"0"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer2Top",
+                                                    "caption":"报表容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0",
+													"vertical": false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer2TopLeft",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370",
+                                                            "borderSides":"2"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt21",
+                                                                    "tablename":"NetLongPositionsRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"3",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"净多头持仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"净多头量(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"较上期增减(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer2TopMiddle",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt22",
+                                                                    "tablename":"LongMasukuraListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"4",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"多头增仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"增仓(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"持多头量(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer2TopRight",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt23",
+                                                                    "tablename":"LongLightenTheListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"5",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"多头减仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"减仓(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"持多头量(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer2Botton",
+                                                    "caption":"下半部容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SheetControl",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer2BottonSheet",
+                                                            "sheetCount":"3",
+                                                            "align":"alClient",
+                                                            "tabwidth":"150",
+                                                            "sheetContent":
+                                                            [
+                                                                {
+                                                                    "name":"ctContainer2BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer2BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctContainer2Botton1",
+                                                                            "percent":"66",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer2Botton11",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8",
+																					"align": "ctLeftmiddle"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"sizecontainer",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctContainer2Botton1Left",
+                                                                                            "vertical":false
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer2Left",
+                                                                                                    "padding":"0",
+                                                                                                    "borderSides":"8",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"ctContainer2LeftChart1",
+                                                                                                            "caption":"",
+                                                                                                            "tableName":"NetLongPositionsSummaryRow",
+                                                                                                            "apiIndex":"3",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"净多头持仓汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            },
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer2Middle",
+                                                                                                    "borderSides":"4",
+                                                                                                    "padding":"0",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"LongMasukuraSummaryRow",
+                                                                                                            "caption":"",
+                                                                                                            "tableName":"LongMasukuraSummaryRow",
+                                                                                                            "apiIndex":"4",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"多头增仓汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer2Right",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"4",
+																					"align": "ctRight"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Report",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "cansort":false,
+                                                                                            "name":"ctContainer2RightChart3",
+                                                                                            "caption":"",
+                                                                                            "tableName":"LongLightenTheSummaryRow",
+                                                                                            "apiIndex":"5",
+                                                                                            "tag_row":
+                                                                                            [
+                                                                                                {
+                                                                                                    "rname":"row",
+                                                                                                    "algmt":"taRightJustify"
+                                                                                                }
+
+                                                                                            ],
+                                                                                            "tag_column":
+                                                                                            [
+                                                                                                {
+                                                                                                    "caption":"多头减仓汇总统计",
+                                                                                                    "tag_column":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "fieldname":"A0",
+                                                                                                            "caption":"汇总类型",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A1",
+                                                                                                            "caption":"本日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A2",
+                                                                                                            "caption":"上日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A3",
+                                                                                                            "caption":"增减(手)"
+                                                                                                        }
+
+                                                                                                    ]
+
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            },
+                            {
+                                "tag":"SheetItem",
+                                "attrs":
+                                {
+                                    "name":"Tab3",
+                                    "caption":"空头增减仓榜单",
+                                    "show":false
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SizeContainer",
+                                        "attrs":
+                                        {
+                                            "name":"TabContainer3",
+                                            "caption":"报表容器",
+                                            "btnvisible":true,
+                                            "borderSides":"0",
+                                            "percent":"40"
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer3Top",
+                                                    "caption":"报表容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0",
+													"vertical": false
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer3TopLeft",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370",
+                                                            "borderSides":"2"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt31",
+                                                                    "tablename":"NetShortPositionListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"6",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"净空头持仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"净空头量(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"较上期增减(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer3TopMiddle",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt32",
+                                                                    "tablename":"ShortMasukuraListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"7",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"空头增仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"增仓(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"持空头量(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    },
+                                                    {
+                                                        "tag":"Container",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer3TopRight",
+                                                            "caption":"报表容器",
+                                                            "padding":"0",
+                                                            "align":"alLeft",
+                                                            "width":"370"
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Report",
+                                                                "attrs":
+                                                                {
+                                                                    "cansort":false,
+                                                                    "name":"rpt33",
+                                                                    "tablename":"ShortLightenTheListRow",
+                                                                    "fixedcount":"1",
+                                                                    "aPIIndex":"8",
+                                                                    "tag_row":
+                                                                    [
+                                                                        {
+                                                                            "rname":"row",
+                                                                            "algmt":"taRightJustify"
+                                                                        }
+
+                                                                    ],
+                                                                    "tag_column":
+                                                                    [
+                                                                        {
+                                                                            "caption":"空头减仓榜单",
+                                                                            "tag_column":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"A0",
+                                                                                    "caption":"名次",
+                                                                                    "algmt":"taRightJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A1",
+                                                                                    "caption":"会员简称",
+                                                                                    "algmt":"taLeftJustify"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A2",
+                                                                                    "caption":"减仓(手)"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"A3",
+                                                                                    "caption":"持空头量(手)"
+                                                                                }
+
+                                                                            ]
+
+                                                                        }
+
+                                                                    ]
+
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            },
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctContainer3Botton",
+                                                    "caption":"下半部容器",
+                                                    "padding":"0",
+                                                    "borderSides":"0"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"SheetControl",
+                                                        "attrs":
+                                                        {
+                                                            "name":"ctContainer3BottonSheet",
+                                                            "sheetCount":"3",
+                                                            "align":"alClient",
+                                                            "tabwidth":"150",
+                                                            "sheetContent":
+                                                            [
+                                                                {
+                                                                    "name":"ctContainer3BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"SheetItem",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctContainer3BottonTab1",
+                                                                    "caption":"汇总统计",
+                                                                    "show":true
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"ctContainer3Botton1",
+                                                                            "percent":"66",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer3Botton11",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8",
+																					"align": "ctLeftmiddle"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"sizecontainer",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"ctContainer3Botton1Left",
+                                                                                            "vertical":false
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer3Left",
+                                                                                                    "padding":"0",
+                                                                                                    "borderSides":"8",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"NetShortPositionSummaryRow",
+                                                                                                            "caption":"",
+                                                                                                            "tableName":"NetShortPositionSummaryRow",
+                                                                                                            "apiIndex":"6",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"净空头持仓汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            },
+                                                                                            {
+                                                                                                "tag":"Container",
+                                                                                                "attrs":
+                                                                                                {
+                                                                                                    "name":"ctContainer3Middle",
+                                                                                                    "borderSides":"4",
+                                                                                                    "padding":"0",
+																									"align": "ctItem"
+                                                                                                },
+                                                                                                "children":
+                                                                                                [
+                                                                                                    {
+                                                                                                        "tag":"Report",
+                                                                                                        "attrs":
+                                                                                                        {
+                                                                                                            "cansort":false,
+                                                                                                            "name":"ShortMasukuraSummaryRow",
+                                                                                                            "caption":"",
+                                                                                                            "tableName":"ShortMasukuraSummaryRow",
+                                                                                                            "apiIndex":"7",
+                                                                                                            "tag_row":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "rname":"row",
+                                                                                                                    "algmt":"taRightJustify"
+                                                                                                                }
+
+                                                                                                            ],
+                                                                                                            "tag_column":
+                                                                                                            [
+                                                                                                                {
+                                                                                                                    "caption":"空头增仓汇总统计",
+                                                                                                                    "tag_column":
+                                                                                                                    [
+                                                                                                                        {
+                                                                                                                            "fieldname":"A0",
+                                                                                                                            "caption":"汇总类型",
+                                                                                                                            "algmt":"taCenter"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A1",
+                                                                                                                            "caption":"本日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A2",
+                                                                                                                            "caption":"上日合计(手)"
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "fieldname":"A3",
+                                                                                                                            "caption":"增减(手)"
+                                                                                                                        }
+
+                                                                                                                    ]
+
+                                                                                                                }
+
+                                                                                                            ]
+
+                                                                                                        },
+                                                                                                        "children":
+                                                                                                        [
+                                                                                                            
+                                                                                                        ]
+
+                                                                                                    }
+
+                                                                                                ]
+
+                                                                                            }
+
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctContainer3Right",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"4",
+																					"align": "ctRight"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Report",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "cansort":false,
+                                                                                            "name":"ShortLightenTheSummaryRow",
+                                                                                            "caption":"",
+                                                                                            "tableName":"ShortLightenTheSummaryRow",
+                                                                                            "apiIndex":"8",
+                                                                                            "tag_row":
+                                                                                            [
+                                                                                                {
+                                                                                                    "rname":"row",
+                                                                                                    "algmt":"taRightJustify"
+                                                                                                }
+
+                                                                                            ],
+                                                                                            "tag_column":
+                                                                                            [
+                                                                                                {
+                                                                                                    "caption":"空头减仓汇总统计",
+                                                                                                    "tag_column":
+                                                                                                    [
+                                                                                                        {
+                                                                                                            "fieldname":"A0",
+                                                                                                            "caption":"汇总类型",
+                                                                                                            "algmt":"taCenter"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A1",
+                                                                                                            "caption":"本日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A2",
+                                                                                                            "caption":"上日合计(手)"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "fieldname":"A3",
+                                                                                                            "caption":"增减(手)"
+                                                                                                        }
+
+                                                                                                    ]
+
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

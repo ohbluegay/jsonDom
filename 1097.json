@@ -1,0 +1,507 @@
+{
+    "Page":
+    {
+        "name":"BonusAnalyse",
+        "caption":"分红分析",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataSet",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"BonusAnalyse"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"Functions",
+                "attrs":
+                {
+                    
+                },
+                "children":
+                [
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            -2,
+                            0)",
+                            "value":"2014-04-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"Func",
+                        "attrs":
+                        {
+                            "name":"$GetDate(0,
+                            0,
+                            0)",
+                            "value":"2016-03-01"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"300",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"fastDateFilterType",
+                                    "column":"3",
+                                    "width":"300",
+                                    "borderSides":"1",
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "borderSides":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "imageIndex":"9",
+                            "bindvalue":"OUTPUT"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctsx",
+                    "btnvisible":true
+                },
+                "children":
+                [
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctup",
+                            "padding":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Chart",
+                                "attrs":
+                                {
+                                    "name":"ctfxfxtx1",
+                                    "caption":"",
+                                    "tableName":"fxfxtx",
+                                    "datalocate":false,
+                                    "showscales":true,
+                                    "showlist":true,
+                                    "tag_item":
+                                    [
+                                        {
+                                            "fieldname":"YearTitle",
+                                            "fieldFunc":"cffHorz"
+                                        },
+                                        {
+                                            "fieldName":"netProfit",
+                                            "caption":"净利润",
+                                            "charttype":"ctBar"
+                                        },
+                                        {
+                                            "fieldName":"ljFinanceTotal",
+                                            "caption":"累计融资总额",
+                                            "charttype":"ctBar",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldName":"ljBonusTotal",
+                                            "caption":"累计股利总额",
+                                            "charttype":"ctBar",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldName":"retainedProfit",
+                                            "caption":"上一年未分配利润",
+                                            "charttype":"ctBar",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldName":"financeTotal",
+                                            "caption":"当年融资总额",
+                                            "charttype":"ctBar",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldName":"cashBonusTotal",
+                                            "caption":"当年股利分红总额",
+                                            "charttype":"ctBar"
+                                        },
+                                        {
+                                            "fieldName":"bonusFinanceRatio",
+                                            "leftAxis":false,
+                                            "caption":"分红融资比",
+                                            "charttype":"ctline",
+                                            "checked":false
+                                        },
+                                        {
+                                            "fieldName":"dividendPayRate",
+                                            "leftAxis":false,
+                                            "caption":"股利支付利率",
+                                            "charttype":"ctline"
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"container",
+                        "attrs":
+                        {
+                            "name":"ctdn",
+                            "caption":"报表容器",
+                            "bordersides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"container",
+                                "attrs":
+                                {
+                                    "name":"ctreport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"fxfx",
+                                            "caption":"分红分析",
+                                            "align":"albottom",
+                                            "reverse":false,
+                                            "showHead":true,
+                                            "fixedcount":"1",
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"100"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"130",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_column":
+                                            [
+                                                {
+                                                    "filedname":"YearTitle",
+                                                    "caption":"截止日期",
+                                                    "algmt":"taCenter"
+                                                },
+                                                {
+                                                    "filedname":"netProfit",
+                                                    "caption":"净利润(万元)"
+                                                },
+                                                {
+                                                    "filedname":"retainedProfit",
+                                                    "caption":"上一年未分配利润(万元)",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "filedname":"cashBonusTotal",
+                                                    "caption":"当年股利分红总额(万元)",
+                                                    "width":"160"
+                                                },
+                                                {
+                                                    "filedname":"financeTotal",
+                                                    "caption":"当年融资总额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"ljBonusTotal",
+                                                    "caption":"累计股利总额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"ljFinanceTotal",
+                                                    "caption":"累计融资总额(万元)"
+                                                },
+                                                {
+                                                    "filedname":"ljBounsNum",
+                                                    "caption":"累计分红次数"
+                                                },
+                                                {
+                                                    "filedname":"ljEquityFinanceNum",
+                                                    "caption":"累计股权融资次数"
+                                                },
+                                                {
+                                                    "filedname":"bonusFinanceRatio",
+                                                    "caption":"分红融资比"
+                                                },
+                                                {
+                                                    "filedname":"dividendPayRate",
+                                                    "caption":"股利支付利率(%)"
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}

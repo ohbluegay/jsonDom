@@ -1,0 +1,780 @@
+{
+    "Page":
+    {
+        "name":"StaffNumPay",
+        "caption":"员工人数与薪酬",
+        "secucodedef":"420016",
+        "Request":
+        [
+            {
+                "responsetype":"rtDataTable",
+                "cdatasection":
+                {
+                    "SecuCode":"SecuCode",
+                    "FastQuarterReportType":
+                    [
+                        "Q4th"
+                    ],
+                    "FastDateFilterType":"FastDateFilterType",
+                    "BeginDate":"BeginDate",
+                    "EndDate":"EndDate",
+                    "ApiName":"StaffNumPay"
+                }
+
+            },
+            {
+                "responsetype":"rtDataSet",
+                "needinit":false,
+                "cdatasection":
+                {
+                    "ReportDate":"ReportDate",
+                    "SecuCode":"SecuCode",
+                    "ApiName":"StaffNumPayImage"
+                }
+
+            }
+
+        ],
+        "content":
+        [
+            {
+                "tag":"ToolBar",
+                "attrs":
+                {
+                    "name":"lcToolbar",
+                    "caption":"工具栏"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnRequest"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    },
+                    {
+                        "tag":"FilterForm",
+                        "attrs":
+                        {
+                            "name":"btnDate",
+                            "caption":"区间筛选",
+                            "formheight":"385",
+                            "formwidth":"280"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"RadioGroup",
+                                "attrs":
+                                {
+                                    "name":"grpDateRange",
+                                    "caption":"时间范围",
+                                    "param":"FastDateFilterType",
+                                    "paramV1":"DateFilterType",
+                                    "width":"300",
+                                    "column":"3",
+                                    "showCaption":true,
+                                    "tag_radiobutton":
+                                    [
+                                        {
+                                            "name":"rdb1",
+                                            "caption":"最新日期",
+                                            "mapvalue":"LatestTime",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb2",
+                                            "caption":"今年以来",
+                                            "mapvalue":"CurrentYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb3",
+                                            "caption":"近一年",
+                                            "mapvalue":"Latest1Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb4",
+                                            "caption":"近二年",
+                                            "mapvalue":"Latest2Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb5",
+                                            "caption":"近三年",
+                                            "mapvalue":"Latest3Year",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb6",
+                                            "caption":"近五年",
+                                            "mapvalue":"Latest5Year",
+                                            "checked":true,
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb7",
+                                            "caption":"全部",
+                                            "mapvalue":"AllYear",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":false
+                                        },
+                                        {
+                                            "name":"rdb8",
+                                            "caption":"自定义",
+                                            "mapvalue":"Customer",
+                                            "bindname":"[
+                                                dtpEnd,
+                                                dtpBegin
+                                            ]
+",
+                                            "bindprop":"Enabled",
+                                            "bindvalue":true
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    
+                                ]
+
+                            },
+                            {
+                                "tag":"LineContainer",
+                                "attrs":
+                                {
+                                    "name":"lcDate",
+                                    "caption":"筛选",
+                                    "showcaption":false,
+                                    "column":"1"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpBegin",
+                                            "caption":"开始时间",
+                                            "param":"BeginDate",
+                                            "date":"$GetDate(0,
+                                            -2,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"DatePicker",
+                                        "attrs":
+                                        {
+                                            "name":"dtpEnd",
+                                            "caption":"至",
+                                            "param":"EndDate",
+                                            "date":"$GetDate(0,
+                                            0,
+                                            0)",
+                                            "enabled":false
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Button",
+                        "attrs":
+                        {
+                            "name":"btnOutput",
+                            "caption":"数据导出",
+                            "bindvalue":"OUTPUT",
+                            "imageIndex":"9"
+                        },
+                        "children":
+                        [
+                            
+                        ]
+
+                    }
+
+                ]
+
+            },
+            {
+                "tag":"sizecontainer",
+                "attrs":
+                {
+                    "name":"sctHorizontal",
+                    "btnVisible":true,
+                    "percent":"55"
+                },
+                "children":
+                [
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctTop",
+                            "caption":"上半部容器",
+                            "padding":"0",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"SheetControl",
+                                "attrs":
+                                {
+                                    "name":"scChart",
+                                    "sheetCount":"3",
+                                    "align":"alClient",
+                                    "tabwidth":"150",
+                                    "sheetContent":
+                                    [
+                                        {
+                                            "name":"table2",
+                                            "caption":"报告期员工结构",
+                                            "show":true
+                                        },
+                                        {
+                                            "name":"table1",
+                                            "caption":"员工结构历史变动",
+                                            "show":false
+                                        }
+
+                                    ]
+
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"table2",
+                                            "caption":"报告期员工结构",
+                                            "show":true
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Container",
+                                                "attrs":
+                                                {
+                                                    "name":"ctTable2",
+                                                    "padding":"0",
+                                                    "borderSides":"8"
+                                                },
+                                                "children":
+                                                [
+                                                    {
+                                                        "tag":"sizecontainer",
+                                                        "attrs":
+                                                        {
+                                                            "name":"sctleft",
+                                                            "percent":"66",
+                                                            "vertical":false
+                                                        },
+                                                        "children":
+                                                        [
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctright",
+                                                                    "padding":"0",
+                                                                    "borderSides":"8"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"sizecontainer",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"sctmiddle",
+                                                                            "vertical":false
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"cttype",
+                                                                                    "padding":"0",
+                                                                                    "borderSides":"8"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"chtEmpType",
+                                                                                            "caption":"员工类型构成",
+                                                                                            "tableName":"WorkRow",
+                                                                                            "readType":"crReversePie",
+                                                                                            "apiIndex":"1",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"a0",
+                                                                                                    "fieldFunc":"cffKey"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"a1",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            },
+                                                                            {
+                                                                                "tag":"Container",
+                                                                                "attrs":
+                                                                                {
+                                                                                    "name":"ctMiddle",
+                                                                                    "borderSides":"4",
+                                                                                    "padding":"0"
+                                                                                },
+                                                                                "children":
+                                                                                [
+                                                                                    {
+                                                                                        "tag":"Chart",
+                                                                                        "attrs":
+                                                                                        {
+                                                                                            "name":"chtEmpDoctor",
+                                                                                            "caption":"员工学历构成",
+                                                                                            "tableName":"EducationRow",
+                                                                                            "readType":"crReversePie",
+                                                                                            "apiIndex":"1",
+                                                                                            "tag_item":
+                                                                                            [
+                                                                                                {
+                                                                                                    "fieldname":"a0",
+                                                                                                    "fieldFunc":"cffKey"
+                                                                                                },
+                                                                                                {
+                                                                                                    "fieldname":"a1",
+                                                                                                    "fieldFunc":"cffValue"
+                                                                                                }
+
+                                                                                            ]
+
+                                                                                        },
+                                                                                        "children":
+                                                                                        [
+                                                                                            
+                                                                                        ]
+
+                                                                                    }
+
+                                                                                ]
+
+                                                                            }
+
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            },
+                                                            {
+                                                                "tag":"Container",
+                                                                "attrs":
+                                                                {
+                                                                    "name":"ctleft",
+                                                                    "padding":"0",
+                                                                    "borderSides":"4"
+                                                                },
+                                                                "children":
+                                                                [
+                                                                    {
+                                                                        "tag":"Chart",
+                                                                        "attrs":
+                                                                        {
+                                                                            "name":"chtMngAge",
+                                                                            "caption":"公司高管年龄层分布",
+                                                                            "tableName":"AgeRow",
+                                                                            "readType":"crReversePie",
+                                                                            "apiIndex":"1",
+                                                                            "tag_item":
+                                                                            [
+                                                                                {
+                                                                                    "fieldname":"a0",
+                                                                                    "fieldFunc":"cffKey"
+                                                                                },
+                                                                                {
+                                                                                    "fieldname":"a1",
+                                                                                    "fieldFunc":"cffValue"
+                                                                                }
+
+                                                                            ]
+
+                                                                        },
+                                                                        "children":
+                                                                        [
+                                                                            
+                                                                        ]
+
+                                                                    }
+
+                                                                ]
+
+                                                            }
+
+                                                        ]
+
+                                                    }
+
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    },
+                                    {
+                                        "tag":"SheetItem",
+                                        "attrs":
+                                        {
+                                            "name":"table1",
+                                            "caption":"员工结构历史变动",
+                                            "show":false
+                                        },
+                                        "children":
+                                        [
+                                            {
+                                                "tag":"Chart",
+                                                "attrs":
+                                                {
+                                                    "name":"cht1",
+                                                    "tablename":"StaffNumPay",
+                                                    "caption":"员工人数与薪酬",
+                                                    "showList":true,
+                                                    "tag_item":
+                                                    [
+                                                        {
+                                                            "fieldname":"enddate",
+                                                            "caption":"日期",
+                                                            "fieldFunc":"cffHorz"
+                                                        }
+
+                                                    ],
+                                                    "tag_itemgroup":
+                                                    [
+                                                        {
+                                                            "fieldname":"grp1",
+                                                            "caption":"按工作性质(人)",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"行政管理人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"行政管理人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"生产人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"生产人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"财务人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"财务人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"市场人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"市场人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"技术人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"技术人员"
+                                                                },
+                                                                {
+                                                                    "fieldname":"其他岗位人员",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"其他岗位人员"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"grp2",
+                                                            "caption":"按教育程度(人)",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"博士及以上",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"博士及以上"
+                                                                },
+                                                                {
+                                                                    "fieldname":"硕士及以上",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"硕士及以上"
+                                                                },
+                                                                {
+                                                                    "fieldname":"本科及以上",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"本科及以上"
+                                                                },
+                                                                {
+                                                                    "fieldname":"大专及以上",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"大专及以上"
+                                                                },
+                                                                {
+                                                                    "fieldname":"其他学历",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"其他学历"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"grp3",
+                                                            "caption":"薪酬与创收(万元)",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"averagepay",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"人均薪酬"
+                                                                },
+                                                                {
+                                                                    "fieldname":"averagerevenue",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"人均创收"
+                                                                }
+
+                                                            ]
+
+                                                        },
+                                                        {
+                                                            "fieldname":"grp4",
+                                                            "caption":"员工人数(人)",
+                                                            "tag_item":
+                                                            [
+                                                                {
+                                                                    "fieldname":"staffnumber",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"员工总数"
+                                                                },
+                                                                {
+                                                                    "fieldname":"coreworkercount",
+                                                                    "charttype":"ctBar",
+                                                                    "caption":"核心技术人员"
+                                                                }
+
+                                                            ]
+
+                                                        }
+
+                                                    ]
+
+                                                },
+                                                "children":
+                                                [
+                                                    
+                                                ]
+
+                                            }
+
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    },
+                    {
+                        "tag":"Container",
+                        "attrs":
+                        {
+                            "name":"ctBottom",
+                            "caption":"下半部容器",
+                            "borderSides":"0"
+                        },
+                        "children":
+                        [
+                            {
+                                "tag":"Container",
+                                "attrs":
+                                {
+                                    "name":"ctReport1",
+                                    "caption":"报表容器",
+                                    "padding":"0"
+                                },
+                                "children":
+                                [
+                                    {
+                                        "tag":"Report",
+                                        "attrs":
+                                        {
+                                            "name":"rptData",
+                                            "tablename":"StaffNumPay",
+                                            "caption":"员工人数与薪酬",
+                                            "showhead":true,
+                                            "dyncolumn":true,
+                                            "fixedcount":"2",
+                                            "defselect":true,
+                                            "type":
+                                            [
+                                                {
+                                                    "fieldname":"NonamedIndex",
+                                                    "type":"index"
+                                                }
+
+                                            ],
+                                            "tag_row":
+                                            [
+                                                {
+                                                    "rname":"caption",
+                                                    "heigh":"120"
+                                                },
+                                                {
+                                                    "rname":"row",
+                                                    "heigh":"120",
+                                                    "algmt":"taRightJustify"
+                                                }
+
+                                            ],
+                                            "tag_dyncolumn":
+                                            [
+                                                {
+                                                    "hide":true,
+                                                    "functype":"ftdyntable",
+                                                    "paramEx":
+                                                    {
+                                                        "API":
+                                                        {
+                                                            "R":"1",
+                                                            "P":
+                                                            [
+                                                                "ReportDate"
+                                                            ],
+                                                            "T":
+                                                            [
+                                                                "1"
+                                                            ],
+                                                            "V":
+                                                            [
+                                                                "enddate"
+                                                            ]
+
+                                                        }
+
+                                                    }
+
+                                                }
+
+                                            ]
+
+                                        },
+                                        "children":
+                                        [
+                                            
+                                        ]
+
+                                    }
+
+                                ]
+
+                            }
+
+                        ]
+
+                    }
+
+                ]
+
+            }
+
+        ]
+
+    }
+
+}
